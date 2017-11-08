@@ -138,6 +138,17 @@ public class Database_query {
             ex.printStackTrace();
         }
 
+        try
+        {
+            String un=  "Orbit coaching";
+            String ps= "goahead";
+
+            //stmt.execute("INSERT INTO Admin (user_name,password) VALUES("","");");
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
 }

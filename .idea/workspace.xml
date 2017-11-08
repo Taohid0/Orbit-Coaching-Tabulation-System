@@ -43,30 +43,58 @@
       <file leaf-file-name="Database_query.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Database_query.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+            <state relative-caret-position="240">
+              <caret line="145" column="14" lean-forward="false" selection-start-line="145" selection-start-column="14" selection-end-line="145" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1510101464101" expanded="true" signature="224:409" ph="CREATE TABLE... Admin" />
-                <marker date="1510101464101" expanded="true" signature="456:1082" ph="CREATE TABLE... Student" />
-                <marker date="1510101464101" expanded="true" signature="456:1093" ph="CREATE TABLE... Student" />
-                <marker date="1510101464101" expanded="true" signature="456:1096" ph="CREATE TABLE... Student" />
-                <marker date="1510101464101" expanded="true" signature="456:1136" ph="CREATE TABLE... Student" />
-                <marker date="1510101464101" expanded="true" signature="456:1154" ph="CREATE TABLE... Student" />
-                <marker date="1510101464101" expanded="true" signature="456:1156" ph="CREATE TABLE... Student" />
-                <marker date="1510101464101" expanded="true" signature="1204:1463" ph="CREATE TABLE... Teacher" />
-                <marker date="1510101464101" expanded="true" signature="1510:1917" ph="CREATE TABLE... Subject" />
-                <marker date="1510101464101" expanded="true" signature="1918:1919" ph="CREATE TABLE... Subject" />
-                <marker date="1510101464101" expanded="true" signature="1962:2254" ph="CREATE TABLE... Marks" />
-                <marker date="1510101464101" expanded="true" signature="2303:2797" ph="CREATE TABLE... Billing_student" />
-                <marker date="1510101464101" expanded="true" signature="2843:3143" ph="CREATE TABLE... billing_other" />
+                <marker date="1510105242264" expanded="true" signature="224:409" ph="CREATE TABLE... Admin" />
+                <marker date="1510105242264" expanded="true" signature="456:1082" ph="CREATE TABLE... Student" />
+                <marker date="1510105242264" expanded="true" signature="456:1093" ph="CREATE TABLE... Student" />
+                <marker date="1510105242264" expanded="true" signature="456:1096" ph="CREATE TABLE... Student" />
+                <marker date="1510105242264" expanded="true" signature="456:1136" ph="CREATE TABLE... Student" />
+                <marker date="1510105242264" expanded="true" signature="456:1154" ph="CREATE TABLE... Student" />
+                <marker date="1510105242264" expanded="true" signature="456:1156" ph="CREATE TABLE... Student" />
+                <marker date="1510105242264" expanded="true" signature="1204:1463" ph="CREATE TABLE... Teacher" />
+                <marker date="1510105242264" expanded="true" signature="1510:1917" ph="CREATE TABLE... Subject" />
+                <marker date="1510105242264" expanded="true" signature="1918:1919" ph="CREATE TABLE... Subject" />
+                <marker date="1510105242264" expanded="true" signature="1962:2254" ph="CREATE TABLE... Marks" />
+                <marker date="1510105242264" expanded="true" signature="2303:2797" ph="CREATE TABLE... Billing_student" />
+                <marker date="1510105242264" expanded="true" signature="2843:3143" ph="CREATE TABLE... billing_other" />
+                <marker date="1510105242264" expanded="true" signature="4684:4701" ph="INSERT INTO Admin... " />
+                <marker date="1510105242264" expanded="true" signature="4684:4729" ph="INSERT INTO Admin... " />
+                <marker date="1510105242264" expanded="true" signature="4684:4730" ph="INSERT INTO Admin... " />
+                <marker date="1510105242264" expanded="true" signature="4684:4736" ph="INSERT INTO Admin... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Edit_student.form" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Edit_student.form">
+      <file leaf-file-name="Login_form.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Login_form.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Home.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Home.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Login_form.form" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Login_form.form">
           <provider selected="true" editor-type-id="ui-designer">
             <state />
           </provider>
@@ -102,6 +130,8 @@
         <option value="$PROJECT_DIR$/src/orbit_coaching/Edit_marks.form" />
         <option value="$PROJECT_DIR$/src/orbit_coaching/Edit_student.form" />
         <option value="$PROJECT_DIR$/src/orbit_coaching/Main.java" />
+        <option value="$PROJECT_DIR$/src/orbit_coaching/Login_form.form" />
+        <option value="$PROJECT_DIR$/src/orbit_coaching/Login_form.java" />
         <option value="$PROJECT_DIR$/src/orbit_coaching/Database_query.java" />
       </list>
     </option>
@@ -155,6 +185,20 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="orbit_coaching" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Orbit Coaching Tabulation System" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Orbit Coaching Tabulation System" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="orbit_coaching" type="462c0819:PsiDirectoryNode" />
+              <item name="Home" type="e9f4de52:FormNode" />
+            </path>
+            <path>
+              <item name="Orbit Coaching Tabulation System" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Orbit Coaching Tabulation System" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="orbit_coaching" type="462c0819:PsiDirectoryNode" />
+              <item name="Login_form" type="e9f4de52:FormNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -175,6 +219,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="117" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -308,12 +353,12 @@
       <workItem from="1509971951101" duration="1405000" />
       <workItem from="1509994447721" duration="18536000" />
       <workItem from="1510056515400" duration="5561000" />
-      <workItem from="1510087489375" duration="8558000" />
+      <workItem from="1510087489375" duration="11246000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34060000" />
+    <option name="totallyTimeSpent" value="36748000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -333,7 +378,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15519765" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.030014642" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -461,16 +506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Home.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Add_student.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -546,6 +581,31 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Login_form.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Home.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Login_form.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -558,23 +618,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Database_query.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+        <state relative-caret-position="240">
+          <caret line="145" column="14" lean-forward="false" selection-start-line="145" selection-start-column="14" selection-end-line="145" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1510101464101" expanded="true" signature="224:409" ph="CREATE TABLE... Admin" />
-            <marker date="1510101464101" expanded="true" signature="456:1082" ph="CREATE TABLE... Student" />
-            <marker date="1510101464101" expanded="true" signature="456:1093" ph="CREATE TABLE... Student" />
-            <marker date="1510101464101" expanded="true" signature="456:1096" ph="CREATE TABLE... Student" />
-            <marker date="1510101464101" expanded="true" signature="456:1136" ph="CREATE TABLE... Student" />
-            <marker date="1510101464101" expanded="true" signature="456:1154" ph="CREATE TABLE... Student" />
-            <marker date="1510101464101" expanded="true" signature="456:1156" ph="CREATE TABLE... Student" />
-            <marker date="1510101464101" expanded="true" signature="1204:1463" ph="CREATE TABLE... Teacher" />
-            <marker date="1510101464101" expanded="true" signature="1510:1917" ph="CREATE TABLE... Subject" />
-            <marker date="1510101464101" expanded="true" signature="1918:1919" ph="CREATE TABLE... Subject" />
-            <marker date="1510101464101" expanded="true" signature="1962:2254" ph="CREATE TABLE... Marks" />
-            <marker date="1510101464101" expanded="true" signature="2303:2797" ph="CREATE TABLE... Billing_student" />
-            <marker date="1510101464101" expanded="true" signature="2843:3143" ph="CREATE TABLE... billing_other" />
+            <marker date="1510105242264" expanded="true" signature="224:409" ph="CREATE TABLE... Admin" />
+            <marker date="1510105242264" expanded="true" signature="456:1082" ph="CREATE TABLE... Student" />
+            <marker date="1510105242264" expanded="true" signature="456:1093" ph="CREATE TABLE... Student" />
+            <marker date="1510105242264" expanded="true" signature="456:1096" ph="CREATE TABLE... Student" />
+            <marker date="1510105242264" expanded="true" signature="456:1136" ph="CREATE TABLE... Student" />
+            <marker date="1510105242264" expanded="true" signature="456:1154" ph="CREATE TABLE... Student" />
+            <marker date="1510105242264" expanded="true" signature="456:1156" ph="CREATE TABLE... Student" />
+            <marker date="1510105242264" expanded="true" signature="1204:1463" ph="CREATE TABLE... Teacher" />
+            <marker date="1510105242264" expanded="true" signature="1510:1917" ph="CREATE TABLE... Subject" />
+            <marker date="1510105242264" expanded="true" signature="1918:1919" ph="CREATE TABLE... Subject" />
+            <marker date="1510105242264" expanded="true" signature="1962:2254" ph="CREATE TABLE... Marks" />
+            <marker date="1510105242264" expanded="true" signature="2303:2797" ph="CREATE TABLE... Billing_student" />
+            <marker date="1510105242264" expanded="true" signature="2843:3143" ph="CREATE TABLE... billing_other" />
+            <marker date="1510105242264" expanded="true" signature="4684:4701" ph="INSERT INTO Admin... " />
+            <marker date="1510105242264" expanded="true" signature="4684:4729" ph="INSERT INTO Admin... " />
+            <marker date="1510105242264" expanded="true" signature="4684:4730" ph="INSERT INTO Admin... " />
+            <marker date="1510105242264" expanded="true" signature="4684:4736" ph="INSERT INTO Admin... " />
           </folding>
         </state>
       </provider>
