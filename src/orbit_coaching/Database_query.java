@@ -59,7 +59,7 @@ public class Database_query {
 
      static String create_billing_student ="CREATE TABLE Billing_student\n" +
              "(\n" +
-             "    student INT,\n" +
+             "    student VARCHAR(25),\n" +
              "    ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,\n" +
              "    month VARCHAR(25),\n" +
              "    year VARCHAR(25),\n" +
@@ -68,7 +68,15 @@ public class Database_query {
              "    amount INT,\n" +
              "    CONSTRAINT Billing_student_student_roll_fk FOREIGN KEY (student) REFERENCES student (roll)\n" +
              ")";
-     
+     static String create_other_billing = "CREATE TABLE billing_other\n" +
+             "(\n" +
+             "    to_whom VARCHAR(100),\n" +
+             "    ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,\n" +
+             "    date VARCHAR(25),\n" +
+             "    purpose VARCHAR(500),\n" +
+             "    amount INT\n" +
+             ");";
+
 
     static Statement stmt = null;
     static void do_start_up_query() {
@@ -102,6 +110,28 @@ public class Database_query {
         }
         try {
             stmt.execute(create_subect_table);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        try {
+            stmt.execute(create_marks_table);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        try
+        {
+            stmt.execute(create_billing_student);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        try {
+            stmt.execute(create_other_billing);
         }
         catch (Exception ex)
         {
