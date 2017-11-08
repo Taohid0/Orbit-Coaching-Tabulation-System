@@ -34,9 +34,10 @@ public class Login_form {
                     if(resultSet.next())
                     {
                         if(textField1.getText().equals(resultSet.getString(1)) &&
-                                String.valueOf(passwordField1).equals(resultSet.getString(2)))
+                               new String(passwordField1.getPassword()).equals(resultSet.getString(2)))
                         {
                             System.out.println("login Successfull");
+                            Home home = new Home();
                         }
                         else
                         {
@@ -44,15 +45,16 @@ public class Login_form {
                         }
 
                     }
-                    else if(textField1.getText().equals(un) && String.valueOf(passwordField1).equals(pw))
+                    else if(textField1.getText().equals(un) && new String(passwordField1.getPassword()).equals(pw))
                     {
                         System.out.println("Login successfull");
+                        Home home = new Home();
                     }
                     else
                     {
                         System.out.println("Login unsuccessfull");
                     }
-                    
+
                 }
                 catch (Exception ex)
                 {
