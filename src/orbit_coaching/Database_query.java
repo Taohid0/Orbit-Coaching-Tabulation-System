@@ -78,13 +78,14 @@ public class Database_query {
              ");";
 
 
-    static Statement stmt = null;
+    static Statement stmt ;
+    static Connection conn ;
     static void do_start_up_query() {
         try
 
         {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
             stmt.execute(create_admin_table);
@@ -137,18 +138,43 @@ public class Database_query {
         {
             ex.printStackTrace();
         }
+    }
 
+    public static ResultSet get_username_password()
+    {
+        ResultSet resultSet = null;
         try
         {
-            String un=  "Orbit coaching";
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String un=  "Orbit Coaching";
             String ps= "goahead";
 
-            //stmt.execute("INSERT INTO Admin (user_name,password) VALUES("","");");
+            resultSet = stmt.executeQuery(" SELECT * FROM Admin LIMIT 1");
+
+            if(resultSet.next()) {
+                return resultSet;
+
+            }
+            else {
+                String query = "INSERT INTO Admin (user_name,password) VALUES(?,?);";
+
+                PreparedStatement preparedStatement = conn.prepareStatement(query);
+                preparedStatement.setString(1, un);
+                preparedStatement.setString(2, ps);
+                preparedStatement.execute();
+
+            }
+
         }
         catch (Exception ex)
         {
             ex.printStackTrace();
         }
+        return resultSet;
+
     }
 
 }
