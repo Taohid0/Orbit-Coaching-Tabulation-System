@@ -79,7 +79,7 @@
           <text value="Mother's Name : "/>
         </properties>
       </component>
-      <component id="cf9ee" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="cf9ee" class="javax.swing.JTextField" binding="student_name_textbox">
         <constraints>
           <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="500" height="-1"/>
@@ -99,14 +99,16 @@
           <text value="Student's name : "/>
         </properties>
       </component>
-      <component id="8d360" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+      <component id="8d360" class="javax.swing.JTextField" binding="father_name_textbox">
         <constraints>
           <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="500" height="-1"/>
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <text value=""/>
+        </properties>
       </component>
       <component id="73610" class="javax.swing.JLabel">
         <constraints>
@@ -116,7 +118,7 @@
           <text value="Father's Name : "/>
         </properties>
       </component>
-      <component id="94c9f" class="javax.swing.JTextField" binding="a500TextField" default-binding="true">
+      <component id="94c9f" class="javax.swing.JTextField" binding="mother_name_textbox">
         <constraints>
           <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="500" height="-1"/>
@@ -143,7 +145,7 @@
           <text value="School/College"/>
         </properties>
       </component>
-      <component id="5db97" class="javax.swing.JTextField" binding="textField5" default-binding="true">
+      <component id="5db97" class="javax.swing.JTextField" binding="roll_textbox">
         <constraints>
           <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="500" height="-1"/>
@@ -152,7 +154,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="dfc25" class="javax.swing.JTextField" binding="textField7" default-binding="true">
+      <component id="dfc25" class="javax.swing.JTextField" binding="address_textbox">
         <constraints>
           <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="500" height="-1"/>
@@ -163,7 +165,7 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="123df" class="javax.swing.JTextField" binding="textField8" default-binding="true">
+      <component id="123df" class="javax.swing.JTextField" binding="admission_date_textbox">
         <constraints>
           <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="500" height="-1"/>
@@ -172,7 +174,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="106ba" class="javax.swing.JTextField" binding="textField10" default-binding="true">
+      <component id="106ba" class="javax.swing.JTextField" binding="date_of_birth_textbox">
         <constraints>
           <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="500" height="-1"/>
@@ -183,7 +185,7 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="83dd9" class="javax.swing.JTextField" binding="textField12" default-binding="true">
+      <component id="83dd9" class="javax.swing.JTextField" binding="contact1_textbox">
         <constraints>
           <grid row="11" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="500" height="-1"/>
@@ -192,14 +194,16 @@
         </constraints>
         <properties/>
       </component>
-      <component id="804c7" class="javax.swing.JTextField" binding="textField13" default-binding="true">
+      <component id="804c7" class="javax.swing.JTextField" binding="contact2_textbox">
         <constraints>
           <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="500" height="-1"/>
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <text value=""/>
+        </properties>
       </component>
       <component id="55a69" class="javax.swing.JLabel">
         <constraints>
@@ -220,7 +224,7 @@
           <text value="ADD THIS STUDENT"/>
         </properties>
       </component>
-      <component id="89fb3" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+      <component id="89fb3" class="javax.swing.JComboBox" binding="blood_group_combobox">
         <constraints>
           <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="500" height="-1"/>
@@ -228,7 +232,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="fb86f" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
+      <component id="fb86f" class="javax.swing.JComboBox" binding="group_combobox">
         <constraints>
           <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="500" height="-1"/>
@@ -236,7 +240,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="51ac" class="javax.swing.JComboBox" binding="comboBox3" default-binding="true">
+      <component id="51ac" class="javax.swing.JComboBox" binding="school_combobox">
         <constraints>
           <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="500" height="-1"/>
@@ -244,7 +248,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="9e388" class="javax.swing.JComboBox" binding="comboBox4" default-binding="true">
+      <component id="9e388" class="javax.swing.JComboBox" binding="class_combobox">
         <constraints>
           <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="500" height="-1"/>

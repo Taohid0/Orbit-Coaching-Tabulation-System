@@ -13,6 +13,7 @@ public class Main {
         //Database_query.do_start_up_query();
 
         //Home home = new Home();
-        Login_form login_form = new Login_form();
+        //Login_form login_form = new Login_form();
+        Add_student add_student = new Add_student();
     }
 }

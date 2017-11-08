@@ -1,21 +1,83 @@
 package orbit_coaching;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Add_student {
     private JPanel panel1;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField a500TextField;
-    private JTextField textField5;
-    private JTextField textField7;
-    private JTextField textField8;
-    private JTextField textField10;
-    private JTextField textField12;
-    private JTextField textField13;
+    private JTextField student_name_textbox;
+    private JTextField father_name_textbox;
+    private JTextField mother_name_textbox;
+    private JTextField roll_textbox;
+    private JTextField address_textbox;
+    private JTextField admission_date_textbox;
+    private JTextField date_of_birth_textbox;
+    private JTextField contact1_textbox;
+    private JTextField contact2_textbox;
     private JButton ADDTHISSTUDENTButton;
-    private JComboBox comboBox1;
-    private JComboBox comboBox2;
-    private JComboBox comboBox3;
-    private JComboBox comboBox4;
+    private JComboBox blood_group_combobox;
+    private JComboBox group_combobox;
+    private JComboBox school_combobox;
+    private JComboBox class_combobox;
+
+    private String group_values []= {"Science","Arts","Commerce","Others"};
+    private String blood_group[] = {"A+","A-","AB+","AB-","B+","B-","O+","O-","Bombay"};
+    private String mname,fname,name,cls,roll,school,bgroup,group,admission_date,birth_date,address,c1,c2;
+
+
+    public Add_student()
+    {
+        ADDTHISSTUDENTButton.setFocusable(false);
+        group_combobox.removeAllItems();
+        blood_group_combobox.removeAllItems();
+        school_combobox.removeAllItems();
+        class_combobox.removeAllItems();
+        for (int i = 0;i<(int)group_values.length;i++)
+        {
+            group_combobox.addItem(group_values[i]);
+        }
+
+        for(int i = 0;i<(int)blood_group.length;i++)
+        {
+            blood_group_combobox.addItem(blood_group[i]);
+
+        }
+
+        ADDTHISSTUDENTButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                get_info();
+                System.out.println(bgroup);
+            }
+        });
+        JFrame jFrame = new JFrame("Add New Student");
+        jFrame.add(panel1);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.pack();
+        jFrame.setVisible(true);
+
+
+    }
+
+    private void get_info()
+    {
+        name = student_name_textbox.getText();
+        fname = father_name_textbox.getText();
+        mname = mother_name_textbox.getText();
+        address = address_textbox.getText();
+        c1 = contact1_textbox.getText();
+        c2 = contact2_textbox.getText();
+        admission_date = date_of_birth_textbox.getText();
+        birth_date= date_of_birth_textbox.getText();
+        roll = roll_textbox.getText();
+        cls =class_combobox.getSelectedItem().toString();
+        group = group_combobox.getSelectedItem().toString();
+        school = school_combobox.getSelectedItem().toString();
+        bgroup=  blood_group_combobox.getSelectedItem().toString();
+
+
+    }
+
+
 }
