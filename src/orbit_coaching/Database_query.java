@@ -1,5 +1,7 @@
 package orbit_coaching;
 
+import com.mysql.jdbc.util.ResultSetUtil;
+
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.*;
@@ -175,6 +177,74 @@ public class Database_query {
         }
         return resultSet;
 
+    }
+    public static ResultSet get_school_name()
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT DISTINCT school from Student;";
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public static ResultSet get_class()
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT DISTINCT class from Student;";
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public static void insert_student(String name,String fname,String mname,String address,String c1,String c2,String
+            admission_date,String birth_date, String roll,String cls,String group,String school,String bgroup) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "INSERT INTO Student (roll,name,fname,mname,class,group_d,school,address," +
+                    "date_of_birth,admission_date,blood_group,cnumber1,cnumber2) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?);";
+
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setString(1,roll);
+            preparedStatement.setString(2,name);
+            preparedStatement.setString(3,fname);
+            preparedStatement.setString(4,mname);
+            preparedStatement.setString(5,cls);
+            preparedStatement.setString(6,group);
+            preparedStatement.setString(7,school);
+            preparedStatement.setString(8,address);
+            preparedStatement.setString(9,birth_date);
+            preparedStatement.setString(10,admission_date);
+            preparedStatement.setString(11,bgroup);
+            preparedStatement.setString(12,c1);
+            preparedStatement.setString(13,c2);
+
+            preparedStatement.execute();
+
+        } catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
 }

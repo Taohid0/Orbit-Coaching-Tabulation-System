@@ -1,8 +1,11 @@
 package orbit_coaching;
 
 import javax.swing.*;
+import javax.xml.transform.Result;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class Add_student {
     private JPanel panel1;
@@ -28,11 +31,46 @@ public class Add_student {
 
     public Add_student()
     {
+
         ADDTHISSTUDENTButton.setFocusable(false);
         group_combobox.removeAllItems();
         blood_group_combobox.removeAllItems();
         school_combobox.removeAllItems();
         class_combobox.removeAllItems();
+
+        try
+        {
+            ResultSet resultSet = Database_query.get_school_name();
+            resultSet.beforeFirst();
+            while (resultSet.next())
+            {
+                school_combobox.addItem(resultSet.getString(1));
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+
+        try
+        {
+            ResultSet resultSet = Database_query.get_class();
+            resultSet.beforeFirst();
+            while (resultSet.next())
+            {
+                class_combobox.addItem(resultSet.getString(1));
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+
+
+
+
+
+
         for (int i = 0;i<(int)group_values.length;i++)
         {
             group_combobox.addItem(group_values[i]);
@@ -48,7 +86,9 @@ public class Add_student {
             @Override
             public void actionPerformed(ActionEvent e) {
                 get_info();
-                System.out.println(bgroup);
+                Database_query.insert_student(name,fname,mname,address,c1,c2,admission_date,birth_date,roll,
+                        cls,group,school,bgroup);
+                //System.out.println(bgroup);
             }
         });
         JFrame jFrame = new JFrame("Add New Student");
@@ -75,6 +115,8 @@ public class Add_student {
         group = group_combobox.getSelectedItem().toString();
         school = school_combobox.getSelectedItem().toString();
         bgroup=  blood_group_combobox.getSelectedItem().toString();
+
+
 
 
     }
