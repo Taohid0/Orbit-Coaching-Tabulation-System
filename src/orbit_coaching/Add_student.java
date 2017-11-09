@@ -25,7 +25,7 @@ public class Add_student {
     private JComboBox class_combobox;
     JFrame jFrame;
 
-    private String group_values []= {"Science","Arts","Commerce","Others"};
+    private String group_values []= {"Science","Arts","Commerce"};
     private String blood_group[] = {"A+","A-","AB+","AB-","B+","B-","O+","O-","Bombay"};
     private String mname,fname,name,cls,roll,school,bgroup,group,admission_date,birth_date,address,c1,c2;
 
@@ -38,6 +38,10 @@ public class Add_student {
         blood_group_combobox.removeAllItems();
         school_combobox.removeAllItems();
         class_combobox.removeAllItems();
+        group_combobox.setEditable(true);
+        school_combobox.setEditable(true);
+        class_combobox.setEditable(true);
+
 
         try
         {
@@ -52,6 +56,7 @@ public class Add_student {
         {
             ex.printStackTrace();
         }
+        school_combobox.addItem("");
 
         try
         {
@@ -67,7 +72,7 @@ public class Add_student {
             ex.printStackTrace();
         }
 
-
+        class_combobox.addItem("");
 
 
 
@@ -76,6 +81,7 @@ public class Add_student {
         {
             group_combobox.addItem(group_values[i]);
         }
+        group_combobox.addItem("");
 
         for(int i = 0;i<(int)blood_group.length;i++)
         {
