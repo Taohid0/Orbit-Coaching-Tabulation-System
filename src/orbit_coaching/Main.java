@@ -14,6 +14,7 @@ public class Main {
 
         //Home home = new Home();
         //Login_form login_form = new Login_form();
+        // show part should be added
         Add_student add_student = new Add_student();
     }
 }

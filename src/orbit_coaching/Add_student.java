@@ -23,6 +23,7 @@ public class Add_student {
     private JComboBox group_combobox;
     private JComboBox school_combobox;
     private JComboBox class_combobox;
+    JFrame jFrame;
 
     private String group_values []= {"Science","Arts","Commerce","Others"};
     private String blood_group[] = {"A+","A-","AB+","AB-","B+","B-","O+","O-","Bombay"};
@@ -88,10 +89,14 @@ public class Add_student {
                 get_info();
                 Database_query.insert_student(name,fname,mname,address,c1,c2,admission_date,birth_date,roll,
                         cls,group,school,bgroup);
+                jFrame.dispose();
+                Home home = new Home();
                 //System.out.println(bgroup);
+
+
             }
         });
-        JFrame jFrame = new JFrame("Add New Student");
+        jFrame = new JFrame("Add New Student");
         jFrame.add(panel1);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.pack();
