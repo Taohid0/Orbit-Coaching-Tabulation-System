@@ -13,7 +13,7 @@ public class Insert_marks {
     private JPanel jPanel1;
     private JTextField textField1;
 
-    public Insert_marks(String cls,String year)
+    public Insert_marks(String cls,String year,String exam_type,String date)
     {
         DefaultTableModel defaultTableModel = new DefaultTableModel(0,0);
         String header[] = {"Roll Number","Name","Obtained Marks"};
@@ -44,5 +44,7 @@ public class Insert_marks {
         jFrame.setContentPane(jPanel1);
         jFrame.pack();
         jFrame.setVisible(true);
+
+
     }
 }

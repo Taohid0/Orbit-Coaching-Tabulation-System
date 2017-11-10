@@ -64,7 +64,7 @@ public class Login_form {
                     else
                     {
                         JOptionPane.showMessageDialog(null, error_message,
-                                error_message, JOptionPane.ERROR_MESSAGE);
+                                title_bar, JOptionPane.ERROR_MESSAGE);
 
                     }
 

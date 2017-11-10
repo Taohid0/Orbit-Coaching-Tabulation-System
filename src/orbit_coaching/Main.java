@@ -18,9 +18,9 @@ public class Main {
         // all show part should be added
         //Add_student add_student = new Add_student();
         //System.out.println(Calendar.getInstance().get(Calendar.YEAR));
-        Insert_marks insert_marks = new Insert_marks("1","1");
+        //Insert_marks insert_marks = new Insert_marks("1","1");
         //Database_query.get_active_students("class1","2017");
-        //Input_marks_configuration input_marks_configuration = new Input_marks_configuration();
+        Input_marks_configuration input_marks_configuration = new Input_marks_configuration();
 
         //Test_data_input.insert_student();
 
