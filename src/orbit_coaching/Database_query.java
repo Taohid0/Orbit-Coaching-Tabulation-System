@@ -5,6 +5,7 @@ import com.mysql.jdbc.util.ResultSetUtil;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.*;
+import java.util.Calendar;
 
 import static java.sql.DriverManager.getConnection;
 
@@ -30,7 +31,8 @@ public class Database_query {
              "    blood_group VARCHAR(10),\n" +
              "    cnumber1 VARCHAR(25),\n" +
              "    cnumber2 VARCHAR(25),\n" +
-             "     isDeleted BOOLEAN\n"+
+             "    for_year VARCHAR(20),\n"+
+             "     isDeleted BOOL DEFAULT 0\n"+
              ");";
 
      static String create_teacher_table = "CREATE TABLE Teacher\n" +
@@ -215,14 +217,14 @@ public class Database_query {
     }
 
     public static void insert_student(String name,String fname,String mname,String address,String c1,String c2,String
-            admission_date,String birth_date, String roll,String cls,String group,String school,String bgroup) {
+            admission_date,String birth_date, String roll,String cls,String group,String school,String bgroup,String for_year) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
             String query = "INSERT INTO Student (roll,name,fname,mname,class,group_d,school,address," +
-                    "date_of_birth,admission_date,blood_group,cnumber1,cnumber2) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?);";
+                    "date_of_birth,admission_date,blood_group,cnumber1,cnumber2,for_year) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             preparedStatement.setString(1,roll);
@@ -238,6 +240,7 @@ public class Database_query {
             preparedStatement.setString(11,bgroup);
             preparedStatement.setString(12,c1);
             preparedStatement.setString(13,c2);
+            preparedStatement.setString(14,for_year);
 
             preparedStatement.execute();
 
@@ -245,6 +248,29 @@ public class Database_query {
         {
             ex.printStackTrace();
         }
+    }
+    public static ResultSet get_active_students(String cls,String year)
+    {
+        ResultSet resultSet=null;
+        try {
+            String y = Integer.toString(Calendar.getInstance().get(Calendar.YEAR));
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT roll,name from Student WHERE isDeleted = 0 AND class="+cls+" AND for_year="+year +
+                   " ORDER BY roll ASC ";
+            resultSet= stmt.executeQuery(query);
+
+            resultSet.beforeFirst();
+
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
     }
 
 }

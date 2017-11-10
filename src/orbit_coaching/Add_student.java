@@ -23,11 +23,12 @@ public class Add_student {
     private JComboBox group_combobox;
     private JComboBox school_combobox;
     private JComboBox class_combobox;
+    private JTextField foryear_textbox;
     JFrame jFrame;
 
     private String group_values []= {"Science","Arts","Commerce"};
     private String blood_group[] = {"A+","A-","AB+","AB-","B+","B-","O+","O-","Bombay"};
-    private String mname,fname,name,cls,roll,school,bgroup,group,admission_date,birth_date,address,c1,c2;
+    private String mname,fname,name,cls,roll,school,bgroup,group,admission_date,birth_date,address,c1,c2,for_year;
 
 
     public Add_student()
@@ -94,7 +95,7 @@ public class Add_student {
             public void actionPerformed(ActionEvent e) {
                 get_info();
                 Database_query.insert_student(name,fname,mname,address,c1,c2,admission_date,birth_date,roll,
-                        cls,group,school,bgroup);
+                        cls,group,school,bgroup,for_year);
                 jFrame.dispose();
                 Home home = new Home();
                 //System.out.println(bgroup);
@@ -126,6 +127,7 @@ public class Add_student {
         group = group_combobox.getSelectedItem().toString();
         school = school_combobox.getSelectedItem().toString();
         bgroup=  blood_group_combobox.getSelectedItem().toString();
+        for_year = foryear_textbox.getText();
 
 
 

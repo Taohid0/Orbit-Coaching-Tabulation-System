@@ -1,5 +1,6 @@
 package orbit_coaching;
 import java.sql.*;
+import java.util.Calendar;
 
 import static java.sql.DriverManager.getConnection;
 
@@ -14,7 +15,14 @@ public class Main {
 
         //Home home = new Home();
         //Login_form login_form = new Login_form();
-        // show part should be added
-        Add_student add_student = new Add_student();
+        // all show part should be added
+        //Add_student add_student = new Add_student();
+        //System.out.println(Calendar.getInstance().get(Calendar.YEAR));
+        Insert_marks insert_marks = new Insert_marks("1","1");
+        //Database_query.get_active_students("class1","2017");
+        //Input_marks_configuration input_marks_configuration = new Input_marks_configuration();
+
+        //Test_data_input.insert_student();
+
     }
 }
