@@ -18,11 +18,12 @@ public class Main {
         // all show part should be added
         //Add_student add_student = new Add_student();
         //System.out.println(Calendar.getInstance().get(Calendar.YEAR));
-        Insert_marks insert_marks = new Insert_marks();
+        //Insert_marks insert_marks = new Insert_marks();
         //Database_query.get_active_students("class1","2017");
         //Input_marks_configuration input_marks_configuration = new Input_marks_configuration();
-
+          //Edit_student edit_student = new Edit_student();
         //Test_data_input.insert_student();
+        Edit_marks edit_marks = new Edit_marks();
 
     }
 }

@@ -22,6 +22,7 @@ public class Insert_marks {
     private JComboBox for_year_combobox;
     private JButton button1;
     private JTextField total_marks_textbox;
+    int count=0;
 
     public void get_table_data()
     {
@@ -81,7 +82,10 @@ public class Insert_marks {
                     table1.getValueAt(i,2).toString().replaceAll("\\s+","")!="")
                 {
                     String query = "INSERT INTO Marks (roll,exam_type,date,out_of,obtained_markd) VALUES(?,?,?,?,?);";
-
+                if(table1.getValueAt(i,2).toString().startsWith("A") || table1.getValueAt(i,2).toString().startsWith("a"))
+                {
+                    table1.setValueAt(-1,i,2);
+                }
                 PreparedStatement preparedStatement = conn.prepareStatement(query);
                 preparedStatement.setString(1, table1.getValueAt(i,0).toString());
                 preparedStatement.setString(2, xm);
@@ -89,6 +93,7 @@ public class Insert_marks {
                 preparedStatement.setString(4,total_marks);
                 preparedStatement.setString(5,table1.getValueAt(i,2).toString());
                 preparedStatement.execute();
+                count++;
                 }
             }
             catch (Exception ex)
@@ -97,26 +102,6 @@ public class Insert_marks {
             }
 
         }
-//        try
-//        {
-//            Class.forName("com.mysql.jdbc.Driver");
-//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-//                    "root", "");
-//            stmt = conn.createStatement();
-//
-//                String query = "INSERT INTO Admin (user_name,password) VALUES(?,?);";
-//
-//                PreparedStatement preparedStatement = conn.prepareStatement(query);
-//                preparedStatement.setString(1, un);
-//                preparedStatement.setString(2, ps);
-//                preparedStatement.execute();
-//
-//            }
-//
-//        catch (Exception ex)
-//        {
-//            ex.printStackTrace();
-//        }
     }
 
     public Insert_marks()
@@ -185,20 +170,6 @@ public class Insert_marks {
         }
 
         ResultSet resultSet = null;
-//        try
-//        {
-//            resultSet = Database_query.get_active_students(cls,year);
-//            resultSet.beforeFirst();
-//
-//            while (resultSet.next())
-//            {
-//                defaultTableModel.addRow(new String[] {resultSet.getString(1),resultSet.getString(2)});
-//            }
-//        }
-//        catch (Exception ex)
-//        {
-//            ex.printStackTrace();
-//        }
 
         try
         {
@@ -220,6 +191,7 @@ public class Insert_marks {
 
         JFrame jFrame = new JFrame("Input Marks");
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         jFrame.setContentPane(jPanel1);
         jFrame.pack();
         jFrame.setVisible(true);
@@ -257,7 +229,7 @@ public class Insert_marks {
                     String header[] = {"Roll Number","Name","Obtained Marks"};
                     defaultTableModel.setColumnIdentifiers(header);
                     table1.setModel(defaultTableModel);
-                    System.out.println("done");
+
 
                     while (resultSet1.next())
                     {
@@ -321,6 +293,10 @@ public class Insert_marks {
             @Override
             public void actionPerformed(ActionEvent e) {
                get_table_data();
+               String message =count+" Marks Entry added";
+               String title="SUCCESSFUL";
+                JOptionPane.showMessageDialog(null,message,
+                        title, JOptionPane.INFORMATION_MESSAGE);
             }
         });
 

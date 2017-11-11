@@ -2,6 +2,8 @@ package orbit_coaching;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Home {
     private JPanel homePanel;
@@ -24,6 +26,13 @@ public class Home {
         //student menu
         student_menu = new JMenu("Student");
         add_student = new JMenuItem("Add New Student");
+        add_student.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Add_student add_student = new Add_student();
+            }
+        });
         edit_student = new JMenuItem("Edit Stuudent Info");
         student_menu.add(add_student);
         student_menu.add(edit_student);

@@ -198,6 +198,43 @@ public class Database_query {
         return resultSet;
     }
 
+    public static ResultSet get_student_info(String roll)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT * from Student WHERE roll="+roll+" ;";
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+    public static ResultSet get_roll_number()
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT roll from Student ORDER BY roll DESC ;";
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+
+
     public static ResultSet get_class()
     {
         ResultSet resultSet=null;
@@ -283,6 +320,45 @@ public class Database_query {
             ex.printStackTrace();
         }
     }
+
+
+    public static void update_student(String name,String fname,String mname,String address,String c1,String c2,String
+            admission_date,String birth_date, String roll,String cls,String group,String school,String bgroup,String for_year) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "UPDATE Student " +
+                    "SET name=?,fname=?,mname=?,class=?,group_d=?,school=?,address=?," +
+                    "date_of_birth =?,admission_date=?,blood_group=?," +
+                    "cnumber1=?,cnumber2=?,for_year=? WHERE roll="+roll+";";
+
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setString(1,name);
+            preparedStatement.setString(2,fname);
+            preparedStatement.setString(3,mname);
+            preparedStatement.setString(4,cls);
+            preparedStatement.setString(5,group);
+            preparedStatement.setString(6,school);
+            preparedStatement.setString(7,address);
+            preparedStatement.setString(8,birth_date);
+            preparedStatement.setString(9,admission_date);
+            preparedStatement.setString(10,bgroup);
+            preparedStatement.setString(11,c1);
+            preparedStatement.setString(12,c2);
+            preparedStatement.setString(13,for_year);
+
+            preparedStatement.execute();
+
+        } catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+
+
     public static ResultSet get_active_students(String cls,String year)
     {
         ResultSet resultSet=null;

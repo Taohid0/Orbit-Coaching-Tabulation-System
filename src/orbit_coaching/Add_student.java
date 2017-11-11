@@ -106,6 +106,7 @@ public class Add_student {
         jFrame = new JFrame("Add New Student");
         jFrame.add(panel1);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         jFrame.pack();
         jFrame.setVisible(true);
 
