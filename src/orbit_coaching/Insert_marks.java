@@ -32,7 +32,8 @@ public class Insert_marks {
                class_combobox.getSelectedItem().toString().replaceAll("\\s+","")==""||
                     date_textfield.getText().replaceAll("\\s+","")=="" ||
                     for_year_combobox.getSelectedItem().toString().replaceAll("\\s+","")==""||
-                    total_marks_textbox.getText().replaceAll("\\s+","")=="")
+                    total_marks_textbox.getText().replaceAll("\\s+","")=="" ||
+                    class_combobox.getSelectedItem().toString().replaceAll("\\s","")=="")
             {
                 String error_message = "Please fill up all the configuration fields correctly";
                 String title_bar = "ERROR";
@@ -81,7 +82,7 @@ public class Insert_marks {
                         table1.getValueAt(i,1).toString().replaceAll("\\s+","")!="" &&
                     table1.getValueAt(i,2).toString().replaceAll("\\s+","")!="")
                 {
-                    String query = "INSERT INTO Marks (roll,exam_type,date,out_of,obtained_markd) VALUES(?,?,?,?,?);";
+                    String query = "INSERT INTO Marks (roll,exam_type,date,out_of,obtained_markd,cls) VALUES(?,?,?,?,?,?);";
                 if(table1.getValueAt(i,2).toString().startsWith("A") || table1.getValueAt(i,2).toString().startsWith("a"))
                 {
                     table1.setValueAt(-1,i,2);
@@ -92,6 +93,7 @@ public class Insert_marks {
                 preparedStatement.setString(3,date);
                 preparedStatement.setString(4,total_marks);
                 preparedStatement.setString(5,table1.getValueAt(i,2).toString());
+                preparedStatement.setString(6,class_combobox.getSelectedItem().toString());
                 preparedStatement.execute();
                 count++;
                 }

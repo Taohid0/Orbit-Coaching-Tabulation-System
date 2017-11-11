@@ -58,7 +58,8 @@ public class Database_query {
              "    exam_type VARCHAR(100),\n" +
              "    date VARCHAR(25),\n" +
              "    out_of INT,\n" +
-             "    obtained_markd INT" +
+             "    obtained_markd INT,\n" +
+             "     cls VARCHAR(25)"+
              ");";
 
      static String create_billing_student ="CREATE TABLE Billing_student\n" +
@@ -286,6 +287,25 @@ public class Database_query {
         }
         return resultSet;
     }
+
+    public static ResultSet get_exam_dates(String cls,String year)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT DISTINCT date from Marks WHERE cls="+cls;
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
 
     public static void insert_student(String name,String fname,String mname,String address,String c1,String c2,String
             admission_date,String birth_date, String roll,String cls,String group,String school,String bgroup,String for_year) {
