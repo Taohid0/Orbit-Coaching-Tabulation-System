@@ -16,6 +16,7 @@ public class Input_marks_configuration {
     private JTextField textField1;
     private JComboBox year_combobox;
     private JButton DONE;
+    private JTextField total_marks_textfield;
 
     public Input_marks_configuration() {
         class_combobox.setEditable(true);
@@ -110,7 +111,7 @@ public class Input_marks_configuration {
                     String exam_type = examtype_combobox.getSelectedItem().toString();
                     String date = textField1.getText();
                     jFrame.dispose();
-                    Insert_marks insert_marks=  new Insert_marks(cls,year,exam_type,date);
+                    //Insert_marks insert_marks=  new Insert_marks(cls,year,exam_type,date);
                     System.out.println(year);
                 }
                 catch (Exception ex)

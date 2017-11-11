@@ -54,11 +54,11 @@ public class Database_query {
              ");";
      static String create_marks_table = "CREATE TABLE Marks\n" +
              "(\n" +
+             "    roll VARCHAR(25),\n"+
              "    exam_type VARCHAR(100),\n" +
              "    date VARCHAR(25),\n" +
              "    out_of INT,\n" +
-             "    obtained_markd INT,\n" +
-             "    ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT\n" +
+             "    obtained_markd INT" +
              ");";
 
      static String create_billing_student ="CREATE TABLE Billing_student\n" +
