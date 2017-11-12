@@ -43,4 +43,30 @@ public class Test_data_input {
             ex.printStackTrace();
         }
     }
+
+    public static void insert_marks() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+
+            for (int i = 1;i<=10;i++) {
+                String query = "INSERT INTO Marks (roll,exam_type,date,out_of,obtained_markd,cls) VALUES(?,?,?,?,?,?);";
+
+                PreparedStatement preparedStatement = conn.prepareStatement(query);
+                preparedStatement.setString(1, Integer.toString(i));
+                preparedStatement.setString(2, Integer.toString(i));
+                preparedStatement.setString(3, "2-10-2017");
+                preparedStatement.setString(4, Integer.toString(i));
+                preparedStatement.setString(5, Integer.toString(1));
+                preparedStatement.setString(6, Integer.toString(i));
+
+                preparedStatement.execute();
+            }
+        } catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
 }

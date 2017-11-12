@@ -263,7 +263,7 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT DISTINCT class from Student ORDER BY class ASC ;";
+            String query = "SELECT DISTINCT class from Student ORDER BY CAST(class as INT) ASC ;";
             resultSet= stmt.executeQuery(query);
         }
         catch (Exception ex)
@@ -297,7 +297,7 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT DISTINCT for_year from Student ORDER BY for_year DESC ;";
+            String query = "SELECT DISTINCT for_year from Student ORDER BY CAST(for_year as INT) DESC ;";
             resultSet= stmt.executeQuery(query);
         }
         catch (Exception ex)
@@ -315,8 +315,9 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT DISTINCT date from Marks WHERE cls="+cls;
-            resultSet= stmt.executeQuery(query);
+            String query = "SELECT DISTINCT date from Marks WHERE cls="+cls+" AND date LIKE "+"\"%"+year.toString()+"\"" ;
+            System.out.println(query);resultSet= stmt.executeQuery(query);
+
         }
         catch (Exception ex)
         {

@@ -48,6 +48,7 @@ public class Edit_student {
 
     private void set_value()
     {
+
         add_school();
         group_combobox.removeAllItems();
         blood_group_combobox.removeAllItems();

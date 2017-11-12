@@ -21,20 +21,7 @@ public class Edit_marks {
     DefaultTableModel defaultTableModel = null;
     private void fill_fields()
     {
-        try
-        {
-            ResultSet resultSet = Database_query.get_exam_type();
-            resultSet.beforeFirst();
 
-            while (resultSet.next())
-            {
-                examtype_comobox.addItem(resultSet.getString(1));
-            }
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
         try
         {
             ResultSet resultSet = Database_query.get_class();
@@ -53,6 +40,7 @@ public class Edit_marks {
         try {
             date_combobox.setEditable(true);
             {
+//                System.out.println(class_combobox.getSelectedItem().toString()+for_year_combobox.getSelectedItem().toString());
                 ResultSet resultSet = Database_query.get_exam_dates(class_combobox.getSelectedItem().toString(),
                         for_year_combobox.getSelectedItem().toString());
                 resultSet.beforeFirst();
@@ -85,8 +73,29 @@ public class Edit_marks {
 
     public void fill_student_fields()
     {
+        DefaultTableModel defaultTableModel = new DefaultTableModel(0,0);
+        String header[] = {"Roll Number","Obtained Marks"};
+        defaultTableModel.setColumnIdentifiers(header);
+        table1.setModel(defaultTableModel);
+
         String date = date_combobox.getSelectedItem().toString();
         String cls=class_combobox.getSelectedItem().toString();
+
+
+        try
+        {
+            ResultSet resultSet = Database_query.get_exam_type();
+            resultSet.beforeFirst();
+
+            while (resultSet.next())
+            {
+                examtype_comobox.addItem(resultSet.getString(1));
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
 
         try
         {
@@ -96,10 +105,16 @@ public class Edit_marks {
             while (resultSet.next())
             {
                 defaultTableModel.addRow(new String[]{resultSet.getString(1),
-                resultSet.getString(2),resultSet.getString(3)});
-                System.out.println(resultSet.getString(1));
-                System.out.println("done");
+              resultSet.getString(5)});
 
+
+
+            }
+            resultSet.beforeFirst();
+            if(resultSet.next())
+            {
+                examtype_comobox.setSelectedItem(resultSet.getString(2));
+                total_marks_textbox.setText(resultSet.getString(4));
             }
         }
         catch (Exception ex)
@@ -111,7 +126,7 @@ public class Edit_marks {
     public Edit_marks()
     {
         defaultTableModel = new DefaultTableModel(0,0);
-        String header[] = {"Roll Number","Name","Obtained Marks"};
+        String header[] = {"Roll Number","Obtained Marks"};
         defaultTableModel.setColumnIdentifiers(header);
         table1.setModel(defaultTableModel);
 
@@ -130,6 +145,13 @@ public class Edit_marks {
         jFrame.setVisible(true);
 
         for_year_combobox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fill_fields();
+                fill_student_fields();
+            }
+        });
+        class_combobox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 fill_fields();

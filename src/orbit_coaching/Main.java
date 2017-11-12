@@ -12,7 +12,7 @@ public class Main {
         //System.out.println("hello"==v);
         //System.out.println("hello".equals(v));
         //Database_query.do_start_up_query();
-
+         //Test_data_input.insert_marks();
         //Home home = new Home();
         //Login_form login_form = new Login_form();
         // all show part should be added
