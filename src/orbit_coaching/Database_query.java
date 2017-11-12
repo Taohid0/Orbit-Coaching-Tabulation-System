@@ -224,7 +224,7 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT roll from Student ORDER BY roll DESC ;";
+            String query = "SELECT roll from Student ORDER BY cast(roll as INT) DESC ;";
             resultSet= stmt.executeQuery(query);
         }
         catch (Exception ex)
@@ -234,7 +234,26 @@ public class Database_query {
         return resultSet;
     }
 
-
+    public static ResultSet get_marks_info(String cls,String date)
+    {
+        System.out.println(cls + " "+date);
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT *  from Marks WHERE cls="+cls+ " AND  date =\""+date.toString()+"\"";//
+            System.out.println(query);// +
+                 //   " ORDER BY cast(roll as INT) ASC ";
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
 
     public static ResultSet get_class()
     {

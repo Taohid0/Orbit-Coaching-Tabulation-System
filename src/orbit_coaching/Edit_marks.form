@@ -58,13 +58,17 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="e9912" class="javax.swing.JTable" binding="table1" default-binding="true">
+              <scrollpane id="2c301">
                 <constraints/>
-                <properties>
-                  <autoCreateRowSorter value="false"/>
-                  <autoResizeMode value="2"/>
-                </properties>
-              </component>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="bfbb2" class="javax.swing.JTable" binding="table1" default-binding="true">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
             </children>
           </scrollpane>
           <component id="38d6a" class="javax.swing.JButton" binding="button1" default-binding="true">

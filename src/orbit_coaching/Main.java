@@ -23,6 +23,8 @@ public class Main {
         //Input_marks_configuration input_marks_configuration = new Input_marks_configuration();
           //Edit_student edit_student = new Edit_student();
         //Test_data_input.insert_student();
+        //get date query is incomplete
+
         Edit_marks edit_marks = new Edit_marks();
 
     }
