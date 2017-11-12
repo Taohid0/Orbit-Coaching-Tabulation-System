@@ -7,7 +7,12 @@ import javax.swing.table.DefaultTableModel;
 import javax.xml.crypto.Data;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+
+import static java.sql.DriverManager.getConnection;
 
 public class Edit_marks {
     private JPanel jPanel1;
@@ -19,6 +24,70 @@ public class Edit_marks {
     private JTextField total_marks_textbox;
     private JComboBox date_combobox;
     DefaultTableModel defaultTableModel = null;
+
+
+    public void edit_marks()
+    {
+        ResultSet resultSet=null;
+        Connection conn = null;
+        Statement stmt = null;
+        String date=null,cls=null,exam_type=null;
+        try {
+            date = date_combobox.getSelectedItem().toString();
+            cls = class_combobox.getSelectedItem().toString();
+            exam_type = examtype_comobox.getSelectedItem().toString();
+        }
+        catch (Exception ex)
+        {
+            //show error
+            return;
+        }
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        for(int i =0;i<(int)table1.getRowCount();i++) {
+        try
+        {
+                if(table1.getValueAt(i,0).toString().replaceAll("\\s","")==""
+                        && table1.getValueAt(i,1).toString().replaceAll("\\s","")=="")
+                {
+                    //add warning message;
+                }
+                else
+
+                {
+                    String query = "DELETE FROM Marks WHERE roll=" + table1.getValueAt(i, 0) + " AND "+
+                            " cls="+cls + " AND  date ="+"\""+date+"\"";
+                    System.out.println(query);stmt.execute(query);
+
+
+                    query= "INSERT INTO Marks (roll,exam_type,date,out_of,obtained_markd,cls) " +
+                            "VALUES (?,?,?,?,?,?)";
+                    PreparedStatement preparedStatement = conn.prepareStatement(query);
+                    preparedStatement.setString(1,table1.getValueAt(i,0).toString());
+                    preparedStatement.setString(2,exam_type);
+                    preparedStatement.setString(3,date);
+                    preparedStatement.setString(4,total_marks_textbox.getText());
+                    preparedStatement.setString(5,table1.getValueAt(i,1).toString());
+                    preparedStatement.setString(6,cls);
+
+                    preparedStatement.execute();
+                }
+            }
+            catch ( Exception ex)
+            {
+            ex.printStackTrace();
+             }
+            }
+
+    }
     private void fill_fields()
     {
 
@@ -156,6 +225,12 @@ public class Edit_marks {
             public void actionPerformed(ActionEvent e) {
                 fill_fields();
                 fill_student_fields();
+            }
+        });
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                edit_marks();
             }
         });
     }
