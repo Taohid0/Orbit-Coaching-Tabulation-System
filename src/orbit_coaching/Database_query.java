@@ -45,7 +45,6 @@ public class Database_query {
 
      static String create_subect_table = "CREATE TABLE Subject\n" +
              "(\n" +
-             "    ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,\n" +
              "    name VARCHAR(100),\n" +
              "    institution VARCHAR(100),\n" +
              "    joining_date VARCHAR(25),\n" +
@@ -66,18 +65,16 @@ public class Database_query {
              "(\n" +
              "    roll VARCHAR(25),\n" +
              "    cls VARCHAR(25),\n"+
-             "    ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,\n" +
              "    month VARCHAR(25),\n" +
              "    year VARCHAR(25),\n" +
              "    date VARCHAR(25),\n" +
-             "    skipped BOOLEAN,\n" +
-             "    amount INT,\n" +
+             "    skipped VARCHAR(5),\n" +
+             "    amount VARCHAR(25),\n" +
              "     purpose VARCHAR(100)\n"+
              ")";
      static String create_other_billing = "CREATE TABLE billing_other\n" +
              "(\n" +
              "    to_whom VARCHAR(100),\n" +
-             "    ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,\n" +
              "    date VARCHAR(25),\n" +
              "    purpose VARCHAR(500),\n" +
              "    amount INT\n" +
@@ -85,7 +82,6 @@ public class Database_query {
     static String create_other_income_billing = "CREATE TABLE billing_income_other\n" +
             "(\n" +
             "    from_whom VARCHAR(100),\n" +
-            "    ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,\n" +
             "    date VARCHAR(25),\n" +
             "    purpose VARCHAR(500),\n" +
             "    amount INT\n" +
@@ -353,7 +349,7 @@ public class Database_query {
                     "root", "");
             stmt = conn.createStatement();
             String query = "SELECT DISTINCT date from Marks WHERE cls="+cls+" AND date LIKE "+"\"%"+year.toString()+"\"" ;
-            System.out.println(query);resultSet= stmt.executeQuery(query);
+            resultSet= stmt.executeQuery(query);
 
         }
         catch (Exception ex)
@@ -371,8 +367,8 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT month from billing_student WHERE roll="+roll+" AND year="+year; ;
-            System.out.println(query);resultSet= stmt.executeQuery(query);
+            String query = "SELECT DISTINCT month from billing_student WHERE roll="+roll+" AND year="+year; ;
+            resultSet= stmt.executeQuery(query);
 
         }
         catch (Exception ex)
@@ -382,6 +378,79 @@ public class Database_query {
         return resultSet;
     }
 
+
+
+
+    public static ResultSet get_name(String roll)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT name from Student WHERE roll="+roll;
+            resultSet= stmt.executeQuery(query);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public static ResultSet input_student_payment(String roll,String cls,String month,String year,String date,
+                                                  int skipped,String amount,String purpose)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "INSERT INTO billing_student (roll,cls,month,year,date,skipped,amount,purpose) " +
+                    " VALUES (?,?,?,?,?,?,?,?);";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+
+            preparedStatement.setString(1,roll);
+            preparedStatement.setString(2,cls);
+            preparedStatement.setString(3,month);
+            preparedStatement.setString(4,year);
+            preparedStatement.setString(5,date);
+            preparedStatement.setString(6,Integer.toString(skipped));
+            preparedStatement.setString(7,amount);
+            preparedStatement.setString(8,purpose);
+
+
+            preparedStatement.execute();
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public static ResultSet get_purpose()
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT DISTINCT purpose from billing_student";
+            resultSet= stmt.executeQuery(query);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
 
     public static void insert_student(String name,String fname,String mname,String address,String c1,String c2,String
             admission_date,String birth_date, String roll,String cls,String group,String school,String bgroup,String for_year) {
