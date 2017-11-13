@@ -25,7 +25,9 @@ public class Main {
         //Test_data_input.insert_student();
         //get date query is incomplete
 
-        Edit_marks edit_marks = new Edit_marks();
+        //Edit_marks edit_marks = new Edit_marks();
+
+        Add_student_payment add_student_payment = new Add_student_payment();
 
     }
 }

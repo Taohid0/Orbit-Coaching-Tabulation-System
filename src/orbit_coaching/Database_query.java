@@ -64,14 +64,15 @@ public class Database_query {
 
      static String create_billing_student ="CREATE TABLE Billing_student\n" +
              "(\n" +
-             "    student VARCHAR(25),\n" +
+             "    roll VARCHAR(25),\n" +
+             "    cls VARCHAR(25),\n"+
              "    ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,\n" +
              "    month VARCHAR(25),\n" +
              "    year VARCHAR(25),\n" +
              "    date VARCHAR(25),\n" +
              "    skipped BOOLEAN,\n" +
              "    amount INT,\n" +
-             "    CONSTRAINT Billing_student_student_roll_fk FOREIGN KEY (student) REFERENCES student (roll)\n" +
+             "     purpose VARCHAR(100)\n"+
              ")";
      static String create_other_billing = "CREATE TABLE billing_other\n" +
              "(\n" +
@@ -81,6 +82,14 @@ public class Database_query {
              "    purpose VARCHAR(500),\n" +
              "    amount INT\n" +
              ");";
+    static String create_other_income_billing = "CREATE TABLE billing_income_other\n" +
+            "(\n" +
+            "    from_whom VARCHAR(100),\n" +
+            "    ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,\n" +
+            "    date VARCHAR(25),\n" +
+            "    purpose VARCHAR(500),\n" +
+            "    amount INT\n" +
+            ");";
 
 
     static Statement stmt ;
@@ -138,6 +147,14 @@ public class Database_query {
         }
         try {
             stmt.execute(create_other_billing);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        try
+        {
+            stmt.execute(create_other_income_billing);
         }
         catch (Exception ex)
         {
@@ -216,6 +233,26 @@ public class Database_query {
         }
         return resultSet;
     }
+
+
+    public static ResultSet get_roll_for_payment(String cls,String year)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT DISTINCT roll from Student WHERE class="+cls+" AND for_year="+year+" ORDER BY cast(roll as INT) DESC ;";
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
     public static ResultSet get_roll_number()
     {
         ResultSet resultSet=null;
@@ -316,6 +353,25 @@ public class Database_query {
                     "root", "");
             stmt = conn.createStatement();
             String query = "SELECT DISTINCT date from Marks WHERE cls="+cls+" AND date LIKE "+"\"%"+year.toString()+"\"" ;
+            System.out.println(query);resultSet= stmt.executeQuery(query);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public static ResultSet get_paid_month(String roll,String year)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT month from billing_student WHERE roll="+roll+" AND year="+year; ;
             System.out.println(query);resultSet= stmt.executeQuery(query);
 
         }
