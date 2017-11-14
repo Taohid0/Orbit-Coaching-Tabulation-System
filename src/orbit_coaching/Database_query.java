@@ -367,7 +367,7 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT DISTINCT month from billing_student WHERE roll="+roll+" AND year="+year; ;
+            String query = "SELECT DISTINCT month,amount,skipped from billing_student WHERE roll="+roll+" AND year="+year; ;
             resultSet= stmt.executeQuery(query);
 
         }

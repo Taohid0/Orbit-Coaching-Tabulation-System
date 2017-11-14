@@ -10,8 +10,11 @@ import javax.xml.crypto.Data;
 import javax.xml.transform.Result;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.DataBuffer;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Add_student_payment {
     private JPanel panel1;
@@ -26,11 +29,62 @@ public class Add_student_payment {
     private JButton SAVEButton;
     private JComboBox purpose_combobox;
     private JTextField date_textbox;
-    String month[] = {"January","February","March","April","May","June","July","August","September",
+    String month_array[] = {"January","February","March","April","May","June","July","August","September",
             "October","November","December"};
+    Map<String,Integer> check_month_map = new HashMap<String, Integer>();
+    String month=null;
+    boolean test_multiple_month()
+    {
+        month= month_combobox.getSelectedItem().toString();
+        int [] selected_indices = skip_month_list.getSelectedIndices();
+        ArrayList<String> arrayList = new ArrayList();
+        ArrayList<String>previous_month = new ArrayList<>();
+        for(int i = 0;i<(int)selected_indices.length;i++) {
+            if (skip_month_list.getModel().getElementAt(selected_indices[i]).toString().equals("NONE")) {
 
+            } else {
+                arrayList.add(skip_month_list.getModel().getElementAt(selected_indices[i]).toString());
+            }
+        }
+            for(int i = 0;i<(int)arrayList.size();i++)
+            {
+                if(arrayList.get(i).equals(month))
+                    return true;
+            }
+            try
+            {
+                String r = roll_combobox.getSelectedItem().toString();
+                String y = year_combobox.getSelectedItem().toString();
+                ResultSet resultSet = Database_query.get_paid_month(r,y);
+                resultSet.beforeFirst();
+
+                while (resultSet.next())
+                {
+                    previous_month.add(resultSet.getString(1));
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
+            for(int i = 0;i<(int)previous_month.size();i++)
+            {
+                if(month.equals(previous_month.get(i)))
+                    return true;
+            }
+            for(int i = 0;i<(int)previous_month.size();i++)
+            {
+                for(int j = 0;j<(int)arrayList.size();j++)
+                {
+                    if(arrayList.get(j).equals(previous_month.get(i)))
+                        return true;
+                }
+            }
+            return false;
+    }
     public void insert_to_database()
     {
+
         String year,cls,roll,month,amount,purpose,date;
         int skipped=0;
         try
@@ -52,7 +106,30 @@ public class Add_student_payment {
             purpose = purpose_combobox.getSelectedItem().toString();
             date = date_textbox.getText();
 
-            Database_query.input_student_payment(roll,cls,month,year,date,skipped,amount,purpose);
+            int [] selected_indices = skip_month_list.getSelectedIndices();
+            boolean flag = true;
+            if(test_multiple_month())
+            {
+                flag = false;
+                String title_bar = "ERROR";
+                String error_message = "You have multiple entries for a single month for a year";
+                JOptionPane.showMessageDialog(null, error_message,
+                        title_bar, JOptionPane.ERROR_MESSAGE);
+
+            }
+
+
+            for(int i = 0;i<(int)selected_indices.length;i++)
+            {
+                if(skip_month_list.getModel().getElementAt(selected_indices[i]).toString().equals("NONE"))
+                    continue;
+                System.out.println(skip_month_list.getModel().getElementAt(selected_indices[i]));
+                if (flag)
+                Database_query.input_student_payment(roll,cls,skip_month_list.getModel().getElementAt(selected_indices[i]).toString(),
+                        year,date,1,"0",purpose);
+            }
+            if(flag)
+            Database_query.input_student_payment(roll,cls,month,year,date,0,amount,purpose);
 
         }
         catch (Exception ex)
@@ -86,7 +163,7 @@ public class Add_student_payment {
         DefaultTableModel defaultTableModel = null;
 
         defaultTableModel = new DefaultTableModel(0, 0);
-        String header[] = {"Month", "Status"};
+        String header[] = {"Month", "Status","Amount"};
         defaultTableModel.setColumnIdentifiers(header);
         table1.setModel(defaultTableModel);
 
@@ -96,20 +173,36 @@ public class Add_student_payment {
                     year_combobox.getSelectedItem().toString());
 
             resultSet.beforeFirst();
-            String paid_month[] = new String[15];
+            String paid_month[] = new String[200];
             int count = 0;
+            Map<String,String> amount = new HashMap<String,String>();
+            Map<String,String> skipped_month = new HashMap<String, String>();
+            for(int i = 0;i<(int)month_array.length;i++)
+            {
+
+                amount.put(month_array[i],"0");
+                //check_month_map.put(month_array[i],1);
+            }
+            check_month_map.clear();
             while (resultSet.next())
             {
+                skipped_month.put(resultSet.getString(1),resultSet.getString(3));
                 paid_month[count++] = resultSet.getString(1);
+                amount.put(resultSet.getString(1),resultSet.getString(2));
+                check_month_map.put(resultSet.getString(1),1);
             }
             resultSet.beforeFirst();
-            for(int i=0;i<(int)month.length;i++)
+            for(int i=0;i<(int)month_array.length;i++)
             {
                 String status = "NOT PAID";
 
                 try {
-                    if (is_month_found(paid_month, month[i])) {
+                    if (is_month_found(paid_month, month_array[i])) {
                         status = "PAID";
+                    }
+                    if(skipped_month.get(month_array[i]).equals("1"))
+                    {
+                        status = "SKIPPED";
                     }
                 }
                 catch (Exception ex)
@@ -117,7 +210,7 @@ public class Add_student_payment {
                     status = "NOT PAID";
                 }
 
-                defaultTableModel.addRow(new String[] {month[i],status});
+                defaultTableModel.addRow(new String[] {month_array[i],status,amount.get(month_array[i])});
             }
         }
         catch (Exception ex)
@@ -176,9 +269,9 @@ public class Add_student_payment {
 
         try
         {
-            for(int i = 0;i<(int)month.length;i++)
+            for(int i = 0;i<(int)month_array.length;i++)
             {
-                month_combobox.addItem(month[i]);
+                month_combobox.addItem(month_array[i]);
             }
         }
         catch (Exception ex)
@@ -203,15 +296,16 @@ public class Add_student_payment {
         //table1.setEnabled(false);
         table1.setDefaultEditor(Object.class, null);
         String [] select_month = new String[15];
-        for(int i = 0;i<(int)month.length;i++)
+        for(int i = 0;i<(int)month_array.length;i++)
         {
-            select_month[i] = month[i];
+            select_month[i] = month_array[i];
         }
         select_month[12]="NONE";
 
         SAVEButton.setFocusable(false);
 
         skip_month_list.setListData(select_month);
+        purpose_combobox.setEditable(true);
         JFrame jFrame = new JFrame("Orbit Coaching");
         jFrame.setContentPane(panel1);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -223,6 +317,8 @@ public class Add_student_payment {
             @Override
             public void actionPerformed(ActionEvent e) {
                 fill_data();
+
+
             }
         });
         year_combobox.addActionListener(new ActionListener() {
@@ -257,7 +353,10 @@ public class Add_student_payment {
         SAVEButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 insert_to_database();
+
+
             }
         });
 
