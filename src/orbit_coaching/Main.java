@@ -27,7 +27,7 @@ public class Main {
 
         //Edit_marks edit_marks = new Edit_marks();
 
-        Add_student_payment add_student_payment = new Add_student_payment();
-
+       // Add_student_payment add_student_payment = new Add_student_payment();
+        Course_wise_result_show course_wise_result_show = new Course_wise_result_show();
     }
 }

@@ -41,8 +41,9 @@ public class Add_student_payment {
         ArrayList<String>previous_month = new ArrayList<>();
         for(int i = 0;i<(int)selected_indices.length;i++) {
             if (skip_month_list.getModel().getElementAt(selected_indices[i]).toString().equals("NONE")) {
-
-            } else {
+                    continue;
+            }
+            else {
                 arrayList.add(skip_month_list.getModel().getElementAt(selected_indices[i]).toString());
             }
         }

@@ -31,120 +31,154 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="20" column="10" lean-forward="false" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="189">
+              <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Add_student_payment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Add_student_payment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Add_student_payment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="62" column="63" lean-forward="false" selection-start-line="62" selection-start-column="63" selection-end-line="62" selection-end-column="63" />
+            <state relative-caret-position="988">
+              <caret line="314" column="32" lean-forward="true" selection-start-line="314" selection-start-column="32" selection-end-line="314" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6225#6240#0" expanded="true" />
-                <element signature="e#6302#6318#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Database_query.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Database_query.java">
+      <file leaf-file-name="Insert_marks.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Insert_marks.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="369" column="64" lean-forward="false" selection-start-line="369" selection-start-column="64" selection-end-line="369" selection-end-column="64" />
+            <state relative-caret-position="-2363">
+              <caret line="122" column="44" lean-forward="true" selection-start-line="122" selection-start-column="44" selection-end-line="122" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1510611344150" expanded="true" signature="294:479" ph="CREATE TABLE... Admin" />
-                <marker date="1510611344150" expanded="true" signature="526:1152" ph="CREATE TABLE... Student" />
-                <marker date="1510611344150" expanded="true" signature="526:1163" ph="CREATE TABLE... Student" />
-                <marker date="1510611344150" expanded="true" signature="526:1166" ph="CREATE TABLE... Student" />
-                <marker date="1510611344150" expanded="true" signature="526:1208" ph="CREATE TABLE... Student" />
-                <marker date="1510611344150" expanded="true" signature="526:1209" ph="CREATE TABLE... Student" />
-                <marker date="1510611344150" expanded="true" signature="526:1246" ph="CREATE TABLE... Student" />
-                <marker date="1510611344150" expanded="true" signature="526:1275" ph="CREATE TABLE... Student" />
-                <marker date="1510611344150" expanded="true" signature="526:1277" ph="CREATE TABLE... Student" />
-                <marker date="1510611344150" expanded="true" signature="1325:1584" ph="CREATE TABLE... Teacher" />
-                <marker date="1510611344150" expanded="true" signature="1631:1971" ph="CREATE TABLE... Subject" />
-                <marker date="1510611344150" expanded="true" signature="1972:1973" ph="CREATE TABLE... Subject" />
-                <marker date="1510611344150" expanded="true" signature="2016:2095" ph="CREATE TABLE... Marks" />
-                <marker date="1510611344150" expanded="true" signature="2016:2096" ph="CREATE TABLE... Marks" />
-                <marker date="1510611344150" expanded="true" signature="2016:2301" ph="CREATE TABLE... Marks" />
-                <marker date="1510611344150" expanded="true" signature="2016:2319" ph="CREATE TABLE... Marks" />
-                <marker date="1510611344150" expanded="true" signature="2368:2752" ph="CREATE TABLE... Billing_student" />
-                <marker date="1510611344150" expanded="true" signature="2368:2772" ph="CREATE TABLE... Billing_student" />
-                <marker date="1510611344150" expanded="true" signature="2818:3051" ph="CREATE TABLE... billing_other" />
-                <marker date="1510611344150" expanded="true" signature="3104:3340" ph="CREATE TABLE... billing_other" />
-                <marker date="1510611344150" expanded="true" signature="5404:5431" ph="SELECT * FRO... Admin" />
-                <marker date="1510611344150" expanded="true" signature="5571:5621" ph="INSERT INTO Admin... " />
-                <marker date="1510611344150" expanded="true" signature="6354:6389" ph="SELECT DISTI... Student" />
-                <marker date="1510611344150" expanded="true" signature="6933:6966" ph="SELECT * fro... Student" />
-                <marker date="1510611344150" expanded="true" signature="6933:6974" ph="SELECT * fro... Student" />
-                <marker date="1510611344150" expanded="true" signature="7535:7581" ph="SELECT roll Student" />
-                <marker date="1510611344150" expanded="true" signature="7535:7592" ph="SELECT roll Student" />
-                <marker date="1510611344150" expanded="true" signature="7535:7602" ph="SELECT roll Student" />
-                <marker date="1510611344150" expanded="true" signature="7535:7642" ph="SELECT roll Student" />
-                <marker date="1510611344150" expanded="true" signature="8175:8198" ph="SELECT * fro... Student" />
-                <marker date="1510611344150" expanded="true" signature="8175:8208" ph="SELECT roll Student" />
-                <marker date="1510611344150" expanded="true" signature="8175:8231" ph="SELECT roll Student" />
-                <marker date="1510611344150" expanded="true" signature="8829:8849" ph="SELECT * fro... Marks" />
-                <marker date="1510611344150" expanded="true" signature="8829:8860" ph="SELECT * fro... Marks" />
-                <marker date="1510611344150" expanded="true" signature="8829:8872" ph="SELECT * fro... Marks" />
-                <marker date="1510611344150" expanded="true" signature="8829:8878" ph="SELECT * fro... Marks" />
-                <marker date="1510611344150" expanded="true" signature="8829:8880" ph="SELECT * fro... Marks" />
-                <marker date="1510611344150" expanded="true" signature="8829:8882" ph="SELECT * fro... Marks" />
-                <marker date="1510611344150" expanded="true" signature="8829:8884" ph="SELECT * fro... Marks" />
-                <marker date="1510611344150" expanded="true" signature="8829:8888" ph="SELECT * fro... Marks" />
-                <marker date="1510611344150" expanded="true" signature="8829:8903" ph="SELECT * fro... Marks" />
-                <marker date="1510611344150" expanded="true" signature="8829:9005" ph="SELECT * fro... Marks" />
-                <marker date="1510611344150" expanded="true" signature="9531:9565" ph="SELECT DISTI... Student" />
-                <marker date="1510611344150" expanded="true" signature="9531:9597" ph="SELECT DISTI... Student" />
-                <marker date="1510611344150" expanded="true" signature="10127:10173" ph="SELECT DISTI... Student" />
-                <marker date="1510611344150" expanded="true" signature="10127:10177" ph="SELECT DISTI... Marks" />
-                <marker date="1510611344150" expanded="true" signature="10127:10186" ph="SELECT DISTI... Marks" />
-                <marker date="1510611344150" expanded="true" signature="10711:10784" ph="SELECT DISTI... Student" />
-                <marker date="1510611344150" expanded="true" signature="11338:11358" ph="SELECT DISTI... " />
-                <marker date="1510611344150" expanded="true" signature="11338:11369" ph="SELECT DISTI... " />
-                <marker date="1510611344150" expanded="true" signature="11338:11375" ph="SELECT DISTI... Marks" />
-                <marker date="1510611344150" expanded="true" signature="11338:11380" ph="SELECT DISTI... Marks" />
-                <marker date="1510611344150" expanded="true" signature="11338:11382" ph="SELECT DISTI... Student" />
-                <marker date="1510611344150" expanded="true" signature="11338:11391" ph="SELECT DISTI... Marks" />
-                <marker date="1510611344150" expanded="true" signature="11338:11392" ph="SELECT DISTI... Marks" />
-                <marker date="1510611344150" expanded="true" signature="11338:11394" ph="SELECT DISTI... Marks" />
-                <marker date="1510611344150" expanded="true" signature="11338:11401" ph="SELECT DISTI... Marks" />
-                <marker date="1510611344150" expanded="true" signature="11338:11405" ph="SELECT DISTI... Marks" />
-                <marker date="1510611344150" expanded="true" signature="11338:11408" ph="SELECT DISTI... Marks" />
-                <marker date="1510611344150" expanded="true" signature="11338:11409" ph="SELECT DISTI... Marks" />
-                <marker date="1510611344150" expanded="true" signature="11338:11414" ph="SELECT DISTI... Marks" />
-                <marker date="1510611344150" expanded="true" signature="11338:11429" ph="SELECT DISTI... Marks" />
-                <marker date="1510611344150" expanded="true" signature="11984:12070" ph="SELECT month... billing_student" />
-                <marker date="1510611344150" expanded="true" signature="11984:12071" ph="SELECT month... billing_student" />
-                <marker date="1510611344150" expanded="true" signature="12617:12653" ph="SELECT name Student" />
-                <marker date="1510611344150" expanded="true" signature="12617:12659" ph="SELECT month... billing_student" />
-                <marker date="1510611344150" expanded="true" signature="13347:13374" ph="INSERT INTO billing_student... " />
-                <marker date="1510611344150" expanded="true" signature="13347:13424" ph="INSERT INTO billing_student... " />
-                <marker date="1510611344150" expanded="true" signature="13347:13475" ph="INSERT INTO billing_student... " />
-                <marker date="1510611344150" expanded="true" signature="14497:14526" ph="SELECT DISTI... student_billing" />
-                <marker date="1510611344150" expanded="true" signature="14497:14541" ph="SELECT DISTI... billng_student" />
-                <marker date="1510611344150" expanded="true" signature="15234:15435" ph="INSERT INTO Admin... " />
-                <marker date="1510611344150" expanded="true" signature="16886:17132" ph="UPDATE Stude... " />
-                <marker date="1510611344150" expanded="true" signature="16886:17143" ph="UPDATE Stude... " />
-                <marker date="1510611344150" expanded="true" signature="18491:18497" ph="SELECT DISTI... Student" />
-                <marker date="1510611344150" expanded="true" signature="18491:18518" ph="SELECT roll,... Stude" />
-                <marker date="1510611344150" expanded="true" signature="18491:18520" ph="SELECT roll,... Student" />
-                <marker date="1510611344150" expanded="true" signature="18491:18538" ph="SELECT roll,... Student" />
-                <marker date="1510611344150" expanded="true" signature="18491:18539" ph="SELECT roll,... Student" />
-                <marker date="1510611344150" expanded="true" signature="18491:18551" ph="SELECT roll,... Student" />
-                <marker date="1510611344150" expanded="true" signature="18491:18572" ph="SELECT roll,... Student" />
-                <marker date="1510611344150" expanded="true" signature="18491:18578" ph="SELECT roll,... Student" />
-                <marker date="1510611344150" expanded="true" signature="18491:18615" ph="SELECT roll,... Student" />
-                <marker date="1510611344150" expanded="true" signature="18491:18619" ph="SELECT roll,... Student" />
+                <marker date="1511616001661" expanded="true" signature="3185:3270" ph="INSERT INTO Admin... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Course_wise_result_show.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Course_wise_result_show.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="121" column="40" lean-forward="false" selection-start-line="121" selection-start-column="40" selection-end-line="121" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Database_query.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Database_query.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="355" column="11" lean-forward="false" selection-start-line="355" selection-start-column="11" selection-end-line="355" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1511787840173" expanded="true" signature="294:479" ph="CREATE TABLE... Admin" />
+                <marker date="1511787840173" expanded="true" signature="526:647" ph="CREATE TABLE... Student" />
+                <marker date="1511787840173" expanded="true" signature="526:665" ph="CREATE TABLE... Student" />
+                <marker date="1511787840173" expanded="true" signature="526:1197" ph="CREATE TABLE... Student" />
+                <marker date="1511787840173" expanded="true" signature="526:1208" ph="CREATE TABLE... Student" />
+                <marker date="1511787840173" expanded="true" signature="526:1211" ph="CREATE TABLE... Student" />
+                <marker date="1511787840173" expanded="true" signature="526:1253" ph="CREATE TABLE... Student" />
+                <marker date="1511787840173" expanded="true" signature="526:1254" ph="CREATE TABLE... Student" />
+                <marker date="1511787840173" expanded="true" signature="526:1291" ph="CREATE TABLE... Student" />
+                <marker date="1511787840173" expanded="true" signature="526:1320" ph="CREATE TABLE... Student" />
+                <marker date="1511787840173" expanded="true" signature="526:1322" ph="CREATE TABLE... Student" />
+                <marker date="1511787840173" expanded="true" signature="1370:1629" ph="CREATE TABLE... Teacher" />
+                <marker date="1511787840173" expanded="true" signature="1676:2016" ph="CREATE TABLE... Subject" />
+                <marker date="1511787840173" expanded="true" signature="2017:2018" ph="CREATE TABLE... Subject" />
+                <marker date="1511787840173" expanded="true" signature="2061:2140" ph="CREATE TABLE... Marks" />
+                <marker date="1511787840173" expanded="true" signature="2061:2141" ph="CREATE TABLE... Marks" />
+                <marker date="1511787840173" expanded="true" signature="2061:2391" ph="CREATE TABLE... Marks" />
+                <marker date="1511787840173" expanded="true" signature="2061:2409" ph="CREATE TABLE... Marks" />
+                <marker date="1511787840173" expanded="true" signature="2458:2842" ph="CREATE TABLE... Billing_student" />
+                <marker date="1511787840173" expanded="true" signature="2458:2862" ph="CREATE TABLE... Billing_student" />
+                <marker date="1511787840173" expanded="true" signature="2908:3141" ph="CREATE TABLE... billing_other" />
+                <marker date="1511787840173" expanded="true" signature="3194:3430" ph="CREATE TABLE... billing_other" />
+                <marker date="1511787840173" expanded="true" signature="5494:5521" ph="SELECT * FRO... Admin" />
+                <marker date="1511787840173" expanded="true" signature="5661:5711" ph="INSERT INTO Admin... " />
+                <marker date="1511787840173" expanded="true" signature="6444:6479" ph="SELECT DISTI... Student" />
+                <marker date="1511787840173" expanded="true" signature="7023:7056" ph="SELECT * fro... Student" />
+                <marker date="1511787840173" expanded="true" signature="7023:7064" ph="SELECT * fro... Student" />
+                <marker date="1511787840173" expanded="true" signature="7625:7671" ph="SELECT roll Student" />
+                <marker date="1511787840173" expanded="true" signature="7625:7682" ph="SELECT roll Student" />
+                <marker date="1511787840173" expanded="true" signature="7625:7692" ph="SELECT roll Student" />
+                <marker date="1511787840173" expanded="true" signature="7625:7732" ph="SELECT roll Student" />
+                <marker date="1511787840173" expanded="true" signature="8265:8288" ph="SELECT * fro... Student" />
+                <marker date="1511787840173" expanded="true" signature="8265:8298" ph="SELECT roll Student" />
+                <marker date="1511787840173" expanded="true" signature="8265:8321" ph="SELECT roll Student" />
+                <marker date="1511787840173" expanded="true" signature="8919:8939" ph="SELECT * fro... Marks" />
+                <marker date="1511787840173" expanded="true" signature="8919:8950" ph="SELECT * fro... Marks" />
+                <marker date="1511787840173" expanded="true" signature="8919:8962" ph="SELECT * fro... Marks" />
+                <marker date="1511787840173" expanded="true" signature="8919:8968" ph="SELECT * fro... Marks" />
+                <marker date="1511787840173" expanded="true" signature="8919:8970" ph="SELECT * fro... Marks" />
+                <marker date="1511787840173" expanded="true" signature="8919:8972" ph="SELECT * fro... Marks" />
+                <marker date="1511787840173" expanded="true" signature="8919:8974" ph="SELECT * fro... Marks" />
+                <marker date="1511787840173" expanded="true" signature="8919:8978" ph="SELECT * fro... Marks" />
+                <marker date="1511787840173" expanded="true" signature="8919:8993" ph="SELECT * fro... Marks" />
+                <marker date="1511787840173" expanded="true" signature="8919:9095" ph="SELECT * fro... Marks" />
+                <marker date="1511787840173" expanded="true" signature="9621:9655" ph="SELECT DISTI... Student" />
+                <marker date="1511787840173" expanded="true" signature="9621:9687" ph="SELECT DISTI... Student" />
+                <marker date="1511787840173" expanded="true" signature="10217:10263" ph="SELECT DISTI... Student" />
+                <marker date="1511787840173" expanded="true" signature="10217:10267" ph="SELECT DISTI... Marks" />
+                <marker date="1511787840173" expanded="true" signature="10217:10276" ph="SELECT DISTI... Marks" />
+                <marker date="1511787840173" expanded="true" signature="10826:10873" ph="SELECT DISTI... Marks" />
+                <marker date="1511787840173" expanded="true" signature="10826:10903" ph="SELECT DISTI... Marks" />
+                <marker date="1511787840173" expanded="true" signature="11498:11563" ph="SELECT roll,... Marks" />
+                <marker date="1511787840173" expanded="true" signature="11498:11586" ph="SELECT roll,... Marks" />
+                <marker date="1511787840173" expanded="true" signature="11498:11636" ph="SELECT roll,... Marks" />
+                <marker date="1511787840173" expanded="true" signature="11498:11638" ph="SELECT roll,... Marks" />
+                <marker date="1511787840173" expanded="true" signature="11498:11648" ph="SELECT roll,... Marks" />
+                <marker date="1511787840173" expanded="true" signature="11498:11662" ph="SELECT roll,... Marks" />
+                <marker date="1511787840173" expanded="true" signature="12204:12240" ph="SELECT name Student" />
+                <marker date="1511787840173" expanded="true" signature="12274:12351" ph="SELECT DISTI... Marks" />
+                <marker date="1511787840173" expanded="true" signature="12877:12950" ph="SELECT DISTI... Student" />
+                <marker date="1511787840173" expanded="true" signature="13504:13524" ph="SELECT DISTI... " />
+                <marker date="1511787840173" expanded="true" signature="13504:13535" ph="SELECT DISTI... " />
+                <marker date="1511787840173" expanded="true" signature="13504:13541" ph="SELECT DISTI... Marks" />
+                <marker date="1511787840173" expanded="true" signature="13504:13546" ph="SELECT DISTI... Marks" />
+                <marker date="1511787840173" expanded="true" signature="13504:13548" ph="SELECT DISTI... Student" />
+                <marker date="1511787840173" expanded="true" signature="13504:13557" ph="SELECT DISTI... Marks" />
+                <marker date="1511787840173" expanded="true" signature="13504:13558" ph="SELECT DISTI... Marks" />
+                <marker date="1511787840173" expanded="true" signature="13504:13560" ph="SELECT DISTI... Marks" />
+                <marker date="1511787840173" expanded="true" signature="13504:13567" ph="SELECT DISTI... Marks" />
+                <marker date="1511787840173" expanded="true" signature="13504:13571" ph="SELECT DISTI... Marks" />
+                <marker date="1511787840173" expanded="true" signature="13504:13574" ph="SELECT DISTI... Marks" />
+                <marker date="1511787840173" expanded="true" signature="13504:13575" ph="SELECT DISTI... Marks" />
+                <marker date="1511787840173" expanded="true" signature="13504:13580" ph="SELECT DISTI... Marks" />
+                <marker date="1511787840173" expanded="true" signature="13504:13595" ph="SELECT DISTI... Marks" />
+                <marker date="1511787840173" expanded="true" signature="13504:13640" ph="SELECT DISTI... Marks" />
+                <marker date="1511787840173" expanded="true" signature="14196:14282" ph="SELECT month... billing_student" />
+                <marker date="1511787840173" expanded="true" signature="14196:14283" ph="SELECT month... billing_student" />
+                <marker date="1511787840173" expanded="true" signature="14829:14865" ph="SELECT name Student" />
+                <marker date="1511787840173" expanded="true" signature="14829:14871" ph="SELECT month... billing_student" />
+                <marker date="1511787840173" expanded="true" signature="15559:15586" ph="INSERT INTO billing_student... " />
+                <marker date="1511787840173" expanded="true" signature="15559:15636" ph="INSERT INTO billing_student... " />
+                <marker date="1511787840173" expanded="true" signature="15559:15687" ph="INSERT INTO billing_student... " />
+                <marker date="1511787840173" expanded="true" signature="16709:16738" ph="SELECT DISTI... student_billing" />
+                <marker date="1511787840173" expanded="true" signature="16709:16753" ph="SELECT DISTI... billng_student" />
+                <marker date="1511787840173" expanded="true" signature="17446:17647" ph="INSERT INTO Admin... " />
+                <marker date="1511787840173" expanded="true" signature="19098:19344" ph="UPDATE Stude... " />
+                <marker date="1511787840173" expanded="true" signature="19098:19355" ph="UPDATE Stude... " />
+                <marker date="1511787840173" expanded="true" signature="20703:20709" ph="SELECT DISTI... Student" />
+                <marker date="1511787840173" expanded="true" signature="20703:20730" ph="SELECT roll,... Stude" />
+                <marker date="1511787840173" expanded="true" signature="20703:20732" ph="SELECT roll,... Student" />
+                <marker date="1511787840173" expanded="true" signature="20703:20750" ph="SELECT roll,... Student" />
+                <marker date="1511787840173" expanded="true" signature="20703:20751" ph="SELECT roll,... Student" />
+                <marker date="1511787840173" expanded="true" signature="20703:20763" ph="SELECT roll,... Student" />
+                <marker date="1511787840173" expanded="true" signature="20703:20784" ph="SELECT roll,... Student" />
+                <marker date="1511787840173" expanded="true" signature="20703:20790" ph="SELECT roll,... Student" />
+                <marker date="1511787840173" expanded="true" signature="20703:20827" ph="SELECT roll,... Student" />
+                <marker date="1511787840173" expanded="true" signature="20703:20831" ph="SELECT roll,... Student" />
               </folding>
             </state>
           </provider>
@@ -174,6 +208,8 @@
       <find>check_mo</find>
       <find>check</find>
       <find>noNE</find>
+      <find>exam_ty</find>
+      <find>exam_da</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -188,7 +224,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/orbit_coaching/HomeClass.java" />
-        <option value="$PROJECT_DIR$/src/orbit_coaching/Home.form" />
         <option value="$PROJECT_DIR$/src/orbit_coaching/Login_form.form" />
         <option value="$PROJECT_DIR$/src/orbit_coaching/Pop_up.java" />
         <option value="D:/mysql-connector-java-5.1.44/mysql-connector-java-5.1.44-bin.jar!/com/mysql/jdbc/PreparedStatement.class" />
@@ -196,19 +231,22 @@
         <option value="$PROJECT_DIR$/src/orbit_coaching/Input_marks_configuration.java" />
         <option value="$PROJECT_DIR$/src/orbit_coaching/Input_marks_configuration.form" />
         <option value="$PROJECT_DIR$/src/orbit_coaching/Insert_marks.form" />
-        <option value="$PROJECT_DIR$/src/orbit_coaching/Home.java" />
         <option value="$PROJECT_DIR$/src/orbit_coaching/Add_student.form" />
-        <option value="$PROJECT_DIR$/src/orbit_coaching/Add_student.java" />
         <option value="$PROJECT_DIR$/src/orbit_coaching/Edit_student.form" />
-        <option value="$PROJECT_DIR$/src/orbit_coaching/Insert_marks.java" />
         <option value="$PROJECT_DIR$/src/orbit_coaching/Edit_marks.form" />
         <option value="$PROJECT_DIR$/src/orbit_coaching/Test_data_input.java" />
+        <option value="$PROJECT_DIR$/src/orbit_coaching/Add_student_payment.form" />
+        <option value="$PROJECT_DIR$/src/orbit_coaching/Add_student_payment.java" />
+        <option value="$PROJECT_DIR$/src/orbit_coaching/Home.form" />
+        <option value="$PROJECT_DIR$/src/orbit_coaching/Add_student.java" />
         <option value="$PROJECT_DIR$/src/orbit_coaching/Edit_student.java" />
         <option value="$PROJECT_DIR$/src/orbit_coaching/Edit_marks.java" />
-        <option value="$PROJECT_DIR$/src/orbit_coaching/Add_student_payment.form" />
-        <option value="$PROJECT_DIR$/src/orbit_coaching/Database_query.java" />
+        <option value="$PROJECT_DIR$/src/orbit_coaching/Insert_marks.java" />
+        <option value="$PROJECT_DIR$/src/orbit_coaching/Home.java" />
         <option value="$PROJECT_DIR$/src/orbit_coaching/Main.java" />
-        <option value="$PROJECT_DIR$/src/orbit_coaching/Add_student_payment.java" />
+        <option value="$PROJECT_DIR$/src/orbit_coaching/Course_wise_result_show.form" />
+        <option value="$PROJECT_DIR$/src/orbit_coaching/Course_wise_result_show.java" />
+        <option value="$PROJECT_DIR$/src/orbit_coaching/Database_query.java" />
       </list>
     </option>
   </component>
@@ -218,7 +256,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1346" />
@@ -240,7 +278,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -264,13 +303,6 @@
               <item name="Orbit Coaching Tabulation System" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="orbit_coaching" type="462c0819:PsiDirectoryNode" />
-              <item name="Add_student" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="Orbit Coaching Tabulation System" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Orbit Coaching Tabulation System" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="orbit_coaching" type="462c0819:PsiDirectoryNode" />
               <item name="Add_student_payment" type="e9f4de52:FormNode" />
             </path>
             <path>
@@ -278,28 +310,7 @@
               <item name="Orbit Coaching Tabulation System" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="orbit_coaching" type="462c0819:PsiDirectoryNode" />
-              <item name="Edit_marks" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="Orbit Coaching Tabulation System" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Orbit Coaching Tabulation System" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="orbit_coaching" type="462c0819:PsiDirectoryNode" />
-              <item name="Edit_student" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="Orbit Coaching Tabulation System" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Orbit Coaching Tabulation System" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="orbit_coaching" type="462c0819:PsiDirectoryNode" />
-              <item name="Home" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="Orbit Coaching Tabulation System" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Orbit Coaching Tabulation System" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="orbit_coaching" type="462c0819:PsiDirectoryNode" />
-              <item name="Input_marks_configuration" type="e9f4de52:FormNode" />
+              <item name="Course_wise_result_show" type="e9f4de52:FormNode" />
             </path>
             <path>
               <item name="Orbit Coaching Tabulation System" type="b2602c69:ProjectViewProjectNode" />
@@ -308,20 +319,12 @@
               <item name="orbit_coaching" type="462c0819:PsiDirectoryNode" />
               <item name="Insert_marks" type="e9f4de52:FormNode" />
             </path>
-            <path>
-              <item name="Orbit Coaching Tabulation System" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Orbit Coaching Tabulation System" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="orbit_coaching" type="462c0819:PsiDirectoryNode" />
-              <item name="Login_form" type="e9f4de52:FormNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -486,15 +489,18 @@
       <workItem from="1510492777449" duration="1695000" />
       <workItem from="1510511358899" duration="15016000" />
       <workItem from="1510599286061" duration="11391000" />
-      <workItem from="1510615712904" duration="7883000" />
+      <workItem from="1510615712904" duration="8804000" />
+      <workItem from="1511614682521" duration="5118000" />
+      <workItem from="1511781496442" duration="273000" />
+      <workItem from="1511782084529" duration="5747000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157831000" />
+    <option name="totallyTimeSpent" value="169890000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -505,8 +511,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27332243" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -516,8 +522,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934534" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -539,26 +545,11 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Add_student.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Home.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Add_student.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1462">
           <caret line="91" column="32" lean-forward="false" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -566,9 +557,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="15" column="49" lean-forward="false" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -578,90 +567,103 @@
           <caret line="159" column="13" lean-forward="true" selection-start-line="159" selection-start-column="13" selection-end-line="159" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1510611344150" expanded="true" signature="294:479" ph="CREATE TABLE... Admin" />
-            <marker date="1510611344150" expanded="true" signature="526:1152" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1163" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1166" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1208" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1209" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1246" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1275" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1277" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="1325:1584" ph="CREATE TABLE... Teacher" />
-            <marker date="1510611344150" expanded="true" signature="1631:1971" ph="CREATE TABLE... Subject" />
-            <marker date="1510611344150" expanded="true" signature="1972:1973" ph="CREATE TABLE... Subject" />
-            <marker date="1510611344150" expanded="true" signature="2016:2095" ph="CREATE TABLE... Marks" />
-            <marker date="1510611344150" expanded="true" signature="2016:2096" ph="CREATE TABLE... Marks" />
-            <marker date="1510611344150" expanded="true" signature="2016:2301" ph="CREATE TABLE... Marks" />
-            <marker date="1510611344150" expanded="true" signature="2016:2319" ph="CREATE TABLE... Marks" />
-            <marker date="1510611344150" expanded="true" signature="2368:2752" ph="CREATE TABLE... Billing_student" />
-            <marker date="1510611344150" expanded="true" signature="2368:2772" ph="CREATE TABLE... Billing_student" />
-            <marker date="1510611344150" expanded="true" signature="2818:3051" ph="CREATE TABLE... billing_other" />
-            <marker date="1510611344150" expanded="true" signature="3104:3340" ph="CREATE TABLE... billing_other" />
-            <marker date="1510611344150" expanded="true" signature="5404:5431" ph="SELECT * FRO... Admin" />
-            <marker date="1510611344150" expanded="true" signature="5571:5621" ph="INSERT INTO Admin... " />
-            <marker date="1510611344150" expanded="true" signature="6354:6389" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="6933:6966" ph="SELECT * fro... Student" />
-            <marker date="1510611344150" expanded="true" signature="6933:6974" ph="SELECT * fro... Student" />
-            <marker date="1510611344150" expanded="true" signature="7535:7581" ph="SELECT roll Student" />
-            <marker date="1510611344150" expanded="true" signature="7535:7592" ph="SELECT roll Student" />
-            <marker date="1510611344150" expanded="true" signature="7535:7602" ph="SELECT roll Student" />
-            <marker date="1510611344150" expanded="true" signature="7535:7642" ph="SELECT roll Student" />
-            <marker date="1510611344150" expanded="true" signature="8175:8198" ph="SELECT * fro... Student" />
-            <marker date="1510611344150" expanded="true" signature="8175:8208" ph="SELECT roll Student" />
-            <marker date="1510611344150" expanded="true" signature="8175:8231" ph="SELECT roll Student" />
-            <marker date="1510611344150" expanded="true" signature="8829:8849" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8860" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8872" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8878" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8880" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8882" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8884" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8888" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8903" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:9005" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="9531:9565" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="9531:9597" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="10127:10173" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="10127:10177" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="10127:10186" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="10711:10784" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="11338:11358" ph="SELECT DISTI... " />
-            <marker date="1510611344150" expanded="true" signature="11338:11369" ph="SELECT DISTI... " />
-            <marker date="1510611344150" expanded="true" signature="11338:11375" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11380" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11382" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="11338:11391" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11392" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11394" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11401" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11405" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11408" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11409" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11414" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11429" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11984:12070" ph="SELECT month... billing_student" />
-            <marker date="1510611344150" expanded="true" signature="11984:12071" ph="SELECT month... billing_student" />
-            <marker date="1510611344150" expanded="true" signature="12617:12653" ph="SELECT name Student" />
-            <marker date="1510611344150" expanded="true" signature="12617:12659" ph="SELECT month... billing_student" />
-            <marker date="1510611344150" expanded="true" signature="13347:13374" ph="INSERT INTO billing_student... " />
-            <marker date="1510611344150" expanded="true" signature="13347:13424" ph="INSERT INTO billing_student... " />
-            <marker date="1510611344150" expanded="true" signature="13347:13475" ph="INSERT INTO billing_student... " />
-            <marker date="1510611344150" expanded="true" signature="14497:14526" ph="SELECT DISTI... student_billing" />
-            <marker date="1510611344150" expanded="true" signature="14497:14541" ph="SELECT DISTI... billng_student" />
-            <marker date="1510611344150" expanded="true" signature="15234:15435" ph="INSERT INTO Admin... " />
-            <marker date="1510611344150" expanded="true" signature="16886:17132" ph="UPDATE Stude... " />
-            <marker date="1510611344150" expanded="true" signature="16886:17143" ph="UPDATE Stude... " />
-            <marker date="1510611344150" expanded="true" signature="18491:18497" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18518" ph="SELECT roll,... Stude" />
-            <marker date="1510611344150" expanded="true" signature="18491:18520" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18538" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18539" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18551" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18572" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18578" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18615" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18619" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="294:479" ph="CREATE TABLE... Admin" />
+            <marker date="1511787840173" expanded="true" signature="526:647" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:665" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1197" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1208" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1211" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1253" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1254" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1291" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1320" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1322" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="1370:1629" ph="CREATE TABLE... Teacher" />
+            <marker date="1511787840173" expanded="true" signature="1676:2016" ph="CREATE TABLE... Subject" />
+            <marker date="1511787840173" expanded="true" signature="2017:2018" ph="CREATE TABLE... Subject" />
+            <marker date="1511787840173" expanded="true" signature="2061:2140" ph="CREATE TABLE... Marks" />
+            <marker date="1511787840173" expanded="true" signature="2061:2141" ph="CREATE TABLE... Marks" />
+            <marker date="1511787840173" expanded="true" signature="2061:2391" ph="CREATE TABLE... Marks" />
+            <marker date="1511787840173" expanded="true" signature="2061:2409" ph="CREATE TABLE... Marks" />
+            <marker date="1511787840173" expanded="true" signature="2458:2842" ph="CREATE TABLE... Billing_student" />
+            <marker date="1511787840173" expanded="true" signature="2458:2862" ph="CREATE TABLE... Billing_student" />
+            <marker date="1511787840173" expanded="true" signature="2908:3141" ph="CREATE TABLE... billing_other" />
+            <marker date="1511787840173" expanded="true" signature="3194:3430" ph="CREATE TABLE... billing_other" />
+            <marker date="1511787840173" expanded="true" signature="5494:5521" ph="SELECT * FRO... Admin" />
+            <marker date="1511787840173" expanded="true" signature="5661:5711" ph="INSERT INTO Admin... " />
+            <marker date="1511787840173" expanded="true" signature="6444:6479" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="7023:7056" ph="SELECT * fro... Student" />
+            <marker date="1511787840173" expanded="true" signature="7023:7064" ph="SELECT * fro... Student" />
+            <marker date="1511787840173" expanded="true" signature="7625:7671" ph="SELECT roll Student" />
+            <marker date="1511787840173" expanded="true" signature="7625:7682" ph="SELECT roll Student" />
+            <marker date="1511787840173" expanded="true" signature="7625:7692" ph="SELECT roll Student" />
+            <marker date="1511787840173" expanded="true" signature="7625:7732" ph="SELECT roll Student" />
+            <marker date="1511787840173" expanded="true" signature="8265:8288" ph="SELECT * fro... Student" />
+            <marker date="1511787840173" expanded="true" signature="8265:8298" ph="SELECT roll Student" />
+            <marker date="1511787840173" expanded="true" signature="8265:8321" ph="SELECT roll Student" />
+            <marker date="1511787840173" expanded="true" signature="8919:8939" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8950" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8962" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8968" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8970" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8972" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8974" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8978" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8993" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:9095" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="9621:9655" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="9621:9687" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="10217:10263" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="10217:10267" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="10217:10276" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="10826:10873" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="10826:10903" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="11498:11563" ph="SELECT roll,... Marks" />
+            <marker date="1511787840173" expanded="true" signature="11498:11586" ph="SELECT roll,... Marks" />
+            <marker date="1511787840173" expanded="true" signature="11498:11636" ph="SELECT roll,... Marks" />
+            <marker date="1511787840173" expanded="true" signature="11498:11638" ph="SELECT roll,... Marks" />
+            <marker date="1511787840173" expanded="true" signature="11498:11648" ph="SELECT roll,... Marks" />
+            <marker date="1511787840173" expanded="true" signature="11498:11662" ph="SELECT roll,... Marks" />
+            <marker date="1511787840173" expanded="true" signature="12204:12240" ph="SELECT name Student" />
+            <marker date="1511787840173" expanded="true" signature="12274:12351" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="12877:12950" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="13504:13524" ph="SELECT DISTI... " />
+            <marker date="1511787840173" expanded="true" signature="13504:13535" ph="SELECT DISTI... " />
+            <marker date="1511787840173" expanded="true" signature="13504:13541" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13546" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13548" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="13504:13557" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13558" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13560" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13567" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13571" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13574" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13575" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13580" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13595" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13640" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="14196:14282" ph="SELECT month... billing_student" />
+            <marker date="1511787840173" expanded="true" signature="14196:14283" ph="SELECT month... billing_student" />
+            <marker date="1511787840173" expanded="true" signature="14829:14865" ph="SELECT name Student" />
+            <marker date="1511787840173" expanded="true" signature="14829:14871" ph="SELECT month... billing_student" />
+            <marker date="1511787840173" expanded="true" signature="15559:15586" ph="INSERT INTO billing_student... " />
+            <marker date="1511787840173" expanded="true" signature="15559:15636" ph="INSERT INTO billing_student... " />
+            <marker date="1511787840173" expanded="true" signature="15559:15687" ph="INSERT INTO billing_student... " />
+            <marker date="1511787840173" expanded="true" signature="16709:16738" ph="SELECT DISTI... student_billing" />
+            <marker date="1511787840173" expanded="true" signature="16709:16753" ph="SELECT DISTI... billng_student" />
+            <marker date="1511787840173" expanded="true" signature="17446:17647" ph="INSERT INTO Admin... " />
+            <marker date="1511787840173" expanded="true" signature="19098:19344" ph="UPDATE Stude... " />
+            <marker date="1511787840173" expanded="true" signature="19098:19355" ph="UPDATE Stude... " />
+            <marker date="1511787840173" expanded="true" signature="20703:20709" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20730" ph="SELECT roll,... Stude" />
+            <marker date="1511787840173" expanded="true" signature="20703:20732" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20750" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20751" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20763" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20784" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20790" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20827" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20831" ph="SELECT roll,... Student" />
           </folding>
         </state>
       </provider>
@@ -696,9 +698,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -729,90 +729,103 @@
           <caret line="145" column="14" lean-forward="false" selection-start-line="145" selection-start-column="14" selection-end-line="145" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1510611344150" expanded="true" signature="294:479" ph="CREATE TABLE... Admin" />
-            <marker date="1510611344150" expanded="true" signature="526:1152" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1163" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1166" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1208" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1209" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1246" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1275" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1277" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="1325:1584" ph="CREATE TABLE... Teacher" />
-            <marker date="1510611344150" expanded="true" signature="1631:1971" ph="CREATE TABLE... Subject" />
-            <marker date="1510611344150" expanded="true" signature="1972:1973" ph="CREATE TABLE... Subject" />
-            <marker date="1510611344150" expanded="true" signature="2016:2095" ph="CREATE TABLE... Marks" />
-            <marker date="1510611344150" expanded="true" signature="2016:2096" ph="CREATE TABLE... Marks" />
-            <marker date="1510611344150" expanded="true" signature="2016:2301" ph="CREATE TABLE... Marks" />
-            <marker date="1510611344150" expanded="true" signature="2016:2319" ph="CREATE TABLE... Marks" />
-            <marker date="1510611344150" expanded="true" signature="2368:2752" ph="CREATE TABLE... Billing_student" />
-            <marker date="1510611344150" expanded="true" signature="2368:2772" ph="CREATE TABLE... Billing_student" />
-            <marker date="1510611344150" expanded="true" signature="2818:3051" ph="CREATE TABLE... billing_other" />
-            <marker date="1510611344150" expanded="true" signature="3104:3340" ph="CREATE TABLE... billing_other" />
-            <marker date="1510611344150" expanded="true" signature="5404:5431" ph="SELECT * FRO... Admin" />
-            <marker date="1510611344150" expanded="true" signature="5571:5621" ph="INSERT INTO Admin... " />
-            <marker date="1510611344150" expanded="true" signature="6354:6389" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="6933:6966" ph="SELECT * fro... Student" />
-            <marker date="1510611344150" expanded="true" signature="6933:6974" ph="SELECT * fro... Student" />
-            <marker date="1510611344150" expanded="true" signature="7535:7581" ph="SELECT roll Student" />
-            <marker date="1510611344150" expanded="true" signature="7535:7592" ph="SELECT roll Student" />
-            <marker date="1510611344150" expanded="true" signature="7535:7602" ph="SELECT roll Student" />
-            <marker date="1510611344150" expanded="true" signature="7535:7642" ph="SELECT roll Student" />
-            <marker date="1510611344150" expanded="true" signature="8175:8198" ph="SELECT * fro... Student" />
-            <marker date="1510611344150" expanded="true" signature="8175:8208" ph="SELECT roll Student" />
-            <marker date="1510611344150" expanded="true" signature="8175:8231" ph="SELECT roll Student" />
-            <marker date="1510611344150" expanded="true" signature="8829:8849" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8860" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8872" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8878" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8880" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8882" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8884" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8888" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8903" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:9005" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="9531:9565" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="9531:9597" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="10127:10173" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="10127:10177" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="10127:10186" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="10711:10784" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="11338:11358" ph="SELECT DISTI... " />
-            <marker date="1510611344150" expanded="true" signature="11338:11369" ph="SELECT DISTI... " />
-            <marker date="1510611344150" expanded="true" signature="11338:11375" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11380" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11382" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="11338:11391" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11392" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11394" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11401" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11405" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11408" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11409" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11414" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11429" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11984:12070" ph="SELECT month... billing_student" />
-            <marker date="1510611344150" expanded="true" signature="11984:12071" ph="SELECT month... billing_student" />
-            <marker date="1510611344150" expanded="true" signature="12617:12653" ph="SELECT name Student" />
-            <marker date="1510611344150" expanded="true" signature="12617:12659" ph="SELECT month... billing_student" />
-            <marker date="1510611344150" expanded="true" signature="13347:13374" ph="INSERT INTO billing_student... " />
-            <marker date="1510611344150" expanded="true" signature="13347:13424" ph="INSERT INTO billing_student... " />
-            <marker date="1510611344150" expanded="true" signature="13347:13475" ph="INSERT INTO billing_student... " />
-            <marker date="1510611344150" expanded="true" signature="14497:14526" ph="SELECT DISTI... student_billing" />
-            <marker date="1510611344150" expanded="true" signature="14497:14541" ph="SELECT DISTI... billng_student" />
-            <marker date="1510611344150" expanded="true" signature="15234:15435" ph="INSERT INTO Admin... " />
-            <marker date="1510611344150" expanded="true" signature="16886:17132" ph="UPDATE Stude... " />
-            <marker date="1510611344150" expanded="true" signature="16886:17143" ph="UPDATE Stude... " />
-            <marker date="1510611344150" expanded="true" signature="18491:18497" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18518" ph="SELECT roll,... Stude" />
-            <marker date="1510611344150" expanded="true" signature="18491:18520" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18538" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18539" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18551" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18572" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18578" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18615" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18619" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="294:479" ph="CREATE TABLE... Admin" />
+            <marker date="1511787840173" expanded="true" signature="526:647" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:665" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1197" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1208" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1211" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1253" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1254" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1291" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1320" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1322" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="1370:1629" ph="CREATE TABLE... Teacher" />
+            <marker date="1511787840173" expanded="true" signature="1676:2016" ph="CREATE TABLE... Subject" />
+            <marker date="1511787840173" expanded="true" signature="2017:2018" ph="CREATE TABLE... Subject" />
+            <marker date="1511787840173" expanded="true" signature="2061:2140" ph="CREATE TABLE... Marks" />
+            <marker date="1511787840173" expanded="true" signature="2061:2141" ph="CREATE TABLE... Marks" />
+            <marker date="1511787840173" expanded="true" signature="2061:2391" ph="CREATE TABLE... Marks" />
+            <marker date="1511787840173" expanded="true" signature="2061:2409" ph="CREATE TABLE... Marks" />
+            <marker date="1511787840173" expanded="true" signature="2458:2842" ph="CREATE TABLE... Billing_student" />
+            <marker date="1511787840173" expanded="true" signature="2458:2862" ph="CREATE TABLE... Billing_student" />
+            <marker date="1511787840173" expanded="true" signature="2908:3141" ph="CREATE TABLE... billing_other" />
+            <marker date="1511787840173" expanded="true" signature="3194:3430" ph="CREATE TABLE... billing_other" />
+            <marker date="1511787840173" expanded="true" signature="5494:5521" ph="SELECT * FRO... Admin" />
+            <marker date="1511787840173" expanded="true" signature="5661:5711" ph="INSERT INTO Admin... " />
+            <marker date="1511787840173" expanded="true" signature="6444:6479" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="7023:7056" ph="SELECT * fro... Student" />
+            <marker date="1511787840173" expanded="true" signature="7023:7064" ph="SELECT * fro... Student" />
+            <marker date="1511787840173" expanded="true" signature="7625:7671" ph="SELECT roll Student" />
+            <marker date="1511787840173" expanded="true" signature="7625:7682" ph="SELECT roll Student" />
+            <marker date="1511787840173" expanded="true" signature="7625:7692" ph="SELECT roll Student" />
+            <marker date="1511787840173" expanded="true" signature="7625:7732" ph="SELECT roll Student" />
+            <marker date="1511787840173" expanded="true" signature="8265:8288" ph="SELECT * fro... Student" />
+            <marker date="1511787840173" expanded="true" signature="8265:8298" ph="SELECT roll Student" />
+            <marker date="1511787840173" expanded="true" signature="8265:8321" ph="SELECT roll Student" />
+            <marker date="1511787840173" expanded="true" signature="8919:8939" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8950" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8962" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8968" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8970" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8972" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8974" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8978" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8993" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:9095" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="9621:9655" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="9621:9687" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="10217:10263" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="10217:10267" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="10217:10276" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="10826:10873" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="10826:10903" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="11498:11563" ph="SELECT roll,... Marks" />
+            <marker date="1511787840173" expanded="true" signature="11498:11586" ph="SELECT roll,... Marks" />
+            <marker date="1511787840173" expanded="true" signature="11498:11636" ph="SELECT roll,... Marks" />
+            <marker date="1511787840173" expanded="true" signature="11498:11638" ph="SELECT roll,... Marks" />
+            <marker date="1511787840173" expanded="true" signature="11498:11648" ph="SELECT roll,... Marks" />
+            <marker date="1511787840173" expanded="true" signature="11498:11662" ph="SELECT roll,... Marks" />
+            <marker date="1511787840173" expanded="true" signature="12204:12240" ph="SELECT name Student" />
+            <marker date="1511787840173" expanded="true" signature="12274:12351" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="12877:12950" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="13504:13524" ph="SELECT DISTI... " />
+            <marker date="1511787840173" expanded="true" signature="13504:13535" ph="SELECT DISTI... " />
+            <marker date="1511787840173" expanded="true" signature="13504:13541" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13546" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13548" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="13504:13557" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13558" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13560" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13567" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13571" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13574" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13575" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13580" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13595" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13640" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="14196:14282" ph="SELECT month... billing_student" />
+            <marker date="1511787840173" expanded="true" signature="14196:14283" ph="SELECT month... billing_student" />
+            <marker date="1511787840173" expanded="true" signature="14829:14865" ph="SELECT name Student" />
+            <marker date="1511787840173" expanded="true" signature="14829:14871" ph="SELECT month... billing_student" />
+            <marker date="1511787840173" expanded="true" signature="15559:15586" ph="INSERT INTO billing_student... " />
+            <marker date="1511787840173" expanded="true" signature="15559:15636" ph="INSERT INTO billing_student... " />
+            <marker date="1511787840173" expanded="true" signature="15559:15687" ph="INSERT INTO billing_student... " />
+            <marker date="1511787840173" expanded="true" signature="16709:16738" ph="SELECT DISTI... student_billing" />
+            <marker date="1511787840173" expanded="true" signature="16709:16753" ph="SELECT DISTI... billng_student" />
+            <marker date="1511787840173" expanded="true" signature="17446:17647" ph="INSERT INTO Admin... " />
+            <marker date="1511787840173" expanded="true" signature="19098:19344" ph="UPDATE Stude... " />
+            <marker date="1511787840173" expanded="true" signature="19098:19355" ph="UPDATE Stude... " />
+            <marker date="1511787840173" expanded="true" signature="20703:20709" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20730" ph="SELECT roll,... Stude" />
+            <marker date="1511787840173" expanded="true" signature="20703:20732" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20750" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20751" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20763" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20784" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20790" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20827" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20831" ph="SELECT roll,... Student" />
           </folding>
         </state>
       </provider>
@@ -821,9 +834,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -897,9 +908,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -936,11 +945,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Home.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar://D:/mysql-connector-java-5.1.44/mysql-connector-java-5.1.44-bin.jar!/com/mysql/jdbc/PreparedStatement.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -974,60 +978,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Add_student_payment.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Insert_marks.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Add_student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1301">
-          <caret line="49" column="29" lean-forward="false" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Edit_student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1828">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Home.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-431">
-          <caret line="32" column="60" lean-forward="false" selection-start-line="32" selection-start-column="60" selection-end-line="32" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Input_marks_configuration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="118" column="20" lean-forward="false" selection-start-line="118" selection-start-column="20" selection-end-line="121" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Insert_marks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1026">
-          <caret line="235" column="24" lean-forward="false" selection-start-line="235" selection-start-column="24" selection-end-line="235" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1510438215683" expanded="true" signature="3112:3197" ph="INSERT INTO Admin... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1043,38 +997,107 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-77">
           <caret line="54" column="49" lean-forward="false" selection-start-line="54" selection-start-column="49" selection-end-line="54" selection-end-column="49" />
-          <folding>
-            <marker date="1510493243006" expanded="true" signature="615:820" ph="INSERT INTO Student... " />
-            <marker date="1510493243006" expanded="true" signature="2384:2469" ph="INSERT INTO Student... " />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Home.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Add_student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1921">
+          <caret line="123" column="16" lean-forward="false" selection-start-line="123" selection-start-column="16" selection-end-line="123" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Edit_student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2397">
+          <caret line="147" column="39" lean-forward="false" selection-start-line="147" selection-start-column="39" selection-end-line="147" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Edit_marks.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-451">
-          <caret line="196" column="8" lean-forward="false" selection-start-line="196" selection-start-column="8" selection-end-line="200" selection-end-column="0" />
+        <state relative-caret-position="3366">
+          <caret line="212" column="67" lean-forward="false" selection-start-line="212" selection-start-column="67" selection-end-line="212" selection-end-column="67" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1510515524869" expanded="true" signature="1989:2006" ph="DELETE FROM " />
-            <marker date="1510515524869" expanded="true" signature="1989:2018" ph="DELETE FROM " />
-            <marker date="1510515524869" expanded="true" signature="1989:2053" ph="DELETE FROM " />
-            <marker date="1510515524869" expanded="true" signature="1989:2086" ph="DELETE FROM " />
-            <marker date="1510515524869" expanded="true" signature="1989:2091" ph="DELETE FROM " />
-            <marker date="1510515524869" expanded="true" signature="1989:2112" ph="DELETE FROM " />
-            <marker date="1510515524869" expanded="true" signature="1989:2117" ph="DELETE FROM " />
-            <marker date="1510515524869" expanded="true" signature="1989:2127" ph="DELETE FROM " />
-            <marker date="1510515524869" expanded="true" signature="1989:2129" ph="DELETE FROM " />
-            <marker date="1510515524869" expanded="true" signature="2227:2292" ph="INSERT INTO Marks... " />
-            <marker date="1510515524869" expanded="true" signature="2227:2346" ph="INSERT INTO Marks... " />
+            <element signature="imports" expanded="false" />
+            <marker date="1511615961485" expanded="true" signature="2062:2079" ph="DELETE FROM " />
+            <marker date="1511615961485" expanded="true" signature="2062:2091" ph="DELETE FROM " />
+            <marker date="1511615961485" expanded="true" signature="2062:2126" ph="DELETE FROM " />
+            <marker date="1511615961485" expanded="true" signature="2062:2159" ph="DELETE FROM " />
+            <marker date="1511615961485" expanded="true" signature="2062:2164" ph="DELETE FROM " />
+            <marker date="1511615961485" expanded="true" signature="2062:2185" ph="DELETE FROM " />
+            <marker date="1511615961485" expanded="true" signature="2062:2190" ph="DELETE FROM " />
+            <marker date="1511615961485" expanded="true" signature="2062:2200" ph="DELETE FROM " />
+            <marker date="1511615961485" expanded="true" signature="2062:2202" ph="DELETE FROM " />
+            <marker date="1511615961485" expanded="true" signature="2300:2365" ph="INSERT INTO Marks... " />
+            <marker date="1511615961485" expanded="true" signature="2300:2419" ph="INSERT INTO Marks... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Home.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="20" column="10" lean-forward="false" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+        <state relative-caret-position="189">
+          <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Insert_marks.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Add_student_payment.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Add_student_payment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="988">
+          <caret line="314" column="32" lean-forward="true" selection-start-line="314" selection-start-column="32" selection-end-line="314" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Insert_marks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2363">
+          <caret line="122" column="44" lean-forward="true" selection-start-line="122" selection-start-column="44" selection-end-line="122" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1511616001661" expanded="true" signature="3185:3270" ph="INSERT INTO Admin... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Course_wise_result_show.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Course_wise_result_show.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="121" column="40" lean-forward="false" selection-start-line="121" selection-start-column="40" selection-end-line="121" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1083,106 +1106,107 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Database_query.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="369" column="64" lean-forward="false" selection-start-line="369" selection-start-column="64" selection-end-line="369" selection-end-column="64" />
+        <state relative-caret-position="224">
+          <caret line="355" column="11" lean-forward="false" selection-start-line="355" selection-start-column="11" selection-end-line="355" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1510611344150" expanded="true" signature="294:479" ph="CREATE TABLE... Admin" />
-            <marker date="1510611344150" expanded="true" signature="526:1152" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1163" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1166" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1208" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1209" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1246" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1275" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="526:1277" ph="CREATE TABLE... Student" />
-            <marker date="1510611344150" expanded="true" signature="1325:1584" ph="CREATE TABLE... Teacher" />
-            <marker date="1510611344150" expanded="true" signature="1631:1971" ph="CREATE TABLE... Subject" />
-            <marker date="1510611344150" expanded="true" signature="1972:1973" ph="CREATE TABLE... Subject" />
-            <marker date="1510611344150" expanded="true" signature="2016:2095" ph="CREATE TABLE... Marks" />
-            <marker date="1510611344150" expanded="true" signature="2016:2096" ph="CREATE TABLE... Marks" />
-            <marker date="1510611344150" expanded="true" signature="2016:2301" ph="CREATE TABLE... Marks" />
-            <marker date="1510611344150" expanded="true" signature="2016:2319" ph="CREATE TABLE... Marks" />
-            <marker date="1510611344150" expanded="true" signature="2368:2752" ph="CREATE TABLE... Billing_student" />
-            <marker date="1510611344150" expanded="true" signature="2368:2772" ph="CREATE TABLE... Billing_student" />
-            <marker date="1510611344150" expanded="true" signature="2818:3051" ph="CREATE TABLE... billing_other" />
-            <marker date="1510611344150" expanded="true" signature="3104:3340" ph="CREATE TABLE... billing_other" />
-            <marker date="1510611344150" expanded="true" signature="5404:5431" ph="SELECT * FRO... Admin" />
-            <marker date="1510611344150" expanded="true" signature="5571:5621" ph="INSERT INTO Admin... " />
-            <marker date="1510611344150" expanded="true" signature="6354:6389" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="6933:6966" ph="SELECT * fro... Student" />
-            <marker date="1510611344150" expanded="true" signature="6933:6974" ph="SELECT * fro... Student" />
-            <marker date="1510611344150" expanded="true" signature="7535:7581" ph="SELECT roll Student" />
-            <marker date="1510611344150" expanded="true" signature="7535:7592" ph="SELECT roll Student" />
-            <marker date="1510611344150" expanded="true" signature="7535:7602" ph="SELECT roll Student" />
-            <marker date="1510611344150" expanded="true" signature="7535:7642" ph="SELECT roll Student" />
-            <marker date="1510611344150" expanded="true" signature="8175:8198" ph="SELECT * fro... Student" />
-            <marker date="1510611344150" expanded="true" signature="8175:8208" ph="SELECT roll Student" />
-            <marker date="1510611344150" expanded="true" signature="8175:8231" ph="SELECT roll Student" />
-            <marker date="1510611344150" expanded="true" signature="8829:8849" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8860" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8872" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8878" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8880" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8882" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8884" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8888" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:8903" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="8829:9005" ph="SELECT * fro... Marks" />
-            <marker date="1510611344150" expanded="true" signature="9531:9565" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="9531:9597" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="10127:10173" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="10127:10177" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="10127:10186" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="10711:10784" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="11338:11358" ph="SELECT DISTI... " />
-            <marker date="1510611344150" expanded="true" signature="11338:11369" ph="SELECT DISTI... " />
-            <marker date="1510611344150" expanded="true" signature="11338:11375" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11380" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11382" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="11338:11391" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11392" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11394" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11401" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11405" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11408" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11409" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11414" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11338:11429" ph="SELECT DISTI... Marks" />
-            <marker date="1510611344150" expanded="true" signature="11984:12070" ph="SELECT month... billing_student" />
-            <marker date="1510611344150" expanded="true" signature="11984:12071" ph="SELECT month... billing_student" />
-            <marker date="1510611344150" expanded="true" signature="12617:12653" ph="SELECT name Student" />
-            <marker date="1510611344150" expanded="true" signature="12617:12659" ph="SELECT month... billing_student" />
-            <marker date="1510611344150" expanded="true" signature="13347:13374" ph="INSERT INTO billing_student... " />
-            <marker date="1510611344150" expanded="true" signature="13347:13424" ph="INSERT INTO billing_student... " />
-            <marker date="1510611344150" expanded="true" signature="13347:13475" ph="INSERT INTO billing_student... " />
-            <marker date="1510611344150" expanded="true" signature="14497:14526" ph="SELECT DISTI... student_billing" />
-            <marker date="1510611344150" expanded="true" signature="14497:14541" ph="SELECT DISTI... billng_student" />
-            <marker date="1510611344150" expanded="true" signature="15234:15435" ph="INSERT INTO Admin... " />
-            <marker date="1510611344150" expanded="true" signature="16886:17132" ph="UPDATE Stude... " />
-            <marker date="1510611344150" expanded="true" signature="16886:17143" ph="UPDATE Stude... " />
-            <marker date="1510611344150" expanded="true" signature="18491:18497" ph="SELECT DISTI... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18518" ph="SELECT roll,... Stude" />
-            <marker date="1510611344150" expanded="true" signature="18491:18520" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18538" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18539" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18551" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18572" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18578" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18615" ph="SELECT roll,... Student" />
-            <marker date="1510611344150" expanded="true" signature="18491:18619" ph="SELECT roll,... Student" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/orbit_coaching/Add_student_payment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="62" column="63" lean-forward="false" selection-start-line="62" selection-start-column="63" selection-end-line="62" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6225#6240#0" expanded="true" />
-            <element signature="e#6302#6318#0" expanded="true" />
+            <marker date="1511787840173" expanded="true" signature="294:479" ph="CREATE TABLE... Admin" />
+            <marker date="1511787840173" expanded="true" signature="526:647" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:665" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1197" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1208" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1211" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1253" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1254" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1291" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1320" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="526:1322" ph="CREATE TABLE... Student" />
+            <marker date="1511787840173" expanded="true" signature="1370:1629" ph="CREATE TABLE... Teacher" />
+            <marker date="1511787840173" expanded="true" signature="1676:2016" ph="CREATE TABLE... Subject" />
+            <marker date="1511787840173" expanded="true" signature="2017:2018" ph="CREATE TABLE... Subject" />
+            <marker date="1511787840173" expanded="true" signature="2061:2140" ph="CREATE TABLE... Marks" />
+            <marker date="1511787840173" expanded="true" signature="2061:2141" ph="CREATE TABLE... Marks" />
+            <marker date="1511787840173" expanded="true" signature="2061:2391" ph="CREATE TABLE... Marks" />
+            <marker date="1511787840173" expanded="true" signature="2061:2409" ph="CREATE TABLE... Marks" />
+            <marker date="1511787840173" expanded="true" signature="2458:2842" ph="CREATE TABLE... Billing_student" />
+            <marker date="1511787840173" expanded="true" signature="2458:2862" ph="CREATE TABLE... Billing_student" />
+            <marker date="1511787840173" expanded="true" signature="2908:3141" ph="CREATE TABLE... billing_other" />
+            <marker date="1511787840173" expanded="true" signature="3194:3430" ph="CREATE TABLE... billing_other" />
+            <marker date="1511787840173" expanded="true" signature="5494:5521" ph="SELECT * FRO... Admin" />
+            <marker date="1511787840173" expanded="true" signature="5661:5711" ph="INSERT INTO Admin... " />
+            <marker date="1511787840173" expanded="true" signature="6444:6479" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="7023:7056" ph="SELECT * fro... Student" />
+            <marker date="1511787840173" expanded="true" signature="7023:7064" ph="SELECT * fro... Student" />
+            <marker date="1511787840173" expanded="true" signature="7625:7671" ph="SELECT roll Student" />
+            <marker date="1511787840173" expanded="true" signature="7625:7682" ph="SELECT roll Student" />
+            <marker date="1511787840173" expanded="true" signature="7625:7692" ph="SELECT roll Student" />
+            <marker date="1511787840173" expanded="true" signature="7625:7732" ph="SELECT roll Student" />
+            <marker date="1511787840173" expanded="true" signature="8265:8288" ph="SELECT * fro... Student" />
+            <marker date="1511787840173" expanded="true" signature="8265:8298" ph="SELECT roll Student" />
+            <marker date="1511787840173" expanded="true" signature="8265:8321" ph="SELECT roll Student" />
+            <marker date="1511787840173" expanded="true" signature="8919:8939" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8950" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8962" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8968" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8970" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8972" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8974" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8978" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:8993" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="8919:9095" ph="SELECT * fro... Marks" />
+            <marker date="1511787840173" expanded="true" signature="9621:9655" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="9621:9687" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="10217:10263" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="10217:10267" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="10217:10276" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="10826:10873" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="10826:10903" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="11498:11563" ph="SELECT roll,... Marks" />
+            <marker date="1511787840173" expanded="true" signature="11498:11586" ph="SELECT roll,... Marks" />
+            <marker date="1511787840173" expanded="true" signature="11498:11636" ph="SELECT roll,... Marks" />
+            <marker date="1511787840173" expanded="true" signature="11498:11638" ph="SELECT roll,... Marks" />
+            <marker date="1511787840173" expanded="true" signature="11498:11648" ph="SELECT roll,... Marks" />
+            <marker date="1511787840173" expanded="true" signature="11498:11662" ph="SELECT roll,... Marks" />
+            <marker date="1511787840173" expanded="true" signature="12204:12240" ph="SELECT name Student" />
+            <marker date="1511787840173" expanded="true" signature="12274:12351" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="12877:12950" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="13504:13524" ph="SELECT DISTI... " />
+            <marker date="1511787840173" expanded="true" signature="13504:13535" ph="SELECT DISTI... " />
+            <marker date="1511787840173" expanded="true" signature="13504:13541" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13546" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13548" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="13504:13557" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13558" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13560" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13567" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13571" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13574" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13575" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13580" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13595" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="13504:13640" ph="SELECT DISTI... Marks" />
+            <marker date="1511787840173" expanded="true" signature="14196:14282" ph="SELECT month... billing_student" />
+            <marker date="1511787840173" expanded="true" signature="14196:14283" ph="SELECT month... billing_student" />
+            <marker date="1511787840173" expanded="true" signature="14829:14865" ph="SELECT name Student" />
+            <marker date="1511787840173" expanded="true" signature="14829:14871" ph="SELECT month... billing_student" />
+            <marker date="1511787840173" expanded="true" signature="15559:15586" ph="INSERT INTO billing_student... " />
+            <marker date="1511787840173" expanded="true" signature="15559:15636" ph="INSERT INTO billing_student... " />
+            <marker date="1511787840173" expanded="true" signature="15559:15687" ph="INSERT INTO billing_student... " />
+            <marker date="1511787840173" expanded="true" signature="16709:16738" ph="SELECT DISTI... student_billing" />
+            <marker date="1511787840173" expanded="true" signature="16709:16753" ph="SELECT DISTI... billng_student" />
+            <marker date="1511787840173" expanded="true" signature="17446:17647" ph="INSERT INTO Admin... " />
+            <marker date="1511787840173" expanded="true" signature="19098:19344" ph="UPDATE Stude... " />
+            <marker date="1511787840173" expanded="true" signature="19098:19355" ph="UPDATE Stude... " />
+            <marker date="1511787840173" expanded="true" signature="20703:20709" ph="SELECT DISTI... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20730" ph="SELECT roll,... Stude" />
+            <marker date="1511787840173" expanded="true" signature="20703:20732" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20750" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20751" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20763" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20784" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20790" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20827" ph="SELECT roll,... Student" />
+            <marker date="1511787840173" expanded="true" signature="20703:20831" ph="SELECT roll,... Student" />
           </folding>
         </state>
       </provider>

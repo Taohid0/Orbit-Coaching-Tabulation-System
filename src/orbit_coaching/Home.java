@@ -1,22 +1,51 @@
 package orbit_coaching;
 
+import sun.util.resources.cldr.es.CalendarData_es_PY;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 public class Home {
     private JPanel homePanel;
-    private JButton button1;
     private JMenu file_menu,student_menu,result_menu,teacher_menu,bill_menu,help_menu;
     private JMenuItem add_student,edit_student;
     private JMenuItem input_marks,edit_marks,studentwise_result,coursewise_result,print_result,studentwise_print,coursewise_print;
+    private JMenu Print,Result,Payment,Total_transaction;
+    private JMenuItem Student_wise,Course_wise,Income,Expense,Monthly,Yearly;
 
     public Home()
     {
         JFrame jFrame = new JFrame("Orbit Coaching");
 
         JMenuBar jMenuBar = new JMenuBar();
+
+        Print = new JMenu("Print");
+        Result = new JMenu("Result");
+        Student_wise = new JMenuItem("Studentwise");
+        Course_wise = new JMenuItem("Coursewise");
+        Payment = new JMenu("Payment");
+        Income = new JMenuItem("Income");
+        Expense = new JMenuItem("Expense");
+        Total_transaction = new JMenu("Total transaction");
+        Monthly= new JMenuItem("Monthly");
+        Yearly = new JMenuItem("Yearly");
+
+        Result.add(Student_wise);
+        Result.add(Course_wise);
+
+        Payment.add(Income);
+        Payment.add(Expense);
+
+        Total_transaction.add(Monthly);
+        Total_transaction.add(Yearly);
+
+        Print.add(Result);
+        Print.add(Payment);
+        Print.add(Total_transaction);
+
 
         //file menu
         file_menu = new JMenu("File");
@@ -33,7 +62,7 @@ public class Home {
                 Add_student add_student = new Add_student();
             }
         });
-        edit_student = new JMenuItem("Edit Stuudent Info");
+        edit_student = new JMenuItem("Edit Student Info");
         student_menu.add(add_student);
         student_menu.add(edit_student);
         //result menu
@@ -53,12 +82,36 @@ public class Home {
 
         jMenuBar.add(student_menu);
         jMenuBar.add(result_menu);
+        jMenuBar.add(Print);
         jFrame.setJMenuBar(jMenuBar);
 
 
         jFrame.setContentPane(homePanel);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+
+        edit_student.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Edit_student edit_student = new Edit_student();
+            }
+        });
+        input_marks.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Insert_marks insert_marks = new Insert_marks();
+            }
+        });
+        edit_marks.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Edit_marks edit_marks = new Edit_marks();
+            }
+        });
 
         jFrame.pack();
 
