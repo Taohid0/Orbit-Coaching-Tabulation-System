@@ -353,7 +353,7 @@ public class Database_query {
 
             String query ="SELECT roll,temp_roll,obtained_markd,out_of FROM Marks WHERE cls="+cls+ " AND exam_type="+exam_type+ " " +
                     " AND date=\""+date+"\"";
-           
+
             resultSet= stmt.executeQuery(query);
         }
         catch (Exception ex)
@@ -372,6 +372,45 @@ public class Database_query {
             stmt = conn.createStatement();
             String query ="SELECT name FROM Student WHERE roll="+roll;
                     //// "SELECT DISTINCT exam_type from Marks WHERE cls="+cls+" ORDER BY exam_type ASC ;";
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public static ResultSet get_student_wise_marks(String year,String cls,String roll)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT exam_type,date,obtained_markd FROM Marks WHERE cls="+cls+" AND roll="+roll
+                    +" AND date LIKE "+"\"%"+year.toString()+"\" ";
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+
+    public static ResultSet get_highest_marks(String cls,String date,String exam_type)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT MAX(obtained_markd) FROM Marks WHERE cls="+cls+" AND exam_type="+exam_type
+                    +" AND date="+"\""+date+"\"";
             resultSet= stmt.executeQuery(query);
         }
         catch (Exception ex)

@@ -10,6 +10,8 @@ import javax.xml.crypto.Data;
 import javax.xml.transform.Result;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.awt.image.DataBuffer;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -357,6 +359,44 @@ public class Add_student_payment {
 
                 insert_to_database();
 
+
+            }
+        });
+
+        jFrame.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+              jFrame.dispose();
+              Home home = new Home();
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
 
             }
         });

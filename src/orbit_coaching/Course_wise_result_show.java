@@ -6,6 +6,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.sql.ResultSet;
 import java.util.Vector;
 
@@ -19,6 +21,8 @@ public class Course_wise_result_show {
     private JTable marks_table;
     private JComboBox year_comboBox1;
     private JPanel panel1;
+    private JButton print_button;
+    int highest_marks = 0,lowest_marks = 0;
 
 
     void fill_year()
@@ -100,6 +104,8 @@ public class Course_wise_result_show {
 
     void fill_table_data()
     {
+        highest_marks = 0;
+        lowest_marks=  10000;
         DefaultTableModel defaultTableModel = new DefaultTableModel(0,0);
         String header[] = {"Registration Number","Roll Number","Name","Obtained Marks"};
         defaultTableModel.setColumnIdentifiers(header);
@@ -126,8 +132,21 @@ public class Course_wise_result_show {
                 {
                     ex.printStackTrace();
                 }
+                String obtained_marks="Absent";
+                if(!resultSet.getString(3).equals("-1"))
+                {
+                    obtained_marks = resultSet.getString(3);
+                }
                 defaultTableModel.addRow(new String[]{resultSet.getString(1),resultSet.getString(2),
-                name,resultSet.getString(3)});
+                name,obtained_marks});
+                if(obtained_marks.charAt(0)!='A' && Integer.parseInt(obtained_marks)>highest_marks)
+                {
+                    highest_marks = Integer.parseInt(obtained_marks);
+                }
+                if(obtained_marks.charAt(0)!='A' && Integer.parseInt(obtained_marks)<lowest_marks)
+                {
+                    lowest_marks = Integer.parseInt(obtained_marks);
+                }
                 System.out.println(name);
 
             }
@@ -135,6 +154,8 @@ public class Course_wise_result_show {
             if(resultSet.next()) {
                 total_marks_textField1.setText(resultSet.getString(4));
             }
+            highest_marks_textField2.setText(Integer.toString(highest_marks));
+            lowest_marks_textField3.setText(Integer.toString(lowest_marks));
         }
         catch (Exception ex)
         {
@@ -174,6 +195,43 @@ public class Course_wise_result_show {
                 fill_exam_type();
                 fill_date();
                 fill_table_data();
+            }
+        });
+        jFrame.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                jFrame.dispose();
+                Home home = new Home();
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+
             }
         });
 
