@@ -24,6 +24,7 @@ public class Insert_marks {
     private JComboBox for_year_combobox;
     private JButton button1;
     private JTextField total_marks_textbox;
+    private JComboBox subject_combobox;
     int count=0;
 
     public void get_table_data()

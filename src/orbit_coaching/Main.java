@@ -29,6 +29,8 @@ public class Main {
 
        // Add_student_payment add_student_payment = new Add_student_payment();
         //Course_wise_result_show course_wise_result_show = new Course_wise_result_show();
-        Student_wise_result_show student_wise_result_show = new Student_wise_result_show();
+        //Student_wise_result_show student_wise_result_show = new Student_wise_result_show();
+        //Add_teacher add_teacher = new Add_teacher();
+        Teacher_attendance teacher_attendance = new Teacher_attendance();
     }
 }

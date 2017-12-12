@@ -16,6 +16,15 @@ public class Database_query {
         "    password VARCHAR(100),\n" +
         "    ID INT PRIMARY KEY AUTO_INCREMENT\n" +
         ");";
+
+    static String create_teacher_attendance_table = "CREATE TABLE Teacher_attendance\n" +
+            "(\n" +
+            "    teacher_id VARCHAR(25),\n" +
+            "    attendance_date VARCHAR(25),\n" +
+            "    shift_time VARCHAR(50),\n"+
+            "    ID INT PRIMARY KEY AUTO_INCREMENT\n" +
+            ");";
+
      static String create_student_table = "CREATE TABLE Student\n" +
              "(\n" +
              "    roll VARCHAR(25) PRIMARY KEY,\n" +
@@ -41,6 +50,7 @@ public class Database_query {
              "    name VARCHAR(100),\n" +
              "    institution VARCHAR(100),\n" +
              "    joining_date VARCHAR(20),\n" +
+             "    isDeleted BOOL DEFAULT 0,\n"+
              "    ID INT PRIMARY KEY AUTO_INCREMENT\n" +
              ");";
 
@@ -153,6 +163,14 @@ public class Database_query {
         try
         {
             stmt.execute(create_other_income_billing);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        try
+        {
+            stmt.execute(create_teacher_attendance_table);
         }
         catch (Exception ex)
         {
@@ -551,6 +569,44 @@ public class Database_query {
         return resultSet;
     }
 
+    public static ResultSet get_teachear_institution()
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT DISTINCT institution from Teacher ORDER BY (institution)";
+            resultSet= stmt.executeQuery(query);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public static ResultSet get_teachear_details()
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT ID,name from Teacher ORDER BY name,ID";
+            resultSet= stmt.executeQuery(query);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
     public static void insert_student(String name,String fname,String mname,String address,String c1,String c2,String
             admission_date,String birth_date, String roll,String cls,String group,String school,String bgroup,String for_year) {
         try {
@@ -577,6 +633,25 @@ public class Database_query {
             preparedStatement.setString(13,c2);
             preparedStatement.setString(14,for_year);
 
+            preparedStatement.execute();
+
+        } catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+    public static void insert_teacher(String name,String joining_date,String institution) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "INSERT INTO Teacher (name,joining_date,institution) VALUES(?,?,?);";
+
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setString(1,name);
+            preparedStatement.setString(2,joining_date);
+            preparedStatement.setString(3,institution);
             preparedStatement.execute();
 
         } catch (Exception ex)
