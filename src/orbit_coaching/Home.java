@@ -2,14 +2,21 @@ package orbit_coaching;
 
 import sun.util.resources.cldr.es.CalendarData_es_PY;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.sql.ResultSet;
+
+import static javafx.scene.input.KeyCode.F;
 
 public class Home {
     private JPanel homePanel;
+    private JPanel panel1;
+    private JLabel img;
     private JMenu file_menu,student_menu,result_menu,teacher_menu,bill_menu,help_menu;
     private JMenuItem add_student,edit_student;
     private JMenuItem input_marks,edit_marks,studentwise_result,coursewise_result,print_result,studentwise_print,coursewise_print;
@@ -113,11 +120,16 @@ public class Home {
             }
         });
 
+
         jFrame.pack();
 
 
         jFrame.setVisible(true);
 
+    }
+
+    private void createUIComponents() {
+        img = new JLabel(new ImageIcon("Orbit_Logo.png"));
     }
 }
 

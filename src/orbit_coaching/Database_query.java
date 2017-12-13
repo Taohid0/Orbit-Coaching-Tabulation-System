@@ -10,6 +10,9 @@ import java.util.Calendar;
 import static java.sql.DriverManager.getConnection;
 
 public class Database_query {
+
+    static String create_database = "CREATE DATABASE orbit_coaching_tabulation_system;";
+
      static String create_admin_table = "CREATE TABLE Admin\n" +
         "(\n" +
         "    user_name VARCHAR(100),\n" +
@@ -115,6 +118,15 @@ public class Database_query {
         catch (Exception ex) {
             ex.printStackTrace();
         }
+
+        try
+        {
+            stmt.execute(create_database);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
         try{
             stmt.execute(create_student_table);
 
@@ -176,6 +188,7 @@ public class Database_query {
         {
             ex.printStackTrace();
         }
+
     }
 
     public static ResultSet get_username_password()

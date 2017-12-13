@@ -13,7 +13,7 @@ public class Main {
         //System.out.println("hello".equals(v));
         //Database_query.do_start_up_query();
          //Test_data_input.insert_marks();
-        //Home home = new Home();
+        Home home = new Home();
         //Login_form login_form = new Login_form();
         // all show part should be added
         //Add_student add_student = new Add_student();
@@ -32,6 +32,6 @@ public class Main {
         //Student_wise_result_show student_wise_result_show = new Student_wise_result_show();
         //Add_teacher add_teacher = new Add_teacher();
         //Teacher_attendance teacher_attendance = new Teacher_attendance();
-        Teacher_attendance_show teacher_attendance_show = new Teacher_attendance_show();
+        //Teacher_attendance_show teacher_attendance_show = new Teacher_attendance_show();
     }
 }
