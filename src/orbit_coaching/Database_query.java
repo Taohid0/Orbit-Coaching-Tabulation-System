@@ -588,6 +588,47 @@ public class Database_query {
         return resultSet;
     }
 
+    public static ResultSet get_teacher_attendance(String ID,String yr)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT attendance_date,shift_time from Teacher_attendance " +
+                    "WHERE teacher_id="+ID +" AND attendance_date LIKE "+"\"%"+yr.toString()+"\" ORDER BY attendance_date ASC " +
+                    ",shift_time DESC ";
+            resultSet= stmt.executeQuery(query);
+
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public static ResultSet get_teachear_ids()
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT DISTINCT ID from Teacher ORDER BY ID;";
+            resultSet= stmt.executeQuery(query);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
     public static ResultSet get_teachear_details()
     {
         ResultSet resultSet=null;
@@ -597,6 +638,25 @@ public class Database_query {
                     "root", "");
             stmt = conn.createStatement();
             String query = "SELECT ID,name from Teacher ORDER BY name,ID";
+            resultSet= stmt.executeQuery(query);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public static ResultSet get_teachear_name_institution(String ID)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT name,institution from Teacher WHERE ID="+ID;
             resultSet= stmt.executeQuery(query);
 
         }

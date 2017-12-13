@@ -31,6 +31,7 @@ public class Main {
         //Course_wise_result_show course_wise_result_show = new Course_wise_result_show();
         //Student_wise_result_show student_wise_result_show = new Student_wise_result_show();
         //Add_teacher add_teacher = new Add_teacher();
-        Teacher_attendance teacher_attendance = new Teacher_attendance();
+        //Teacher_attendance teacher_attendance = new Teacher_attendance();
+        Teacher_attendance_show teacher_attendance_show = new Teacher_attendance_show();
     }
 }
