@@ -14,6 +14,7 @@ public class Add_teacher {
     private JTextField joining_date_textfield;
     private JButton save_button;
     private JComboBox institution_combobox;
+    private JComboBox year_combobox;
 
 
     public Add_teacher()
@@ -47,6 +48,20 @@ public class Add_teacher {
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
 
+        try{
+            ResultSet resultSet = Database_query.get_year();
+            resultSet.beforeFirst();
+
+            while (resultSet.next())
+            {
+              year_combobox.addItem(resultSet.getString(1));
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        year_combobox.setEditable(true);
 
         save_button.addActionListener(new ActionListener() {
             @Override
@@ -54,10 +69,11 @@ public class Add_teacher {
                 String name = name_textfield.getText();
                 String joininig_date = joining_date_textfield.getText();
                 String institution = institution_combobox.getSelectedItem().toString();
+                String yr = year_combobox.getSelectedItem().toString();
 
                 try
                 {
-                    Database_query.insert_teacher(name,joininig_date,institution);
+                    Database_query.insert_teacher(name,joininig_date,institution,yr);
                 }
                 catch (Exception ex)
                 {
@@ -103,6 +119,7 @@ public class Add_teacher {
 
             }
         });
+
 
     }
 

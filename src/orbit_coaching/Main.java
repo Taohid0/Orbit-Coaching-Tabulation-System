@@ -13,7 +13,7 @@ public class Main {
         //System.out.println("hello".equals(v));
         //Database_query.do_start_up_query();
          //Test_data_input.insert_marks();
-        Home home = new Home();
+        //Home home = new Home();
         //Login_form login_form = new Login_form();
         // all show part should be added
         //Add_student add_student = new Add_student();
@@ -21,7 +21,7 @@ public class Main {
         //Insert_marks insert_marks = new Insert_marks();
         //Database_query.get_active_students("class1","2017");
         //Input_marks_configuration input_marks_configuration = new Input_marks_configuration();
-          //Edit_student edit_student = new Edit_student();
+        //Edit_student edit_student = new Edit_student();
         //Test_data_input.insert_student();
         //get date query is incomplete
 
@@ -33,5 +33,6 @@ public class Main {
         //Add_teacher add_teacher = new Add_teacher();
         //Teacher_attendance teacher_attendance = new Teacher_attendance();
         //Teacher_attendance_show teacher_attendance_show = new Teacher_attendance_show();
+        show_all_teacher_list show_all_teacher = new show_all_teacher_list();
     }
 }
