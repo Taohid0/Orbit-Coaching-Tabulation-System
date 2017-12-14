@@ -33,6 +33,10 @@ public class Main {
         //Add_teacher add_teacher = new Add_teacher();
         //Teacher_attendance teacher_attendance = new Teacher_attendance();
         //Teacher_attendance_show teacher_attendance_show = new Teacher_attendance_show();
-        show_all_teacher_list show_all_teacher = new show_all_teacher_list();
+        //show_all_teacher_list show_all_teacher = new show_all_teacher_list();
+        //show_student_list show_studentList = new show_student_list();
+        //Show_student_by_school_and_year show_student_by_school_and_year = new Show_student_by_school_and_year();
+
+        Total_expense_year total_expense_year = new Total_expense_year();
     }
 }

@@ -50,8 +50,8 @@ public class Database_query {
 
      static String create_teacher_table = "CREATE TABLE Teacher\n" +
              "(\n" +
-             "    name VARCHAR(100),\n" +
-             "    institution VARCHAR(100),\n" +
+             "    name VARCHAR(200),\n" +
+             "    institution VARCHAR(250),\n" +
              "    joining_date VARCHAR(20),\n" +
              "    isDeleted BOOL DEFAULT 0,\n"+
              "    year VARCHAR(15),\n"+
@@ -264,6 +264,62 @@ public class Database_query {
         return resultSet;
     }
 
+
+    public static ResultSet get_student_of_year_class(String yr,String cls)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT roll,temp_roll,name,school from Student WHERE for_year="+yr+" AND class="+cls+";";
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public static ResultSet get_student_of_year_school(String yr,String school)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT roll,temp_roll,name,class from Student WHERE for_year="+yr+" AND school="+school+"" +
+                    " ORDER BY class,name;";
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public static ResultSet get_expense_year(String yr)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT to_whom,purpose,date,amount from billing_other WHERE "
+                    +" date LIKE "+"\"%"+yr.toString()+"\""+" ORDER BY to_whom " ;
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
 
     public static ResultSet get_roll_for_payment(String cls,String year)
     {
@@ -530,6 +586,26 @@ public class Database_query {
         }
         return resultSet;
     }
+
+    public static ResultSet get_name_schoolname_fname_mname(String roll)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT name,school,fname,mname from Student WHERE roll="+roll;
+            resultSet= stmt.executeQuery(query);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
 
     public static ResultSet input_student_payment(String roll,String cls,String month,String year,String date,
                                                   int skipped,String amount,String purpose)
