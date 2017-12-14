@@ -507,7 +507,7 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT exam_type,date,obtained_markd FROM Marks WHERE cls="+cls+" AND roll="+roll
+            String query = "SELECT exam_type,subject,date,obtained_markd FROM Marks WHERE cls="+cls+" AND roll="+roll
                     +" AND date LIKE "+"\"%"+year.toString()+"\" ";
             resultSet= stmt.executeQuery(query);
         }

@@ -81,7 +81,7 @@ public class Student_wise_result_show {
     {
         table1.removeAll();
         DefaultTableModel defaultTableModel = new DefaultTableModel(0,0);
-        String header[] = {"Exam","Date","Obtained Marks","Highest Marks"};
+        String header[] = {"EXAM","SUBJECT","DATE","OBTAINED MARKS","HIGHEST MARKS"};
         defaultTableModel.setColumnIdentifiers(header);
         table1.setModel(defaultTableModel);
 
@@ -98,6 +98,7 @@ public class Student_wise_result_show {
 
                 try
                 {
+
                     ResultSet highest_marks_result = Database_query.get_highest_marks(class_combobox.getSelectedItem().toString(),
                             resultSet.getString(2),resultSet.getString(1));
                     highest_marks_result.beforeFirst();
@@ -125,6 +126,7 @@ public class Student_wise_result_show {
                     ex.printStackTrace();
                 }
                 defaultTableModel.addRow(new String[]{resultSet.getString(1),resultSet.getString(2),
+                        resultSet.getString(3),
                 obtaind_marks,highest_marks});
             }
         }
@@ -184,6 +186,7 @@ public class Student_wise_result_show {
                 table1.getColumnModel().getColumn(1).setCellRenderer(rightRenderer);
                 table1.getColumnModel().getColumn(2).setCellRenderer(rightRenderer);
                 table1.getColumnModel().getColumn(3).setCellRenderer(rightRenderer);
+                table1.getColumnModel().getColumn(4).setCellRenderer(rightRenderer);
 
             }
         });

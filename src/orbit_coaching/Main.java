@@ -29,7 +29,7 @@ public class Main {
 
        // Add_student_payment add_student_payment = new Add_student_payment();
         //Course_wise_result_show course_wise_result_show = new Course_wise_result_show();
-        //Student_wise_result_show student_wise_result_show = new Student_wise_result_show();
+        Student_wise_result_show student_wise_result_show = new Student_wise_result_show();
         //Add_teacher add_teacher = new Add_teacher();
         //Teacher_attendance teacher_attendance = new Teacher_attendance();
         //Teacher_attendance_show teacher_attendance_show = new Teacher_attendance_show();
@@ -38,6 +38,6 @@ public class Main {
         //Show_student_by_school_and_year show_student_by_school_and_year = new Show_student_by_school_and_year();
 
         //Total_expense_year total_expense_year = new Total_expense_year();
-        Student_wise_result_one_exam student_wise_result_one_exam = new Student_wise_result_one_exam();
+        //Student_wise_result_one_exam student_wise_result_one_exam = new Student_wise_result_one_exam();
     }
 }
