@@ -8,6 +8,7 @@ import java.sql.*;
 import java.util.Calendar;
 
 import static java.sql.DriverManager.getConnection;
+import static java.sql.DriverManager.println;
 
 public class Database_query {
 
@@ -71,6 +72,7 @@ public class Database_query {
              "    roll VARCHAR(25),\n"+
              "    temp_roll VARCHAR(25),\n"+
              "    exam_type VARCHAR(100),\n" +
+             "    subject VARCHAR(100),\n"+
              "    date VARCHAR(25),\n" +
              "    out_of INT,\n" +
              "    obtained_markd INT,\n" +
@@ -107,8 +109,24 @@ public class Database_query {
     static Statement stmt ;
     static Connection conn ;
     static void do_start_up_query() {
-        try
 
+        try
+        {
+            String url = "jdbc:mysql://localhost";
+            String username = "root";
+            String password = "";
+
+            Connection conn = DriverManager.getConnection(url, username, password);
+            PreparedStatement stmt = conn.prepareStatement(create_database);
+            stmt.execute();
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+
+        try
         {
             Class.forName("com.mysql.jdbc.Driver");
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
@@ -120,14 +138,6 @@ public class Database_query {
             ex.printStackTrace();
         }
 
-        try
-        {
-            stmt.execute(create_database);
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
         try{
             stmt.execute(create_student_table);
 
@@ -237,6 +247,26 @@ public class Database_query {
                     "root", "");
             stmt = conn.createStatement();
             String query = "SELECT DISTINCT school from Student;";
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public static ResultSet get_marks_for_specific_result(String yr,String cls,String exm,String roll)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT subject,obtained_markd FROM Marks WHERE cls="+cls+" AND exam_type="+exm+
+                    " AND  roll="+roll+" AND date LIKE "+"\"%"+yr.toString()+"\""+" ORDER BY subject " ;
+            System.out.println(query);
             resultSet= stmt.executeQuery(query);
         }
         catch (Exception ex)
@@ -499,6 +529,27 @@ public class Database_query {
             stmt = conn.createStatement();
             String query = "SELECT MAX(obtained_markd) FROM Marks WHERE cls="+cls+" AND exam_type="+exam_type
                     +" AND date="+"\""+date+"\"";
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public static ResultSet get_highest_marks_specific(String cls,String yr,String exam_type,String subject)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT MAX(obtained_markd) FROM Marks WHERE cls="+cls+" AND exam_type="+exam_type
+                    +" AND subject="+subject
+                    +" AND date LIKE "+"\"%"+yr.toString()+"\"";
+
             resultSet= stmt.executeQuery(query);
         }
         catch (Exception ex)
@@ -799,6 +850,26 @@ public class Database_query {
         }
         return resultSet;
     }
+
+    public static ResultSet get_subject_list()
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT DISTINCT subject from Marks ORDER BY subject";
+            resultSet= stmt.executeQuery(query);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
 
     public static void insert_student(String name,String fname,String mname,String address,String c1,String c2,String
             admission_date,String birth_date, String roll,String cls,String group,String school,String bgroup,String for_year) {

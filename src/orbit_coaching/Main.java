@@ -37,6 +37,7 @@ public class Main {
         //show_student_list show_studentList = new show_student_list();
         //Show_student_by_school_and_year show_student_by_school_and_year = new Show_student_by_school_and_year();
 
-        Total_expense_year total_expense_year = new Total_expense_year();
+        //Total_expense_year total_expense_year = new Total_expense_year();
+        Student_wise_result_one_exam student_wise_result_one_exam = new Student_wise_result_one_exam();
     }
 }

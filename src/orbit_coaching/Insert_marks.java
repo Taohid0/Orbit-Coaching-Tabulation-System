@@ -36,7 +36,8 @@ public class Insert_marks {
                     date_textfield.getText().replaceAll("\\s+","")=="" ||
                     for_year_combobox.getSelectedItem().toString().replaceAll("\\s+","")==""||
                     total_marks_textbox.getText().replaceAll("\\s+","")=="" ||
-                    class_combobox.getSelectedItem().toString().replaceAll("\\s","")=="")
+                    class_combobox.getSelectedItem().toString().replaceAll("\\s","")==""||
+            subject_combobox.getSelectedItem().toString().replaceAll("\\s+","")=="")
             {
                 String error_message = "Please fill up all the configuration fields correctly";
                 String title_bar = "ERROR";
@@ -85,7 +86,7 @@ public class Insert_marks {
                         table1.getValueAt(i,1).toString().replaceAll("\\s+","")!="" &&
                     table1.getValueAt(i,2).toString().replaceAll("\\s+","")!="")
                 {
-                    String query = "INSERT INTO Marks (roll,exam_type,date,out_of,obtained_markd,cls) VALUES(?,?,?,?,?,?);";
+                    String query = "INSERT INTO Marks (roll,exam_type,date,out_of,obtained_markd,cls,subject) VALUES(?,?,?,?,?,?,?);";
                 if(table1.getValueAt(i,2).toString().startsWith("A") || table1.getValueAt(i,2).toString().startsWith("a"))
                 {
                     table1.setValueAt(-1,i,2);
@@ -97,6 +98,7 @@ public class Insert_marks {
                 preparedStatement.setString(4,total_marks);
                 preparedStatement.setString(5,table1.getValueAt(i,2).toString());
                 preparedStatement.setString(6,class_combobox.getSelectedItem().toString());
+                preparedStatement.setString(7,subject_combobox.getSelectedItem().toString());
                 preparedStatement.execute();
                 count++;
                 }
@@ -124,6 +126,20 @@ public class Insert_marks {
         for_year_combobox.setEditable(true);
         class_combobox.setEditable(true);
 
+        try {
+            ResultSet resultSet = Database_query.get_subject_list();
+            resultSet.beforeFirst();
+
+            while (resultSet.next())
+            {
+                subject_combobox.addItem(resultSet.getString(1));
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        subject_combobox.setEditable(true);
         try
         {
             ResultSet resultSet=null;
