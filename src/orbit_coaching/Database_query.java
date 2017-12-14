@@ -256,6 +256,24 @@ public class Database_query {
         return resultSet;
     }
 
+    public static ResultSet get_other_income_details(String yr)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT from_whom,purpose,date,amount from billing_income_other WHERE DATE LIKE "+
+                    "\"%"+yr+"\"";
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
     public static ResultSet get_marks_for_specific_result(String yr,String cls,String exm,String roll)
     {
         ResultSet resultSet=null;
@@ -699,7 +717,7 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT DISTINCT purpose from billing_student";
+            String query = "SELECT DISTINCT purpose from billing_student ORDER BY purpose";
             resultSet= stmt.executeQuery(query);
 
         }
@@ -709,6 +727,45 @@ public class Database_query {
         }
         return resultSet;
     }
+
+    public static ResultSet get_purpose_other_income()
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT DISTINCT purpose from billing_income_other ORDER BY purpose";
+            resultSet= stmt.executeQuery(query);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public static ResultSet get_whom_other_income()
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT DISTINCT from_whom from billing_income_other ORDER BY purpose";
+            resultSet= stmt.executeQuery(query);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
 
     public static ResultSet get_teachear_institution()
     {
@@ -925,6 +982,26 @@ public class Database_query {
         }
     }
 
+    public static void insert_other_income(String from,String purpose,String date,String amount) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "INSERT INTO billing_income_other (from_whom,purpose,date,amount) VALUES(?,?,?,?);";
+
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setString(1,from);
+            preparedStatement.setString(2,purpose);
+            preparedStatement.setString(3,date);
+            preparedStatement.setString(4,amount);
+            preparedStatement.execute();
+
+        } catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
 
     public static void update_student(String name,String fname,String mname,String address,String c1,String c2,String
             admission_date,String birth_date, String roll,String cls,String group,String school,String bgroup,String for_year) {
