@@ -69,4 +69,48 @@ public class Test_data_input {
             ex.printStackTrace();
         }
     }
+    public static void insert_billing_other() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+
+            for (int i = 1;i<=100;i++) {
+                String query = "INSERT INTO billing_other (to_whom,date,purpose,amount) VALUES(?,?,?,?);";
+
+                PreparedStatement preparedStatement = conn.prepareStatement(query);
+                preparedStatement.setString(1, Integer.toString(i));
+                preparedStatement.setString(2, Integer.toString(i));
+                preparedStatement.setString(3, "2-10-2017");
+                preparedStatement.setString(4, Integer.toString(i));
+                preparedStatement.execute();
+            }
+        } catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+    public static void insert_billing_other_income() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+
+            for (int i = 1;i<=100;i++) {
+                String query = "INSERT INTO billing_income_other (from_whom,purpose,date,amount) VALUES(?,?,?,?);";
+
+                PreparedStatement preparedStatement = conn.prepareStatement(query);
+                preparedStatement.setString(1, Integer.toString(i));
+                preparedStatement.setString(2, Integer.toString(i));
+                preparedStatement.setString(3, "2-10-2017");
+                preparedStatement.setString(4, Integer.toString(i));
+                preparedStatement.execute();
+            }
+        } catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
 }

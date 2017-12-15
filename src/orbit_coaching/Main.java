@@ -1,6 +1,4 @@
 package orbit_coaching;
-import java.sql.*;
-import java.util.Calendar;
 
 import static java.sql.DriverManager.getConnection;
 
@@ -13,7 +11,7 @@ public class Main {
         //System.out.println("hello".equals(v));
         //Database_query.do_start_up_query();
          //Test_data_input.insert_marks();
-        Home home = new Home();
+        //Home home = new Home();
         //Login_form login_form = new Login_form();
         // all show part should be added
         //Add_student add_student = new Add_student();
@@ -42,5 +40,9 @@ public class Main {
         //Other_income other_income = new Other_income();
         // Show_other_income show_other_income = new Show_other_income();
         //Course_wise_result_show_name_wise course_wise_result_show_name_wise = new Course_wise_result_show_name_wise();
+
+        Total_income_other_pdf_creation total_incomeother_pdf_creation = new Total_income_other_pdf_creation("2017");
+        //Test_data_input.insert_billing_other();
+        //Test_data_input.insert_billing_other_income();
     }
 }

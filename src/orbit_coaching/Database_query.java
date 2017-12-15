@@ -21,6 +21,14 @@ public class Database_query {
         "    ID INT PRIMARY KEY AUTO_INCREMENT\n" +
         ");";
 
+    static String create_institution_table = "CREATE TABLE Institution\n" +
+            "(\n" +
+            "    name VARCHAR(200),\n" +
+            "    address VARCHAR(500),\n" +
+            "    contact_number VARCHAR(100),\n"+
+            "    ID INT PRIMARY KEY AUTO_INCREMENT\n" +
+            ");";
+
     static String create_teacher_attendance_table = "CREATE TABLE Teacher_attendance\n" +
             "(\n" +
             "    teacher_id VARCHAR(25),\n" +
@@ -135,6 +143,15 @@ public class Database_query {
             stmt.execute(create_admin_table);
         }
         catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        try
+        {
+            stmt.execute(create_institution_table);
+        }
+        catch (Exception ex)
+        {
             ex.printStackTrace();
         }
 
@@ -267,6 +284,7 @@ public class Database_query {
             String query = "SELECT from_whom,purpose,date,amount from billing_income_other WHERE DATE LIKE "+
                     "\"%"+yr+"\"";
             resultSet= stmt.executeQuery(query);
+
         }
         catch (Exception ex)
         {
@@ -927,6 +945,26 @@ public class Database_query {
                     "root", "");
             stmt = conn.createStatement();
             String query = "SELECT DISTINCT ID from Teacher ORDER BY ID;";
+            resultSet= stmt.executeQuery(query);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+
+    public static ResultSet get_institution_info()
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT name,address,contact_number from Institution;";
             resultSet= stmt.executeQuery(query);
 
         }
