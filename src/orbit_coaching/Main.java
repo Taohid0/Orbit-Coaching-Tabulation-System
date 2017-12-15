@@ -13,7 +13,7 @@ public class Main {
         //System.out.println("hello".equals(v));
         //Database_query.do_start_up_query();
          //Test_data_input.insert_marks();
-        //Home home = new Home();
+        Home home = new Home();
         //Login_form login_form = new Login_form();
         // all show part should be added
         //Add_student add_student = new Add_student();
@@ -40,6 +40,7 @@ public class Main {
         //Total_expense_year total_expense_year = new Total_expense_year();
         //Student_wise_result_one_exam student_wise_result_one_exam = new Student_wise_result_one_exam();
         //Other_income other_income = new Other_income();
-         Show_other_income show_other_income = new Show_other_income();
+        // Show_other_income show_other_income = new Show_other_income();
+        //Course_wise_result_show_name_wise course_wise_result_show_name_wise = new Course_wise_result_show_name_wise();
     }
 }

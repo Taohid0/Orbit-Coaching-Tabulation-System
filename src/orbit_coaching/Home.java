@@ -57,6 +57,12 @@ public class Home {
         //file menu
         file_menu = new JMenu("File");
         JMenuItem exit_menu=  new JMenuItem("Exit");
+        exit_menu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
         file_menu.add(exit_menu);
         jMenuBar.add(file_menu);
         //student menu

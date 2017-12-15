@@ -131,7 +131,22 @@ public class Show_other_income {
 
             while (resultSet.next())
             {
-                defaultTableModel.addRow(new String[]{resultSet.getString(1),resultSet.getString(2),
+                String name = "";
+                try
+                {
+                    ResultSet nameResultset = Database_query.get_name_of_student(resultSet.getString(1));
+                    nameResultset.beforeFirst();
+
+                    if(nameResultset.next())
+                    {
+                        name=nameResultset.getString(1);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
+                defaultTableModel.addRow(new String[]{resultSet.getString(1)+ " ("+name+")",resultSet.getString(2),
                 resultSet.getString(3),resultSet.getString(4)});
                 total+=Integer.parseInt(resultSet.getString(4));
             }

@@ -112,14 +112,14 @@ public class Edit_marks {
             date_combobox.setEditable(true);
             {
 //                System.out.println(class_combobox.getSelectedItem().toString()+for_year_combobox.getSelectedItem().toString());
-                ResultSet resultSet = Database_query.get_exam_dates(class_combobox.getSelectedItem().toString(),
-                        for_year_combobox.getSelectedItem().toString());
-                resultSet.beforeFirst();
-                while (resultSet.next())
-                {
-                    date_combobox.addItem(resultSet.getString(1));
-                    System.out.println(resultSet.getString(1));
-                }
+//                ResultSet resultSet = Database_query.get_exam_dates(class_combobox.getSelectedItem().toString(),
+//                        for_year_combobox.getSelectedItem().toString());
+//                resultSet.beforeFirst();
+//                while (resultSet.next())
+//                {
+//                    date_combobox.addItem(resultSet.getString(1));
+//                    System.out.println(resultSet.getString(1));
+//                }
             }
         }
         catch (Exception ex)

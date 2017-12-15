@@ -387,6 +387,25 @@ public class Database_query {
         return resultSet;
     }
 
+    public static ResultSet get_roll_from_registration_number(String reg)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT temp_roll from Student WHERE roll="+reg;
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+
     public static ResultSet get_roll_number()
     {
         ResultSet resultSet=null;
@@ -478,7 +497,7 @@ public class Database_query {
         }
         return resultSet;
     }
-    public static ResultSet get_course_wise_marks_for_specific_date(String cls,String exam_type,String date)
+    public static ResultSet get_course_wise_marks_for_specific_date(String cls,String exam_type,String date,String subject)
     {
         ResultSet resultSet=null;
         try {
@@ -488,7 +507,7 @@ public class Database_query {
             stmt = conn.createStatement();
 
             String query ="SELECT roll,temp_roll,obtained_markd,out_of FROM Marks WHERE cls="+cls+ " AND exam_type="+exam_type+ " " +
-                    " AND date=\""+date+"\"";
+                    " AND subject="+subject+" AND date=\""+date+"\""+ " ORDER BY  cast(roll As INT) ";
 
             resultSet= stmt.executeQuery(query);
         }
@@ -498,6 +517,31 @@ public class Database_query {
         }
         return resultSet;
     }
+
+
+   //this will be marks wise,not namewise; name change korte r ecche kortese na!
+    public static ResultSet get_course_wise_marks_for_specific_date_name_wise(String cls,String exam_type,String date,String subject)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+
+            String query ="SELECT roll,temp_roll,obtained_markd,out_of FROM Marks WHERE cls="+cls+ " AND exam_type="+exam_type+ " " +
+                    " AND subject="+subject+" AND date=\""+date+"\""+ " ORDER BY  obtained_markd ";
+
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+
     public static ResultSet get_name_of_student(String roll)
     {
         ResultSet resultSet=null;
@@ -513,6 +557,7 @@ public class Database_query {
         catch (Exception ex)
         {
             ex.printStackTrace();
+            return resultSet;
         }
         return resultSet;
     }
@@ -615,6 +660,28 @@ public class Database_query {
         return resultSet;
     }
 
+    public static ResultSet get_exam_date(String cls,String year,String xm,String subject)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT DISTINCT date from Marks WHERE cls="+cls+
+                    " AND exam_type="+xm+
+                    " AND subject="+subject+
+                    " AND date LIKE "+"\"%"+year.toString()+"\" " +
+                    " ORDER BY date DESC " ;
+            resultSet= stmt.executeQuery(query);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
     public static ResultSet get_paid_month(String roll,String year)
     {
         ResultSet resultSet=null;

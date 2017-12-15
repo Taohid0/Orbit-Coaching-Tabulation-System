@@ -5,7 +5,6 @@ import oracle.jrockit.jfr.JFR;
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.xml.crypto.Data;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -13,10 +12,9 @@ import java.awt.event.WindowListener;
 import java.sql.ResultSet;
 import java.util.Vector;
 
-public class Course_wise_result_show {
+public class Course_wise_result_show_name_wise {
     private JComboBox class_comboBox1;
     private JComboBox exam_type_comboBox2;
-
     private JTextField total_marks_textField1;
     private JTextField highest_marks_textField2;
     private JTextField lowest_marks_textField3;
@@ -89,13 +87,13 @@ public class Course_wise_result_show {
     {
         try
         {
-           ResultSet resultSet = Database_query.get_exam_date(class_comboBox1.getSelectedItem().toString(),
-                   year_comboBox1.getSelectedItem().toString(),subject_combobox.getSelectedItem().toString(),
-                   exam_type_comboBox2.getSelectedItem().toString());
-           if(resultSet.next())
-           {
-               date_textfield.setText(resultSet.getString(1));
-           }
+            ResultSet resultSet = Database_query.get_exam_date(class_comboBox1.getSelectedItem().toString(),
+                    year_comboBox1.getSelectedItem().toString(),subject_combobox.getSelectedItem().toString(),
+                    exam_type_comboBox2.getSelectedItem().toString());
+            if(resultSet.next())
+            {
+                date_textfield.setText(resultSet.getString(1));
+            }
 
 
         }
@@ -125,7 +123,7 @@ public class Course_wise_result_show {
 
         try
         {
-            ResultSet resultSet = Database_query.get_course_wise_marks_for_specific_date(class_comboBox1.getSelectedItem().toString(),
+            ResultSet resultSet = Database_query.get_course_wise_marks_for_specific_date_name_wise(class_comboBox1.getSelectedItem().toString(),
                     exam_type_comboBox2.getSelectedItem().toString(),date_textfield.getText(),
                     subject_combobox.getSelectedItem().toString());
             resultSet.beforeFirst();
@@ -133,7 +131,6 @@ public class Course_wise_result_show {
             while (resultSet.next())
             {
                 String name="";
-                String temp_roll="";
                 try {
                     ResultSet name_result = Database_query.get_name(resultSet.getString(1));
                     name_result.beforeFirst();
@@ -146,14 +143,14 @@ public class Course_wise_result_show {
                 {
                     ex.printStackTrace();
                 }
-
                 String obtained_marks="Absent";
                 if(!resultSet.getString(3).equals("-1"))
                 {
                     obtained_marks = resultSet.getString(3);
                 }
+
                 defaultTableModel.addRow(new String[]{resultSet.getString(1),resultSet.getString(2),
-                name,obtained_marks});
+                        name,obtained_marks});
                 if(obtained_marks.charAt(0)!='A' && Integer.parseInt(obtained_marks)>highest_marks)
                 {
                     highest_marks = Integer.parseInt(obtained_marks);
@@ -180,9 +177,8 @@ public class Course_wise_result_show {
 
     }
 
-    Course_wise_result_show()
+    Course_wise_result_show_name_wise()
     {
-
         DefaultTableModel defaultTableModel = new DefaultTableModel(0,0);
         String header[] = {"REGISTRATION NUMBER","ROLL NUMBER","NAME","OBTAINED MARKS"};
         defaultTableModel.setColumnIdentifiers(header);
@@ -194,6 +190,8 @@ public class Course_wise_result_show {
         marks_table.getColumn("ROLL NUMBER").setCellRenderer(centerRenderer);
         marks_table.getColumn("NAME").setCellRenderer(centerRenderer);
         marks_table.getColumn("OBTAINED MARKS").setCellRenderer(centerRenderer);
+
+
 
         fill_year();
         fill_class();
@@ -207,12 +205,6 @@ public class Course_wise_result_show {
         jFrame.pack();
         jFrame.setVisible(true);
         jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
-        class_comboBox1.setEditable(true);
-
-        exam_type_comboBox2.setEditable(true);
-        subject_combobox.setEditable(true);
-        year_comboBox1.setEditable(true);
 
         try
         {
@@ -228,25 +220,16 @@ public class Course_wise_result_show {
         {
             ex.printStackTrace();
         }
-        subject_combobox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                fill_exam_type();
-                fill_date();
-                fill_table_data();
-            }
-        });
-
-        class_comboBox1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                fill_exam_type();
-                fill_date();
-                fill_table_data();
-            }
-        });
 
         year_comboBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fill_exam_type();
+                fill_date();
+                fill_table_data();
+            }
+        });
+        class_comboBox1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 fill_exam_type();
@@ -262,6 +245,15 @@ public class Course_wise_result_show {
                 fill_table_data();
             }
         });
+        subject_combobox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fill_exam_type();
+                fill_date();
+                fill_table_data();
+            }
+        });
+
         jFrame.addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
