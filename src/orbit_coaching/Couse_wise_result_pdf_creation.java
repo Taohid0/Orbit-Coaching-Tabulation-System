@@ -12,11 +12,12 @@ import java.io.FileOutputStream;
 import java.sql.ResultSet;
 import java.util.Calendar;
 
-public class Total_income_other_pdf_creation {
+public class Couse_wise_result_pdf_creation {
 
     String name = "",address = "",contact_number = "";
 
-    Total_income_other_pdf_creation(String yr) {
+    Couse_wise_result_pdf_creation(String cls,String exam_type,String date,String subject,String total,String highest,String lowest,
+                                   String average) {
         try {
             try
             {
@@ -48,7 +49,7 @@ public class Total_income_other_pdf_creation {
 //            else
 //                am_pc="PM";
 
-            String pdf_name =Calendar.getInstance().getTime().toString()+" total other income.pdf";
+            String pdf_name =Calendar.getInstance().getTime().toString()+" Course wise result "+exam_type+" "+subject+".pdf";
             pdf_name=pdf_name.replace(':','_');
             System.out.println(pdf_name);
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(pdf_name));
@@ -77,7 +78,8 @@ public class Total_income_other_pdf_creation {
             p1.setAlignment(Element.ALIGN_CENTER);
             document.add(p1);
 
-            p1 = new Paragraph("Total income of "+yr+" (From Other Sources): \n",
+            p1 = new Paragraph("EXAMINATION : "+exam_type+"\n"+"SUBJECT : "+subject+"\nDATE : "+date
+                    +"\nHIGHEST MARKS : "+highest+"\n"+"LOWEST MARKS : "+lowest+"\nAVERAGE MARKS : "+average,
 
                     FontFactory.getFont(FontFactory.TIMES, 14,Font.UNDERLINE));
             p1.setAlignment(Element.ALIGN_CENTER);
@@ -93,44 +95,29 @@ public class Total_income_other_pdf_creation {
 
             table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell("SL NO.");
-            table.addCell("FROM");
-            table.addCell("PURPOSE");
-            table.addCell("DATE");
-            table.addCell("AMOUNT");
-            int total = 0;
+            table.addCell("REG NO.");
+            table.addCell("ROLL NO.");
+            table.addCell("NAME");
+            table.addCell("OBTAINED MARKS");
 
+
+            int counter=1;
             try
             {
-
-                ResultSet resultSet = Database_query.get_other_income_details(yr);
+                ResultSet resultSet = Database_query.get_course_wise_marks_for_specific_date(cls, exam_type,date,subject);
                 resultSet.beforeFirst();
-                int counter=1;
+
                 while (resultSet.next())
                 {
-                    table.addCell(Integer.toString(counter++));
 
-                    String from = resultSet.getString(1);
-
-                    try
-                    {
-                        ResultSet resultSet1 = Database_query.get_name_without_commnecttion(from);
-                        resultSet1.beforeFirst();
-
-                        if(resultSet1.next())
-                        {
-                            from+="("+resultSet1.getString(1)+")";
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        ex.printStackTrace();
-                    }
-                    table.addCell(from);
-                    table.addCell(resultSet.getString(2));
-
-                    table.addCell(resultSet.getString(3));
-                    table.addCell(resultSet.getString(4));
-                    total+=Integer.parseInt(resultSet.getString(4));
+                    String name="";
+            String temp_roll="";
+            try {
+                ResultSet name_result = Database_query.get_name(resultSet.getString(1));
+                name_result.beforeFirst();
+                if(name_result.next())
+                {
+                    name=name_result.getString(1);
                 }
             }
             catch (Exception ex)
@@ -138,13 +125,40 @@ public class Total_income_other_pdf_creation {
                 ex.printStackTrace();
             }
 
+            try {
+                ResultSet temp_r_result = Database_query.get_roll_from_registration_number(resultSet.getString(1));
+                temp_r_result.beforeFirst();
+                if(temp_r_result.next())
+                {
+                    temp_roll=temp_r_result.getString(1);
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
+            String obtained_marks="Absent";
+            if(!resultSet.getString(3).equals("-1"))
+            {
+                obtained_marks = resultSet.getString(3);
+            }
+            table.addCell(Integer.toString(counter++));
+            table.addCell(resultSet.getString(1));
+            table.addCell(temp_roll);
+            table.addCell(name);
+            table.addCell(obtained_marks);
+
+
+        }
+        resultSet.beforeFirst();
+    }
+        catch (Exception ex)
+    {
+        ex.printStackTrace();
+    }
+
             document.add(table);
 
-
-            p1.setSpacingBefore(50);
-            p1 = new Paragraph("\nTOTAL AMOUNT = "+Integer.toString(total),
-                    FontFactory.getFont(FontFactory.TIMES, 14));
-            document.add(p1);
 
 
 

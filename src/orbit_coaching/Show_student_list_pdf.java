@@ -12,11 +12,11 @@ import java.io.FileOutputStream;
 import java.sql.ResultSet;
 import java.util.Calendar;
 
-public class Total_income_other_pdf_creation {
+public class Show_student_list_pdf {
 
     String name = "",address = "",contact_number = "";
 
-    Total_income_other_pdf_creation(String yr) {
+    Show_student_list_pdf(String cls,String yr) {
         try {
             try
             {
@@ -36,19 +36,8 @@ public class Total_income_other_pdf_creation {
             }
             Document document = new Document(PageSize.A4, 50, 50, 50, 50);
 
-//            String  year =Integer.toString(Calendar.getInstance().YEAR);
-//            String month =Integer.toString( Calendar.getInstance().MONTH+1);
-//            String day =Integer.toString( Calendar.getInstance().DATE);
-//            String hr = Integer.toString(Calendar.getInstance().HOUR);
-//            String minute =Integer.toString( Calendar.getInstance().MINUTE);
-//            String am_pc = "";
-//
-//            if (Calendar.getInstance().AM_PM==0)
-//                am_pc="AM";
-//            else
-//                am_pc="PM";
 
-            String pdf_name =Calendar.getInstance().getTime().toString()+" total other income.pdf";
+            String pdf_name =Calendar.getInstance().getTime().toString()+" Student List "+yr+" "+cls+".pdf";
             pdf_name=pdf_name.replace(':','_');
             System.out.println(pdf_name);
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(pdf_name));
@@ -77,8 +66,7 @@ public class Total_income_other_pdf_creation {
             p1.setAlignment(Element.ALIGN_CENTER);
             document.add(p1);
 
-            p1 = new Paragraph("Total income of "+yr+" (From Other Sources): \n",
-
+            p1 = new Paragraph("YEAR : "+yr+"\n"+"CLASS : "+cls,
                     FontFactory.getFont(FontFactory.TIMES, 14,Font.UNDERLINE));
             p1.setAlignment(Element.ALIGN_CENTER);
             document.add(p1);
@@ -93,45 +81,27 @@ public class Total_income_other_pdf_creation {
 
             table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell("SL NO.");
-            table.addCell("FROM");
-            table.addCell("PURPOSE");
-            table.addCell("DATE");
-            table.addCell("AMOUNT");
-            int total = 0;
+            table.addCell("REG NO.");
+            table.addCell("ROLL NO.");
+            table.addCell("NAME");
+            table.addCell("INSTITUTION");
 
+
+            int counter=1;
             try
             {
-
-                ResultSet resultSet = Database_query.get_other_income_details(yr);
+                ResultSet resultSet = Database_query.get_student_of_year_class(yr,cls);
                 resultSet.beforeFirst();
-                int counter=1;
+
                 while (resultSet.next())
                 {
                     table.addCell(Integer.toString(counter++));
-
-                    String from = resultSet.getString(1);
-
-                    try
-                    {
-                        ResultSet resultSet1 = Database_query.get_name_without_commnecttion(from);
-                        resultSet1.beforeFirst();
-
-                        if(resultSet1.next())
-                        {
-                            from+="("+resultSet1.getString(1)+")";
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        ex.printStackTrace();
-                    }
-                    table.addCell(from);
+                    table.addCell(resultSet.getString(1));
                     table.addCell(resultSet.getString(2));
-
                     table.addCell(resultSet.getString(3));
                     table.addCell(resultSet.getString(4));
-                    total+=Integer.parseInt(resultSet.getString(4));
                 }
+                resultSet.beforeFirst();
             }
             catch (Exception ex)
             {
@@ -140,11 +110,6 @@ public class Total_income_other_pdf_creation {
 
             document.add(table);
 
-
-            p1.setSpacingBefore(50);
-            p1 = new Paragraph("\nTOTAL AMOUNT = "+Integer.toString(total),
-                    FontFactory.getFont(FontFactory.TIMES, 14));
-            document.add(p1);
 
 
 

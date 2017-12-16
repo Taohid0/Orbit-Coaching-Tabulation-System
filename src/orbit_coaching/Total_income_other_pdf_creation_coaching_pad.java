@@ -12,60 +12,31 @@ import java.io.FileOutputStream;
 import java.sql.ResultSet;
 import java.util.Calendar;
 
-public class Total_income_other_pdf_creation {
+public class Total_income_other_pdf_creation_coaching_pad {
 
     String name = "",address = "",contact_number = "";
 
-    Total_income_other_pdf_creation(String yr) {
+    Total_income_other_pdf_creation_coaching_pad(String yr) {
         try {
-            try
-            {
-                ResultSet resultSet = Database_query.get_institution_info();
-                resultSet.beforeFirst();
 
-                while (resultSet.next())
-                {
-                    name = resultSet.getString(1);
-                    address = resultSet.getString(2);
-                    contact_number = resultSet.getString(3);
-                }
-            }
-            catch (Exception ex)
-            {
-                ex.printStackTrace();
-            }
             Document document = new Document(PageSize.A4, 50, 50, 50, 50);
 
-//            String  year =Integer.toString(Calendar.getInstance().YEAR);
-//            String month =Integer.toString( Calendar.getInstance().MONTH+1);
-//            String day =Integer.toString( Calendar.getInstance().DATE);
-//            String hr = Integer.toString(Calendar.getInstance().HOUR);
-//            String minute =Integer.toString( Calendar.getInstance().MINUTE);
-//            String am_pc = "";
-//
-//            if (Calendar.getInstance().AM_PM==0)
-//                am_pc="AM";
-//            else
-//                am_pc="PM";
-
-            String pdf_name =Calendar.getInstance().getTime().toString()+" total other income.pdf";
+            String pdf_name =Calendar.getInstance().getTime().toString()+" total other income_coaching_pad.pdf";
             pdf_name=pdf_name.replace(':','_');
             System.out.println(pdf_name);
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(pdf_name));
 
             document.open();
 
-            Anchor anchorTarget = new Anchor(name,FontFactory.getFont(FontFactory.TIMES, 24, Font.BOLD));
 
             //anchorTarget.setName("BackToTop");
             Paragraph paragraph1 = new Paragraph();
 
             paragraph1.setSpacingBefore(50);
-            paragraph1.add(anchorTarget);paragraph1.setAlignment(Element.ALIGN_CENTER);
+
             document.add(paragraph1);
 
-            Paragraph p1 = new Paragraph("ACADEMIC/PSC/JSC/SSC/HSC Final Private Program\nAddress : "+address+"\nContact Number : "+
-                    contact_number,
+            Paragraph p1 = new Paragraph("\n\n\n\n\n",
 
                     FontFactory.getFont(FontFactory.TIMES, 14));
             p1.setAlignment(Element.ALIGN_CENTER);

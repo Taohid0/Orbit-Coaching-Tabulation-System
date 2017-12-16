@@ -339,7 +339,8 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT roll,temp_roll,name,school from Student WHERE for_year="+yr+" AND class="+cls+";";
+            String query = "SELECT roll,temp_roll,name,school from Student WHERE for_year="+yr+" AND class="+cls+
+                    " ORDER BY CAST(roll AS INT)"+";";
             resultSet= stmt.executeQuery(query);
         }
         catch (Exception ex)
@@ -719,7 +720,21 @@ public class Database_query {
         return resultSet;
     }
 
+    public static ResultSet get_name_without_commnecttion(String roll)
+    {
+        ResultSet resultSet=null;
+        try {
+            stmt = conn.createStatement();
+            String query = "SELECT name from Student WHERE roll="+roll;
+            resultSet= stmt.executeQuery(query);
 
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
 
 
     public static ResultSet get_name(String roll)

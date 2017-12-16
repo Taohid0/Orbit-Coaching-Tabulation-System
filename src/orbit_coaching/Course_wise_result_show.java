@@ -122,6 +122,7 @@ public class Course_wise_result_show {
         marks_table.getColumn("OBTAINED MARKS").setCellRenderer(centerRenderer);
 
         marks_table.setModel(defaultTableModel);
+        int students =0,total_marks=0;
 
         try
         {
@@ -147,12 +148,26 @@ public class Course_wise_result_show {
                     ex.printStackTrace();
                 }
 
+                try {
+                    ResultSet temp_r_result = Database_query.get_roll_from_registration_number(resultSet.getString(1));
+                    temp_r_result.beforeFirst();
+                    if(temp_r_result.next())
+                    {
+                        temp_roll=temp_r_result.getString(1);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
                 String obtained_marks="Absent";
                 if(!resultSet.getString(3).equals("-1"))
                 {
                     obtained_marks = resultSet.getString(3);
+                    total_marks+=Integer.parseInt(obtained_marks);
+                    students++;
                 }
-                defaultTableModel.addRow(new String[]{resultSet.getString(1),resultSet.getString(2),
+                defaultTableModel.addRow(new String[]{resultSet.getString(1),temp_roll,
                 name,obtained_marks});
                 if(obtained_marks.charAt(0)!='A' && Integer.parseInt(obtained_marks)>highest_marks)
                 {
