@@ -37,6 +37,16 @@ public class Main {
 
         //Total_expense_year total_expense_year = new Total_expense_year();
         //Student_wise_result_one_exam student_wise_result_one_exam = new Student_wise_result_one_exam();
+        Student_wise_result_per_exam_pdf student_wise_result_per_exam_pdf = new Student_wise_result_per_exam_pdf(
+          "1", "1","1","10","1000","1000","1000","1000","1000",
+                "3.0(B)","3.0(B)"
+        );
+        Student_wise_result_per_exam_coaching_pad student_wise_result_per_exam_coaching_pad = new
+                Student_wise_result_per_exam_coaching_pad(
+                "1", "1","1","10","1000","1000","1000","1000","1000",
+                "3.0(B)","3.0(B)"
+        );
+
         //Other_income other_income = new Other_income();
         // Show_other_income show_other_income = new Show_other_income();
         //Course_wise_result_show_name_wise course_wise_result_show_name_wise = new Course_wise_result_show_name_wise();
@@ -58,5 +68,7 @@ public class Main {
         //Show_student_list_pdf_coaching_pad show_student_list_pdf_coaching_pad = new Show_student_list_pdf_coaching_pad
        //         ("1","1");
 
+        //Expense expense = new Expense();
+        //Insert_institution_data insert_institution_data = new Insert_institution_data();
     }
 }

@@ -52,4 +52,20 @@ public  class Grade_point_calculation {
             return 1.00;
         else return 0.00;
     }
+    static String get_grade_from_point(double point)
+    {
+        if(point+.0001>=5.00)
+            return "A+";
+        else if(point+.0001>=4.00)
+            return "A";
+        else if(point+.0001>=3.50)
+            return "A-";
+        else if(point+.0001>=3.00)
+            return "B";
+        else if(point+.0001>=2.00)
+            return "C";
+        else if(point+.0001>=1.00)
+            return "D";
+        else return "F";
+    }
 }

@@ -12,12 +12,16 @@ import java.io.FileOutputStream;
 import java.sql.ResultSet;
 import java.util.Calendar;
 
-public class Couse_wise_result_pdf_creation {
-
+public class Student_wise_result_per_exam_pdf {
+    boolean flag = false;
+    double total_point=0.0;
+    String fourth_sub = "";
+    String fourth_sub_gpd="";
+    int subject_counter = 0;
     String name = "",address = "",contact_number = "";
 
-    Couse_wise_result_pdf_creation(String cls,String exam_type,String date,String subject,String total,String highest,String lowest,
-                                   String average) {
+    Student_wise_result_per_exam_pdf(String yr,String cls,String xm,String fourth_subject,String roll,
+                                     String name,String school,String father,String mother,String with_four,String without_four) {
         try {
             try
             {
@@ -37,19 +41,9 @@ public class Couse_wise_result_pdf_creation {
             }
             Document document = new Document(PageSize.A4, 50, 50, 50, 50);
 
-//            String  year =Integer.toString(Calendar.getInstance().YEAR);
-//            String month =Integer.toString( Calendar.getInstance().MONTH+1);
-//            String day =Integer.toString( Calendar.getInstance().DATE);
-//            String hr = Integer.toString(Calendar.getInstance().HOUR);
-//            String minute =Integer.toString( Calendar.getInstance().MINUTE);
-//            String am_pc = "";
-//
-//            if (Calendar.getInstance().AM_PM==0)
-//                am_pc="AM";
-//            else
-//                am_pc="PM";
 
-            String pdf_name =Calendar.getInstance().getTime().toString()+" Course wise result "+exam_type+" "+subject+".pdf";
+            String pdf_name =Calendar.getInstance().getTime().toString()+" exam wise result "+xm+" "+yr+" "+
+                    roll+".pdf";
             pdf_name=pdf_name.replace(':','_');
             System.out.println(pdf_name);
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(pdf_name));
@@ -78,15 +72,14 @@ public class Couse_wise_result_pdf_creation {
             p1.setAlignment(Element.ALIGN_CENTER);
             document.add(p1);
 
-            p1 = new Paragraph("EXAMINATION : "+exam_type+"\n"+"SUBJECT : "+subject+"\nDATE : "+date+
-                    "\nOUT OF : "+total
-                    +"\nHIGHEST MARKS : "+highest+"\n"+"LOWEST MARKS : "+lowest+"\nAVERAGE MARKS : "+average,
+            p1 = new Paragraph("ROLL : "+roll+"\n"+"NAME : "+name+"\nFATHER'S NAME : "+father
+                    +"\nFATHER'S NAME : "+father+"\n"+"MOTHER'S NAME : "+mother+"\nSCHOOL/COLLEGE : "+school,
 
                     FontFactory.getFont(FontFactory.TIMES, 14,Font.UNDERLINE));
             p1.setAlignment(Element.ALIGN_CENTER);
             document.add(p1);
 
-            PdfPTable table = new PdfPTable(5);
+            PdfPTable table = new PdfPTable(6);
             table.setSpacingBefore(30);
 
             // the cell object
@@ -96,74 +89,78 @@ public class Couse_wise_result_pdf_creation {
 
             table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell("SL NO.");
-            table.addCell("REG NO.");
-            table.addCell("ROLL NO.");
-            table.addCell("NAME");
-            table.addCell("OBTAINED MARKS");
+            table.addCell("SUBJECT.");
+            table.addCell("MARKS");
+            table.addCell("LETTER GRADE");
+            table.addCell("GRADE POINT");
+            table.addCell("HIGHEST MARKS");
 
 
             int counter=1;
-            try
-            {
-                ResultSet resultSet = Database_query.get_course_wise_marks_for_specific_date(cls, exam_type,date,subject);
-                resultSet.beforeFirst();
-
-                while (resultSet.next())
-                {
-
-                    String name="";
-            String temp_roll="";
             try {
-                ResultSet name_result = Database_query.get_name(resultSet.getString(1));
-                name_result.beforeFirst();
-                if(name_result.next())
-                {
-                    name=name_result.getString(1);
+
+                ResultSet resultSet1 = Database_query.get_marks_for_specific_result(yr, cls, xm, roll);
+
+                resultSet1.beforeFirst();
+                while (resultSet1.next()) {
+
+                    ResultSet highest_resultset = Database_query.get_highest_marks_specific(cls, yr,xm, resultSet1.getString(1));
+                    String highest = "";
+
+                    try {
+                        if (highest_resultset.next()) {
+                            highest = highest_resultset.getString(1);
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+
+
+                    String mrk = resultSet1.getString(2);
+                    String grade_point =Grade_point_calculation.get_grade(mrk);
+                    String grade = Double.toString(Grade_point_calculation.get_grade_point(mrk));
+                    if(fourth_subject.equals(resultSet1.getString(1)))
+                    {
+                        fourth_sub =fourth_subject;
+                        fourth_sub_gpd = grade_point;
+                    }
+                    else
+                        total_point+=Double.parseDouble(grade);
+                    if(grade.equals("F") && !fourth_subject.equals(resultSet1.getString(1)))
+                        flag = true;
+
+                    String sub = resultSet1.getString(1);
+                    if(sub.equals(fourth_subject))
+                        sub+="(4th)";
+                    table.addCell(Integer.toString(counter++));
+                    table.addCell(sub);
+                    table.addCell(mrk);
+                    table.addCell(grade_point);
+                    table.addCell(grade.substring(0,3));
+                    table.addCell(highest);
                 }
             }
+
             catch (Exception ex)
             {
                 ex.printStackTrace();
             }
-
-            try {
-                ResultSet temp_r_result = Database_query.get_roll_from_registration_number(resultSet.getString(1));
-                temp_r_result.beforeFirst();
-                if(temp_r_result.next())
-                {
-                    temp_roll=temp_r_result.getString(1);
-                }
-            }
-            catch (Exception ex)
-            {
-                ex.printStackTrace();
-            }
-            String obtained_marks="Absent";
-            if(!resultSet.getString(3).equals("-1"))
-            {
-                obtained_marks = resultSet.getString(3);
-            }
-            table.addCell(Integer.toString(counter++));
-            table.addCell(resultSet.getString(1));
-            table.addCell(temp_roll);
-            table.addCell(name);
-            table.addCell(obtained_marks);
-
-
-        }
-        resultSet.beforeFirst();
-    }
-        catch (Exception ex)
-    {
-        ex.printStackTrace();
-    }
 
             document.add(table);
 
 
 
 
+
             p1.setSpacingBefore(50);
+            p1 = new Paragraph("\nGPA With Fourth Subject : "+with_four,
+                    FontFactory.getFont(FontFactory.TIMES, 14));
+            document.add(p1);
+
+            p1 = new Paragraph("GPA Without Frouth Subject : "+without_four,
+                    FontFactory.getFont(FontFactory.TIMES, 14));
+            document.add(p1);
+
             String date_time = Calendar.getInstance().getTime().toString();
             p1 = new Paragraph("TIME : "+date_time,
                     FontFactory.getFont(FontFactory.TIMES, 14));

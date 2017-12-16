@@ -1123,6 +1123,62 @@ public class Database_query {
         }
     }
 
+    public static void insert_expense(String to,String purpose,String date,String amount) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "INSERT INTO billing_other (to_whom,purpose,date,amount) VALUES(?,?,?,?);";
+
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setString(1,to);
+            preparedStatement.setString(2,purpose);
+            preparedStatement.setString(3,date);
+            preparedStatement.setString(4,amount);
+            preparedStatement.execute();
+
+        } catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+    public static void delete_institution() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "DELETE FROM Institution;";
+
+            stmt.execute(query);
+
+        } catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void insert_institution_data(String name,String address,String contact) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "INSERT INTO Institution (name,address,contact_number) VALUES(?,?,?);";
+
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setString(1,name);
+            preparedStatement.setString(2,address);
+            preparedStatement.setString(3,contact);
+            preparedStatement.execute();
+
+        } catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
     public static void update_student(String name,String fname,String mname,String address,String c1,String c2,String
             admission_date,String birth_date, String roll,String cls,String group,String school,String bgroup,String for_year) {
         try {
