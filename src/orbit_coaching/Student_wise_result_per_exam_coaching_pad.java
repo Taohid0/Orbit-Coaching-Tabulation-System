@@ -40,7 +40,7 @@ public class Student_wise_result_per_exam_coaching_pad {
             Paragraph paragraph1 = new Paragraph();
 
             paragraph1.setSpacingBefore(50);
-         
+
             document.add(paragraph1);
 
             Paragraph p1 = new Paragraph("\n\n\n\n",

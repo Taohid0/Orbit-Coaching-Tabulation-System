@@ -292,6 +292,26 @@ public class Database_query {
         }
         return resultSet;
     }
+
+    public static ResultSet get_other_income_details_specific_student(String yr,String roll)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT from_whom,purpose,date,amount from billing_income_other WHERE from_whom="+roll+" AND DATE LIKE "+
+                    "\"%"+yr+"\"";
+            resultSet= stmt.executeQuery(query);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
     public static ResultSet get_marks_for_specific_result(String yr,String cls,String exm,String roll)
     {
         ResultSet resultSet=null;
@@ -720,6 +740,25 @@ public class Database_query {
         return resultSet;
     }
 
+    public static ResultSet get_monthy_payment_data(String yr,String roll)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT month,date,purpose,amount from billing_student WHERE roll="+roll+" AND year="+yr
+                    +" AND skipped=0";
+            resultSet= stmt.executeQuery(query);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
     public static ResultSet get_name_without_commnecttion(String roll)
     {
         ResultSet resultSet=null;
