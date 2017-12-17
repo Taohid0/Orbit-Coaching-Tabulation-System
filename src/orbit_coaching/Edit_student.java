@@ -24,8 +24,9 @@ public class Edit_student {
     private JComboBox class_combobox;
     private JComboBox school_combobox;
     private JComboBox group_combobox;
-    private JComboBox roll_combobox;
     private JComboBox for_year_combobox;
+    private JComboBox registration_combobox;
+    private JTextField roll_textfield;
     String group[] = {"Science","Arts","Commerce"};
     private String blood_group[] = {"A+","A-","AB+","AB-","B+","B-","O+","O-","Bombay"};
     public void add_school()
@@ -69,7 +70,7 @@ public class Edit_student {
 
             //System.out.println(roll_combobox.getSelectedItem().toString()+for_year_combobox.getSelectedItem().toString());
             ResultSet resultSet =null;
-            resultSet = Database_query.get_student_info(roll_combobox.getSelectedItem().toString());
+            resultSet = Database_query.get_student_info(registration_combobox.getSelectedItem().toString());
             resultSet.beforeFirst();
             if(resultSet.next())
             {
@@ -83,19 +84,21 @@ public class Edit_student {
                 {
                     blood_group_combobox.addItem(blood_group[i]);
                 }
-                name_textbox.setText(resultSet.getString(2));
-                fname_textbox.setText(resultSet.getString(3));
-                mname_textbox.setText(resultSet.getString(4));
-                class_combobox.setSelectedItem(resultSet.getString(5));
-                group_combobox.setSelectedItem(resultSet.getString(6));
-                school_combobox.setSelectedItem(resultSet.getString(7));
-                address_textbox.setText(resultSet.getString(8));
-                birthdate_textbox.setText(resultSet.getString(9));
-                admission_date_textbox.setText(resultSet.getString(10));
-                blood_group_combobox.setSelectedItem(resultSet.getString(11));
-                c1_textbox.setText(resultSet.getString(12));
-                c2_textbox.setText(resultSet.getString(13));
-                for_year_combobox.setSelectedItem(resultSet.getString(14));
+                roll_textfield.setText(resultSet.getString(2));
+                name_textbox.setText(resultSet.getString(3));
+                fname_textbox.setText(resultSet.getString(4));
+                mname_textbox.setText(resultSet.getString(5));
+                class_combobox.setSelectedItem(resultSet.getString(6));
+                group_combobox.setSelectedItem(resultSet.getString(7));
+                school_combobox.setSelectedItem(resultSet.getString(8));
+                address_textbox.setText(resultSet.getString(9));
+                birthdate_textbox.setText(resultSet.getString(10));
+                admission_date_textbox.setText(resultSet.getString(11));
+                blood_group_combobox.setSelectedItem(resultSet.getString(12));
+                c1_textbox.setText(resultSet.getString(13));
+                c2_textbox.setText(resultSet.getString(14));
+                for_year_combobox.setSelectedItem(resultSet.getString(15));
+
             }
         }
         catch (Exception ex)
@@ -114,7 +117,7 @@ public class Edit_student {
 
             while (resultSet.next())
             {
-                roll_combobox.addItem(resultSet.getString(1));
+                registration_combobox.addItem(resultSet.getString(1));
             }
         }
         catch (Exception ex)
@@ -129,7 +132,7 @@ public class Edit_student {
         blood_group_combobox.setEditable(true);
 
         //this will be false
-        roll_combobox.setEditable(true);
+        roll_textfield.setEditable(true);
 
         JFrame jFrame = new JFrame("Orbit Coaching");
         jFrame.setContentPane(panel1);
@@ -176,13 +179,14 @@ public class Edit_student {
         jFrame.pack();
         jFrame.setVisible(true);
 
-        roll_combobox.addActionListener(new ActionListener() {
+        registration_combobox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                      set_value();
 
             }
         });
+        SAVEEDITEDDATAButton.setFocusable(false);
 
         SAVEEDITEDDATAButton.addActionListener(new ActionListener() {
             @Override
@@ -196,15 +200,56 @@ public class Edit_student {
                 String admission_date = admission_date_textbox.getText();
                 String birthdate = birthdate_textbox.getText();
                 String year = for_year_combobox.getSelectedItem().toString();
-                String roll= roll_combobox.getSelectedItem().toString();
+                String roll= registration_combobox.getSelectedItem().toString();
                 String cls = class_combobox.getSelectedItem().toString();
                 String group = group_combobox.getSelectedItem().toString();
                 String bgroup= blood_group_combobox.getSelectedItem().toString();
                 String school = school_combobox.getSelectedItem().toString();
                 String for_year = for_year_combobox.getSelectedItem().toString();
+                String temp_roll =roll_textfield.getText();
 
                 Database_query.update_student(name,fname,mname,address,c1,c2,admission_date,birthdate,
-                        roll,cls,group,school,bgroup,for_year);
+                        roll,cls,group,school,bgroup,for_year,temp_roll);
+
+                jFrame.dispose();
+                Home home = new Home();
+            }
+        });
+        jFrame.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                jFrame.dispose();
+                Home home = new Home();
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+
             }
         });
     }

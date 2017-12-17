@@ -22,6 +22,7 @@ public class Home {
     private JMenuItem input_marks,edit_marks,studentwise_result,coursewise_result,print_result,studentwise_print,coursewise_print;
     private JMenu Print,Result,Payment,Total_transaction;
     private JMenuItem Student_wise,Course_wise,Income,Expense,Monthly,Yearly;
+    private JMenu show;
 
     public Home()
     {
@@ -95,6 +96,63 @@ public class Home {
 
         jMenuBar.add(student_menu);
         jMenuBar.add(result_menu);
+
+        show = new JMenu("Show");
+        JMenuItem course_wise_result = new JMenuItem("Course wise Result");
+        course_wise_result.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Course_wise_result_show course_wise_result_show =  new Course_wise_result_show();
+            }
+        });
+        JMenuItem course_wise_result_name_wise=new JMenuItem("Course wise Result (name wise)");
+        course_wise_result_name_wise.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Course_wise_result_show_name_wise course_wise_result_show_name_wise=
+                        new Course_wise_result_show_name_wise();
+            }
+        });
+        JMenuItem student_wise_result = new JMenuItem("Student wise result");
+        student_wise_result.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Student_wise_result_show student_wise_result_show = new Student_wise_result_show();
+            }
+        });
+
+        JMenuItem student_wise_result_single_exam = new JMenuItem("Student wise result (single exam)");
+        student_wise_result_single_exam.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Student_wise_result_one_exam student_wise_result_one_exam = new Student_wise_result_one_exam();
+            }
+        });
+        JMenuItem student_list = new JMenuItem("Student List");
+        student_list.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Show_student_by_school_and_year show_student_by_school_and_year = new Show_student_by_school_and_year();
+            }
+        });
+        JMenuItem show_student_payment =new JMenuItem("Student's Payment");
+        show_student_payment.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Student_payment_show student_payment_show = new Student_payment_show();
+            }
+        });
+
+
+        show.add(course_wise_result);
+        show.add(course_wise_result_name_wise);
+        show.add(student_wise_result);
+        show.add(student_wise_result_single_exam);
+        show.add(student_list);
+        show.add(show_student_payment);
+        jMenuBar.add(show);
+
+
         jMenuBar.add(Print);
         jFrame.setJMenuBar(jMenuBar);
 

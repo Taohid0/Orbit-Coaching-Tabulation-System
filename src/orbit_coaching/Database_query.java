@@ -1088,14 +1088,16 @@ public class Database_query {
 
 
     public static void insert_student(String name,String fname,String mname,String address,String c1,String c2,String
-            admission_date,String birth_date, String roll,String cls,String group,String school,String bgroup,String for_year) {
+            admission_date,String birth_date, String roll,String cls,String group,String school,String bgroup,String for_year,
+    String temp_roll) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
             String query = "INSERT INTO Student (roll,name,fname,mname,class,group_d,school,address," +
-                    "date_of_birth,admission_date,blood_group,cnumber1,cnumber2,for_year) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+                    "date_of_birth,admission_date,blood_group,cnumber1,cnumber2,for_year,temp_roll) " +
+                    "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             preparedStatement.setString(1,roll);
@@ -1112,7 +1114,7 @@ public class Database_query {
             preparedStatement.setString(12,c1);
             preparedStatement.setString(13,c2);
             preparedStatement.setString(14,for_year);
-
+            preparedStatement.setString(15,temp_roll);
             preparedStatement.execute();
 
         } catch (Exception ex)
@@ -1219,7 +1221,8 @@ public class Database_query {
     }
 
     public static void update_student(String name,String fname,String mname,String address,String c1,String c2,String
-            admission_date,String birth_date, String roll,String cls,String group,String school,String bgroup,String for_year) {
+            admission_date,String birth_date, String roll,String cls,String group,String school,String bgroup,String for_year,
+                                      String temp_roll) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
@@ -1228,7 +1231,7 @@ public class Database_query {
             String query = "UPDATE Student " +
                     "SET name=?,fname=?,mname=?,class=?,group_d=?,school=?,address=?," +
                     "date_of_birth =?,admission_date=?,blood_group=?," +
-                    "cnumber1=?,cnumber2=?,for_year=? WHERE roll="+roll+";";
+                    "cnumber1=?,cnumber2=?,for_year=?,temp_roll=? WHERE roll="+roll+";";
 
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             preparedStatement.setString(1,name);
@@ -1244,6 +1247,7 @@ public class Database_query {
             preparedStatement.setString(11,c1);
             preparedStatement.setString(12,c2);
             preparedStatement.setString(13,for_year);
+            preparedStatement.setString(14,temp_roll);
 
             preparedStatement.execute();
 

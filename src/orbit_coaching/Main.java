@@ -11,7 +11,7 @@ public class Main {
         //System.out.println("hello".equals(v));
         //Database_query.do_start_up_query();
          //Test_data_input.insert_marks();
-        //Home home = new Home();
+        Home home = new Home();
         //Login_form login_form = new Login_form();
         // all show part should be added
         //Add_student add_student = new Add_student();
@@ -71,6 +71,12 @@ public class Main {
         //Expense expense = new Expense();
         //Insert_institution_data insert_institution_data = new Insert_institution_data();
 
-        Student_payment_show student_payment_show = new Student_payment_show();
+        //Student_payment_show student_payment_show = new Student_payment_show();
+
+//        Database_query.do_start_up_query();
+//        Test_data_input.insert_billing_other();
+//        Test_data_input.insert_billing_other_income();
+//        Test_data_input.insert_marks();
+//        Test_data_input.insert_student();
     }
 }

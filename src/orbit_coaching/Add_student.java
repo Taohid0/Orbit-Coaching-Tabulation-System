@@ -26,12 +26,13 @@ public class Add_student {
     private JComboBox school_combobox;
     private JComboBox class_combobox;
     private JTextField foryear_textbox;
+    private JTextField registration_number_textbox;
     JFrame jFrame;
 
     private String group_values []= {"Science","Arts","Commerce"};
     private String blood_group[] = {"A+","A-","AB+","AB-","B+","B-","O+","O-","Bombay"};
     private String mname,fname,name,cls,roll,school,bgroup,group,admission_date,birth_date,address,c1,c2,for_year;
-
+    private String temp_roll;
 
     public Add_student()
     {
@@ -97,7 +98,7 @@ public class Add_student {
             public void actionPerformed(ActionEvent e) {
                 get_info();
                 Database_query.insert_student(name,fname,mname,address,c1,c2,admission_date,birth_date,roll,
-                        cls,group,school,bgroup,for_year);
+                        cls,group,school,bgroup,for_year,temp_roll);
                 jFrame.dispose();
                 Home home = new Home();
                 //System.out.println(bgroup);
@@ -164,12 +165,13 @@ public class Add_student {
         c2 = contact2_textbox.getText();
         admission_date = date_of_birth_textbox.getText();
         birth_date= date_of_birth_textbox.getText();
-        roll = roll_textbox.getText();
+        roll = registration_number_textbox.getText();
         cls =class_combobox.getSelectedItem().toString();
         group = group_combobox.getSelectedItem().toString();
         school = school_combobox.getSelectedItem().toString();
         bgroup=  blood_group_combobox.getSelectedItem().toString();
         for_year = foryear_textbox.getText();
+        temp_roll =roll_textbox.getText();
 
 
 
