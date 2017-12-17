@@ -52,7 +52,8 @@ public class Test_data_input {
             stmt = conn.createStatement();
 
             for (int i = 1;i<=10;i++) {
-                String query = "INSERT INTO Marks (roll,exam_type,date,out_of,obtained_markd,cls) VALUES(?,?,?,?,?,?);";
+                String query = "INSERT INTO Marks (roll,exam_type,date,out_of,obtained_markd,cls," +
+                        "subject) VALUES(?,?,?,?,?,?,?);";
 
                 PreparedStatement preparedStatement = conn.prepareStatement(query);
                 preparedStatement.setString(1, Integer.toString(i));
@@ -61,6 +62,7 @@ public class Test_data_input {
                 preparedStatement.setString(4, Integer.toString(i));
                 preparedStatement.setString(5, Integer.toString(1));
                 preparedStatement.setString(6, Integer.toString(i));
+                preparedStatement.setString(7,Integer.toString(i));
 
                 preparedStatement.execute();
             }

@@ -229,6 +229,8 @@ public class Course_wise_result_show {
         subject_combobox.setEditable(true);
         year_comboBox1.setEditable(true);
 
+        print_button.setFocusable(false);
+
         try
         {
             ResultSet resultSet = Database_query.get_subject_list();

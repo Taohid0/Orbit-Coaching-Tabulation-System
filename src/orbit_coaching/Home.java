@@ -143,6 +143,35 @@ public class Home {
             }
         });
 
+        JMenuItem income_from_student = new JMenuItem("Income From student (monthly payment)");
+        income_from_student.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Student_payment_show student_payment_show = new Student_payment_show();
+            }
+        });
+        JMenuItem income_other = new JMenuItem("Other income");
+        income_other.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Show_other_income show_other_income = new Show_other_income();
+            }
+        });
+        JMenuItem teacher_attendance_show = new JMenuItem("Teacher Attendance show");
+        teacher_attendance_show.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Teacher_attendance_show teacher_attendance_show1 = new Teacher_attendance_show();
+            }
+        });
+
+        JMenuItem show_expense = new JMenuItem("Show Expendse");
+        show_expense.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Expense expense = new Expense();
+            }
+        });
 
         show.add(course_wise_result);
         show.add(course_wise_result_name_wise);
@@ -150,6 +179,10 @@ public class Home {
         show.add(student_wise_result_single_exam);
         show.add(student_list);
         show.add(show_student_payment);
+        show.add(income_from_student);
+        show.add(income_other);
+        show.add(teacher_attendance_show);
+        show.add(show_expense);
         jMenuBar.add(show);
 
 
