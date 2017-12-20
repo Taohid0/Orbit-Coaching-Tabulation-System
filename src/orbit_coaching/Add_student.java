@@ -1,6 +1,7 @@
 package orbit_coaching;
 
 import javax.swing.*;
+import javax.xml.crypto.Data;
 import javax.xml.transform.Result;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -106,12 +107,34 @@ public class Add_student {
 
             }
         });
+        registration_number_textbox.setEditable(false
+        );
         jFrame = new JFrame("Add New Student");
         jFrame.add(panel1);
         jFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         jFrame.pack();
         jFrame.setVisible(true);
+
+        try
+        {
+            ResultSet resultSet = Database_query.get_max_roll();
+            resultSet.beforeFirst();
+
+            if(resultSet.next())
+            {
+                String r = Integer.toString(Integer.parseInt(resultSet.getString(1))+1);
+                registration_number_textbox.setText(r);
+            }
+        }
+        catch (NumberFormatException e)
+        {
+            registration_number_textbox.setText("1");
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
 
         jFrame.addWindowListener(new WindowListener() {
             @Override

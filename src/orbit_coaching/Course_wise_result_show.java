@@ -71,7 +71,7 @@ public class Course_wise_result_show {
         try
         {
             exam_type_comboBox2.removeAllItems();
-            ResultSet resultSet =Database_query.get_exam_type_by_class(class_comboBox1.getSelectedItem().toString());
+            ResultSet resultSet =Database_query.get_exam_type();
             resultSet.beforeFirst();
 
             while (resultSet.next())

@@ -102,6 +102,7 @@ public class Home {
         course_wise_result.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
                 Course_wise_result_show course_wise_result_show =  new Course_wise_result_show();
             }
         });
@@ -109,6 +110,7 @@ public class Home {
         course_wise_result_name_wise.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
                 Course_wise_result_show_name_wise course_wise_result_show_name_wise=
                         new Course_wise_result_show_name_wise();
             }
@@ -117,6 +119,7 @@ public class Home {
         student_wise_result.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
                 Student_wise_result_show student_wise_result_show = new Student_wise_result_show();
             }
         });
@@ -125,20 +128,31 @@ public class Home {
         student_wise_result_single_exam.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
                 Student_wise_result_one_exam student_wise_result_one_exam = new Student_wise_result_one_exam();
             }
         });
-        JMenuItem student_list = new JMenuItem("Student List");
+        JMenuItem student_list = new JMenuItem("Student List By School");
         student_list.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
                 Show_student_by_school_and_year show_student_by_school_and_year = new Show_student_by_school_and_year();
+            }
+        });
+        JMenuItem student_list_by_class = new JMenuItem("Student List By Class");
+        student_list_by_class.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                show_student_list show_by_class = new show_student_list();
             }
         });
         JMenuItem show_student_payment =new JMenuItem("Student's Payment");
         show_student_payment.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
                 Student_payment_show student_payment_show = new Student_payment_show();
             }
         });
@@ -147,6 +161,7 @@ public class Home {
         income_from_student.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
                 Student_payment_show student_payment_show = new Student_payment_show();
             }
         });
@@ -154,6 +169,7 @@ public class Home {
         income_other.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
                 Show_other_income show_other_income = new Show_other_income();
             }
         });
@@ -161,14 +177,17 @@ public class Home {
         teacher_attendance_show.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
                 Teacher_attendance_show teacher_attendance_show1 = new Teacher_attendance_show();
             }
         });
 
-        JMenuItem show_expense = new JMenuItem("Show Expendse");
+        JMenuItem show_expense = new JMenuItem("Show Expense");
         show_expense.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                jFrame.dispose();
                 Expense expense = new Expense();
             }
         });
@@ -177,6 +196,7 @@ public class Home {
         show.add(course_wise_result_name_wise);
         show.add(student_wise_result);
         show.add(student_wise_result_single_exam);
+        show.add(student_list_by_class);
         show.add(student_list);
         show.add(show_student_payment);
         show.add(income_from_student);

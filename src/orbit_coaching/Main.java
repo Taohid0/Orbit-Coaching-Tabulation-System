@@ -12,6 +12,7 @@ public class Main {
         //Database_query.do_start_up_query();
          //Test_data_input.insert_marks();
         Home home = new Home();
+        //Test_data_input.insert_student();
         //Login_form login_form = new Login_form();
         // all show part should be added
         //Add_student add_student = new Add_student();
@@ -27,16 +28,15 @@ public class Main {
 
        // Add_student_payment add_student_payment = new Add_student_payment();
         //Course_wise_result_show course_wise_result_show = new Course_wise_result_show();
-        //Student_wise_result_show student_wise_result_show = new Student_wise_result_show();
+       // Student_wise_result_show student_wise_result_show = new Student_wise_result_show();
         //Add_teacher add_teacher = new Add_teacher();
-        //Teacher_attendance teacher_attendance = new Teacher_attendance();
+       // Teacher_attendance teacher_attendance = new Teacher_attendance();
         //Teacher_attendance_show teacher_attendance_show = new Teacher_attendance_show();
         //show_all_teacher_list show_all_teacher = new show_all_teacher_list();
         //show_student_list show_studentList = new show_student_list();
         //Show_student_by_school_and_year show_student_by_school_and_year = new Show_student_by_school_and_year();
 
-        //Total_expense_year total_expense_year = new Total_expense_year();
-        //Student_wise_result_one_exam student_wise_result_one_exam = new Student_wise_result_one_exam();
+        //Total_expense_year total_expense_year = new Total_expense_year()/Student_wise_result_one_exam student_wise_result_one_exam = new Student_wise_result_one_exam();
 //        Student_wise_result_per_exam_pdf student_wise_result_per_exam_pdf = new Student_wise_result_per_exam_pdf(
 //          "1", "1","1","10","1000","1000","1000","1000","1000",
 //                "3.0(B)","3.0(B)"
@@ -71,7 +71,7 @@ public class Main {
         //Expense expense = new Expense();
         //Insert_institution_data insert_institution_data = new Insert_institution_data();
 
-        //Student_payment_show student_payment_show = new Student_payment_show();
+       // Student_payment_show student_payment_show = new Student_payment_show();
 
 //        Database_query.do_start_up_query();
 //        Test_data_input.insert_billing_other();

@@ -378,8 +378,9 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT roll,temp_roll,name,class from Student WHERE for_year="+yr+" AND school="+school+"" +
+            String query = "SELECT roll,temp_roll,name,class from Student WHERE for_year="+yr+" AND school="+"\""+school+"\"" +
                     " ORDER BY class,name;";
+            //System.out.println(query);
             resultSet= stmt.executeQuery(query);
         }
         catch (Exception ex)
@@ -518,7 +519,23 @@ public class Database_query {
         }
         return resultSet;
     }
-
+    public static ResultSet get_max_roll()
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT max(cast(roll as Int)) FROM Student";
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
     public static ResultSet get_exam_type_by_class(String cls)
     {
         ResultSet resultSet=null;

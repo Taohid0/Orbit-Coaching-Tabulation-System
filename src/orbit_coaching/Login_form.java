@@ -3,11 +3,14 @@ package orbit_coaching;
 import javafx.scene.control.Alert;
 
 import javax.swing.*;
+import javax.xml.crypto.Data;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import javafx.scene.control.Alert.AlertType;
+import sun.awt.image.DataBufferNative;
+
 public class Login_form {
     private JPanel panel1;
     private JTextField textField1;
@@ -24,6 +27,15 @@ public class Login_form {
         //passwordField1 = new JPasswordField();
         //GOButton = new JButton();
         GOButton.setFocusable(false);
+
+        try
+        {
+            Database_query.do_start_up_query();
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
         GOButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -43,8 +55,8 @@ public class Login_form {
                         if(textField1.getText().equals(resultSet.getString(1)) &&
                                new String(passwordField1.getPassword()).equals(resultSet.getString(2)))
                         {
-                            System.out.println("login Successfull");
                             jFrame.dispose();
+                            //System.out.println("login Successfull");
                             //jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                             Home home = new Home();
                         }
@@ -58,7 +70,8 @@ public class Login_form {
                     }
                     else if(textField1.getText().equals(un) && new String(passwordField1.getPassword()).equals(pw))
                     {
-                        System.out.println("Login successfull");
+                        jFrame.dispose();
+                        //System.out.println("Login successfull");
                         Home home = new Home();
                     }
                     else

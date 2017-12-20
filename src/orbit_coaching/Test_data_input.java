@@ -15,27 +15,29 @@ public class Test_data_input {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-
-            for (int i = 101;i<=1000;i++) {
+           int counter=1;
+          for(int i= 1;i<=100;i++)
+           for(int j= 1;j<=100;j++){
                 String query = "INSERT INTO Student (roll,name,fname,mname,class,group_d,school,address," +
-                        "date_of_birth,admission_date,blood_group,cnumber1,cnumber2,for_year) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+                        "date_of_birth,admission_date,blood_group,cnumber1,cnumber2,for_year,temp_roll) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
                 PreparedStatement preparedStatement = conn.prepareStatement(query);
-                preparedStatement.setString(1, Integer.toString(i));
-                preparedStatement.setString(2, Integer.toString(i));
-                preparedStatement.setString(3, Integer.toString(i));
-                preparedStatement.setString(4, Integer.toString(i));
-                preparedStatement.setString(5, Integer.toString(1));
-                preparedStatement.setString(6, Integer.toString(i));
-                preparedStatement.setString(7, Integer.toString(i));
-                preparedStatement.setString(8, Integer.toString(i));
-                preparedStatement.setString(9, Integer.toString(i));
-                preparedStatement.setString(10, Integer.toString(i));
-                preparedStatement.setString(11, Integer.toString(i));
-                preparedStatement.setString(12, Integer.toString(i));
-                preparedStatement.setString(13, Integer.toString(i));
-                preparedStatement.setString(14, Integer.toString(1));
-
+                preparedStatement.setString(1, Integer.toString(counter));
+                preparedStatement.setString(2, "name"+counter);
+                preparedStatement.setString(3, "father"+counter);
+                preparedStatement.setString(4, "mother"+counter);
+                preparedStatement.setString(5, Integer.toString(i));
+                preparedStatement.setString(6, "Science"+i);
+                preparedStatement.setString(7, "school"+i);
+                preparedStatement.setString(8, "address"+counter);
+                preparedStatement.setString(9, counter+"-"+j+""+i);
+                preparedStatement.setString(10, counter+"-"+j+""+(i+15));
+                preparedStatement.setString(11, "O+");
+                preparedStatement.setString(12, "01710"+counter+i+j);
+                preparedStatement.setString(13, "01711"+counter+i+j);
+                preparedStatement.setString(14, Integer.toString(2017));
+                preparedStatement.setString(15,i+j+counter+"");
+               counter++;
                 preparedStatement.execute();
             }
         } catch (Exception ex)
