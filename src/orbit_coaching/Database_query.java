@@ -64,7 +64,7 @@ public class Database_query {
              "    joining_date VARCHAR(20),\n" +
              "    isDeleted BOOL DEFAULT 0,\n"+
              "    year VARCHAR(15),\n"+
-             "    ID INT PRIMARY KEY AUTO_INCREMENT\n" +
+             "    ID INT PRIMARY KEY\n" +
              ");";
 
      static String create_subect_table = "CREATE TABLE Subject\n" +
@@ -350,6 +350,24 @@ public class Database_query {
         return resultSet;
     }
 
+    public static ResultSet get_teacher_info(String id)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT * from Teacher WHERE ID="+id+" ;";
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
 
     public static ResultSet get_student_of_year_class(String yr,String cls)
     {
@@ -536,6 +554,25 @@ public class Database_query {
         }
         return resultSet;
     }
+
+    public static ResultSet get_max_teacher_id()
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT max(cast(ID as Int)) FROM Teacher";
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
     public static ResultSet get_exam_type_by_class(String cls)
     {
         ResultSet resultSet=null;
@@ -1065,6 +1102,25 @@ public class Database_query {
         return resultSet;
     }
 
+    public static ResultSet get_teachear_details_for_attendace()
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT ID,name from Teacher WHERE isDeleted="+0+" ORDER BY name,ID";
+            resultSet= stmt.executeQuery(query);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
     public static ResultSet get_teachear_name_institution(String ID)
     {
         ResultSet resultSet=null;
@@ -1139,19 +1195,20 @@ public class Database_query {
             ex.printStackTrace();
         }
     }
-    public static void insert_teacher(String name,String joining_date,String institution,String yr) {
+    public static void insert_teacher(String name,String joining_date,String institution,String yr,String id) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "INSERT INTO Teacher (name,joining_date,institution,year) VALUES(?,?,?,?);";
+            String query = "INSERT INTO Teacher (name,joining_date,institution,year,ID) VALUES(?,?,?,?,?);";
 
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             preparedStatement.setString(1,name);
             preparedStatement.setString(2,joining_date);
             preparedStatement.setString(3,institution);
             preparedStatement.setString(4,yr);
+            preparedStatement.setString(5,id);
             preparedStatement.execute();
 
         } catch (Exception ex)
@@ -1273,6 +1330,35 @@ public class Database_query {
             ex.printStackTrace();
         }
     }
+
+
+    public static void update_teacher(int id,String name,String institution,String joining_date,String yr,
+                                      int active) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "UPDATE Teacher " +
+                    "SET ID=?,name=?,institution=?,joining_date=?,year=?,isDeleted=?" +
+                    " WHERE ID="+Integer.toString(id)+";";
+
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setString(1,Integer.toString(id));
+            preparedStatement.setString(2,name);
+            preparedStatement.setString(3,institution);
+            preparedStatement.setString(4,joining_date);
+            preparedStatement.setString(5,yr);
+            preparedStatement.setString(6,Integer.toString(active));
+
+            preparedStatement.execute();
+
+        } catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
 
 
 

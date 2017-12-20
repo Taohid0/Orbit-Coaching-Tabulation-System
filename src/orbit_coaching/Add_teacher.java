@@ -15,17 +15,40 @@ public class Add_teacher {
     private JButton save_button;
     private JComboBox institution_combobox;
     private JComboBox year_combobox;
+    private JTextField id_textfield;
 
 
     public Add_teacher()
     {
-        JFrame jFrame = new JFrame("Orbit Coaching");
-        Dimension dimension=  new Dimension(450,450);
+        JFrame jFrame = new JFrame("Orbit (Add Teacher)");
+        Dimension dimension=  new Dimension(450,350);
         jFrame.setPreferredSize(dimension);
         jFrame.setContentPane(jPanel);
         save_button.setFocusable(false);
 
         institution_combobox.setEditable(true);
+        jFrame.setResizable(false);
+        id_textfield.setEditable(false);
+
+        try
+        {
+            ResultSet resultSet = Database_query.get_max_teacher_id();
+            resultSet.beforeFirst();
+
+            if(resultSet.next())
+            {
+                String r = Integer.toString(Integer.parseInt(resultSet.getString(1))+1);
+                id_textfield.setText(r);
+            }
+        }
+        catch (NumberFormatException e)
+        {
+            id_textfield.setText("1");
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
 
 
         try
@@ -73,7 +96,9 @@ public class Add_teacher {
 
                 try
                 {
-                    Database_query.insert_teacher(name,joininig_date,institution,yr);
+                    Database_query.insert_teacher(name,joininig_date,institution,yr,id_textfield.getText());
+                    jFrame.dispose();
+                    Home home = new Home();
                 }
                 catch (Exception ex)
                 {

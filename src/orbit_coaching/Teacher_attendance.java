@@ -83,7 +83,7 @@ public class Teacher_attendance {
 
         try
         {
-            ResultSet resultSet= Database_query.get_teachear_details();
+            ResultSet resultSet= Database_query.get_teachear_details_for_attendace();
             resultSet.beforeFirst();
 
             while (resultSet.next())

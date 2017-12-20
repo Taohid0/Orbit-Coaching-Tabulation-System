@@ -30,6 +30,7 @@ public class Home {
 
         JMenuBar jMenuBar = new JMenuBar();
 
+        JMenu teacher_menu = new JMenu("Teacher");
         Print = new JMenu("Print");
         Result = new JMenu("Result");
         Student_wise = new JMenuItem("Studentwise");
@@ -137,6 +138,40 @@ public class Home {
         jMenuBar.add(student_menu);
         jMenuBar.add(result_menu);
 
+        //teacher menu items
+        JMenuItem add_teacher = new JMenuItem("Add Teacher");
+        add_teacher.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Add_teacher add_teacher1 = new Add_teacher();
+            }
+        });
+        JMenuItem edit_teacher = new JMenuItem("Edit Teacher");
+        edit_teacher.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Edit_teacher edit_teacher =  new Edit_teacher();
+            }
+        });
+        JMenuItem teacher_attendance = new JMenuItem("Teacher Attendance");
+        teacher_attendance.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Teacher_attendance teacher_attendance1 = new Teacher_attendance();
+            }
+        });
+        JMenuItem teacher_attendance_show_teacher =new JMenuItem("Teacher Attendance Show");
+        teacher_attendance_show_teacher.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Teacher_attendance_show teacher_attendance_show1 = new Teacher_attendance_show();
+            }
+        });
+
         show = new JMenu("Show");
         JMenuItem course_wise_result = new JMenuItem("Course wise Result");
         course_wise_result.addActionListener(new ActionListener() {
@@ -231,6 +266,12 @@ public class Home {
                 Expense expense = new Expense();
             }
         });
+
+        teacher_menu.add(add_teacher);
+        teacher_menu.add(edit_teacher);
+        teacher_menu.add(teacher_attendance);
+        teacher_menu.add(teacher_attendance_show_teacher);
+        jMenuBar.add(teacher_menu);
 
         show.add(course_wise_result);
         show.add(course_wise_result_name_wise);

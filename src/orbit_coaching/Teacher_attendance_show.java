@@ -161,10 +161,17 @@ public class Teacher_attendance_show {
     {
         try
         {
+            JFrame jFrame = new JFrame("Orbit Coaching");
             defaultTableModel = new DefaultTableModel(0,0);
             String header[] = {"Date","Arrival Time"};
             defaultTableModel.setColumnIdentifiers(header);
             table1.setModel(defaultTableModel);
+
+
+            DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+            centerRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
+            table1.getColumn("Date").setCellRenderer( centerRenderer );
+            table1.getColumn("Arrival Time").setCellRenderer(centerRenderer);
 
             ResultSet resultSet = Database_query.get_teacher_attendance(id_combobox.getSelectedItem().toString(),
                     year_combobox.getSelectedItem().toString());
