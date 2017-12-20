@@ -2,7 +2,6 @@ package orbit_coaching;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.xml.crypto.Data;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -13,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import static java.sql.DriverManager.getConnection;
-import static orbit_coaching.Database_query.conn;
 
 public class Insert_marks {
     private JComboBox examtype_comobox;
@@ -22,7 +20,7 @@ public class Insert_marks {
     private JTable table1;
     private JPanel jPanel1;
     private JComboBox for_year_combobox;
-    private JButton button1;
+    private JButton SAVE;
     private JTextField total_marks_textbox;
     private JComboBox subject_combobox;
     int count=0;
@@ -347,8 +345,8 @@ public class Insert_marks {
                 }
             }
         });
-        button1.setFocusable(false);
-        button1.addActionListener(new ActionListener() {
+        SAVE.setFocusable(false);
+        SAVE.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                get_table_data();

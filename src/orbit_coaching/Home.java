@@ -94,6 +94,46 @@ public class Home {
         result_menu.add(edit_marks);
         result_menu.add(result_submenu);
 
+        //for student menu
+        JMenuItem show_student_class_wise =new JMenuItem("Show Student (Class Wise)");
+        show_student_class_wise.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                show_student_list show=new show_student_list();
+            }
+        });
+        JMenuItem show_student_school_wise = new JMenuItem("Show Student (Institution Wise)");
+        show_student_school_wise.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Show_student_by_school_and_year show_student_by_school_and_year =new Show_student_by_school_and_year();
+            }
+        });
+
+        JMenuItem student_payment_student = new JMenuItem("Add Student Payment");
+        student_payment_student.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Add_student_payment add_student_payment = new Add_student_payment();
+            }
+        });
+        JMenuItem student_payment_show_student = new JMenuItem("Student's Payment Show");
+        student_payment_show_student.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Student_payment_show student_payment_show =new Student_payment_show();
+            }
+        });
+
+
+        student_menu.add(show_student_class_wise);
+        student_menu.add(show_student_school_wise);
+        student_menu.add(student_payment_show_student);
+        student_menu.add(student_payment_show_student);
         jMenuBar.add(student_menu);
         jMenuBar.add(result_menu);
 

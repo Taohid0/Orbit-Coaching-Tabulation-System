@@ -195,6 +195,11 @@ public class Course_wise_result_show_name_wise {
 
         fill_year();
         fill_class();
+        year_comboBox1.setEditable(true);
+        class_comboBox1.setEditable(true);
+        subject_combobox.setEditable(true);
+        exam_type_comboBox2.setEditable(true);
+
         total_marks_textField1.setEditable(false);
         highest_marks_textField2.setEditable(false);
         lowest_marks_textField3.setEditable(false);

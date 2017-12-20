@@ -11,6 +11,7 @@ public class Main {
         //System.out.println("hello".equals(v));
         //Database_query.do_start_up_query();
          //Test_data_input.insert_marks();
+        //test t =new test();
         Home home = new Home();
         //Test_data_input.insert_student();
         //Login_form login_form = new Login_form();
