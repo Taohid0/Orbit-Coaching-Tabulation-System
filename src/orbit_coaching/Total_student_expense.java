@@ -141,7 +141,7 @@ public class Total_student_expense {
                 }
 
 
-                defaultTableModel.addRow(new String[]{cnt, resultSet.getString(1), name, resultSet.getString(2), resultSet.getString(3),
+                defaultTableModel.addRow(new String[]{cnt, resultSet.getString(1), name, resultSet.getString(3), resultSet.getString(2),
                         resultSet.getString(4)});
 
                 total+=Integer.parseInt(resultSet.getString(4));

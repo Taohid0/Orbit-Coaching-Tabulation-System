@@ -489,6 +489,24 @@ public class Database_query {
         }
         return resultSet;
     }
+    public static ResultSet get_income_year(String yr)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT from_whom,purpose,date,amount,type from billing_income_other WHERE "
+                    +" date LIKE "+"\"%"+yr.toString()+"\""+" ORDER BY from_whom " ;
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
 
     public static ResultSet get_expense_year_teacher(String yr)
     {

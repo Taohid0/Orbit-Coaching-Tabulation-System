@@ -132,8 +132,8 @@ public class Total_expense_year {
             resultSet.beforeFirst();
 
             while (resultSet.next()) {
-                defaultTableModel.addRow(new String[]{resultSet.getString(1), resultSet.getString(2),
-                        resultSet.getString(3), resultSet.getString(4)});
+                defaultTableModel.addRow(new String[]{resultSet.getString(1), resultSet.getString(3),
+                        resultSet.getString(2), resultSet.getString(4)});
                 total+=Long.parseLong(resultSet.getString(4));
             }
         } catch (Exception ex) {

@@ -1,5 +1,7 @@
 package orbit_coaching;
 
+import com.sun.org.apache.xalan.internal.xsltc.compiler.util.StringStack;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -10,17 +12,16 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.sql.ResultSet;
 
-public class Total_teacher_expense {
+public class Show_total_income_other {
     private JComboBox year_combobox;
     private JTable table1;
-    private JTextField textField1;
+    private JTextField total_textfield;
     private JButton CREATEPDFButton;
     private JPanel panel1;
-    DefaultTableModel defaultTableModel=null;
+    DefaultTableModel defaultTableModel = null;
 
-    Total_teacher_expense()
-    {
-        JFrame jFrame = new JFrame("Orbit (Total Teacher Payment)");
+    Show_total_income_other() {
+        JFrame jFrame = new JFrame("Orbit (Total Expense)");
 
         try {
             ResultSet resultSet = Database_query.get_year();
@@ -35,7 +36,7 @@ public class Total_teacher_expense {
 
 
         defaultTableModel = new DefaultTableModel(0, 0);
-        String header[] = {"Sl No.", "ID", "Name", "Date", "Purpose", "Amount"};
+        String header[] = {"Sl No.", "ID", "Name", "Date", "Purpose", "Type", "Amount"};
         defaultTableModel.setColumnIdentifiers(header);
         table1.setModel(defaultTableModel);
 
@@ -47,7 +48,7 @@ public class Total_teacher_expense {
         table1.getColumn("Name").setCellRenderer(centerRenderer);
         table1.getColumn("Date").setCellRenderer(centerRenderer);
         table1.getColumn("Purpose").setCellRenderer(centerRenderer);
-
+        table1.getColumn("Type").setCellRenderer(centerRenderer);
         table1.getColumn("Amount").setCellRenderer(centerRenderer);
 
         year_combobox.setEditable(true);
@@ -101,14 +102,15 @@ public class Total_teacher_expense {
                 fill_table();
             }
         });
+
     }
 
     void fill_table() {
-        textField1.setText("");
+        total_textfield.setText("");
         int counter = 1;
         int total = 0;
         defaultTableModel = new DefaultTableModel(0, 0);
-        String header[] = {"Sl No.", "ID", "Name", "Date", "Purpose", "Amount"};
+        String header[] = {"Sl No.", "ID", "Name", "Date", "Purpose", "Type", "Amount"};
         defaultTableModel.setColumnIdentifiers(header);
         table1.setModel(defaultTableModel);
 
@@ -120,29 +122,44 @@ public class Total_teacher_expense {
         table1.getColumn("Name").setCellRenderer(centerRenderer);
         table1.getColumn("Date").setCellRenderer(centerRenderer);
         table1.getColumn("Purpose").setCellRenderer(centerRenderer);
+        table1.getColumn("Type").setCellRenderer(centerRenderer);
         table1.getColumn("Amount").setCellRenderer(centerRenderer);
 
         try {
-            ResultSet resultSet = Database_query.get_expense_year_teacher(year_combobox.getSelectedItem().toString());
+            ResultSet resultSet = Database_query.get_income_year(year_combobox.getSelectedItem().toString());
             resultSet.beforeFirst();
 
             while (resultSet.next()) {
                 String name = "";
                 String cnt = Integer.toString(counter);
-                try {
-                    ResultSet resultSet1 = Database_query.get_teacher_name(resultSet.getString(1));
-                    resultSet1.beforeFirst();
+                String type = resultSet.getString(5);
+                if (type.equals("Student"))
+                    try {
+                        ResultSet resultSet1 = Database_query.get_name(resultSet.getString(1));
+                        resultSet1.beforeFirst();
 
-                    if (resultSet1.next()) {
-                        name = resultSet1.getString(1);
+                        if (resultSet1.next()) {
+                            name = resultSet1.getString(1);
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
                     }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
+                else if (type.equals("Teacher"))
+                    try {
+                        ResultSet resultSet1 = Database_query.get_teacher_name(resultSet.getString(1));
+                        resultSet1.beforeFirst();
 
+                        if (resultSet1.next()) {
+                            name = resultSet1.getString(1);
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                else
+                    name = "";
 
                 defaultTableModel.addRow(new String[]{cnt, resultSet.getString(1), name, resultSet.getString(3), resultSet.getString(2),
-                        resultSet.getString(4)});
+                        resultSet.getString(5), resultSet.getString(4)});
 
                 total+=Integer.parseInt(resultSet.getString(4));
 
@@ -152,6 +169,6 @@ public class Total_teacher_expense {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        textField1.setText(Integer.toString(total));
+       total_textfield.setText(Integer.toString(total));
     }
 }

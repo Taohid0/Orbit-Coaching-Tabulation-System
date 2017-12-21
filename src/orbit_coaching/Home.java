@@ -350,10 +350,28 @@ public class Home {
 
             }
         });
+        JMenuItem show_all_monthly_payment = new JMenuItem("Show Total Monthly Payment");
+        show_all_monthly_payment.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Total_monthly_income_from_student total_monthly_income_from_student = new Total_monthly_income_from_student();
+            }
+        });
+        JMenuItem show_all_other_income = new JMenuItem("Show Other Income");
+        show_all_other_income.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Show_total_income_other show_total_income_other = new Show_total_income_other();
+            }
+        });
 
         transaction_menu.add(add_students_payment);
         transaction_menu.add(payment_of_single_student_transaction);
         transaction_menu.add(other_income_transaction);
+        transaction_menu.add(show_all_monthly_payment);
+        transaction_menu.add(show_all_other_income);
         transaction_menu.add(add_expense_transaction);
         transaction_menu.add(expense_for_teacher);
         transaction_menu.add(expense_for_student);
