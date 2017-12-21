@@ -66,13 +66,13 @@ public class Student_payment_show {
         total_textbox.setEditable(false);
 
         defaultTableModel = new DefaultTableModel(0, 0);
-        String header[] = {"MONTH", "DATE", "PURPOSE", "AMOUNT"};
+        String header[] = {"Sl No.", "DATE", "PURPOSE", "AMOUNT"};
         defaultTableModel.setColumnIdentifiers(header);
         table1.setModel(defaultTableModel);
 
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
-        table1.getColumn("MONTH").setCellRenderer(centerRenderer);
+        table1.getColumn("Sl No.").setCellRenderer(centerRenderer);
         table1.getColumn("DATE").setCellRenderer(centerRenderer);
         table1.getColumn("PURPOSE").setCellRenderer(centerRenderer);
         table1.getColumn("AMOUNT").setCellRenderer(centerRenderer);
@@ -136,15 +136,16 @@ public class Student_payment_show {
 
     void fill_table()
     {
+        int counter = 1;
         int total = 0;
         defaultTableModel = new DefaultTableModel(0, 0);
-        String header[] = {"MONTH", "DATE", "PURPOSE", "AMOUNT"};
+        String header[] = {"Sl No.", "DATE", "PURPOSE", "AMOUNT"};
         defaultTableModel.setColumnIdentifiers(header);
         table1.setModel(defaultTableModel);
 
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
-        table1.getColumn("MONTH").setCellRenderer(centerRenderer);
+        table1.getColumn("Sl No.").setCellRenderer(centerRenderer);
         table1.getColumn("DATE").setCellRenderer(centerRenderer);
         table1.getColumn("PURPOSE").setCellRenderer(centerRenderer);
         table1.getColumn("AMOUNT").setCellRenderer(centerRenderer);

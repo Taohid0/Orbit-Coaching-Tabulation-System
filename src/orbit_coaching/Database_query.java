@@ -103,14 +103,17 @@ public class Database_query {
              "    to_whom VARCHAR(100),\n" +
              "    date VARCHAR(25),\n" +
              "    purpose VARCHAR(500),\n" +
-             "    amount INT\n" +
-             ");";
+             "    amount INT,\n" +
+             "    type VARCHAR(100),\n"+
+             "    ID INT AUTO_INCREMENT PRIMARY KEY \n"+
+             ")";
     static String create_other_income_billing = "CREATE TABLE billing_income_other\n" +
             "(\n" +
             "    from_whom VARCHAR(100),\n" +
             "    date VARCHAR(25),\n" +
             "    purpose VARCHAR(500),\n" +
-            "    amount INT\n" +
+            "    amount INT,\n" +
+            "    type VARCHAR(100)\n"+
             ");";
 
 
@@ -292,6 +295,27 @@ public class Database_query {
         }
         return resultSet;
     }
+    public static ResultSet get_students_income_details(String yr)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT roll,cls,date,purpose,amount from billing_student WHERE DATE LIKE "+
+                    "\"%"+yr+"\""+ " ORDER BY CAST(roll AS INT)";
+            resultSet= stmt.executeQuery(query);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+
 
     public static ResultSet get_other_income_details_specific_student(String yr,String roll)
     {
@@ -301,8 +325,10 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT from_whom,purpose,date,amount from billing_income_other WHERE from_whom="+roll+" AND DATE LIKE "+
+            String query = "SELECT from_whom,purpose,date,amount from billing_income_other WHERE from_whom="+roll+
+                    " AND type="+"\""+"Student"+"\""+ " AND DATE LIKE "+
                     "\"%"+yr+"\"";
+            System.out.println(query);
             resultSet= stmt.executeQuery(query);
 
         }
@@ -368,6 +394,43 @@ public class Database_query {
         return resultSet;
     }
 
+    public static ResultSet get_teacher_name_by_id(String id)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT name from Teacher WHERE ID="+id+" ;";
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+
+    public static ResultSet get_teacher_name(String id)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT name from Teacher WHERE ID="+id+" ;";
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
 
     public static ResultSet get_student_of_year_class(String yr,String cls)
     {
@@ -416,7 +479,7 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT to_whom,purpose,date,amount from billing_other WHERE "
+            String query = "SELECT to_whom,purpose,date,amount,type from billing_other WHERE "
                     +" date LIKE "+"\"%"+yr.toString()+"\""+" ORDER BY to_whom " ;
             resultSet= stmt.executeQuery(query);
         }
@@ -426,6 +489,66 @@ public class Database_query {
         }
         return resultSet;
     }
+
+    public static ResultSet get_expense_year_teacher(String yr)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT to_whom,purpose,date,amount,type from billing_other WHERE "+" type="+"\""+"Teacher"+"\""+" AND"
+                    +" date LIKE "+"\"%"+yr.toString()+"\""+" ORDER BY to_whom " ;
+            System.out.println(query);
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public static ResultSet get_expense_year_student(String yr)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT to_whom,purpose,date,amount,type from billing_other WHERE "
+                    +" date LIKE "+"\"%"+yr.toString()+"\""+" AND type="+"\""+"Student"+"\""+" ORDER BY to_whom " ;
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public static ResultSet get_expense_year_other(String yr)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT to_whom,purpose,date,amount,type from billing_other WHERE "
+                    +" date LIKE "+"\"%"+yr.toString()+"\""+" AND type="+"\""+"Other"+"\""+" ORDER BY to_whom " ;
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+
 
     public static ResultSet get_roll_for_payment(String cls,String year)
     {
@@ -960,20 +1083,17 @@ public class Database_query {
     }
 
 
-    public static ResultSet get_teachear_institution()
-    {
-        ResultSet resultSet=null;
+    public static ResultSet get_teachear_institution() {
+        ResultSet resultSet = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT DISTINCT institution from Teacher ORDER BY (institution)";
-            resultSet= stmt.executeQuery(query);
+            String query = "SELECT DISTINCT institution FROM Teacher ORDER BY (institution)";
+            resultSet = stmt.executeQuery(query);
 
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         return resultSet;
@@ -1121,6 +1241,7 @@ public class Database_query {
         return resultSet;
     }
 
+
     public static ResultSet get_teachear_name_institution(String ID)
     {
         ResultSet resultSet=null;
@@ -1217,19 +1338,20 @@ public class Database_query {
         }
     }
 
-    public static void insert_other_income(String from,String purpose,String date,String amount) {
+    public static void insert_other_income(String from,String purpose,String date,String amount,String type) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "INSERT INTO billing_income_other (from_whom,purpose,date,amount) VALUES(?,?,?,?);";
+            String query = "INSERT INTO billing_income_other (from_whom,purpose,date,amount,type) VALUES(?,?,?,?,?);";
 
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             preparedStatement.setString(1,from);
             preparedStatement.setString(2,purpose);
             preparedStatement.setString(3,date);
             preparedStatement.setString(4,amount);
+            preparedStatement.setString(5,type);
             preparedStatement.execute();
 
         } catch (Exception ex)
@@ -1238,19 +1360,20 @@ public class Database_query {
         }
     }
 
-    public static void insert_expense(String to,String purpose,String date,String amount) {
+    public static void insert_expense(String to,String purpose,String date,String amount,String type) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "INSERT INTO billing_other (to_whom,purpose,date,amount) VALUES(?,?,?,?);";
+            String query = "INSERT INTO billing_other (to_whom,purpose,date,amount,type) VALUES(?,?,?,?,?);";
 
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             preparedStatement.setString(1,to);
             preparedStatement.setString(2,purpose);
             preparedStatement.setString(3,date);
             preparedStatement.setString(4,amount);
+            preparedStatement.setString(5,type);
             preparedStatement.execute();
 
         } catch (Exception ex)

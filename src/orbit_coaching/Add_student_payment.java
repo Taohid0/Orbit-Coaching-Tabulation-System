@@ -311,7 +311,6 @@ public class Add_student_payment {
         purpose_combobox.setEditable(true);
         JFrame jFrame = new JFrame("Orbit Coaching");
         jFrame.setContentPane(panel1);
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.pack();
         jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         jFrame.setVisible(true);

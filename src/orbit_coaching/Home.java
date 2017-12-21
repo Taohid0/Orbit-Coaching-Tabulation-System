@@ -121,7 +121,7 @@ public class Home {
                 Add_student_payment add_student_payment = new Add_student_payment();
             }
         });
-        JMenuItem student_payment_show_student = new JMenuItem("Student's Payment Show");
+        JMenuItem student_payment_show_student = new JMenuItem("Student's Payment Show (Student Wise)");
         student_payment_show_student.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -130,11 +130,21 @@ public class Home {
             }
         });
 
+        JMenuItem total_student_payment_show_student = new JMenuItem("Total Student's Payment (Monthly)");
+        total_student_payment_show_student.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Total_monthly_income_from_student total_monthly_income_from_student = new Total_monthly_income_from_student();
+            }
+        });
+
 
         student_menu.add(show_student_class_wise);
         student_menu.add(show_student_school_wise);
         student_menu.add(student_payment_show_student);
         student_menu.add(student_payment_show_student);
+        student_menu.add(total_student_payment_show_student);
         jMenuBar.add(student_menu);
         jMenuBar.add(result_menu);
 
@@ -272,6 +282,85 @@ public class Home {
         teacher_menu.add(teacher_attendance);
         teacher_menu.add(teacher_attendance_show_teacher);
         jMenuBar.add(teacher_menu);
+
+
+        //transaction menubar
+        JMenu transaction_menu = new JMenu("Transaction");
+        JMenuItem add_students_payment = new JMenuItem("Add Student's Payment");
+        add_students_payment.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Add_student_payment add_student_payment = new Add_student_payment();
+            }
+        });
+        JMenuItem other_income_transaction = new JMenuItem("Add Other Income");
+        other_income_transaction.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Other_income other_income =new Other_income();}
+        });
+        JMenuItem add_expense_transaction = new JMenuItem("Add Expense");
+        add_expense_transaction.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Expense expense = new Expense();
+            }
+        });
+        JMenuItem expense_for_teacher = new JMenuItem("Show Expense For Teachers");
+        expense_for_teacher.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Total_teacher_expense total_teacher_expense = new Total_teacher_expense();
+            }
+        });
+        JMenuItem expense_for_student = new JMenuItem("Show Expense For Students");
+        expense_for_student.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Total_student_expense total_student_expense = new Total_student_expense();
+            }
+        });
+        JMenuItem expense_for_other = new JMenuItem("Show Expense For Others");
+        expense_for_other.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Total_other_expense total_other_expense = new Total_other_expense();
+            }
+        });
+        JMenuItem total_expense = new JMenuItem("Show Total Expense");
+        total_expense.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Total_expense total_expense1 = new Total_expense();
+            }
+        });
+        JMenuItem payment_of_single_student_transaction = new JMenuItem("Show Payment Of Specific Student");
+        payment_of_single_student_transaction.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Student_payment_show student_payment_show = new Student_payment_show();
+
+            }
+        });
+
+        transaction_menu.add(add_students_payment);
+        transaction_menu.add(payment_of_single_student_transaction);
+        transaction_menu.add(other_income_transaction);
+        transaction_menu.add(add_expense_transaction);
+        transaction_menu.add(expense_for_teacher);
+        transaction_menu.add(expense_for_student);
+        transaction_menu.add(expense_for_other);
+        transaction_menu.add(total_expense);
+        jMenuBar.add(transaction_menu);
+
 
         show.add(course_wise_result);
         show.add(course_wise_result_name_wise);
