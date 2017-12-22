@@ -258,6 +258,48 @@ public class Database_query {
         return resultSet;
 
     }
+
+    public static void update_password(String un,String pw)
+    {
+        ResultSet resultSet = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+
+
+            try {
+                String query ="DELETE FROM admin";
+                stmt.execute(query);
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            try {
+
+                String query = "INSERT INTO admin (user_name,password) " +
+                        " VALUES (?,?);";
+                PreparedStatement preparedStatement = conn.prepareStatement(query);
+                preparedStatement.setString(1,un);
+                preparedStatement.setString(2,pw);
+
+                preparedStatement.execute();
+
+            }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+
+    }
+
+
     public static ResultSet get_school_name()
     {
         ResultSet resultSet=null;
@@ -1416,6 +1458,16 @@ public class Database_query {
     }
 
     public static void insert_institution_data(String name,String address,String contact) {
+
+        try
+        {
+            String query = "DELETE FROM Institution";
+            stmt.execute(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
@@ -1434,6 +1486,10 @@ public class Database_query {
             ex.printStackTrace();
         }
     }
+
+
+
+
 
     public static void update_student(String name,String fname,String mname,String address,String c1,String c2,String
             admission_date,String birth_date, String roll,String cls,String group,String school,String bgroup,String for_year,

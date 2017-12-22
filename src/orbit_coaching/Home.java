@@ -42,6 +42,46 @@ public class Home {
         Monthly= new JMenuItem("Monthly");
         Yearly = new JMenuItem("Yearly");
 
+        //file menu items
+        JMenuItem add_institution_info = new JMenuItem("Add Institution Information");
+        add_institution_info.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Insert_institution_data insert_institution_data = new Insert_institution_data();
+            }
+        });
+
+
+        JMenuItem edit_institution_info = new JMenuItem("Edit Institution Information");
+        edit_institution_info.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Insert_institution_data_edit insert_institution_data_edit = new Insert_institution_data_edit();
+            }
+        });
+
+        JMenuItem change_password = new JMenuItem("Change Password");
+        change_password.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                Change_password change_password1=new Change_password();
+            }
+        });
+
+        JMenuItem change_institution_details = new JMenuItem("Change Institution Information");
+        change_institution_details.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                //Change in
+            }
+        });
+
+
+
         Result.add(Student_wise);
         Result.add(Course_wise);
 
@@ -65,6 +105,9 @@ public class Home {
                 System.exit(0);
             }
         });
+        file_menu.add(add_institution_info);
+        file_menu.add(edit_institution_info);
+        file_menu.add(change_password);
         file_menu.add(exit_menu);
         jMenuBar.add(file_menu);
         //student menu

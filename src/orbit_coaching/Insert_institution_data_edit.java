@@ -1,36 +1,52 @@
 package orbit_coaching;
 
-import com.sun.org.apache.xml.internal.resolver.readers.ExtendedXMLCatalogReader;
-import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.sql.ResultSet;
 
-public class Insert_institution_data {
-    private JPanel panel1;
+public class Insert_institution_data_edit {
     private JTextField name_textfield;
     private JTextField address_textfield;
-    private JTextField contact_textfield;
-    private JButton SAVEButton;
+    private JTextField contact_number_textfield;
+    private JButton UPDATEINFORMATIONButton;
+    private JPanel panel1;
 
-    Insert_institution_data()
+    Insert_institution_data_edit()
     {
+
         JFrame jFrame = new JFrame("Orbit Coaching");
+        jFrame.add(panel1);
         Dimension dimension=  new Dimension(450,350);
         jFrame.setPreferredSize(dimension);
-        jFrame.add(panel1);
         jFrame.pack();
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
 
 
-        SAVEButton.setFocusable(false);
+        try
+        {
+            ResultSet resultSet = Database_query.get_institution_info();
+            resultSet.beforeFirst();
 
-        SAVEButton.addActionListener(new ActionListener() {
+            if(resultSet.next())
+            {
+                name_textfield.setText(resultSet.getString(1));
+                address_textfield.setText(resultSet.getString(2));
+                contact_number_textfield.setText(resultSet.getString(3));
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+
+        UPDATEINFORMATIONButton.setFocusable(false);
+
+        UPDATEINFORMATIONButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 add_date();
@@ -44,8 +60,8 @@ public class Insert_institution_data {
 
             @Override
             public void windowClosing(WindowEvent e) {
-            jFrame.dispose();
-            Home home = new Home();
+                jFrame.dispose();
+                Home home = new Home();
             }
 
             @Override
@@ -79,7 +95,7 @@ public class Insert_institution_data {
     {
         String name = name_textfield.getText();
         String address = address_textfield.getText();
-        String contact = contact_textfield.getText();
+        String contact = contact_number_textfield.getText();
 
         try
         {
@@ -98,4 +114,6 @@ public class Insert_institution_data {
             ex.printStackTrace();
         }
     }
+
+
 }

@@ -15,6 +15,7 @@ public class Main {
         Home home = new Home();
         //Test_data_input.insert_student();
         //Login_form login_form = new Login_form();
+        //Change_password change_password  = new Change_password();
         // all show part should be added
         //Add_student add_student = new Add_student();
         //System.out.println(Calendar.getInstance().get(Calendar.YEAR));
