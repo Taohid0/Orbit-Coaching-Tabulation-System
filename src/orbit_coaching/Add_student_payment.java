@@ -309,6 +309,7 @@ public class Add_student_payment {
 
         skip_month_list.setListData(select_month);
         purpose_combobox.setEditable(true);
+        year_combobox.setEditable(true);
         JFrame jFrame = new JFrame("Orbit Coaching");
         jFrame.setContentPane(panel1);
         jFrame.pack();
@@ -356,8 +357,20 @@ public class Add_student_payment {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                insert_to_database();
+                if(check())
+                {
+                    JOptionPane.showMessageDialog(null, "Please Fill Up All The Fields Correctly",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else if(Data_validation.check_date(date_textbox.getText()))
+                {
+                    JOptionPane.showMessageDialog(null, "Please Fill Up Date Field Correctly",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else {
 
+                    insert_to_database();
+                }
 
             }
         });
@@ -400,5 +413,15 @@ public class Add_student_payment {
             }
         });
 
+    }
+    boolean check()
+    {
+        if(name_textbox.getText().equals("") || amount_textbox.getText().equals("")|| date_textbox.getText().equals("") ||
+                year_combobox.getSelectedItem().toString().equals("")|| purpose_combobox.getSelectedItem().toString().equals("")
+                )
+        {
+            return true;
+        }
+        return false;
     }
 }

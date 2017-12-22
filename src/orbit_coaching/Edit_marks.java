@@ -145,7 +145,7 @@ public class Edit_marks {
     public void fill_student_fields()
     {
         DefaultTableModel defaultTableModel = new DefaultTableModel(0,0);
-        String header[] = {"Roll Number","Obtained Marks"};
+        String header[] = {"Registration Number","Obtained Marks"};
         defaultTableModel.setColumnIdentifiers(header);
         table1.setModel(defaultTableModel);
 
@@ -197,7 +197,7 @@ public class Edit_marks {
     public Edit_marks()
     {
         defaultTableModel = new DefaultTableModel(0,0);
-        String header[] = {"Roll Number","Obtained Marks"};
+        String header[] = {"Registration Number","Obtained Marks"};
         defaultTableModel.setColumnIdentifiers(header);
         table1.setModel(defaultTableModel);
 

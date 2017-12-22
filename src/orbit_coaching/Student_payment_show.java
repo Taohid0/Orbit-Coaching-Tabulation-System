@@ -85,6 +85,7 @@ public class Student_payment_show {
        year_combobox.addActionListener(new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent e) {
+
                fill_table();
            }
        });

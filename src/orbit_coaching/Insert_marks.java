@@ -1,6 +1,7 @@
 package orbit_coaching;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -112,10 +113,17 @@ public class Insert_marks {
     public Insert_marks()
     {
         DefaultTableModel defaultTableModel = new DefaultTableModel(0,0);
-        String header[] = {"Roll Number","Name","Obtained Marks"};
+        String header[] = {"Registration Number","Name","Obtained Marks"};
         defaultTableModel.setColumnIdentifiers(header);
         table1.setModel(defaultTableModel);
-        //table1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
+        table1.getColumn("Registration Number").setCellRenderer( centerRenderer );
+        table1.getColumn("Name").setCellRenderer(centerRenderer);
+        table1.getColumn("Obtained Marks").setCellRenderer(centerRenderer);
+
+
         String cls ="";
         class_combobox.removeAllItems();
         examtype_comobox.removeAllItems();
@@ -283,9 +291,15 @@ public class Insert_marks {
                     resultSet1.beforeFirst();
 
                     DefaultTableModel defaultTableModel = new DefaultTableModel(0,0);
-                    String header[] = {"Roll Number","Name","Obtained Marks"};
+                    String header[] = {"Registration Number","Name","Obtained Marks"};
                     defaultTableModel.setColumnIdentifiers(header);
                     table1.setModel(defaultTableModel);
+
+                    DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+                    centerRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
+                    table1.getColumn("Registration Number").setCellRenderer( centerRenderer );
+                    table1.getColumn("Name").setCellRenderer(centerRenderer);
+                    table1.getColumn("Obtained Marks").setCellRenderer(centerRenderer);
 
 
                     while (resultSet1.next())
@@ -329,10 +343,9 @@ public class Insert_marks {
                     resultSet1.beforeFirst();
 
                     DefaultTableModel defaultTableModel = new DefaultTableModel(0,0);
-                    String header[] = {"Roll Number","Name","Obtained Marks"};
+                    String header[] = {"Registration Number","Name","Obtained Marks"};
                     defaultTableModel.setColumnIdentifiers(header);
                     table1.setModel(defaultTableModel);
-                    System.out.println("done");
 
                     while (resultSet1.next())
                     {
@@ -349,11 +362,17 @@ public class Insert_marks {
         SAVE.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               get_table_data();
-               String message =count+" Marks Entry added";
-               String title="SUCCESSFUL";
-                JOptionPane.showMessageDialog(null,message,
-                        title, JOptionPane.INFORMATION_MESSAGE);
+
+                if (Data_validation.check_date(date_textfield.getText())) {
+                    JOptionPane.showMessageDialog(null, "Please, Fill Up Date Field Correctly",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    get_table_data();
+                    String message = count + " Marks Entry added";
+                    String title = "SUCCESSFUL";
+                    JOptionPane.showMessageDialog(null, message,
+                            title, JOptionPane.INFORMATION_MESSAGE);
+                }
             }
         });
 

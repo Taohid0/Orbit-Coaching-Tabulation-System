@@ -99,11 +99,23 @@ public class Add_student {
             @Override
             public void actionPerformed(ActionEvent e) {
                 get_info();
-                Database_query.insert_student(name,fname,mname,address,c1,c2,admission_date,birth_date,roll,
-                        cls,group,school,bgroup,for_year,temp_roll);
-                jFrame.dispose();
-                Home home = new Home();
-                //System.out.println(bgroup);
+                if(check())
+                {
+                    JOptionPane.showMessageDialog(null, "Please Fill Up All The Fields Correctly",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else if(Data_validation.check_date(admission_date) || Data_validation.check_date(birth_date))
+                {
+                    JOptionPane.showMessageDialog(null, "Please Fill Up Date Fields Correctly",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else {
+                    Database_query.insert_student(name, fname, mname, address, c1, c2, admission_date, birth_date, roll,
+                            cls, group, school, bgroup, for_year, temp_roll);
+                    jFrame.dispose();
+                    Home home = new Home();
+                    //System.out.println(bgroup);
+                }
 
 
             }
@@ -197,9 +209,19 @@ public class Add_student {
         for_year = foryear_textbox.getText();
         temp_roll =roll_textbox.getText();
 
+    }
+    boolean check()
+    {
+        if(student_name_textbox.getText().equals("") || father_name_textbox.getText().equals("")||mother_name_textbox.getText().equals("")||
+                roll_textbox.getText().equals("") || address_textbox.getText().equals("")||foryear_textbox.getText().equals("")||
+                admission_date_textbox.getText().equals("")||date_of_birth_textbox.getText().equals("")||
+                class_combobox.getItemCount()==0 || school_combobox.getItemCount()==0 || group_combobox.getItemCount()==0 ||
+                blood_group_combobox.getItemCount()==0)
+        {
+            return true;
+        }
 
-
-
+        return false;
     }
 
 

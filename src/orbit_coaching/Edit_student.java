@@ -189,30 +189,45 @@ public class Edit_student {
         SAVEEDITEDDATAButton.setFocusable(false);
 
         SAVEEDITEDDATAButton.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
-                String name = name_textbox.getText();
-                String fname =fname_textbox.getText();
-                String mname = mname_textbox.getText();
-                String address = address_textbox.getText();
-                String c1 = c1_textbox.getText();
-                String c2 = c2_textbox.getText();
-                String admission_date = admission_date_textbox.getText();
-                String birthdate = birthdate_textbox.getText();
-                String year = for_year_combobox.getSelectedItem().toString();
-                String roll= registration_combobox.getSelectedItem().toString();
-                String cls = class_combobox.getSelectedItem().toString();
-                String group = group_combobox.getSelectedItem().toString();
-                String bgroup= blood_group_combobox.getSelectedItem().toString();
-                String school = school_combobox.getSelectedItem().toString();
-                String for_year = for_year_combobox.getSelectedItem().toString();
-                String temp_roll =roll_textfield.getText();
 
-                Database_query.update_student(name,fname,mname,address,c1,c2,admission_date,birthdate,
-                        roll,cls,group,school,bgroup,for_year,temp_roll);
+                if(check())
+                {
+                    JOptionPane.showMessageDialog(null, "Please Fill Up All The Fields Correctly",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else if(Data_validation.check_date(admission_date_textbox.getText()) || Data_validation.check_date(birthdate_textbox.getText()))
+                {
+                    JOptionPane.showMessageDialog(null, "Please Fill Up Date Fields Correctly",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else
+                {
+                    String name = name_textbox.getText();
+                    String fname = fname_textbox.getText();
+                    String mname = mname_textbox.getText();
+                    String address = address_textbox.getText();
+                    String c1 = c1_textbox.getText();
+                    String c2 = c2_textbox.getText();
+                    String admission_date = admission_date_textbox.getText();
+                    String birthdate = birthdate_textbox.getText();
+                    String year = for_year_combobox.getSelectedItem().toString();
+                    String roll = registration_combobox.getSelectedItem().toString();
+                    String cls = class_combobox.getSelectedItem().toString();
+                    String group = group_combobox.getSelectedItem().toString();
+                    String bgroup = blood_group_combobox.getSelectedItem().toString();
+                    String school = school_combobox.getSelectedItem().toString();
+                    String for_year = for_year_combobox.getSelectedItem().toString();
+                    String temp_roll = roll_textfield.getText();
 
-                jFrame.dispose();
-                Home home = new Home();
+                    Database_query.update_student(name, fname, mname, address, c1, c2, admission_date, birthdate,
+                            roll, cls, group, school, bgroup, for_year, temp_roll);
+
+                    jFrame.dispose();
+                    Home home = new Home();
+                }
             }
         });
         jFrame.addWindowListener(new WindowListener() {
@@ -253,4 +268,16 @@ public class Edit_student {
             }
         });
     }
+    boolean check()
+    {
+        if(name_textbox.getText().equals("") || fname_textbox.getText().equals("")||mname_textbox.getText().equals("")||
+                roll_textfield.getText().equals("") || address_textbox.getText().equals("")||
+                admission_date_textbox.getText().equals("")||birthdate_textbox.getText().equals(""))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
 }

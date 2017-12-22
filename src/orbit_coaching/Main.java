@@ -9,10 +9,12 @@ public class Main {
         //String v = null;
         //System.out.println("hello"==v);
         //System.out.println("hello".equals(v));
-        //Database_query.do_start_up_query();
+        Database_query.do_start_up_query();
          //Test_data_input.insert_marks();
         //test t =new test();
-        Home home = new Home();
+        //Home home = new Home();
+        //boolean n = Data_validation.check_date("11-11-2017");
+        //.out.println(n);
         //Test_data_input.insert_student();
         //Login_form login_form = new Login_form();
         //Change_password change_password  = new Change_password();

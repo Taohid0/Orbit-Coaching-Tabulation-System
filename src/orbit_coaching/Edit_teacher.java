@@ -57,14 +57,22 @@ public class Edit_teacher {
         update_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int active=0;
-                if(active_combox.getSelectedItem().toString().equals("INACTIVE"))
-                {
-                    active=1;
+
+                if (check()) {
+                    JOptionPane.showMessageDialog(null, "Please Fill Up All The Fields Correctly",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                } else if (Data_validation.check_date(joining_date_text_field.getText())) {
+                    JOptionPane.showMessageDialog(null, "Please Fill Up Date Field Correctly",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    int active = 0;
+                    if (active_combox.getSelectedItem().toString().equals("INACTIVE")) {
+                        active = 1;
+                    }
+                    Database_query.update_teacher(Integer.parseInt(id_combobox.getSelectedItem().toString())
+                            , name_textfield.getText(), institution_textfield.getText(),
+                            joining_date_text_field.getText(), year_textfield.getText(), active);
                 }
-                Database_query.update_teacher(Integer.parseInt(id_combobox.getSelectedItem().toString())
-                        ,name_textfield.getText(),institution_textfield.getText(),
-                        joining_date_text_field.getText(),year_textfield.getText(),active);
             }
         });
         jFrame.pack();
@@ -135,5 +143,14 @@ public class Edit_teacher {
         {
             ex.printStackTrace();
         }
+    }
+    boolean check()
+    {
+        if(name_textfield.getText().equals("") || joining_date_text_field.getText().equals("") || joining_date_text_field.getText().equals("")
+                || institution_textfield.getText().equals(""))
+        {
+            return true;
+        }
+        return false;
     }
 }

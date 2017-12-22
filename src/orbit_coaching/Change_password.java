@@ -16,10 +16,11 @@ public class Change_password {
     private JPasswordField new_password_field_again;
     private JButton SAVEButton;
     private JPanel panel1;
+    JFrame jFrame =null;
 
     Change_password(){
 
-        JFrame jFrame = new JFrame("Orbit (Change Password");
+        jFrame = new JFrame("Orbit (Change Password");
         Dimension dimension=  new Dimension(450,450);
         jFrame.setPreferredSize(dimension);
         SAVEButton.setFocusable(false);
@@ -27,7 +28,13 @@ public class Change_password {
         SAVEButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                change();
+
+                if(!check()) {
+                    change();
+                }
+                else
+                    JOptionPane.showMessageDialog(null, "Please, Fill Up All Fields Correctly",
+                            "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
         jFrame.addWindowListener(new WindowListener() {
@@ -97,7 +104,7 @@ public class Change_password {
         {
             JOptionPane.showMessageDialog(null, "Old Password Mismatched",
                     "Error", JOptionPane.ERROR_MESSAGE);
-        }
+    }
         else if(!new String(new_password_field.getPassword()).equals(new String(new_password_field_again.getPassword())))
         {
             JOptionPane.showMessageDialog(null, "New Password Mismatched",
@@ -106,7 +113,19 @@ public class Change_password {
        else
         {
             Database_query.update_password("Orbit Coaching",new String(new_password_field.getPassword()));
+            jFrame.dispose();
+            Home home = new Home();
         }
 
+    }
+
+    boolean check()
+    {
+        if(new String(old_password_field.getPassword()).equals("") || new String(new_password_field.getPassword()).equals("")||
+                new String(new_password_field_again.getPassword()).equals(""))
+        {
+            return true;
+        }
+        return false;
     }
 }

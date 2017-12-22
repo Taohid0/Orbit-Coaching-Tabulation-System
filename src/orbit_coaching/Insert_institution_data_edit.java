@@ -49,7 +49,18 @@ public class Insert_institution_data_edit {
         UPDATEINFORMATIONButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                add_date();
+
+                if(check())
+                {
+                    JOptionPane.showMessageDialog(null, "Please Fill Up All Fields Correctly",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else {
+
+                    add_date();
+                    jFrame.dispose();
+                    Home home = new Home();
+                }
             }
         });
         jFrame.addWindowListener(new WindowListener() {
@@ -113,6 +124,15 @@ public class Insert_institution_data_edit {
         {
             ex.printStackTrace();
         }
+    }
+    boolean check()
+    {
+        if(contact_number_textfield.getText().equals("") || name_textfield.getText().equals("") || address_textfield.getText().equals(""))
+        {
+            return true;
+        }
+        else
+            return false;
     }
 
 

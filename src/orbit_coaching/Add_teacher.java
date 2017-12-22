@@ -93,16 +93,24 @@ public class Add_teacher {
                 String joininig_date = joining_date_textfield.getText();
                 String institution = institution_combobox.getSelectedItem().toString();
                 String yr = year_combobox.getSelectedItem().toString();
-
-                try
+                if(check())
                 {
-                    Database_query.insert_teacher(name,joininig_date,institution,yr,id_textfield.getText());
-                    jFrame.dispose();
-                    Home home = new Home();
+                    JOptionPane.showMessageDialog(null, "Please Fill Up All The Fields Correctly",
+                            "Error", JOptionPane.ERROR_MESSAGE);
                 }
-                catch (Exception ex)
+                else if(Data_validation.check_date(joining_date_textfield.getText()))
                 {
-                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Please Fill Up Date Field Correctly",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else {
+                    try {
+                        Database_query.insert_teacher(name, joininig_date, institution, yr, id_textfield.getText());
+                        jFrame.dispose();
+                        Home home = new Home();
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
                 }
             }
         });
@@ -146,6 +154,17 @@ public class Add_teacher {
         });
 
 
+    }
+
+    boolean check()
+    {
+        if(year_combobox.getSelectedItem().toString().replaceAll("\\s+","")=="" ||
+                institution_combobox.getSelectedItem().toString().replaceAll("\\s+","")==""||
+                name_textfield.getText().equals("") || joining_date_textfield.getText().equals(""))
+        {
+            return true;
+        }
+        return false;
     }
 
 
