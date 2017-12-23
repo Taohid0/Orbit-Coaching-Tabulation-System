@@ -26,7 +26,7 @@ public class Home {
 
     public Home()
     {
-        JFrame jFrame = new JFrame("Orbit Coaching");
+        JFrame jFrame = new JFrame("Orbit");
 
         JMenuBar jMenuBar = new JMenuBar();
 
@@ -105,9 +105,38 @@ public class Home {
                 System.exit(0);
             }
         });
+
+        JMenuItem page_menu= new JMenuItem("Print Page Settings");
+        page_menu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Print_settings print_settings = new Print_settings();
+            }
+        });
+
+        JMenuItem instition_info = new JMenuItem("About Institution");
+        instition_info.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                About_institution about_institution = new About_institution();
+            }
+        });
+        JMenuItem developer_info = new JMenuItem("About Developer");
+        developer_info.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                About_developer about_developer = new About_developer();
+            }
+        });
+
         file_menu.add(add_institution_info);
         file_menu.add(edit_institution_info);
         file_menu.add(change_password);
+        file_menu.add(page_menu);
+        file_menu.add(instition_info);
+        file_menu.add(developer_info);
         file_menu.add(exit_menu);
         jMenuBar.add(file_menu);
         //student menu
@@ -120,7 +149,7 @@ public class Home {
                 Add_student add_student = new Add_student();
             }
         });
-        edit_student = new JMenuItem("Edit Student Info");
+        edit_student = new JMenuItem("Edit Student Information");
         student_menu.add(add_student);
         student_menu.add(edit_student);
         //result menu
@@ -136,10 +165,10 @@ public class Home {
         result_submenu.add(coursewise_print);
         result_menu.add(input_marks);
         result_menu.add(edit_marks);
-        result_menu.add(result_submenu);
+        //result_menu.add(result_submenu);
 
         //for student menu
-        JMenuItem show_student_class_wise =new JMenuItem("Show Student (Class Wise)");
+        JMenuItem show_student_class_wise =new JMenuItem("Show Students (Class Wise)");
         show_student_class_wise.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -147,7 +176,7 @@ public class Home {
                 show_student_list show=new show_student_list();
             }
         });
-        JMenuItem show_student_school_wise = new JMenuItem("Show Student (Institution Wise)");
+        JMenuItem show_student_school_wise = new JMenuItem("Show Students (Institution Wise)");
         show_student_school_wise.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -470,7 +499,9 @@ public class Home {
 
 
         jFrame.pack();
-
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dimension=  new Dimension(450,450);
+        img.setMinimumSize(dimension);
 
         jFrame.setVisible(true);
 

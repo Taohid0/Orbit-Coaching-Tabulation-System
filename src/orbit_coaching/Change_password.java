@@ -20,7 +20,7 @@ public class Change_password {
 
     Change_password(){
 
-        jFrame = new JFrame("Orbit (Change Password");
+        jFrame = new JFrame("Orbit (Change Password)");
         Dimension dimension=  new Dimension(450,450);
         jFrame.setPreferredSize(dimension);
         SAVEButton.setFocusable(false);

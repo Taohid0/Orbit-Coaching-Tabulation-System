@@ -310,7 +310,7 @@ public class Add_student_payment {
         skip_month_list.setListData(select_month);
         purpose_combobox.setEditable(true);
         year_combobox.setEditable(true);
-        JFrame jFrame = new JFrame("Orbit Coaching");
+        JFrame jFrame = new JFrame("Orbit (Add Student's Payment)");
         jFrame.setContentPane(panel1);
         jFrame.pack();
         jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);

@@ -25,7 +25,7 @@ public class Show_other_income {
 
     public Show_other_income()
     {
-        JFrame jFrame = new JFrame("Orbit Coaching");
+        JFrame jFrame = new JFrame("Orbit (Show Other Income)");
 
         try
         {

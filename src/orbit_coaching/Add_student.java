@@ -122,7 +122,7 @@ public class Add_student {
         });
         registration_number_textbox.setEditable(false
         );
-        jFrame = new JFrame("Add New Student");
+        jFrame = new JFrame("Orbit (Add New Student)");
         jFrame.add(panel1);
         jFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);

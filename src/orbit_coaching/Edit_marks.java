@@ -3,8 +3,10 @@ package orbit_coaching;
 import javafx.embed.swing.JFXPanel;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.crypto.Data;
+import javax.xml.transform.Result;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -24,7 +26,9 @@ public class Edit_marks {
     private JComboBox for_year_combobox;
     private JButton button1;
     private JTextField total_marks_textbox;
-    private JComboBox date_combobox;
+    private JComboBox subject_combobox;
+    private JTextField date_textfield;
+    private JButton LOADButton;
     DefaultTableModel defaultTableModel = null;
 
 
@@ -35,7 +39,7 @@ public class Edit_marks {
         Statement stmt = null;
         String date=null,cls=null,exam_type=null;
         try {
-            date = date_combobox.getSelectedItem().toString();
+            date = date_textfield.getText();
             cls = class_combobox.getSelectedItem().toString();
             exam_type = examtype_comobox.getSelectedItem().toString();
         }
@@ -66,12 +70,15 @@ public class Edit_marks {
 
                 {
                     String query = "DELETE FROM Marks WHERE roll=" + table1.getValueAt(i, 0) + " AND "+
+                            " exam_type="+examtype_comobox.getSelectedItem().toString()+ " AND for_year="+for_year_combobox.getSelectedItem().toString()+
+                            " AND subject="+
+                            subject_combobox.getSelectedItem().toString()+" "+
                             " cls="+cls + " AND  date ="+"\""+date+"\"";
                     System.out.println(query);stmt.execute(query);
 
 
-                    query= "INSERT INTO Marks (roll,exam_type,date,out_of,obtained_markd,cls) " +
-                            "VALUES (?,?,?,?,?,?)";
+                    query= "INSERT INTO Marks (roll,exam_type,date,out_of,obtained_markd,cls,subject,for_year) " +
+                            "VALUES (?,?,?,?,?,?,?,?)";
                     PreparedStatement preparedStatement = conn.prepareStatement(query);
                     preparedStatement.setString(1,table1.getValueAt(i,0).toString());
                     preparedStatement.setString(2,exam_type);
@@ -79,7 +86,8 @@ public class Edit_marks {
                     preparedStatement.setString(4,total_marks_textbox.getText());
                     preparedStatement.setString(5,table1.getValueAt(i,1).toString());
                     preparedStatement.setString(6,cls);
-
+                    preparedStatement.setString(7,subject_combobox.getSelectedItem().toString());
+                    preparedStatement.setString(8,for_year_combobox.getSelectedItem().toString());
                     preparedStatement.execute();
                 }
             }
@@ -93,53 +101,55 @@ public class Edit_marks {
     private void fill_fields()
     {
 
-        try
-        {
-            ResultSet resultSet = Database_query.get_class();
-            resultSet.beforeFirst();
-
-            while (resultSet.next())
+            try
             {
-                class_combobox.addItem(resultSet.getString(1));
-            }
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
+                class_combobox.removeAllItems();
+                ResultSet resultSet = Database_query.get_class();
+                resultSet.beforeFirst();
 
-        try {
-            date_combobox.setEditable(true);
-            {
-//                System.out.println(class_combobox.getSelectedItem().toString()+for_year_combobox.getSelectedItem().toString());
-//                ResultSet resultSet = Database_query.get_exam_dates(class_combobox.getSelectedItem().toString(),
-//                        for_year_combobox.getSelectedItem().toString());
-//                resultSet.beforeFirst();
-//                while (resultSet.next())
-//                {
-//                    date_combobox.addItem(resultSet.getString(1));
-//                    System.out.println(resultSet.getString(1));
-//                }
+                while (resultSet.next())
+                {
+                    class_combobox.addItem(resultSet.getString(1));
+                }
             }
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
 
-        try
-        {
-            ResultSet resultSet = Database_query.get_year();
-            resultSet.beforeFirst();
-            while (resultSet.next())
+            try
             {
-                for_year_combobox.addItem(resultSet.getString(1));
+
+                examtype_comobox.removeAllItems();
+                ResultSet resultSet = Database_query.get_exam_type();
+                resultSet.beforeFirst();
+                while (resultSet.next())
+                {
+                    examtype_comobox.addItem(resultSet.getString(1));
+                }
             }
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
+            try
+            {
+                subject_combobox.removeAllItems();
+                ResultSet resultSet = Database_query.get_subject_list();
+                resultSet.beforeFirst();
+                while (resultSet.next())
+                {
+                    subject_combobox.addItem(resultSet.getString(1));
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
+
+
+
+
     }
 
     public void fill_student_fields()
@@ -149,44 +159,42 @@ public class Edit_marks {
         defaultTableModel.setColumnIdentifiers(header);
         table1.setModel(defaultTableModel);
 
-        String date = date_combobox.getSelectedItem().toString();
-        String cls=class_combobox.getSelectedItem().toString();
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
+        table1.getColumn("Registration Number").setCellRenderer( centerRenderer );
+        table1.getColumn("Obtained Marks").setCellRenderer(centerRenderer);
 
 
+        String date = "";
+        String cls="";
         try
         {
-            ResultSet resultSet = Database_query.get_exam_type();
-            resultSet.beforeFirst();
-
-            while (resultSet.next())
-            {
-                examtype_comobox.addItem(resultSet.getString(1));
-            }
+            date = date_textfield.getText();
+            cls = class_combobox.getSelectedItem().toString();
         }
         catch (Exception ex)
         {
             ex.printStackTrace();
         }
 
+
         try
         {
-            ResultSet resultSet = Database_query.get_marks_info(cls,date);
+            ResultSet resultSet = Database_query.get_marks_info(cls,date,examtype_comobox.getSelectedItem().toString(),
+                    subject_combobox.getSelectedItem().toString());
             resultSet.beforeFirst();
 
             while (resultSet.next())
             {
                 defaultTableModel.addRow(new String[]{resultSet.getString(1),
-              resultSet.getString(5)});
-
-
+              resultSet.getString(7)});
 
             }
             resultSet.beforeFirst();
-            if(resultSet.next())
-            {
-                examtype_comobox.setSelectedItem(resultSet.getString(2));
-                total_marks_textbox.setText(resultSet.getString(4));
-            }
+//            if(resultSet.next())
+//            {
+//                examtype_comobox.setSelectedItem(resultSet.getString(2));
+//            }
         }
         catch (Exception ex)
         {
@@ -201,14 +209,34 @@ public class Edit_marks {
         defaultTableModel.setColumnIdentifiers(header);
         table1.setModel(defaultTableModel);
 
-        class_combobox.setEditable(true);
-        examtype_comobox.setEditable(true);
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
+        table1.getColumn("Registration Number").setCellRenderer( centerRenderer );
+        table1.getColumn("Obtained Marks").setCellRenderer(centerRenderer);
+
+
+
         for_year_combobox.setEditable(true);
 
-
         fill_fields();
+        try
+        {
 
-        JFrame jFrame = new JFrame("Orbit Coaching");
+            for_year_combobox.removeAllItems();
+            ResultSet resultSet = Database_query.get_year();
+            resultSet.beforeFirst();
+
+            while (resultSet.next())
+            {
+                for_year_combobox.addItem(resultSet.getString(1));
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+
+        JFrame jFrame = new JFrame("Orbit Coaching (Edit Marks)");
         jFrame.setContentPane(jPanel1);
         jFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -252,29 +280,89 @@ public class Edit_marks {
 
             }
         });
+        LOADButton.setFocusable(false);
 
         jFrame.setVisible(true);
 
         for_year_combobox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fill_fields();
-                fill_student_fields();
+                //fill_fields();
+                //fill_student_fields();
+                //fill_date();
             }
         });
         class_combobox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fill_fields();
-                fill_student_fields();
+                //fill_fields();
+                //fill_student_fields();
+               // fill_date();
             }
         });
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                edit_marks();
+
+                if(check())
+                {
+                    JOptionPane.showMessageDialog(null, "Please Fill Up All The Fields Correctly",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else if(Data_validation.check_date(date_textfield.getText()))
+                {
+                    JOptionPane.showMessageDialog(null, "Please Fill Up Date Field Correctly",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else {
+                    edit_marks();
+                    jFrame.dispose();
+                    Home home = new Home();
+                }
+            }
+        });
+        LOADButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fill_student_fields();
             }
         });
     }
+    void fill_date()
+    {
 
+
+        try
+        {
+            ResultSet resultSet =Database_query.get_total_marks(for_year_combobox.getSelectedItem().toString(),
+                   class_combobox.getSelectedItem().toString(),examtype_comobox.getSelectedItem().toString(),
+                    subject_combobox.getSelectedItem().toString(),date_textfield.getText());
+            resultSet.beforeFirst();
+
+            if(resultSet.next())
+            {
+                total_marks_textbox.setText(resultSet.getString(1));
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    boolean check()
+    {
+        try {
+            if (total_marks_textbox.getText().equals("") || date_textfield.getText().equals("") ||
+                    class_combobox.getSelectedItem().toString().equals("") || examtype_comobox.getSelectedItem().toString().equals("") ||
+                    subject_combobox.getSelectedItem().toString().equals("")|| for_year_combobox.getSelectedItem().toString().equals(""))
+                return true;
+            return false;
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+            return true;
+        }
+    }
 }

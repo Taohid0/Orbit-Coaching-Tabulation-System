@@ -37,7 +37,7 @@ public class Student_wise_result_one_exam {
 
     public Student_wise_result_one_exam()
     {
-        JFrame jFrame = new JFrame("Orbit Coaching");
+        JFrame jFrame = new JFrame("Orbit (Result Of A Specific Exam)");
 
         try
         {

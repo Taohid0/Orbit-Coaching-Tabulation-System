@@ -20,7 +20,7 @@ public class Total_other_expense {
 
     Total_other_expense()
     {
-        JFrame jFrame = new JFrame("Orbit (Total Teacher Payment)");
+        JFrame jFrame = new JFrame("Orbit (Total Other Payment)");
 
         try {
             ResultSet resultSet = Database_query.get_year();

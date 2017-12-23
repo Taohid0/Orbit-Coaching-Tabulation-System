@@ -20,7 +20,7 @@ public class Other_income {
 
     public Other_income()
     {
-        JFrame jFrame = new JFrame("Orbit Coaching");
+        JFrame jFrame = new JFrame("Orbit (Add Other Income)");
         type_combobox.addItem("Student");
         type_combobox.addItem("Teacher");
         type_combobox.addItem("Other");
@@ -72,8 +72,23 @@ public class Other_income {
         SAVEButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                other_income_save();
-            }
+
+                if(check())
+                {
+                    JOptionPane.showMessageDialog(null, "Please Fill Up All The Fields Correctly",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else if(Data_validation.check_date(date_textfield.getText()))
+                {
+                    JOptionPane.showMessageDialog(null, "Please Fill Up Date Field Correctly",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else {
+
+                    other_income_save();
+                    jFrame.dispose();
+                    Home home = new Home();
+                }}
         });
 
 
@@ -132,5 +147,14 @@ public class Other_income {
         {
             ex.printStackTrace();
         }
+    }
+    boolean check()
+    {
+        if(date_textfield.getText().equals("") || amount_textfield.getText().equals("") ||
+                from_combobox.getSelectedItem().toString().equals(""))
+        {
+            return true;
+        }
+        return false;
     }
 }

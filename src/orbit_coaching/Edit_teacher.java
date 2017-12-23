@@ -25,7 +25,7 @@ public class Edit_teacher {
 
     Edit_teacher()
     {
-        JFrame jFrame = new JFrame("Orbit (Edit Teacher Information)");
+        JFrame jFrame = new JFrame("Orbit (Edit Teacher's Information)");
         Dimension dimension=  new Dimension(450,350);
         jFrame.setPreferredSize(dimension);
         jFrame.setContentPane(panel1);

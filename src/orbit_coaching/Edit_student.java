@@ -134,7 +134,7 @@ public class Edit_student {
         //this will be false
         roll_textfield.setEditable(true);
 
-        JFrame jFrame = new JFrame("Orbit Coaching");
+        JFrame jFrame = new JFrame("Orbit Coaching (Edit Student's Information)");
         jFrame.setContentPane(panel1);
         jFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);

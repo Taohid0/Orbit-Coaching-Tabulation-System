@@ -85,7 +85,7 @@ public class Insert_marks {
                         table1.getValueAt(i,1).toString().replaceAll("\\s+","")!="" &&
                     table1.getValueAt(i,2).toString().replaceAll("\\s+","")!="")
                 {
-                    String query = "INSERT INTO Marks (roll,exam_type,date,out_of,obtained_markd,cls,subject) VALUES(?,?,?,?,?,?,?);";
+                    String query = "INSERT INTO Marks (roll,exam_type,date,out_of,obtained_markd,cls,subject,for_year) VALUES(?,?,?,?,?,?,?,?);";
                 if(table1.getValueAt(i,2).toString().startsWith("A") || table1.getValueAt(i,2).toString().startsWith("a"))
                 {
                     table1.setValueAt(-1,i,2);
@@ -98,6 +98,7 @@ public class Insert_marks {
                 preparedStatement.setString(5,table1.getValueAt(i,2).toString());
                 preparedStatement.setString(6,class_combobox.getSelectedItem().toString());
                 preparedStatement.setString(7,subject_combobox.getSelectedItem().toString());
+                preparedStatement.setString(8,for_year_combobox.getSelectedItem().toString());
                 preparedStatement.execute();
                 count++;
                 }
@@ -216,7 +217,7 @@ public class Insert_marks {
         table1.getTableHeader().setReorderingAllowed(false);
 
 
-        JFrame jFrame = new JFrame("Input Marks");
+        JFrame jFrame = new JFrame("Orbit (Input Marks)");
         jFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         jFrame.setContentPane(jPanel1);
@@ -363,10 +364,16 @@ public class Insert_marks {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (Data_validation.check_date(date_textfield.getText())) {
+                if (check()) {
                     JOptionPane.showMessageDialog(null, "Please, Fill Up Date Field Correctly",
                             "Error", JOptionPane.ERROR_MESSAGE);
-                } else {
+                }
+                else if(Data_validation.check_date(date_textfield.getText()))
+                {
+                    JOptionPane.showMessageDialog(null, "Please, Fill Up Date Field Correctly",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else {
                     get_table_data();
                     String message = count + " Marks Entry added";
                     String title = "SUCCESSFUL";
@@ -376,7 +383,13 @@ public class Insert_marks {
             }
         });
 
-
-
+    }
+    boolean check()
+    {
+        if(date_textfield.getText().equals("")||total_marks_textbox.getText().equals("")||
+                examtype_comobox.getSelectedItem().toString().equals("")||subject_combobox.getSelectedItem().toString().equals("")||
+                class_combobox.getSelectedItem().toString().equals("")||for_year_combobox.getSelectedItem().toString().equals(""))
+            return true;
+        return false;
     }
 }

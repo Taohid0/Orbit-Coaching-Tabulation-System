@@ -31,7 +31,7 @@ public class Teacher_attendance {
     public Teacher_attendance()
     {
 
-        JFrame jFrame = new JFrame("Orbit Coaching");
+        JFrame jFrame = new JFrame("Orbit (Teacher's Attendance)");
         DefaultTableModel defaultTableModel = new DefaultTableModel(0,0);
         String header[] = {"ID","Name","Arrival Time"};
         defaultTableModel.setColumnIdentifiers(header);

@@ -18,7 +18,7 @@ public class Insert_institution_data_edit {
     Insert_institution_data_edit()
     {
 
-        JFrame jFrame = new JFrame("Orbit Coaching");
+        JFrame jFrame = new JFrame("Orbit Coaching (Edit Institution Information)");
         jFrame.add(panel1);
         Dimension dimension=  new Dimension(450,350);
         jFrame.setPreferredSize(dimension);

@@ -36,7 +36,7 @@ public class Total_expense_year {
         }
         year_combobox.setEditable(true);
 
-        JFrame jFrame = new JFrame("Orbit coaching");
+        JFrame jFrame = new JFrame("Orbit (Total Expense)");
 
         defaultTableModel = new DefaultTableModel(0, 0);
         String header[] = {"TO", "PURPOSE", "DATE", "AMOUNT"};

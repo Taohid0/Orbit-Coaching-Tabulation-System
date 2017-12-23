@@ -204,7 +204,7 @@ public class Course_wise_result_show_name_wise {
         highest_marks_textField2.setEditable(false);
         lowest_marks_textField3.setEditable(false);
 
-        JFrame jFrame = new JFrame("Orbit coaching");
+        JFrame jFrame = new JFrame("Orbit (Course Wise Result-naming order)");
         jFrame.setContentPane(panel1);
         jFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         jFrame.pack();

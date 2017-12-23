@@ -19,7 +19,7 @@ public class show_all_teacher_list {
     DefaultTableModel defaultTableModel = null;
     public show_all_teacher_list()
     {
-        JFrame jFrame = new JFrame("Orbit Coaching");
+        JFrame jFrame = new JFrame("Orbit (Show All Teacher List)");
         year_combobox.addItem("ALL");
         try
         {

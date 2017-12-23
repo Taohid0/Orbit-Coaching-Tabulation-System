@@ -22,11 +22,11 @@ public class Student_payment_show {
     private JTextField school_textfield;
     private JPanel panel1;
     private JTextField total_textbox;
-    private JButton PRINTButton;
+    private JButton CREATEPDFButton;
     DefaultTableModel defaultTableModel = null;
     Student_payment_show()
     {
-        JFrame jFrame = new JFrame("Orbit Coaching");
+        JFrame jFrame = new JFrame("Orbit (Student's Payment)");
 
         try
         {

@@ -14,12 +14,12 @@ public class show_student_list {
     private JComboBox year_combobox;
     private JComboBox class_combobox;
     private JTable table1;
-    private JButton CANCELButton;
+    private JButton CREATEPDFButton;
 
     DefaultTableModel defaultTableModel=null;
     public show_student_list()
     {
-        JFrame jFrame = new JFrame("Orbit Coaching");
+        JFrame jFrame = new JFrame("Orbit (Show All Students)");
 
         try
         {
@@ -119,6 +119,34 @@ public class show_student_list {
             @Override
             public void windowDeactivated(WindowEvent e) {
 
+            }
+        });
+        CREATEPDFButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                try
+                {
+                    ResultSet resultSet = Database_query.get_page_setup();
+                    resultSet.beforeFirst();
+
+                    if(resultSet.next())
+                    {
+                        Show_student_list_pdf show_student_list_pdf = new Show_student_list_pdf(class_combobox.getSelectedItem().toString(),
+                                year_combobox.getSelectedItem().toString());
+
+                    }
+                    else
+                    {
+
+                        Show_student_list_pdf_coaching_pad show_student_list_pdf_coaching_pad = new Show_student_list_pdf_coaching_pad
+                                 (class_combobox.getSelectedItem().toString(),year_combobox.getSelectedItem().toString());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
             }
         });
     }

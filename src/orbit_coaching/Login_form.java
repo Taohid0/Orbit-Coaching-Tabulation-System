@@ -20,7 +20,7 @@ public class Login_form {
 
     public Login_form()
     {
-        jFrame  = new JFrame("Orbit Coaching");
+        jFrame  = new JFrame("Orbit (Login)");
         Dimension dimension=  new Dimension(450,450);
         jFrame.setPreferredSize(dimension);
         //textField1=  new JTextField();

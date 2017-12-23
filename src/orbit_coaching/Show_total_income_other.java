@@ -21,7 +21,7 @@ public class Show_total_income_other {
     DefaultTableModel defaultTableModel = null;
 
     Show_total_income_other() {
-        JFrame jFrame = new JFrame("Orbit (Total Expense)");
+        JFrame jFrame = new JFrame("Orbit (Total Income)");
 
         try {
             ResultSet resultSet = Database_query.get_year();

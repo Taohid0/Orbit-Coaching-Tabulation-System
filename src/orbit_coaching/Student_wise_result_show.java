@@ -138,7 +138,7 @@ public class Student_wise_result_show {
 
     Student_wise_result_show()
     {
-        JFrame jFrame = new JFrame("Orbit Coaching");
+        JFrame jFrame = new JFrame("Orbit (Student Wise Result)");
         jFrame.setContentPane(pan1);
         jFrame.pack();
         jFrame.setVisible(true);

@@ -20,6 +20,11 @@ public class Database_query {
         "    password VARCHAR(100),\n" +
         "    ID INT PRIMARY KEY AUTO_INCREMENT\n" +
         ");";
+    static String create_page_setting = "CREATE TABLE Page\n" +
+            "(\n" +
+            "    page_type VARCHAR(50),\n" +
+            "    ID INT PRIMARY KEY AUTO_INCREMENT\n" +
+            ");";
 
     static String create_institution_table = "CREATE TABLE Institution\n" +
             "(\n" +
@@ -84,7 +89,8 @@ public class Database_query {
              "    date VARCHAR(25),\n" +
              "    out_of INT,\n" +
              "    obtained_markd INT,\n" +
-             "     cls VARCHAR(25)"+
+             "     cls VARCHAR(25),\n"+
+             "     for_year VARCHAR(20)"+
              ");";
 
      static String create_billing_student ="CREATE TABLE Billing_student\n" +
@@ -219,6 +225,14 @@ public class Database_query {
         {
             ex.printStackTrace();
         }
+        try
+        {
+            stmt.execute(create_page_setting);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
 
     }
 
@@ -337,6 +351,28 @@ public class Database_query {
         }
         return resultSet;
     }
+
+
+    public static ResultSet get_page_setup()
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT * FROM Page";
+            resultSet= stmt.executeQuery(query);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+
     public static ResultSet get_students_income_details(String yr)
     {
         ResultSet resultSet=null;
@@ -389,7 +425,7 @@ public class Database_query {
                     "root", "");
             stmt = conn.createStatement();
             String query = "SELECT subject,obtained_markd FROM Marks WHERE cls="+cls+" AND exam_type="+exm+
-                    " AND  roll="+roll+" AND date LIKE "+"\"%"+yr.toString()+"\""+" ORDER BY subject " ;
+                    " AND  roll="+roll+" AND for_year="+yr+" ORDER BY subject " ;
             System.out.println(query);
             resultSet= stmt.executeQuery(query);
         }
@@ -399,6 +435,28 @@ public class Database_query {
         }
         return resultSet;
     }
+
+    public static ResultSet get_total_marks(String yr,String cls,String exm,String subject,String date)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT out_of FROM Marks WHERE cls="+cls+" AND exam_type="+exm+
+                    " AND  date="+date+" AND subject="+subject+" AND for_year="+yr+" ORDER BY subject " ;
+            System.out.println(query);
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+
 
     public static ResultSet get_student_info(String roll)
     {
@@ -665,7 +723,7 @@ public class Database_query {
         return resultSet;
     }
 
-    public static ResultSet get_marks_info(String cls,String date)
+    public static ResultSet get_marks_info(String cls,String date,String xm,String subject)
     {
         System.out.println(cls + " "+date);
         ResultSet resultSet=null;
@@ -674,7 +732,8 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT *  from Marks WHERE cls="+cls+ " AND  date =\""+date.toString()+"\"";//
+            String query = "SELECT *  from Marks WHERE cls="+cls+ " AND "+
+                    "exam_type="+xm+" AND subject="+subject +" AND  date =\""+date.toString()+"\"";//
             System.out.println(query);// +
                  //   " ORDER BY cast(roll as INT) ASC ";
             resultSet= stmt.executeQuery(query);
@@ -1084,6 +1143,36 @@ public class Database_query {
         }
         return resultSet;
     }
+
+    public static ResultSet insert_page_data()
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+
+
+            String delete_query = "DELETE * FROM Page";
+            stmt.execute(delete_query);
+
+            String query = "INSERT INTO billing_student (page_type) " +
+                    " VALUES (?);";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+
+            preparedStatement.setString(1,"pad");
+
+            preparedStatement.execute();
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
 
     public static ResultSet get_purpose()
     {

@@ -19,7 +19,7 @@ public class Show_student_by_school_and_year {
     DefaultTableModel defaultTableModel = null;
 
     public Show_student_by_school_and_year() {
-        JFrame jFrame = new JFrame("Orbit Coaching");
+        JFrame jFrame = new JFrame("Orbit (Show Students Of Specific Institution)");
 
         try {
             ResultSet resultSet = Database_query.get_year();
