@@ -345,7 +345,9 @@ public class Home {
             public void actionPerformed(ActionEvent e) {
 
                 jFrame.dispose();
-                Expense expense = new Expense();
+                //Expense expense = new Expense();
+                //Total_expense_year total_expense_year = new Total_expense_year();
+                Total_expense total_expense = new Total_expense();
             }
         });
 

@@ -14,7 +14,6 @@ public class Main {
         //test t =new test();
         Home home = new Home();
         //boolean n = Data_validation.check_date("11-11-2017");
-        //.out.println(n);
         //Test_data_input.insert_student();
         //Login_form login_form = new Login_form();
         //Change_password change_password  = new Change_password();

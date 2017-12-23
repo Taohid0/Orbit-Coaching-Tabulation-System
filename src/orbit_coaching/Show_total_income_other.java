@@ -103,6 +103,33 @@ public class Show_total_income_other {
             }
         });
 
+        CREATEPDFButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                try
+                {
+                    ResultSet resultSet = Database_query.get_page_setup();
+                    resultSet.beforeFirst();
+
+                    if(resultSet.next())
+                    {
+                        Total_income_other_pdf_creation_coaching_pad total_income_other_pdf_creation_coaching_pad =
+                         new Total_income_other_pdf_creation_coaching_pad(year_combobox.getSelectedItem().toString());
+                    }
+                    else
+                    {
+                        Total_income_other_pdf_creation total_incomeother_pdf_creation =
+                                new Total_income_other_pdf_creation(year_combobox.getSelectedItem().toString());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
+                Home home =new Home();
+            }
+        });
     }
 
     void fill_table() {

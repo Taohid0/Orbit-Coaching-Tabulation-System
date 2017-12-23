@@ -24,7 +24,7 @@ public class Student_wise_result_one_exam {
     private JTextField father_name_textfield;
     private JTextField mother_name_combobox;
     private JComboBox fourth_subject_combobox;
-    private JButton PRINTButton;
+    private JButton CREATEPDFButton;
     private JTextField gpa_with_fourth_subject_textfield;
     private JTextField gpa_without_fourth_subject_textfield;
 
@@ -213,6 +213,46 @@ public class Student_wise_result_one_exam {
             }
         });
 
+        CREATEPDFButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                try
+                {
+                  ResultSet resultSet = Database_query.get_page_setup();
+                  resultSet.beforeFirst();
+
+                  if(resultSet.next())
+                  {
+
+        Student_wise_result_per_exam_coaching_pad student_wise_result_per_exam_coaching_pad = new
+                Student_wise_result_per_exam_coaching_pad(
+                year_combobox.getSelectedItem().toString(), class_combobox.getSelectedItem().toString(),
+                exam_combobox.getSelectedItem().toString(),fourth_sub,registration_no_combobox.getSelectedItem().toString(),
+                name_textfield.getText(),
+                school_textfield.getText(),father_name_textfield.getText(),mother_name_combobox.getText(),
+                gpa_with_fourth_subject_textfield.getText(),gpa_without_fourth_subject_textfield.getText()
+        );
+
+                  }
+                  else {
+                              Student_wise_result_per_exam_pdf student_wise_result_per_exam_pdf = new
+                                      Student_wise_result_per_exam_pdf(
+                                      year_combobox.getSelectedItem().toString(), class_combobox.getSelectedItem().toString(),
+                                      exam_combobox.getSelectedItem().toString(),fourth_sub,registration_no_combobox.getSelectedItem().toString(),
+                                      name_textfield.getText(),
+                                      school_textfield.getText(),father_name_textfield.getText(),mother_name_combobox.getText(),
+                                      gpa_with_fourth_subject_textfield.getText(),gpa_without_fourth_subject_textfield.getText());
+
+                  }
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
+                Home home = new Home();
+            }
+        });
     }
 
     public void set_textfields()
