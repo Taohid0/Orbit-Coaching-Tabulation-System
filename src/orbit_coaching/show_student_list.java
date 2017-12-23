@@ -132,22 +132,25 @@ public class show_student_list {
 
                     if(resultSet.next())
                     {
-                        Show_student_list_pdf show_student_list_pdf = new Show_student_list_pdf(class_combobox.getSelectedItem().toString(),
-                                year_combobox.getSelectedItem().toString());
+                        Show_student_list_pdf_coaching_pad show_student_list_pdf_coaching_pad = new Show_student_list_pdf_coaching_pad(
+                                class_combobox.getSelectedItem().toString(),year_combobox.getSelectedItem().toString());
 
                     }
                     else
                     {
 
-                        Show_student_list_pdf_coaching_pad show_student_list_pdf_coaching_pad = new Show_student_list_pdf_coaching_pad
-                                 (class_combobox.getSelectedItem().toString(),year_combobox.getSelectedItem().toString());
+                        Show_student_list_pdf show_student_list_pdf = new Show_student_list_pdf(
+                                class_combobox.getSelectedItem().toString(),year_combobox.getSelectedItem().toString()
+                                );
                     }
                 }
                 catch (Exception ex)
                 {
                     ex.printStackTrace();
                 }
+                Home home = new Home();
             }
+
         });
     }
 

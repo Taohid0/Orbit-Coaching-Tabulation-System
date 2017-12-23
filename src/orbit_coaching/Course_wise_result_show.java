@@ -27,6 +27,7 @@ public class Course_wise_result_show {
     private JComboBox subject_combobox;
     private JTextField date_textfield;
     int highest_marks = 0,lowest_marks = 0;
+    int average=0,counter=0;
 
 
     void fill_year()
@@ -177,7 +178,8 @@ public class Course_wise_result_show {
                 {
                     lowest_marks = Integer.parseInt(obtained_marks);
                 }
-                System.out.println(name);
+                average+=Integer.parseInt(obtained_marks);
+                counter++;
 
             }
             resultSet.beforeFirst();
@@ -314,6 +316,45 @@ public class Course_wise_result_show {
             @Override
             public void windowDeactivated(WindowEvent e) {
 
+            }
+        });
+        print_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String av = Integer.toString(average/counter);
+                jFrame.dispose();
+                try
+                {
+                    ResultSet resultSet = Database_query.get_page_setup();
+                    resultSet.beforeFirst();
+
+                    if(resultSet.next())
+                    {
+
+                        Couse_wise_result_pdf_creation_coaching_pad couse_wise_result_pdf_creation_coaching_pad = new
+                               Couse_wise_result_pdf_creation_coaching_pad(class_comboBox1.getSelectedItem().toString(),
+                                exam_type_comboBox2.getSelectedItem().toString(),
+                                date_textfield.getText(),subject_combobox.getSelectedItem().toString(),
+                                total_marks_textField1.getText(),
+                                Integer.toString(highest_marks),
+                                Integer.toString(lowest_marks),av);
+                    }
+                    else
+                    {
+                        Couse_wise_result_pdf_creation couse_wise_result_pdf_creation = new
+                                Couse_wise_result_pdf_creation(class_comboBox1.getSelectedItem().toString(),
+                                exam_type_comboBox2.getSelectedItem().toString(),
+                                date_textfield.getText(),subject_combobox.getSelectedItem().toString(),
+                                total_marks_textField1.getText(),
+                                Integer.toString(highest_marks),
+                                Integer.toString(lowest_marks),av);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
+                Home home = new Home();
             }
         });
 

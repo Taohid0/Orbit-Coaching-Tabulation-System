@@ -14,7 +14,7 @@ public class Show_student_by_school_and_year {
     private JComboBox year_combobox;
     private JComboBox shool_combobox;
     private JTable table1;
-    private JButton CANCELButton;
+    private JButton CREATEPDFButton;
 
     DefaultTableModel defaultTableModel = null;
 
@@ -112,6 +112,40 @@ public class Show_student_by_school_and_year {
             public void windowDeactivated(WindowEvent e) {
 
             }
+        });
+        CREATEPDFButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                try
+                {
+                    ResultSet resultSet = Database_query.get_page_setup();
+                    resultSet.beforeFirst();
+
+                    if(resultSet.next())
+                    {
+                        Show_student_list_pdf_school_coaching_pad show_student_list_pdf_coaching_pad = new
+                                Show_student_list_pdf_school_coaching_pad
+                                (shool_combobox.getSelectedItem().toString(),year_combobox.getSelectedItem().toString());
+
+
+                    }
+                    else
+                    {
+
+                        Show_student_list_pdf_school show_student_list_pdf_school = new
+                                Show_student_list_pdf_school(
+                                        shool_combobox.getSelectedItem().toString(),
+                                year_combobox.getSelectedItem().toString());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
+                Home home = new Home();
+            }
+
         });
     }
 

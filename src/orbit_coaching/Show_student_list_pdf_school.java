@@ -12,11 +12,11 @@ import java.io.FileOutputStream;
 import java.sql.ResultSet;
 import java.util.Calendar;
 
-public class Show_student_list_pdf {
+public class Show_student_list_pdf_school {
 
     String name = "",address = "",contact_number = "";
 
-    Show_student_list_pdf(String cls,String yr) {
+    Show_student_list_pdf_school(String cls,String yr) {
         try {
             try
             {
@@ -66,7 +66,7 @@ public class Show_student_list_pdf {
             p1.setAlignment(Element.ALIGN_CENTER);
             document.add(p1);
 
-            p1 = new Paragraph("YEAR : "+yr+"\n"+"CLASS : "+cls,
+            p1 = new Paragraph("YEAR : "+yr+"\n"+"SCHOOL : "+cls,
                     FontFactory.getFont(FontFactory.TIMES, 14,Font.UNDERLINE));
             p1.setAlignment(Element.ALIGN_CENTER);
             document.add(p1);
@@ -84,19 +84,18 @@ public class Show_student_list_pdf {
             table.addCell("REG NO.");
             table.addCell("ROLL NO.");
             table.addCell("NAME");
-            table.addCell("INSTITUTION");
+            table.addCell("CLASS");
 
 
             int counter=1;
             try
             {
-                ResultSet resultSet = Database_query.get_student_of_year_class(yr, cls);
+                ResultSet resultSet = Database_query.get_student_of_year_school(yr,cls);
                 resultSet.beforeFirst();
-                System.out.println(1);
 
                 while (resultSet.next())
                 {
-                    System.out.println(2);
+
                     table.addCell(Integer.toString(counter++));
                     table.addCell(resultSet.getString(1));
                     table.addCell(resultSet.getString(2));

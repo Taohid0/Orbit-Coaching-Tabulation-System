@@ -62,12 +62,12 @@
               </component>
             </children>
           </scrollpane>
-          <component id="af4c3" class="javax.swing.JButton" binding="CANCELButton" default-binding="true">
+          <component id="af4c3" class="javax.swing.JButton" binding="CREATEPDFButton" default-binding="true">
             <constraints>
               <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="1" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="CANCEL"/>
+              <text value="CREATE PDF"/>
             </properties>
           </component>
           <component id="1e276" class="javax.swing.JLabel">
