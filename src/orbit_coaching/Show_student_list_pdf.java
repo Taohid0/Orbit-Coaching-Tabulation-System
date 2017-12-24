@@ -37,7 +37,7 @@ public class Show_student_list_pdf {
             Document document = new Document(PageSize.A4, 50, 50, 50, 50);
 
 
-            String pdf_name =Calendar.getInstance().getTime().toString()+" Student List "+yr+" "+cls+".pdf";
+            String pdf_name ="PDF\\"+Calendar.getInstance().getTime().toString()+" Student List "+yr+" "+cls+".pdf";
             pdf_name=pdf_name.replace(':','_');
             System.out.println(pdf_name);
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(pdf_name));
@@ -53,7 +53,7 @@ public class Show_student_list_pdf {
             paragraph1.add(anchorTarget);paragraph1.setAlignment(Element.ALIGN_CENTER);
             document.add(paragraph1);
 
-            Paragraph p1 = new Paragraph("ACADEMIC/PSC/JSC/SSC/HSC Final Private Program\nAddress : "+address+"\nContact Number : "+
+            Paragraph p1 = new Paragraph("ACADEMIC/PEC/JSC/SSC/HSC Final Private Program\nAddress : "+address+"\nContact Number : "+
                     contact_number,
 
                     FontFactory.getFont(FontFactory.TIMES, 14));

@@ -348,6 +348,12 @@ public class Insert_marks {
                     defaultTableModel.setColumnIdentifiers(header);
                     table1.setModel(defaultTableModel);
 
+                    DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+                    centerRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
+                    table1.getColumn("Registration Number").setCellRenderer( centerRenderer );
+                    table1.getColumn("Name").setCellRenderer(centerRenderer);
+                    table1.getColumn("Obtained Marks").setCellRenderer(centerRenderer);
+
                     while (resultSet1.next())
                     {
                         defaultTableModel.addRow(new String[] {resultSet1.getString(1),resultSet1.getString(2)});

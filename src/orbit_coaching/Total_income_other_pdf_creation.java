@@ -48,7 +48,7 @@ public class Total_income_other_pdf_creation {
 //            else
 //                am_pc="PM";
 
-            String pdf_name =Calendar.getInstance().getTime().toString()+" total other income.pdf";
+            String pdf_name ="PDF\\"+Calendar.getInstance().getTime().toString()+" total other income.pdf";
             pdf_name=pdf_name.replace(':','_');
             System.out.println(pdf_name);
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(pdf_name));

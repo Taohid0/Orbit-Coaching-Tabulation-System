@@ -152,6 +152,18 @@ public class show_student_list {
             }
 
         });
+        class_combobox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fill_table();
+            }
+        });
+        year_combobox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fill_table();
+            }
+        });
     }
 
     public void fill_table()

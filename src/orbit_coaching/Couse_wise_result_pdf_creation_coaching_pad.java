@@ -24,7 +24,7 @@ public class Couse_wise_result_pdf_creation_coaching_pad {
 
 
 
-            String pdf_name =Calendar.getInstance().getTime().toString()+" Course wise result coaching_pad"+exam_type+" "+subject+".pdf";
+            String pdf_name ="PDF\\"+Calendar.getInstance().getTime().toString()+" Course wise result coaching_pad"+exam_type+" "+subject+".pdf";
             pdf_name=pdf_name.replace(':','_');
             System.out.println(pdf_name);
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(pdf_name));

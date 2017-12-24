@@ -540,7 +540,8 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT roll,temp_roll,name,school from Student WHERE for_year="+yr+" AND class="+cls+
+            String query = "SELECT roll,temp_roll,name,school from Student WHERE for_year="+yr+" AND class="
+                    +"\""+cls+"\""+
                     " ORDER BY CAST(roll AS INT)"+";";
             resultSet= stmt.executeQuery(query);
         }
@@ -1657,7 +1658,8 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT roll,name from Student WHERE isDeleted = 0 AND class="+cls+" AND for_year="+year +
+            String query = "SELECT roll,name from Student WHERE isDeleted = 0 AND class="+
+                    "\""+cls+"\""+" AND for_year="+year +
                    " ORDER BY roll ASC ";
             resultSet= stmt.executeQuery(query);
 

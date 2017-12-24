@@ -21,7 +21,7 @@ public class Show_student_list_pdf_school_coaching_pad {
             Document document = new Document(PageSize.A4, 50, 50, 50, 50);
 
 
-            String pdf_name =Calendar.getInstance().getTime().toString()+" Student List "+yr+" "+cls+"coaching_pad.pdf";
+            String pdf_name ="PDF\\"+Calendar.getInstance().getTime().toString()+" Student List "+yr+" "+cls+"coaching_pad.pdf";
             pdf_name=pdf_name.replace(':','_');
             System.out.println(pdf_name);
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(pdf_name));

@@ -22,7 +22,7 @@ public class Couse_wise_hm_pdf_coaching_pad {
             Document document = new Document(PageSize.A4, 50, 50, 50, 50);
 
 
-            String pdf_name =Calendar.getInstance().getTime().toString()+" Course wise result name_wise coaching_pad "+exam_type+" "+subject+".pdf";
+            String pdf_name ="PDF\\"+Calendar.getInstance().getTime().toString()+" Course wise result name_wise coaching_pad "+exam_type+" "+subject+".pdf";
             pdf_name=pdf_name.replace(':','_');
             System.out.println(pdf_name);
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(pdf_name));

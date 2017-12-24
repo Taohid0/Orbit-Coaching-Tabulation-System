@@ -28,7 +28,7 @@ public class Student_wise_result_per_exam_coaching_pad {
             Document document = new Document(PageSize.A4, 50, 50, 50, 50);
 
 
-            String pdf_name =Calendar.getInstance().getTime().toString()+" exam wise result "+xm+" "+yr+" "+
+            String pdf_name ="PDF\\"+Calendar.getInstance().getTime().toString()+" exam wise result "+xm+" "+yr+" "+
                     roll+" coaching pad.pdf";
             pdf_name=pdf_name.replace(':','_');
             System.out.println(pdf_name);

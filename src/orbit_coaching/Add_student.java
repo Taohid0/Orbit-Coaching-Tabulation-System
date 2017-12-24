@@ -199,7 +199,7 @@ public class Add_student {
         address = address_textbox.getText();
         c1 = contact1_textbox.getText();
         c2 = contact2_textbox.getText();
-        admission_date = date_of_birth_textbox.getText();
+        admission_date = admission_date_textbox.getText();
         birth_date= date_of_birth_textbox.getText();
         roll = registration_number_textbox.getText();
         cls =class_combobox.getSelectedItem().toString();

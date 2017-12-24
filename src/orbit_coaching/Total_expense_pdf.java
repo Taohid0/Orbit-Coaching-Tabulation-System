@@ -37,7 +37,7 @@ public class Total_expense_pdf {
             Document document = new Document(PageSize.A4, 50, 50, 50, 50);
 
 
-            String pdf_name =Calendar.getInstance().getTime().toString()+" Total expense "+yr+".pdf";
+            String pdf_name ="PDF\\"+Calendar.getInstance().getTime().toString()+" Total expense "+yr+".pdf";
             pdf_name=pdf_name.replace(':','_');
             System.out.println(pdf_name);
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(pdf_name));
