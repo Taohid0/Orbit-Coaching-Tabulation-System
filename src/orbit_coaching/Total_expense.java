@@ -103,6 +103,32 @@ public class Total_expense {
             }
         });
 
+        CREATEPDFButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                try
+                {
+                    ResultSet resultSet = Database_query.get_page_setup();
+                    resultSet.beforeFirst();
+
+                    if(resultSet.next())
+                    {
+                        Total_expense_pdf_coaching_pdf total_expense_pdf_coaching_pdf =
+                                new Total_expense_pdf_coaching_pdf(year_combobox.getSelectedItem().toString());
+                    }
+                    else
+                    {
+                        Total_expense_pdf total_expense_pdf = new Total_expense_pdf(year_combobox.getSelectedItem().toString());
+                    }
+                    Home home = new Home();
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
+            }
+        });
     }
 
     void fill_table() {
@@ -158,7 +184,7 @@ public class Total_expense {
                 else
                     name = "";
 
-                defaultTableModel.addRow(new String[]{cnt, name, resultSet.getString(1), resultSet.getString(2), resultSet.getString(3),
+                defaultTableModel.addRow(new String[]{cnt, resultSet.getString(1), name, resultSet.getString(2), resultSet.getString(3),
                         resultSet.getString(5), resultSet.getString(4)});
 
                 total+=Integer.parseInt(resultSet.getString(4));

@@ -136,6 +136,8 @@ public class Teacher_attendance_show {
                 Home home = new Home();
             }
         });
+
+      BACKButton.setFocusable(false);
     }
 
     public void set_name_institution()

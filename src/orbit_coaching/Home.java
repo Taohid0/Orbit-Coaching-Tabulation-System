@@ -327,7 +327,8 @@ public class Home {
             @Override
             public void actionPerformed(ActionEvent e) {
                 jFrame.dispose();
-                Show_other_income show_other_income = new Show_other_income();
+                //Show_other_income show_other_income = new Show_other_income();
+                Show_total_income_other show_total_income_other = new Show_total_income_other();
             }
         });
         JMenuItem teacher_attendance_show = new JMenuItem("Teacher Attendance show");
@@ -468,7 +469,7 @@ public class Home {
         jMenuBar.add(show);
 
 
-        jMenuBar.add(Print);
+        //jMenuBar.add(Print);
         jFrame.setJMenuBar(jMenuBar);
 
 
