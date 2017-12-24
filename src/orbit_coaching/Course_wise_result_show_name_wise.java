@@ -108,14 +108,14 @@ public class Course_wise_result_show_name_wise {
         highest_marks = 0;
         lowest_marks=  10000;
         DefaultTableModel defaultTableModel = new DefaultTableModel(0,0);
-        String header[] = {"REGISTRATION NUMBER","ROLL NUMBER","NAME","OBTAINED MARKS"};
+        String header[] = {"REGISTRATION NUMBER","NAME","OBTAINED MARKS"};
         defaultTableModel.setColumnIdentifiers(header);
         marks_table.setModel(defaultTableModel);
 
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
         marks_table.getColumn("REGISTRATION NUMBER").setCellRenderer(centerRenderer);
-        marks_table.getColumn("ROLL NUMBER").setCellRenderer(centerRenderer);
+       // marks_table.getColumn("ROLL NUMBER").setCellRenderer(centerRenderer);
         marks_table.getColumn("NAME").setCellRenderer(centerRenderer);
         marks_table.getColumn("OBTAINED MARKS").setCellRenderer(centerRenderer);
 
@@ -149,7 +149,7 @@ public class Course_wise_result_show_name_wise {
                     obtained_marks = resultSet.getString(3);
                 }
 
-                defaultTableModel.addRow(new String[]{resultSet.getString(1),resultSet.getString(2),
+                defaultTableModel.addRow(new String[]{resultSet.getString(1),
                         name,obtained_marks});
                 if(obtained_marks.charAt(0)!='A' && Integer.parseInt(obtained_marks)>highest_marks)
                 {
@@ -181,14 +181,14 @@ public class Course_wise_result_show_name_wise {
     Course_wise_result_show_name_wise()
     {
         DefaultTableModel defaultTableModel = new DefaultTableModel(0,0);
-        String header[] = {"REGISTRATION NUMBER","ROLL NUMBER","NAME","OBTAINED MARKS"};
+        String header[] = {"REGISTRATION NUMBER","NAME","OBTAINED MARKS"};
         defaultTableModel.setColumnIdentifiers(header);
         marks_table.setModel(defaultTableModel);
 
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
         marks_table.getColumn("REGISTRATION NUMBER").setCellRenderer(centerRenderer);
-        marks_table.getColumn("ROLL NUMBER").setCellRenderer(centerRenderer);
+        //marks_table.getColumn("ROLL NUMBER").setCellRenderer(centerRenderer);
         marks_table.getColumn("NAME").setCellRenderer(centerRenderer);
         marks_table.getColumn("OBTAINED MARKS").setCellRenderer(centerRenderer);
 

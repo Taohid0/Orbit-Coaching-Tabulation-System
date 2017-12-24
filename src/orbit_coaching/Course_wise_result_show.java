@@ -91,8 +91,10 @@ public class Course_wise_result_show {
         try
         {
            ResultSet resultSet = Database_query.get_exam_date(class_comboBox1.getSelectedItem().toString(),
-                   year_comboBox1.getSelectedItem().toString(),subject_combobox.getSelectedItem().toString(),
-                   exam_type_comboBox2.getSelectedItem().toString());
+                   year_comboBox1.getSelectedItem().toString(),
+                   exam_type_comboBox2.getSelectedItem().toString(),
+                   subject_combobox.getSelectedItem().toString()
+                   );
            if(resultSet.next())
            {
                date_textfield.setText(resultSet.getString(1));
@@ -232,6 +234,7 @@ public class Course_wise_result_show {
         year_comboBox1.setEditable(true);
 
         print_button.setFocusable(false);
+
 
         try
         {

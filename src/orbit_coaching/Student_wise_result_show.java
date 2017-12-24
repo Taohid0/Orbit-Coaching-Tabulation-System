@@ -43,7 +43,13 @@ public class Student_wise_result_show {
     {
         try
         {
-            class_combobox.removeAllItems();
+            try {
+                class_combobox.removeAllItems();
+            }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
             ResultSet resultSet = Database_query.get_class();
             resultSet.beforeFirst();
 
@@ -61,7 +67,13 @@ public class Student_wise_result_show {
     {
         try
         {
-            roll_combobox.removeAllItems();
+            try {
+                roll_combobox.removeAllItems();
+            }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
             ResultSet resultSet = Database_query.get_roll_for_payment(class_combobox.getSelectedItem().toString(),
                     year_combobox.getSelectedItem().toString());
             resultSet.beforeFirst();
@@ -116,9 +128,9 @@ public class Student_wise_result_show {
                 String obtaind_marks = "Absent";
                 try
                 {
-                    if(!resultSet.getString(3).equals("-1"))
+                    if(!resultSet.getString(4).equals("-1"))
                     {
-                        obtaind_marks = resultSet.getString(3);
+                        obtaind_marks = resultSet.getString(4);
                     }
                 }
                 catch (Exception ex)
@@ -144,7 +156,9 @@ public class Student_wise_result_show {
         jFrame.setVisible(true);
         jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         name_text_field.setEditable(false);
-
+        year_combobox.setEditable(true);
+        class_combobox.setEditable(true);
+        roll_combobox.setEditable(true);
         fill_year();
 
         year_combobox.addActionListener(new ActionListener() {

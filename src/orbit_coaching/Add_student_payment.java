@@ -124,6 +124,8 @@ public class Add_student_payment {
 
             for(int i = 0;i<(int)selected_indices.length;i++)
             {
+                String temp_roll="";
+
                 if(skip_month_list.getModel().getElementAt(selected_indices[i]).toString().equals("NONE"))
                     continue;
                 System.out.println(skip_month_list.getModel().getElementAt(selected_indices[i]));

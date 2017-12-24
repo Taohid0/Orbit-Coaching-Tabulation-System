@@ -677,7 +677,8 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT DISTINCT roll from Student WHERE class="+cls+" AND for_year="+year+" ORDER BY cast(roll as INT) DESC ;";
+            String query = "SELECT DISTINCT roll from Student WHERE class="+
+                    "\""+cls+"\""+" AND for_year="+year+" ORDER BY cast(roll as INT) DESC ;";
             resultSet= stmt.executeQuery(query);
         }
         catch (Exception ex)
@@ -824,7 +825,8 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT DISTINCT exam_type from Marks WHERE cls="+cls+" ORDER BY exam_type ASC ;";
+            String query = "SELECT DISTINCT exam_type from Marks WHERE cls="+
+                    "\""+cls+"\""+" ORDER BY exam_type ASC ;";
             resultSet= stmt.executeQuery(query);
         }
         catch (Exception ex)
@@ -842,8 +844,9 @@ public class Database_query {
                     "root", "");
             stmt = conn.createStatement();
 
-            String query ="SELECT roll,temp_roll,obtained_markd,out_of FROM Marks WHERE cls="+cls+ " AND exam_type="+exam_type+ " " +
-                    " AND subject="+subject+" AND date=\""+date+"\""+ " ORDER BY  cast(roll As INT) ";
+            String query ="SELECT roll,temp_roll,obtained_markd,out_of FROM Marks WHERE cls="+
+                    "\""+cls+"\""+ " AND exam_type="+"\""+exam_type+"\""+ " " +
+                    " AND subject="+"\""+subject+"\""+" AND date=\""+date+"\""+ " ORDER BY  cast(roll As INT) ";
 
             resultSet= stmt.executeQuery(query);
         }
@@ -865,9 +868,11 @@ public class Database_query {
                     "root", "");
             stmt = conn.createStatement();
 
-            String query ="SELECT roll,temp_roll,obtained_markd,out_of FROM Marks WHERE cls="+cls+ " AND exam_type="+exam_type+ " " +
-                    " AND subject="+subject+" AND date=\""+date+"\""+ " ORDER BY  obtained_markd ";
+            String query ="SELECT roll,temp_roll,obtained_markd,out_of FROM Marks WHERE cls="
+                    +"\""+cls+"\""+ " AND exam_type="+"\""+exam_type+"\""+ " " +
+                    " AND subject="+"\""+subject+"\""+" AND date=\""+date+"\""+ " ORDER BY  obtained_markd ";
 
+            System.out.println(query);
             resultSet= stmt.executeQuery(query);
         }
         catch (Exception ex)
@@ -906,9 +911,11 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT exam_type,subject,date,obtained_markd FROM Marks WHERE cls="+cls+" AND roll="+roll
+            String query = "SELECT exam_type,subject,date,obtained_markd FROM Marks WHERE cls=" +
+                    ""+"\""+cls+"\""+" AND roll="+roll
                     +" AND date LIKE "+"\"%"+year.toString()+"\" ";
             resultSet= stmt.executeQuery(query);
+            System.out.println(query);
         }
         catch (Exception ex)
         {
@@ -926,7 +933,8 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT MAX(obtained_markd) FROM Marks WHERE cls="+cls+" AND exam_type="+exam_type
+            String query = "SELECT MAX(obtained_markd) FROM Marks WHERE cls="+
+                    "\""+cls+"\""+" AND exam_type="+"\""+exam_type+"\""
                     +" AND date="+"\""+date+"\"";
             resultSet= stmt.executeQuery(query);
         }
@@ -1004,11 +1012,12 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT DISTINCT date from Marks WHERE cls="+cls+
-                    " AND exam_type="+xm+
-                    " AND subject="+subject+
+            String query = "SELECT DISTINCT date from Marks WHERE cls="+"\""+cls+"\""+
+                    " AND exam_type="+"\""+xm+"\""+
+                    " AND subject="+"\""+subject+"\""+
                     " AND date LIKE "+"\"%"+year.toString()+"\" " +
                     " ORDER BY date DESC " ;
+            //System.out.println(query);
             resultSet= stmt.executeQuery(query);
 
         }
