@@ -101,6 +101,37 @@ public class Total_student_expense {
                 fill_table();
             }
         });
+
+        CREATEPDFButton.setFocusable(false);
+        CREATEPDFButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try
+                {
+                    ResultSet resultSet = Database_query.get_page_setup();
+                    resultSet.beforeFirst();
+
+                    if(resultSet.next())
+                    {
+                        Show_expense_for_students_pdf_coaching_pad st = new Show_expense_for_students_pdf_coaching_pad(
+                                year_combobox.getSelectedItem().toString());
+
+                    }
+                    else
+                    {
+
+                        Show_expense_for_students_pdf sefsp = new Show_expense_for_students_pdf(
+                                year_combobox.getSelectedItem().toString());
+                    }
+                    jFrame.dispose();
+                    Home home = new Home();
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
+            }
+        });
     }
 
     void fill_table() {

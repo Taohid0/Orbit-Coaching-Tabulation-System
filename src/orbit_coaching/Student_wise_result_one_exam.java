@@ -328,35 +328,39 @@ public class Student_wise_result_one_exam {
                 String mrk = resultSet1.getString(2);
                 String grade_point =Grade_point_calculation.get_grade(mrk);
                 String grade = Double.toString(Grade_point_calculation.get_grade_point(mrk));
+                System.out.println(fourth_subject_combobox.getSelectedItem().toString()+"-"+resultSet1.getString(1));
                 if(fourth_subject_combobox.getSelectedItem().toString().equals(resultSet1.getString(1)))
                 {
                     fourth_sub = fourth_subject_combobox.getSelectedItem().toString();
                     fourth_sub_gpd = grade;
+                    System.out.println("done");
                 }
                 else
                     total_point+=Double.parseDouble(grade);
-                if(grade.equals("F") && !fourth_subject_combobox.getSelectedItem().toString().equals(resultSet1.getString(1)))
+                if(grade_point.equals("F") && !fourth_subject_combobox.getSelectedItem().toString().equals(resultSet1.getString(1)))
                     flag = true;
                 String sub = resultSet1.getString(1);
-                if(sub.equals(fourth_subject_combobox.getSelectedItem().toString()))
-                    sub+="(4th)";
+                //if(sub.equals(fourth_subject_combobox.getSelectedItem().toString()))
+
                 defaultTableModel.addRow(new String[]{sub, mrk,
                         grade_point,grade.substring(0, 3),
                         highest});
                 subject_counter++;
+                System.out.println(grade_point);
             }
         }
 
         catch (Exception ex)
         {
             ex.printStackTrace();
-        }
-        if(flag==true){
+        }System.out.println(flag);
+        if(flag){
             gpa_without_fourth_subject_textfield.setText("0.00 (F)");
             gpa_with_fourth_subject_textfield.setText("0.00 (F)");
+
         }
         else if(fourth_subject_combobox.getSelectedItem().toString().equals("NONE"))
-    {
+       {
         double with_fourth = total_point/subject_counter;
         double without_fourth = total_point/subject_counter;
         if(with_fourth>5.00)
@@ -367,24 +371,38 @@ public class Student_wise_result_one_exam {
         Grade_point_calculation.get_grade_from_point(with_fourth)+")");
         gpa_without_fourth_subject_textfield.setText(Double.toString(with_fourth).substring(0,3)+
         " ("+Grade_point_calculation.get_grade_from_point(without_fourth)+")");
-    }
+
+        }
         else
         {
             double without_fourth = total_point/(subject_counter-1);
             System.out.println(fourth_sub_gpd+" 4th");
-            if(Double.parseDouble(fourth_sub_gpd)-2.00>=0.0001)
+            try {
+                if (Double.parseDouble(fourth_sub_gpd) - 2.00 >= 0.0001) {
+                    total_point += (Double.parseDouble(fourth_sub_gpd) - 2.00);
+                }
+            }
+            catch (Exception ex)
             {
-                total_point+=(Double.parseDouble(fourth_sub_gpd)-2.00);
+                ex.printStackTrace();
             }
             double with_fourth = total_point/(subject_counter-1);
-            if(with_fourth>5.00)
+            if(with_fourth>=5.00)
                 with_fourth=5.00;
 
-            gpa_with_fourth_subject_textfield.setText(Double.toString(with_fourth).substring(0,3)+" ("+
-                    Grade_point_calculation.get_grade_from_point(with_fourth)+")");
-            gpa_without_fourth_subject_textfield.setText(Double.toString(with_fourth).substring(0,3)+
-                    " ("+Grade_point_calculation.get_grade_from_point(without_fourth)+")");
+            if(flag){
+                gpa_without_fourth_subject_textfield.setText("0.00 (F)");
+                gpa_with_fourth_subject_textfield.setText("0.00 (F)");
+                gpa_with_fourth_subject_textfield.setText("0.00 (F)");
+                gpa_without_fourth_subject_textfield.setText("0.00 (F)");
+            }
+            else {
+                gpa_with_fourth_subject_textfield.setText(Double.toString(with_fourth).substring(0, 3) + " (" +
+                        Grade_point_calculation.get_grade_from_point(with_fourth) + ")");
+                gpa_without_fourth_subject_textfield.setText(Double.toString(with_fourth).substring(0, 3) +
+                        " (" + Grade_point_calculation.get_grade_from_point(without_fourth) + ")");
 
+            }
         }
 
     }

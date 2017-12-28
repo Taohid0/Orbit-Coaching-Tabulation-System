@@ -71,7 +71,7 @@ public class Total_expense_pdf {
             p1.setAlignment(Element.ALIGN_CENTER);
             document.add(p1);
 
-            PdfPTable table = new PdfPTable(7);
+            PdfPTable table = new PdfPTable(6);
             table.setSpacingBefore(30);
 
             // the cell object
@@ -80,7 +80,7 @@ public class Total_expense_pdf {
 
 
             table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
-            table.addCell("SL NO.");
+
             table.addCell("ID");
             table.addCell("NAME");
             table.addCell("DATE");
@@ -121,7 +121,7 @@ public class Total_expense_pdf {
                         }
                     else
                         name = "";
-                    table.addCell(Integer.toString(counter++));
+
                     table.addCell(resultSet.getString(1));
                     table.addCell(name);
                     table.addCell(resultSet.getString(2));

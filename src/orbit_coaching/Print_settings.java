@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 public class Print_settings {
     private JComboBox combobox;
@@ -17,6 +18,19 @@ public class Print_settings {
         {
             combobox.addItem("Plain White Page");
             combobox.addItem("Coaching Pad");
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        try
+        {
+            ResultSet resultSet = Database_query.get_page_setup();
+            resultSet.beforeFirst();
+            if(resultSet.next())
+            {
+                combobox.setSelectedItem("Coaching Pad");
+            }
         }
         catch (Exception ex)
         {

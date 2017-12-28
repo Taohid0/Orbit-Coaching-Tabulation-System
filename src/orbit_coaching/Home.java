@@ -433,7 +433,7 @@ public class Home {
                 Total_monthly_income_from_student total_monthly_income_from_student = new Total_monthly_income_from_student();
             }
         });
-        JMenuItem show_all_other_income = new JMenuItem("Show Other Income");
+        JMenuItem show_all_other_income = new JMenuItem("Show Total Other Income");
         show_all_other_income.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

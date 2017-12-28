@@ -12,10 +12,10 @@ public class Main {
         //Database_query.do_start_up_query();
          //Test_data_input.insert_marks();
         //test t =new test();
-        Home home = new Home();
+        //Home home = new Home();
         //boolean n = Data_validation.check_date("11-11-2017");
         //Test_data_input.insert_student();
-        //Login_form login_form = new Login_form();
+        Login_form login_form = new Login_form();
         //Change_password change_password  = new Change_password();
         // all show part should be added
         //Add_student add_student = new Add_student();

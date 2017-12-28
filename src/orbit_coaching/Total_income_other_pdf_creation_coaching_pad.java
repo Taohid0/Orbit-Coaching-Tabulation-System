@@ -54,7 +54,7 @@ public class Total_income_other_pdf_creation_coaching_pad {
             p1.setAlignment(Element.ALIGN_CENTER);
             document.add(p1);
 
-            PdfPTable table = new PdfPTable(5);
+            PdfPTable table = new PdfPTable(4);
             table.setSpacingBefore(30);
 
             // the cell object
@@ -63,7 +63,6 @@ public class Total_income_other_pdf_creation_coaching_pad {
 
 
             table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
-            table.addCell("SL NO.");
             table.addCell("FROM");
             table.addCell("PURPOSE");
             table.addCell("DATE");
@@ -78,7 +77,7 @@ public class Total_income_other_pdf_creation_coaching_pad {
                 int counter=1;
                 while (resultSet.next())
                 {
-                    table.addCell(Integer.toString(counter++));
+
 
                     String from = resultSet.getString(1);
 
@@ -98,7 +97,6 @@ public class Total_income_other_pdf_creation_coaching_pad {
                     }
                     table.addCell(from);
                     table.addCell(resultSet.getString(2));
-
                     table.addCell(resultSet.getString(3));
                     table.addCell(resultSet.getString(4));
                     total+=Integer.parseInt(resultSet.getString(4));
