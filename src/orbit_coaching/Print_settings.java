@@ -28,14 +28,19 @@ public class Print_settings {
         jFrame.pack();
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
-
+        SAVEButton.setFocusable(false);
         SAVEButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(combobox.getSelectedItem().toString().equals("Plain White Page"))
                 {
+                    Database_query.delete_page_data();
+                }
+                else
+                {
                     Database_query.insert_page_data();
                 }
+                jFrame.dispose();
             }
         });
     }

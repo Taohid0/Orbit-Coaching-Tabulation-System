@@ -19,7 +19,7 @@ public class Student_wise_result_show {
     private JTextField name_text_field;
     private JTable table1;
     private JPanel pan1;
-    private JButton PRINTButton;
+    private JButton CREATEPDFButton;
 
     void fill_year()
     {
@@ -98,9 +98,10 @@ public class Student_wise_result_show {
 
     void fill_table()
     {
+
         table1.removeAll();
         DefaultTableModel defaultTableModel = new DefaultTableModel(0,0);
-        String header[] = {"EXAM","SUBJECT","DATE","OBTAINED MARKS","HIGHEST MARKS"};
+        String header[] = {"EXAM","SUBJECT","DATE","OBTAINED MARKS","HIGHEST MARKS","TOTAL"};
         defaultTableModel.setColumnIdentifiers(header);
         table1.setModel(defaultTableModel);
 
@@ -114,6 +115,7 @@ public class Student_wise_result_show {
             while (resultSet.next())
             {
                 String highest_marks = "";
+                String out_of="";
 
                 try
                 {
@@ -129,6 +131,21 @@ public class Student_wise_result_show {
                     if(highest_marks_result.next())
                     {
                         highest_marks = highest_marks_result.getString(1);
+                    }
+
+
+                    try
+                    {
+                        ResultSet out_of_result_set = Database_query.get_out_of_marks2(e,s,c,d);
+                        out_of_result_set.beforeFirst();
+                        if(out_of_result_set.next())
+                        {
+                            out_of = out_of_result_set.getString(1);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ex.printStackTrace();
                     }
                 }
                 catch (Exception ex)
@@ -150,7 +167,7 @@ public class Student_wise_result_show {
                 }
                 defaultTableModel.addRow(new String[]{resultSet.getString(1),resultSet.getString(2),
                         resultSet.getString(3),
-                obtaind_marks,highest_marks});
+                obtaind_marks,highest_marks,out_of});
             }
         }
         catch (Exception ex)
@@ -171,7 +188,7 @@ public class Student_wise_result_show {
         class_combobox.setEditable(true);
         roll_combobox.setEditable(true);
         fill_year();
-
+        CREATEPDFButton.setFocusable(false);
         year_combobox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -212,6 +229,7 @@ public class Student_wise_result_show {
                 table1.getColumnModel().getColumn(2).setCellRenderer(rightRenderer);
                 table1.getColumnModel().getColumn(3).setCellRenderer(rightRenderer);
                 table1.getColumnModel().getColumn(4).setCellRenderer(rightRenderer);
+                table1.getColumnModel().getColumn(5).setCellRenderer(rightRenderer);
 
             }
         });
@@ -252,6 +270,46 @@ public class Student_wise_result_show {
 
             }
         });
+        CREATEPDFButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.dispose();
+                try
+                {
+                    ResultSet resultSet = Database_query.get_page_setup();
+                    resultSet.beforeFirst();
+
+                    if(resultSet.next())
+                    {
+                        Student_wise_result_all_exam_coaching_pad_pdf st =new
+                                Student_wise_result_all_exam_coaching_pad_pdf(year_combobox.getSelectedItem().toString(),
+                                class_combobox.getSelectedItem().toString(),roll_combobox.getSelectedItem().toString(),
+                                name_text_field.getText());
+                    }
+                    else {
+                        Student_wise_result_all_exam_pdf st = new Student_wise_result_all_exam_pdf(
+                                year_combobox.getSelectedItem().toString(),
+                                class_combobox.getSelectedItem().toString(),roll_combobox.getSelectedItem().toString(),
+                                name_text_field.getText()
+                        );
+                    }
+                    jFrame.dispose();
+                    Home home = new Home();
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
+                Home home = new Home();
+            }
+        });
+    }
+    boolean check()
+    {
+        if(year_combobox.getSelectedItem().toString().equals("") ||roll_combobox.getSelectedItem().toString().equals("")||
+                roll_combobox.getSelectedItem().toString().equals(""))
+            return true;
+        return false;
     }
 
 }

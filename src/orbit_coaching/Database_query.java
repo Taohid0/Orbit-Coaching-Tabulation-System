@@ -966,6 +966,28 @@ public class Database_query {
         return resultSet;
     }
 
+    public static ResultSet get_out_of_marks2(String exam_type,String sub,String cls,String date)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT out_of FROM Marks WHERE cls="+
+                    "\""+cls+"\""+" AND exam_type="+"\""+exam_type+"\""
+                    +" AND date="+"\""+date+"\""+" AND subject="+"\""+sub+"\"";
+            System.out.println(query);
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+
     public static ResultSet get_highest_marks_specific(String cls,String yr,String exam_type,String subject)
     {
         ResultSet resultSet=null;
@@ -1187,16 +1209,37 @@ public class Database_query {
             stmt = conn.createStatement();
 
 
-            String delete_query = "DELETE * FROM Page";
+            String delete_query = "DELETE  FROM Page";
             stmt.execute(delete_query);
 
-            String query = "INSERT INTO billing_student (page_type) " +
+            String query = "INSERT INTO Page (page_type) " +
                     " VALUES (?);";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
 
             preparedStatement.setString(1,"pad");
 
             preparedStatement.execute();
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public static ResultSet delete_page_data()
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+
+
+            String delete_query = "DELETE  FROM Page";
+            stmt.execute(delete_query);
 
         }
         catch (Exception ex)

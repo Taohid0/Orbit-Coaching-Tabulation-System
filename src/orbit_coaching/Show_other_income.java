@@ -19,7 +19,7 @@ public class Show_other_income {
     private JComboBox year_combobox;
     private JTable table1;
     private JPanel pan1;
-    private JButton PRINTButton;
+    private JButton CREATEPDFButton;
     private JTextField total_textfield;
     DefaultTableModel defaultTableModel = null;
 
