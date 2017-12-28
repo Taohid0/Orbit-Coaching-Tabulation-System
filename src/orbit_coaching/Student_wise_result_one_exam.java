@@ -311,9 +311,9 @@ public class Student_wise_result_one_exam {
             resultSet1.beforeFirst();
             while (resultSet1.next()) {
 
-                ResultSet highest_resultset = Database_query.get_highest_marks_specific(class_combobox.getSelectedItem().toString(),
-                        year_combobox.getSelectedItem().toString(), exam_combobox.getSelectedItem().toString(),
-                        resultSet1.getString(1));
+                ResultSet highest_resultset = Database_query.get_highest_marks_specific(class_combobox.getSelectedItem().toString(),year_combobox.getSelectedItem().toString(),
+                        exam_combobox.getSelectedItem().toString(),resultSet1.getString(1));
+                System.out.println(resultSet1.getString(1));
                 String highest = "";
 
                 try {
@@ -328,10 +328,10 @@ public class Student_wise_result_one_exam {
                 String mrk = resultSet1.getString(2);
                 String grade_point =Grade_point_calculation.get_grade(mrk);
                 String grade = Double.toString(Grade_point_calculation.get_grade_point(mrk));
-                if(fourth_subject_combobox.equals(resultSet1.getString(1)))
+                if(fourth_subject_combobox.getSelectedItem().toString().equals(resultSet1.getString(1)))
                 {
                     fourth_sub = fourth_subject_combobox.getSelectedItem().toString();
-                    fourth_sub_gpd = grade_point;
+                    fourth_sub_gpd = grade;
                 }
                 else
                     total_point+=Double.parseDouble(grade);
@@ -362,6 +362,7 @@ public class Student_wise_result_one_exam {
         if(with_fourth>5.00)
             with_fourth=5.00;
 
+        System.out.println(with_fourth+" "+without_fourth);
         gpa_with_fourth_subject_textfield.setText(Double.toString(with_fourth).substring(0,3)+" ("+
         Grade_point_calculation.get_grade_from_point(with_fourth)+")");
         gpa_without_fourth_subject_textfield.setText(Double.toString(with_fourth).substring(0,3)+
@@ -370,6 +371,7 @@ public class Student_wise_result_one_exam {
         else
         {
             double without_fourth = total_point/(subject_counter-1);
+            System.out.println(fourth_sub_gpd+" 4th");
             if(Double.parseDouble(fourth_sub_gpd)-2.00>=0.0001)
             {
                 total_point+=(Double.parseDouble(fourth_sub_gpd)-2.00);

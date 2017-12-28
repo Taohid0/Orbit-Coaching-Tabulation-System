@@ -68,7 +68,13 @@ public class Course_wise_result_show_name_wise {
 
         try
         {
-            exam_type_comboBox2.removeAllItems();
+            try {
+                exam_type_comboBox2.removeAllItems();
+            }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
             ResultSet resultSet =Database_query.get_exam_type_by_class(class_comboBox1.getSelectedItem().toString());
             resultSet.beforeFirst();
 
@@ -205,7 +211,7 @@ public class Course_wise_result_show_name_wise {
         highest_marks_textField2.setEditable(false);
         lowest_marks_textField3.setEditable(false);
 
-        JFrame jFrame = new JFrame("Orbit (Course Wise Result-naming order)");
+        JFrame jFrame = new JFrame("Orbit (Course Wise Result (Highest Marks Order)");
         jFrame.setContentPane(panel1);
         jFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         jFrame.pack();
@@ -336,5 +342,11 @@ public class Course_wise_result_show_name_wise {
             }
         });
 
+        date_textfield.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fill_table_data();
+            }
+        });
     }
 }

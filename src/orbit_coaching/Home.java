@@ -263,7 +263,7 @@ public class Home {
                 Course_wise_result_show course_wise_result_show =  new Course_wise_result_show();
             }
         });
-        JMenuItem course_wise_result_name_wise=new JMenuItem("Course wise Result (name wise)");
+        JMenuItem course_wise_result_name_wise=new JMenuItem("Course wise Result (Highest Marks Order)");
         course_wise_result_name_wise.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

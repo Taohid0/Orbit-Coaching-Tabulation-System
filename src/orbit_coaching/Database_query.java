@@ -424,7 +424,7 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT subject,obtained_markd FROM Marks WHERE cls="+cls+" AND exam_type="+exm+
+            String query = "SELECT subject,obtained_markd FROM Marks WHERE cls="+"\""+cls+"\""+" AND exam_type="+"\""+exm+"\""+
                     " AND  roll="+roll+" AND for_year="+yr+" ORDER BY subject " ;
             System.out.println(query);
             resultSet= stmt.executeQuery(query);
@@ -734,8 +734,8 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT *  from Marks WHERE cls="+cls+ " AND "+
-                    "exam_type="+xm+" AND subject="+subject +" AND  date =\""+date.toString()+"\"";//
+            String query = "SELECT *  from Marks WHERE cls="+"\""+cls+"\""+ " AND "+
+                    "exam_type="+"\""+xm+"\""+" AND subject="+"\""+subject+"\"" +" AND  date =\""+date.toString()+"\"";//
             System.out.println(query);// +
                  //   " ORDER BY cast(roll as INT) ASC ";
             resultSet= stmt.executeQuery(query);
@@ -846,7 +846,7 @@ public class Database_query {
 
             String query ="SELECT roll,temp_roll,obtained_markd,out_of FROM Marks WHERE cls="+
                     "\""+cls+"\""+ " AND exam_type="+"\""+exam_type+"\""+ " " +
-                    " AND subject="+"\""+subject+"\""+" AND date=\""+date+"\""+ " ORDER BY  cast(roll As INT) ";
+                    " AND subject="+"\""+subject+"\""+" AND date=\""+date+"\""+ " ORDER BY  cast(roll As INT)  ";
 
             resultSet= stmt.executeQuery(query);
         }
@@ -870,7 +870,7 @@ public class Database_query {
 
             String query ="SELECT roll,temp_roll,obtained_markd,out_of FROM Marks WHERE cls="
                     +"\""+cls+"\""+ " AND exam_type="+"\""+exam_type+"\""+ " " +
-                    " AND subject="+"\""+subject+"\""+" AND date=\""+date+"\""+ " ORDER BY  obtained_markd ";
+                    " AND subject="+"\""+subject+"\""+" AND date=\""+date+"\""+ " ORDER BY  obtained_markd DESC ";
 
             System.out.println(query);
             resultSet= stmt.executeQuery(query);
@@ -945,6 +945,27 @@ public class Database_query {
         return resultSet;
     }
 
+
+    public static ResultSet get_highest_marks2(String exam_type,String sub,String cls,String date)
+    {
+        ResultSet resultSet=null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT MAX(obtained_markd) FROM Marks WHERE cls="+
+                    "\""+cls+"\""+" AND exam_type="+"\""+exam_type+"\""
+                    +" AND date="+"\""+date+"\""+" AND subject="+"\""+sub+"\"";
+            resultSet= stmt.executeQuery(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
     public static ResultSet get_highest_marks_specific(String cls,String yr,String exam_type,String subject)
     {
         ResultSet resultSet=null;
@@ -953,9 +974,11 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT MAX(obtained_markd) FROM Marks WHERE cls="+cls+" AND exam_type="+exam_type
-                    +" AND subject="+subject
-                    +" AND date LIKE "+"\"%"+yr.toString()+"\"";
+            String query = "SELECT MAX(obtained_markd) FROM Marks WHERE cls="+"\""+cls+"\""+" AND exam_type="+"\""+exam_type+"\""
+                    +" AND subject="+"\""+subject+"\""
+                    +" AND for_year="+"\""+yr+"\"";
+                    //+" AND date LIKE "+"\"%"+yr.toString()+"\"";
+            System.out.println(query);
 
             resultSet= stmt.executeQuery(query);
         }
@@ -1669,7 +1692,7 @@ public class Database_query {
             stmt = conn.createStatement();
             String query = "SELECT roll,name from Student WHERE isDeleted = 0 AND class="+
                     "\""+cls+"\""+" AND for_year="+year +
-                   " ORDER BY roll ASC ";
+                   " ORDER BY CAST(roll as INT) ";
             resultSet= stmt.executeQuery(query);
 
             resultSet.beforeFirst();

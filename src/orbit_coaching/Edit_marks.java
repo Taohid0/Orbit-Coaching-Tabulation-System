@@ -28,7 +28,7 @@ public class Edit_marks {
     private JTextField total_marks_textbox;
     private JComboBox subject_combobox;
     private JTextField date_textfield;
-    private JButton LOADButton;
+
     DefaultTableModel defaultTableModel = null;
 
 
@@ -280,7 +280,7 @@ public class Edit_marks {
 
             }
         });
-        LOADButton.setFocusable(false);
+
 
         jFrame.setVisible(true);
 
@@ -321,7 +321,14 @@ public class Edit_marks {
                 }
             }
         });
-        LOADButton.addActionListener(new ActionListener() {
+
+        date_textfield.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fill_student_fields();
+            }
+        });
+        subject_combobox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 fill_student_fields();

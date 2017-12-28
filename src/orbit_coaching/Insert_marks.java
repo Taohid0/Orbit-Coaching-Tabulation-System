@@ -385,6 +385,8 @@ public class Insert_marks {
                     String title = "SUCCESSFUL";
                     JOptionPane.showMessageDialog(null, message,
                             title, JOptionPane.INFORMATION_MESSAGE);
+                    jFrame.dispose();
+                    Home home =new Home();
                 }
             }
         });

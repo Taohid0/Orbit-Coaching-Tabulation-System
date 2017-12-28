@@ -74,13 +74,20 @@ public class Student_wise_result_show {
             {
                 ex.printStackTrace();
             }
-            ResultSet resultSet = Database_query.get_roll_for_payment(class_combobox.getSelectedItem().toString(),
-                    year_combobox.getSelectedItem().toString());
-            resultSet.beforeFirst();
+            try {
+                ResultSet resultSet = Database_query.get_roll_for_payment(class_combobox.getSelectedItem().toString(),
+                        year_combobox.getSelectedItem().toString());
+                resultSet.beforeFirst();
+
 
             while (resultSet.next())
             {
                 roll_combobox.addItem(resultSet.getString(1));
+            }
+            }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
             }
         }
         catch (Exception ex)
@@ -111,8 +118,12 @@ public class Student_wise_result_show {
                 try
                 {
 
-                    ResultSet highest_marks_result = Database_query.get_highest_marks(class_combobox.getSelectedItem().toString(),
-                            resultSet.getString(2),resultSet.getString(1));
+                    String c= class_combobox.getSelectedItem().toString();
+                    String e = resultSet.getString(1);
+                    String s=resultSet.getString(2);
+                    String d =resultSet.getString(3);
+
+                    ResultSet highest_marks_result = Database_query.get_highest_marks2(e,s,c,d);
                     highest_marks_result.beforeFirst();
 
                     if(highest_marks_result.next())

@@ -53,7 +53,7 @@ public class Couse_wise_hm_pdf_coaching_pad {
             p1.setAlignment(Element.ALIGN_CENTER);
             document.add(p1);
 
-            PdfPTable table = new PdfPTable(5);
+            PdfPTable table = new PdfPTable(4);
             table.setSpacingBefore(30);
 
             // the cell object
@@ -65,7 +65,7 @@ public class Couse_wise_hm_pdf_coaching_pad {
             table.addCell("SL NO.");
             table.addCell("REG NO.");
             table.addCell("ROLL NO.");
-            table.addCell("NAME");
+            //table.addCell("NAME");
             table.addCell("OBTAINED MARKS");
 
 
@@ -113,7 +113,7 @@ public class Couse_wise_hm_pdf_coaching_pad {
                     table.addCell(Integer.toString(counter++));
                     table.addCell(resultSet.getString(1));
                     table.addCell(temp_roll);
-                    table.addCell(name);
+                    //table.addCell(name);
                     table.addCell(obtained_marks);
 
 

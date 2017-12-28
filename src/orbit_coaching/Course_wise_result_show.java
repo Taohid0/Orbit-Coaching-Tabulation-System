@@ -71,7 +71,13 @@ public class Course_wise_result_show {
 
         try
         {
-            exam_type_comboBox2.removeAllItems();
+            try {
+                exam_type_comboBox2.removeAllItems();
+            }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
             ResultSet resultSet =Database_query.get_exam_type();
             resultSet.beforeFirst();
 
@@ -281,6 +287,12 @@ public class Course_wise_result_show {
             public void actionPerformed(ActionEvent e) {
                 fill_exam_type();
                 fill_date();
+                fill_table_data();
+            }
+        });
+        date_textfield.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
                 fill_table_data();
             }
         });
