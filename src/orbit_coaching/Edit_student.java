@@ -136,7 +136,6 @@ public class Edit_student {
 
         JFrame jFrame = new JFrame("Orbit Coaching (Edit Student's Information)");
         jFrame.setContentPane(panel1);
-        jFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         jFrame.addWindowListener(new WindowListener() {
@@ -228,43 +227,6 @@ public class Edit_student {
                     jFrame.dispose();
                     Home home = new Home();
                 }
-            }
-        });
-        jFrame.addWindowListener(new WindowListener() {
-            @Override
-            public void windowOpened(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowClosing(WindowEvent e) {
-                jFrame.dispose();
-                Home home = new Home();
-            }
-
-            @Override
-            public void windowClosed(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowIconified(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowDeiconified(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowActivated(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowDeactivated(WindowEvent e) {
-
             }
         });
     }

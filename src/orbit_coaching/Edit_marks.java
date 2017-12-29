@@ -69,11 +69,12 @@ public class Edit_marks {
                 else
 
                 {
-                    String query = "DELETE FROM Marks WHERE roll=" + table1.getValueAt(i, 0) + " AND "+
-                            " exam_type="+examtype_comobox.getSelectedItem().toString()+ " AND for_year="+for_year_combobox.getSelectedItem().toString()+
-                            " AND subject="+
-                            subject_combobox.getSelectedItem().toString()+" "+
-                            " cls="+cls + " AND  date ="+"\""+date+"\"";
+                    String query = "DELETE FROM Marks WHERE roll=" + "\""+ table1.getValueAt(i, 0) + "\""+ " AND "+
+                            " exam_type="+"\""+examtype_comobox.getSelectedItem().toString()+
+                            "\""+" AND for_year="+ "\""+for_year_combobox.getSelectedItem().toString()+ "\""+
+                            " AND subject="+ "\""+
+                            subject_combobox.getSelectedItem().toString()+ "\""+
+                            " AND cls="+"\""+cls+"\"" + " AND  date ="+"\""+date+"\"";
                     System.out.println(query);stmt.execute(query);
 
 

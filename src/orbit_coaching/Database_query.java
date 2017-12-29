@@ -59,7 +59,8 @@ public class Database_query {
              "    cnumber1 VARCHAR(25),\n" +
              "    cnumber2 VARCHAR(25),\n" +
              "    for_year VARCHAR(20),\n"+
-             "     isDeleted BOOL DEFAULT 0\n"+
+             "     isDeleted BOOL DEFAULT 0,\n"+
+             "    ID INT PRIMARY KEY AUTO_INCREMENT\n" +
              ");";
 
      static String create_teacher_table = "CREATE TABLE Teacher\n" +
@@ -90,7 +91,8 @@ public class Database_query {
              "    out_of INT,\n" +
              "    obtained_markd INT,\n" +
              "     cls VARCHAR(25),\n"+
-             "     for_year VARCHAR(20)"+
+             "     for_year VARCHAR(20),\n"+
+             "    ID INT PRIMARY KEY AUTO_INCREMENT\n" +
              ");";
 
      static String create_billing_student ="CREATE TABLE Billing_student\n" +
@@ -102,7 +104,8 @@ public class Database_query {
              "    date VARCHAR(25),\n" +
              "    skipped VARCHAR(5),\n" +
              "    amount VARCHAR(25),\n" +
-             "     purpose VARCHAR(100)\n"+
+             "     purpose VARCHAR(100),\n"+
+             "    ID INT PRIMARY KEY AUTO_INCREMENT\n" +
              ")";
      static String create_other_billing = "CREATE TABLE billing_other\n" +
              "(\n" +
@@ -119,7 +122,8 @@ public class Database_query {
             "    date VARCHAR(25),\n" +
             "    purpose VARCHAR(500),\n" +
             "    amount INT,\n" +
-            "    type VARCHAR(100)\n"+
+            "    type VARCHAR(100),\n"+
+            "    ID INT PRIMARY KEY AUTO_INCREMENT\n" +
             ");";
 
 

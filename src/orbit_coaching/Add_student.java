@@ -113,8 +113,9 @@ public class Add_student {
                     Database_query.insert_student(name, fname, mname, address, c1, c2, admission_date, birth_date, roll,
                             cls, group, school, bgroup, for_year, temp_roll);
                     jFrame.dispose();
-                    Home home = new Home();
+                    //Home home = new Home();
                     //System.out.println(bgroup);
+                    Add_student add_student = new Add_student();
                 }
 
 
