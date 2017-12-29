@@ -143,7 +143,10 @@ public class Teacher_attendance {
         SAVEButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 save();
+                jFrame.dispose();
+                Home home  = new Home();
             }
         });
     }

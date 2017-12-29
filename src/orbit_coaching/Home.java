@@ -149,7 +149,7 @@ public class Home {
                 Add_student add_student = new Add_student();
             }
         });
-        edit_student = new JMenuItem("Edit Student Information");
+        edit_student = new JMenuItem("Edit Student's Information");
         student_menu.add(add_student);
         student_menu.add(edit_student);
         //result menu
@@ -221,7 +221,7 @@ public class Home {
         jMenuBar.add(result_menu);
 
         //teacher menu items
-        JMenuItem add_teacher = new JMenuItem("Add Teacher");
+        JMenuItem add_teacher = new JMenuItem("Add New Teacher");
         add_teacher.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -229,7 +229,7 @@ public class Home {
                 Add_teacher add_teacher1 = new Add_teacher();
             }
         });
-        JMenuItem edit_teacher = new JMenuItem("Edit Teacher");
+        JMenuItem edit_teacher = new JMenuItem("Edit Teacher's Information");
         edit_teacher.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

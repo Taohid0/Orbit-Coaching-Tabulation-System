@@ -66,13 +66,13 @@ public class Student_payment_show {
         total_textbox.setEditable(false);
 
         defaultTableModel = new DefaultTableModel(0, 0);
-        String header[] = {"Sl No.", "DATE", "PURPOSE", "AMOUNT"};
+        String header[] = {"MONTH", "DATE", "PURPOSE", "AMOUNT"};
         defaultTableModel.setColumnIdentifiers(header);
         table1.setModel(defaultTableModel);
 
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
-        table1.getColumn("Sl No.").setCellRenderer(centerRenderer);
+        table1.getColumn("MONTH").setCellRenderer(centerRenderer);
         table1.getColumn("DATE").setCellRenderer(centerRenderer);
         table1.getColumn("PURPOSE").setCellRenderer(centerRenderer);
         table1.getColumn("AMOUNT").setCellRenderer(centerRenderer);
@@ -87,6 +87,7 @@ public class Student_payment_show {
            public void actionPerformed(ActionEvent e) {
 
                fill_table();
+               fill_textfield();
            }
        });
        registration_combobox.addActionListener(new ActionListener() {
@@ -96,6 +97,8 @@ public class Student_payment_show {
                fill_textfield();
            }
        });
+       CREATEPDFButton.setFocusable(false);
+
        jFrame.addWindowListener(new WindowListener() {
            @Override
            public void windowOpened(WindowEvent e) {
@@ -133,6 +136,44 @@ public class Student_payment_show {
 
            }
        });
+        CREATEPDFButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try
+                {
+                    try
+                    {
+                        ResultSet resultSet = Database_query.get_page_setup();
+                        resultSet.beforeFirst();
+
+                        if(resultSet.next())
+                        {
+                            Student_payment_show_pdf st = new Student_payment_show_pdf(
+                                    registration_combobox.getSelectedItem().toString(),year_combobox.getSelectedItem().toString(),
+                                    name_textfield.getText(),father_textfield.getText(),mother_textfield.getText(),
+                                    school_textfield.getText());
+
+                        }
+                        else {
+                            Student_payment_show_pdf_coaching_pad st = new Student_payment_show_pdf_coaching_pad(
+                                    registration_combobox.getSelectedItem().toString(),year_combobox.getSelectedItem().toString(),
+                                    name_textfield.getText(),father_textfield.getText(),mother_textfield.getText(),
+                                    school_textfield.getText());
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ex.printStackTrace();
+                    }
+                    jFrame.dispose();
+                    Home home = new Home();
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
+            }
+        });
     }
 
     void fill_table()
@@ -140,13 +181,13 @@ public class Student_payment_show {
         int counter = 1;
         int total = 0;
         defaultTableModel = new DefaultTableModel(0, 0);
-        String header[] = {"Sl No.", "DATE", "PURPOSE", "AMOUNT"};
+        String header[] = {"MONTH", "DATE", "PURPOSE", "AMOUNT"};
         defaultTableModel.setColumnIdentifiers(header);
         table1.setModel(defaultTableModel);
 
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
-        table1.getColumn("Sl No.").setCellRenderer(centerRenderer);
+        table1.getColumn("MONTH").setCellRenderer(centerRenderer);
         table1.getColumn("DATE").setCellRenderer(centerRenderer);
         table1.getColumn("PURPOSE").setCellRenderer(centerRenderer);
         table1.getColumn("AMOUNT").setCellRenderer(centerRenderer);
@@ -176,8 +217,8 @@ public class Student_payment_show {
 
             while (resultSet.next())
             {
-                defaultTableModel.addRow(new String[]{resultSet.getString(1),
-                        resultSet.getString(2),resultSet.getString(3),resultSet.getString(4)});
+                defaultTableModel.addRow(new String[]{"",
+                        resultSet.getString(3),resultSet.getString(2),resultSet.getString(4)});
                 total+=Integer.parseInt(resultSet.getString(4));
             }
 

@@ -1099,8 +1099,8 @@ public class Database_query {
             conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
                     "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT month,date,purpose,amount from billing_student WHERE roll="+roll+" AND year="+yr
-                    +" AND skipped=0";
+            String query = "SELECT month,date,purpose,amount from billing_student WHERE roll="+roll+" AND " +
+                    "date LIKE "+"\"%"+yr.toString()+"\"" +" AND skipped=0";
             resultSet= stmt.executeQuery(query);
 
         }
