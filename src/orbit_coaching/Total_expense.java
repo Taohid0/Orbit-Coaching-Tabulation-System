@@ -157,7 +157,7 @@ public class Total_expense {
 
             while (resultSet.next()) {
                 String name = "";
-                String cnt = Integer.toString(counter);
+                String cnt = Integer.toString(counter++);
                 String type = resultSet.getString(5);
                 if (type.equals("Student"))
                     try {

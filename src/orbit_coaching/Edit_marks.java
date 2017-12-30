@@ -78,18 +78,27 @@ public class Edit_marks {
                     System.out.println(query);stmt.execute(query);
 
 
-                    query= "INSERT INTO Marks (roll,exam_type,date,out_of,obtained_markd,cls,subject,for_year) " +
-                            "VALUES (?,?,?,?,?,?,?,?)";
-                    PreparedStatement preparedStatement = conn.prepareStatement(query);
-                    preparedStatement.setString(1,table1.getValueAt(i,0).toString());
-                    preparedStatement.setString(2,exam_type);
-                    preparedStatement.setString(3,date);
-                    preparedStatement.setString(4,total_marks_textbox.getText());
-                    preparedStatement.setString(5,table1.getValueAt(i,1).toString());
-                    preparedStatement.setString(6,cls);
-                    preparedStatement.setString(7,subject_combobox.getSelectedItem().toString());
-                    preparedStatement.setString(8,for_year_combobox.getSelectedItem().toString());
-                    preparedStatement.execute();
+
+
+                    String obtn_marks = table1.getValueAt(i,1).toString().replaceAll("\\s+","");
+                    if(obtn_marks.equals("-1"))
+                    {
+                        continue;
+                    }
+                    else {
+                        query = "INSERT INTO Marks (roll,exam_type,date,out_of,obtained_markd,cls,subject,for_year) " +
+                                "VALUES (?,?,?,?,?,?,?,?)";
+                        PreparedStatement preparedStatement = conn.prepareStatement(query);
+                        preparedStatement.setString(1, table1.getValueAt(i, 0).toString());
+                        preparedStatement.setString(2, exam_type);
+                        preparedStatement.setString(3, date);
+                        preparedStatement.setString(4, total_marks_textbox.getText());
+                        preparedStatement.setString(5, obtn_marks);
+                        preparedStatement.setString(6, cls);
+                        preparedStatement.setString(7, subject_combobox.getSelectedItem().toString());
+                        preparedStatement.setString(8, for_year_combobox.getSelectedItem().toString());
+                        preparedStatement.execute();
+                    }
                 }
             }
             catch ( Exception ex)

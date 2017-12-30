@@ -156,7 +156,7 @@ public class Total_other_expense {
 
             while (resultSet.next()) {
                 String name = "";
-                String cnt = Integer.toString(counter);
+                String cnt = Integer.toString(counter++);
 
 
                 defaultTableModel.addRow(new String[]{cnt, resultSet.getString(1), resultSet.getString(3), resultSet.getString(2),

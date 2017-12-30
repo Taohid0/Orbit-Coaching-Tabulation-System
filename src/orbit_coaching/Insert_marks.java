@@ -76,7 +76,14 @@ public class Insert_marks {
                 String xm = examtype_comobox.getSelectedItem().toString();
                 String date = date_textfield.getText();
                 String total_marks = total_marks_textbox.getText();
+                String obtn_marks=table1.getValueAt(i,2).toString().replaceAll("\\s+","");
                 System.out.println(xm);
+
+                if(subject_combobox.getSelectedItem().toString().equals("ICT"))
+                {
+                    obtn_marks =Integer.toString(Integer.parseInt(obtn_marks)*2);
+                }
+                System.out.println(subject_combobox.getSelectedItem());
 
 
                 System.out.println(table1.getValueAt(i,2));
@@ -90,12 +97,13 @@ public class Insert_marks {
                 {
                     table1.setValueAt(-1,i,2);
                 }
+
                 PreparedStatement preparedStatement = conn.prepareStatement(query);
                 preparedStatement.setString(1, table1.getValueAt(i,0).toString());
                 preparedStatement.setString(2, xm);
                 preparedStatement.setString(3,date);
                 preparedStatement.setString(4,total_marks);
-                preparedStatement.setString(5,table1.getValueAt(i,2).toString());
+                preparedStatement.setString(5,obtn_marks);
                 preparedStatement.setString(6,class_combobox.getSelectedItem().toString());
                 preparedStatement.setString(7,subject_combobox.getSelectedItem().toString());
                 preparedStatement.setString(8,for_year_combobox.getSelectedItem().toString());

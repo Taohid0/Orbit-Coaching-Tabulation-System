@@ -158,7 +158,7 @@ public class Show_total_income_other {
 
             while (resultSet.next()) {
                 String name = "";
-                String cnt = Integer.toString(counter);
+                String cnt = Integer.toString(counter++);
                 String type = resultSet.getString(5);
                 if (type.equals("Student"))
                     try {

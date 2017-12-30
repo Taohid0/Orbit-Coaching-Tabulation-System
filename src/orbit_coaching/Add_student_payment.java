@@ -31,6 +31,7 @@ public class Add_student_payment {
     private JButton SAVEButton;
     private JComboBox purpose_combobox;
     private JTextField date_textbox;
+    JFrame jFrame=null;
     String month_array[] = {"January","February","March","April","May","June","July","August","September",
             "October","November","December"};
     Map<String,Integer> check_month_map = new HashMap<String, Integer>();
@@ -133,8 +134,11 @@ public class Add_student_payment {
                 Database_query.input_student_payment(roll,cls,skip_month_list.getModel().getElementAt(selected_indices[i]).toString(),
                         year,date,1,"0",purpose);
             }
-            if(flag)
-            Database_query.input_student_payment(roll,cls,month,year,date,0,amount,purpose);
+            if(flag) {
+                Database_query.input_student_payment(roll, cls, month, year, date, 0, amount, purpose);
+                jFrame.dispose();
+                Add_student_payment add_student_payment =new Add_student_payment();
+            }
 
         }
         catch (Exception ex)
@@ -312,7 +316,7 @@ public class Add_student_payment {
         skip_month_list.setListData(select_month);
         purpose_combobox.setEditable(true);
         year_combobox.setEditable(true);
-        JFrame jFrame = new JFrame("Orbit (Add Student's Payment)");
+        jFrame = new JFrame("Orbit (Add Student's Payment)");
         jFrame.setContentPane(panel1);
         jFrame.pack();
         jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -372,6 +376,7 @@ public class Add_student_payment {
                 else {
 
                     insert_to_database();
+
                 }
 
             }

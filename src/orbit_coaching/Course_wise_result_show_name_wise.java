@@ -1,6 +1,6 @@
 package orbit_coaching;
 
-import oracle.jrockit.jfr.JFR;
+
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -254,8 +254,8 @@ public class Course_wise_result_show_name_wise {
                     }
                     else
                     {
-                        Couse_wise_hm_pdf_coaching_pad couse_wise_hm_pdf_coaching_pad = new
-                                Couse_wise_hm_pdf_coaching_pad(class_comboBox1.getSelectedItem().toString(),
+                        Couse_wise_hm_pdf couse_wise_hm_pdf_coaching_pad = new
+                                Couse_wise_hm_pdf(class_comboBox1.getSelectedItem().toString(),
                                 exam_type_comboBox2.getSelectedItem().toString(),
                                 date_textfield.getText(),subject_combobox.getSelectedItem().toString(),
                                 total_marks_textField1.getText(),Integer.toString(highest_marks),

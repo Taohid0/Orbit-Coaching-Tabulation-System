@@ -159,7 +159,7 @@ public class Total_student_expense {
 
             while (resultSet.next()) {
                 String name = "";
-                String cnt = Integer.toString(counter);
+                String cnt = Integer.toString(counter++);
                 try {
                     ResultSet resultSet1 = Database_query.get_name(resultSet.getString(1));
                     resultSet1.beforeFirst();
