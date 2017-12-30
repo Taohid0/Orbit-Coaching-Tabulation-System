@@ -37,17 +37,6 @@ public class Couse_wise_hm_pdf {
             }
             Document document = new Document(PageSize.A4, 50, 50, 50, 50);
 
-//            String  year =Integer.toString(Calendar.getInstance().YEAR);
-//            String month =Integer.toString( Calendar.getInstance().MONTH+1);
-//            String day =Integer.toString( Calendar.getInstance().DATE);
-//            String hr = Integer.toString(Calendar.getInstance().HOUR);
-//            String minute =Integer.toString( Calendar.getInstance().MINUTE);
-//            String am_pc = "";
-//
-//            if (Calendar.getInstance().AM_PM==0)
-//                am_pc="AM";
-//            else
-//                am_pc="PM";
 
             String pdf_name ="PDF\\"+Calendar.getInstance().getTime().toString()+" Course wise result name_wise "+exam_type+" "+subject+".pdf";
             pdf_name=pdf_name.replace(':','_');
@@ -97,7 +86,6 @@ public class Couse_wise_hm_pdf {
             table.addCell("SL NO.");
             table.addCell("REG NO.");
             table.addCell("ROLL NO.");
-            //table.addCell("NAME");
             table.addCell("OBTAINED MARKS");
 
 

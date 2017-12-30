@@ -54,17 +54,18 @@ public  class Grade_point_calculation {
     }
     static String get_grade_from_point(double point)
     {
-        if(point+.0001>=5.00)
+        System.out.println(point);
+        if(point>=5.00)
             return "A+";
-        else if(point+.0001>=4.00)
+        else if(point>=4.00)
             return "A";
-        else if(point+.0001>=3.50)
+        else if(point>=3.50)
             return "A-";
-        else if(point+.0001>=3.00)
+        else if(point>=3.00)
             return "B";
-        else if(point+.0001>=2.00)
+        else if(point>=2.00)
             return "C";
-        else if(point+.0001>=1.00)
+        else if(point>=1.00)
             return "D";
         else return "F";
     }

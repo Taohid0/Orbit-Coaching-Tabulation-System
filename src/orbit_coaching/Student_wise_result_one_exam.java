@@ -313,7 +313,7 @@ public class Student_wise_result_one_exam {
 
                 ResultSet highest_resultset = Database_query.get_highest_marks_specific(class_combobox.getSelectedItem().toString(),year_combobox.getSelectedItem().toString(),
                         exam_combobox.getSelectedItem().toString(),resultSet1.getString(1));
-                System.out.println(resultSet1.getString(1));
+               // System.out.println(resultSet1.getString(1));
                 String highest = "";
 
                 try {
@@ -328,12 +328,12 @@ public class Student_wise_result_one_exam {
                 String mrk = resultSet1.getString(2);
                 String grade_point =Grade_point_calculation.get_grade(mrk);
                 String grade = Double.toString(Grade_point_calculation.get_grade_point(mrk));
-                System.out.println(fourth_subject_combobox.getSelectedItem().toString()+"-"+resultSet1.getString(1));
+                //System.out.println(fourth_subject_combobox.getSelectedItem().toString()+"-"+resultSet1.getString(1));
                 if(fourth_subject_combobox.getSelectedItem().toString().equals(resultSet1.getString(1)))
                 {
                     fourth_sub = fourth_subject_combobox.getSelectedItem().toString();
                     fourth_sub_gpd = grade;
-                    System.out.println("done");
+                   // System.out.println("done");
                 }
                 else
                     total_point+=Double.parseDouble(grade);
@@ -346,14 +346,14 @@ public class Student_wise_result_one_exam {
                         grade_point,grade.substring(0, 3),
                         highest});
                 subject_counter++;
-                System.out.println(grade_point);
+               // System.out.println(grade_point);
             }
         }
 
         catch (Exception ex)
         {
             ex.printStackTrace();
-        }System.out.println(flag);
+        }//System.out.println(flag);
         if(flag){
             gpa_without_fourth_subject_textfield.setText("0.00 (F)");
             gpa_with_fourth_subject_textfield.setText("0.00 (F)");
@@ -366,7 +366,7 @@ public class Student_wise_result_one_exam {
         if(with_fourth>5.00)
             with_fourth=5.00;
 
-        System.out.println(with_fourth+" "+without_fourth);
+       // System.out.println(with_fourth+" "+without_fourth);
         gpa_with_fourth_subject_textfield.setText(Double.toString(with_fourth).substring(0,3)+" ("+
         Grade_point_calculation.get_grade_from_point(with_fourth)+")");
         gpa_without_fourth_subject_textfield.setText(Double.toString(with_fourth).substring(0,3)+
@@ -376,7 +376,7 @@ public class Student_wise_result_one_exam {
         else
         {
             double without_fourth = total_point/(subject_counter-1);
-            System.out.println(fourth_sub_gpd+" 4th");
+           // System.out.println(fourth_sub_gpd+" 4th");
             try {
                 if (Double.parseDouble(fourth_sub_gpd) - 2.00 >= 0.0001) {
                     total_point += (Double.parseDouble(fourth_sub_gpd) - 2.00);
@@ -399,7 +399,7 @@ public class Student_wise_result_one_exam {
             else {
                 gpa_with_fourth_subject_textfield.setText(Double.toString(with_fourth).substring(0, 3) + " (" +
                         Grade_point_calculation.get_grade_from_point(with_fourth) + ")");
-                gpa_without_fourth_subject_textfield.setText(Double.toString(with_fourth).substring(0, 3) +
+                gpa_without_fourth_subject_textfield.setText(Double.toString(without_fourth).substring(0, 3) +
                         " (" + Grade_point_calculation.get_grade_from_point(without_fourth) + ")");
 
             }
