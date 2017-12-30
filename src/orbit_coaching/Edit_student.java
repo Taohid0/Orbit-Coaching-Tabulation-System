@@ -27,7 +27,7 @@ public class Edit_student {
     private JComboBox for_year_combobox;
     private JComboBox registration_combobox;
     private JTextField roll_textfield;
-    String group[] = {"Science","Arts","Commerce"};
+    String group[] = {"Science","Arts","Commerce",""};
     private String blood_group[] = {"A+","A-","AB+","AB-","B+","B-","O+","O-","Bombay"};
     public void add_school()
     {
@@ -75,6 +75,22 @@ public class Edit_student {
             if(resultSet.next())
             {
                 add_school();
+                try
+                {
+                    group_combobox.removeAllItems();
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
+                try
+                {
+                    blood_group_combobox.removeAllItems();
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
                 for(int i =0;i<(int)group.length;i++)
                 {
                     group_combobox.addItem(group[i]);

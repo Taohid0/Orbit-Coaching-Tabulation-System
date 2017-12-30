@@ -300,7 +300,7 @@ public class Student_wise_result_show {
                 {
                     ex.printStackTrace();
                 }
-                Home home = new Home();
+
             }
         });
     }

@@ -10,7 +10,7 @@ public class Main {
         //System.out.println("hello"==v);
         //System.out.println("hello".equals(v));
         //Database_query.do_start_up_query();
-         //Test_data_input.insert_marks();
+        //Test_data_input.insert_marks();
         //test t =new test();
         //Home home = new Home();
         //Edit_other_income edit_other_income= new Edit_other_income();

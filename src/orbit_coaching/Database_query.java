@@ -917,7 +917,7 @@ public class Database_query {
             stmt = conn.createStatement();
             String query = "SELECT exam_type,subject,date,obtained_markd FROM Marks WHERE cls=" +
                     ""+"\""+cls+"\""+" AND roll="+roll
-                    +" AND date LIKE "+"\"%"+year.toString()+"\" ";
+                    +" AND date LIKE "+"\"%"+year.toString()+"\" ORDER BY subject,obtained_markd ";
             resultSet= stmt.executeQuery(query);
             System.out.println(query);
         }

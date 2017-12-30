@@ -3,12 +3,12 @@
     <output-path>$PROJECT_DIR$/out/artifacts/Orbit_Coaching_Tabulation_System_jar</output-path>
     <root id="archive" name="Orbit Coaching Tabulation System.jar">
       <element id="module-output" name="Orbit Coaching Tabulation System" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../mysql-connector-java-5.1.44/mysql-connector-java-5.1.44-bin.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/itext-5/itextpdf-5.3.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/itext-5/itext5-itextpdf-5.5.12.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/itext-5/itext5-xmlworker-5.5.12.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/itext-5/itext5-itext-pdfa-5.5.12.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/itext-5/itext5-itext-xtra-5.5.12.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../mysql-connector-java-5.1.44/mysql-connector-java-5.1.44-bin.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

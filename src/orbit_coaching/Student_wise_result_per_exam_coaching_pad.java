@@ -55,8 +55,9 @@ public class Student_wise_result_per_exam_coaching_pad {
             p1.setAlignment(Element.ALIGN_CENTER);
             document.add(p1);
 
-            p1 = new Paragraph("ROLL : "+roll+"\n"+"NAME : "+name+"\nFATHER'S NAME : "+father
-                    +"\nFATHER'S NAME : "+father+"\n"+"MOTHER'S NAME : "+mother+"\nSCHOOL/COLLEGE : "+school,
+            p1 = new Paragraph("ROLL : "+roll+"\n"+"NAME : "+name
+                    +"\nFATHER'S NAME : "+father+"\n"+"MOTHER'S NAME : "+mother+"\nINSTITUTION : "+school+
+                    "\nYEAR : "+yr,
 
                     FontFactory.getFont(FontFactory.TIMES, 14,Font.UNDERLINE));
             p1.setAlignment(Element.ALIGN_CENTER);
