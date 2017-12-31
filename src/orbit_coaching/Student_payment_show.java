@@ -148,14 +148,14 @@ public class Student_payment_show {
 
                         if(resultSet.next())
                         {
-                            Student_payment_show_pdf st = new Student_payment_show_pdf(
+                            Student_payment_show_pdf_coaching_pad st = new Student_payment_show_pdf_coaching_pad(
                                     registration_combobox.getSelectedItem().toString(),year_combobox.getSelectedItem().toString(),
                                     name_textfield.getText(),father_textfield.getText(),mother_textfield.getText(),
                                     school_textfield.getText());
 
                         }
                         else {
-                            Student_payment_show_pdf_coaching_pad st = new Student_payment_show_pdf_coaching_pad(
+                            Student_payment_show_pdf st = new Student_payment_show_pdf(
                                     registration_combobox.getSelectedItem().toString(),year_combobox.getSelectedItem().toString(),
                                     name_textfield.getText(),father_textfield.getText(),mother_textfield.getText(),
                                     school_textfield.getText());

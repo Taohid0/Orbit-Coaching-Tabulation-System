@@ -212,6 +212,8 @@ public class Student_wise_result_one_exam {
 
             }
         });
+        registration_no_combobox.setEditable(true);
+
 
         CREATEPDFButton.addActionListener(new ActionListener() {
             @Override

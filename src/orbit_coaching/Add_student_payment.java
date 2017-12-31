@@ -358,6 +358,7 @@ public class Add_student_payment {
                 }
             }
         });
+        roll_combobox.setEditable(true);
 
         SAVEButton.addActionListener(new ActionListener() {
             @Override

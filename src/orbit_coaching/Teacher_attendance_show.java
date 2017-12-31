@@ -36,7 +36,8 @@ public class Teacher_attendance_show {
         table1.getColumn("Date").setCellRenderer( centerRenderer );
         table1.getColumn("Arrival Time").setCellRenderer(centerRenderer);
 
-
+        year_combobox.setEditable(true);
+        id_combobox.setEditable(true);
 
         try
          {

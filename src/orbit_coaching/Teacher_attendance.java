@@ -149,6 +149,14 @@ public class Teacher_attendance {
                 Home home  = new Home();
             }
         });
+        try
+        {
+            year_combobox.setSelectedItem(Calendar.getInstance().get(Calendar.YEAR));
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
     public void save()
