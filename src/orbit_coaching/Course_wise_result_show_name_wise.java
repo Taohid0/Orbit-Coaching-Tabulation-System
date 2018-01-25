@@ -63,31 +63,7 @@ public class Course_wise_result_show_name_wise {
         }
     }
 
-    void fill_exam_type()
-    {
 
-        try
-        {
-            try {
-                exam_type_comboBox2.removeAllItems();
-            }
-            catch (Exception ex)
-            {
-                ex.printStackTrace();
-            }
-            ResultSet resultSet =Database_query.get_exam_type_by_class(class_comboBox1.getSelectedItem().toString());
-            resultSet.beforeFirst();
-
-            while (resultSet.next())
-            {
-                exam_type_comboBox2.addItem(resultSet.getString(1));
-            }
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
-    }
 
     void fill_date()
     {
@@ -202,6 +178,21 @@ public class Course_wise_result_show_name_wise {
 
         fill_year();
         fill_class();
+        try
+        {
+
+            ResultSet resultSet =Database_query.get_exam_type_by_class(class_comboBox1.getSelectedItem().toString());
+            resultSet.beforeFirst();
+
+            while (resultSet.next())
+            {
+                exam_type_comboBox2.addItem(resultSet.getString(1));
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
         year_comboBox1.setEditable(true);
         class_comboBox1.setEditable(true);
         subject_combobox.setEditable(true);
@@ -274,7 +265,6 @@ public class Course_wise_result_show_name_wise {
         year_comboBox1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fill_exam_type();
                 fill_date();
                 fill_table_data();
             }
@@ -282,7 +272,6 @@ public class Course_wise_result_show_name_wise {
         class_comboBox1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fill_exam_type();
                 fill_date();
                 fill_table_data();
             }
@@ -290,7 +279,6 @@ public class Course_wise_result_show_name_wise {
         exam_type_comboBox2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fill_exam_type();
                 fill_date();
                 fill_table_data();
             }
@@ -298,7 +286,6 @@ public class Course_wise_result_show_name_wise {
         subject_combobox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fill_exam_type();
                 fill_date();
                 fill_table_data();
             }

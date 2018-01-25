@@ -21,7 +21,8 @@ public class Student_wise_result_per_exam_pdf {
     String name = "",address = "",contact_number = "";
 
     Student_wise_result_per_exam_pdf(String yr,String cls,String xm,String fourth_subject,String roll,
-                                     String st_name,String school,String father,String mother,String with_four,String without_four) {
+                                     String st_name,String school,String father,String mother,String with_four,String without_four,String
+                                     xm_type) {
         try {
             try
             {
@@ -72,8 +73,9 @@ public class Student_wise_result_per_exam_pdf {
             p1.setAlignment(Element.ALIGN_CENTER);
             document.add(p1);
 
-            p1 = new Paragraph("ROLL : "+roll+"\n"+"NAME : "+st_name+"\nFATHER'S NAME : "+father
-                    +"\n"+"MOTHER'S NAME : "+mother+"\nSCHOOL/COLLEGE : "+school+"\nYEAR : "+yr,
+            p1 = new Paragraph("REGISTRATION NUMBER : "+roll+"\n"+"NAME : "+st_name+"\nFATHER'S NAME : "+father
+                    +"\n"+"MOTHER'S NAME : "+mother+"\nSCHOOL/COLLEGE : "+school+
+                    "\nEXAMINATION : "+xm_type+"\nBATCH : "+yr,
 
                     FontFactory.getFont(FontFactory.TIMES, 14,Font.UNDERLINE));
             p1.setAlignment(Element.ALIGN_CENTER);

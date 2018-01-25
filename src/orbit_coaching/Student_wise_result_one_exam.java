@@ -233,7 +233,8 @@ public class Student_wise_result_one_exam {
                 exam_combobox.getSelectedItem().toString(),fourth_sub,registration_no_combobox.getSelectedItem().toString(),
                 name_textfield.getText(),
                 school_textfield.getText(),father_name_textfield.getText(),mother_name_combobox.getText(),
-                gpa_with_fourth_subject_textfield.getText(),gpa_without_fourth_subject_textfield.getText()
+                gpa_with_fourth_subject_textfield.getText(),gpa_without_fourth_subject_textfield.getText(),
+                exam_combobox.getSelectedItem().toString()
         );
 
                   }
@@ -244,7 +245,8 @@ public class Student_wise_result_one_exam {
                                       exam_combobox.getSelectedItem().toString(),fourth_sub,registration_no_combobox.getSelectedItem().toString(),
                                       name_textfield.getText(),
                                       school_textfield.getText(),father_name_textfield.getText(),mother_name_combobox.getText(),
-                                      gpa_with_fourth_subject_textfield.getText(),gpa_without_fourth_subject_textfield.getText());
+                                      gpa_with_fourth_subject_textfield.getText(),gpa_without_fourth_subject_textfield.getText(),
+                                      exam_combobox.getSelectedItem().toString());
 
                   }
                 }

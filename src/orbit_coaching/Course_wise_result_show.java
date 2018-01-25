@@ -66,31 +66,7 @@ public class Course_wise_result_show {
         }
     }
 
-    void fill_exam_type()
-    {
 
-        try
-        {
-            try {
-                exam_type_comboBox2.removeAllItems();
-            }
-            catch (Exception ex)
-            {
-                ex.printStackTrace();
-            }
-            ResultSet resultSet =Database_query.get_exam_type();
-            resultSet.beforeFirst();
-
-            while (resultSet.next())
-            {
-                exam_type_comboBox2.addItem(resultSet.getString(1));
-            }
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
-    }
 
     void fill_date()
     {
@@ -222,6 +198,21 @@ public class Course_wise_result_show {
 
         fill_year();
         fill_class();
+        try
+        {
+
+            ResultSet resultSet =Database_query.get_exam_type();
+            resultSet.beforeFirst();
+
+            while (resultSet.next())
+            {
+                exam_type_comboBox2.addItem(resultSet.getString(1));
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
         total_marks_textField1.setEditable(false);
         highest_marks_textField2.setEditable(false);
         lowest_marks_textField3.setEditable(false);
@@ -259,7 +250,7 @@ public class Course_wise_result_show {
         subject_combobox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fill_exam_type();
+
                 fill_date();
                 fill_table_data();
             }
@@ -268,7 +259,6 @@ public class Course_wise_result_show {
         class_comboBox1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fill_exam_type();
                 fill_date();
                 fill_table_data();
             }
@@ -277,7 +267,7 @@ public class Course_wise_result_show {
         year_comboBox1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fill_exam_type();
+
                 fill_date();
                 fill_table_data();
             }
@@ -285,7 +275,7 @@ public class Course_wise_result_show {
         exam_type_comboBox2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fill_exam_type();
+
                 fill_date();
                 fill_table_data();
             }

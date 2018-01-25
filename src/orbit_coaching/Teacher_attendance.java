@@ -171,6 +171,7 @@ public class Teacher_attendance {
             {
               String date = day_combobox.getSelectedItem().toString()+"-"+month_combobox.getSelectedItem().toString()+"-"+
                       year_combobox.getSelectedItem().toString();
+              try{
               if(table1.getValueAt(i,2).toString().replaceAll("\\s+","")!="" )
               {
                   String query = "INSERT INTO Teacher_attendance(teacher_id,attendance_date,shift_time) VAlUES(?,?,?);";
@@ -181,6 +182,11 @@ public class Teacher_attendance {
                   preparedStatement.setString(3,table1.getValueAt(i,2)+" ("+
                           shift_combobox.getSelectedItem().toString()+")");
                   preparedStatement.execute();
+              }
+              }
+              catch (Exception ex)
+              {
+                  ex.printStackTrace();
               }
 
             }

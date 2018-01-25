@@ -128,11 +128,11 @@ public class Total_monthly_income_from_student {
         {
             ResultSet resultSet = Database_query.get_students_income_details(year_combobox.getSelectedItem().toString());
             resultSet.beforeFirst();
+            while (resultSet.next()){
             defaultTableModel.addRow(new String[]{Integer.toString(counter++),resultSet.getString(1),resultSet.getString(2),
                     resultSet.getString(3),resultSet.getString(5)});
-            total+=Integer.parseInt(resultSet.getString(5));
-
-            defaultTableModel.addRow(new String[]{});
+            total+=Integer.parseInt(resultSet.getString(5));}
+            //defaultTableModel.addRow(new String[]{});
         }
         catch (Exception ex)
         {

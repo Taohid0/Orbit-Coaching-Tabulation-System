@@ -27,7 +27,7 @@ public class Expense {
         type_combobox.addItem("Other");
         try
         {
-            ResultSet resultSet = Database_query.get_purpose_other_income();
+            ResultSet resultSet = Database_query.get_purpose_from_other_billing();
             resultSet.beforeFirst();
 
             while (resultSet.next())

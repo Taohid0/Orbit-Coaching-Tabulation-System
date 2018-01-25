@@ -73,7 +73,7 @@ public class Student_wise_result_all_exam_coaching_pad_pdf {
             table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
             //table.addCell("SL NO.");
             table.addCell("EXAM");
-            table.addCell("SUBJECT.");
+            table.addCell("SUBJECT");
             table.addCell("DATE");
             table.addCell("OBTAINED MARKS");
             table.addCell("HIGHEST MARKS");

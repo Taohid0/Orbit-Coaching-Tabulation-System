@@ -80,9 +80,26 @@ public class Student_wise_result_show {
                 resultSet.beforeFirst();
 
 
+
             while (resultSet.next())
             {
                 roll_combobox.addItem(resultSet.getString(1));
+            }
+            try
+            {
+                resultSet.close();
+            }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
+            try
+            {
+                resultSet.close();
+            }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
             }
             }
             catch (Exception ex)
@@ -142,6 +159,22 @@ public class Student_wise_result_show {
                         {
                             out_of = out_of_result_set.getString(1);
                         }
+                        try
+                        {
+                            out_of_result_set.close();
+                        }
+                        catch (Exception ex)
+                        {
+                            ex.printStackTrace();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ex.printStackTrace();
+                    }
+                    try
+                    {
+                        highest_marks_result.close();
                     }
                     catch (Exception ex)
                     {
@@ -169,11 +202,20 @@ public class Student_wise_result_show {
                         resultSet.getString(3),
                 obtaind_marks,highest_marks,out_of});
             }
+            try
+            {
+                resultSet.close();
+            }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
         }
         catch (Exception ex)
         {
             ex.printStackTrace();
         }
+
     }
 
     Student_wise_result_show()
@@ -214,6 +256,14 @@ public class Student_wise_result_show {
                     if(resultSet.next())
                     {
                         name_text_field.setText(resultSet.getString(1));
+                    }
+                    try
+                    {
+                        resultSet.close();
+                    }
+                    catch (Exception ex)
+                    {
+                        ex.printStackTrace();
                     }
                 }
                 catch (Exception ex)
@@ -293,6 +343,15 @@ public class Student_wise_result_show {
                                 name_text_field.getText()
                         );
                     }
+                    try
+                    {
+                        resultSet.close();
+                    }
+                    catch (Exception ex)
+                    {
+                        ex.printStackTrace();
+                    }
+
                     jFrame.dispose();
                     Home home = new Home();
                 }

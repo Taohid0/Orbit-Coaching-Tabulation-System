@@ -22,7 +22,8 @@ public class Student_wise_result_per_exam_coaching_pad {
 
 
     Student_wise_result_per_exam_coaching_pad(String yr,String cls,String xm,String fourth_subject,String roll,
-                                     String name,String school,String father,String mother,String with_four,String without_four) {
+                                     String name,String school,String father,String mother,String with_four,String without_four,String
+                                              xm_type) {
 
         try{
             Document document = new Document(PageSize.A4, 50, 50, 50, 50);
@@ -55,8 +56,9 @@ public class Student_wise_result_per_exam_coaching_pad {
             p1.setAlignment(Element.ALIGN_CENTER);
             document.add(p1);
 
-            p1 = new Paragraph("ROLL : "+roll+"\n"+"NAME : "+name
+            p1 = new Paragraph("REGISTRATION NUMBER : "+roll+"\n"+"NAME : "+name
                     +"\nFATHER'S NAME : "+father+"\n"+"MOTHER'S NAME : "+mother+"\nINSTITUTION : "+school+
+                    "\nEXAMINATION : "+xm_type+
                     "\nYEAR : "+yr,
 
                     FontFactory.getFont(FontFactory.TIMES, 14,Font.UNDERLINE));

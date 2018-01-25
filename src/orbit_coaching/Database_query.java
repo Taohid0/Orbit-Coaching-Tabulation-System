@@ -59,8 +59,7 @@ public class Database_query {
              "    cnumber1 VARCHAR(25),\n" +
              "    cnumber2 VARCHAR(25),\n" +
              "    for_year VARCHAR(20),\n"+
-             "     isDeleted BOOL DEFAULT 0,\n"+
-             "    ID INT PRIMARY KEY AUTO_INCREMENT\n" +
+             "     isDeleted BOOL DEFAULT 0\n"+
              ");";
 
      static String create_teacher_table = "CREATE TABLE Teacher\n" +
@@ -129,6 +128,42 @@ public class Database_query {
 
     static Statement stmt ;
     static Connection conn ;
+
+    static void make_connection()
+    {
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+//        try
+//        {
+//            PreparedStatement stmt2 = conn.prepareStatement(create_database);
+//            stmt2.execute();
+//        }
+//        catch (Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+    }
+
+    Database_query()
+    {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+                    "root", "");
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        }
     static void do_start_up_query() {
 
         try
@@ -137,21 +172,29 @@ public class Database_query {
             String username = "root";
             String password = "";
 
-            Connection conn = DriverManager.getConnection(url, username, password);
-            PreparedStatement stmt = conn.prepareStatement(create_database);
-            stmt.execute();
+            Connection conn2 = DriverManager.getConnection(url, username, password);
+            PreparedStatement stmt2 = conn2.prepareStatement(create_database);
+            stmt2.execute();
+            conn2.close();
+            stmt2.close();
+            Class.forName("com.mysql.jdbc.Driver");
+
+
+            make_connection();
+
 
         }
         catch (Exception ex)
         {
             ex.printStackTrace();
+            make_connection();
         }
 
         try
         {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             stmt.execute(create_admin_table);
         }
@@ -245,9 +288,9 @@ public class Database_query {
         ResultSet resultSet = null;
         try
         {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String un=  "Orbit Coaching";
             String ps= "goahead";
@@ -281,9 +324,9 @@ public class Database_query {
     {
         ResultSet resultSet = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
 
 
@@ -322,9 +365,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT DISTINCT school from Student;";
             resultSet= stmt.executeQuery(query);
@@ -340,9 +383,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT from_whom,purpose,date,amount from billing_income_other WHERE DATE LIKE "+
                     "\"%"+yr+"\"";
@@ -361,9 +404,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT * FROM Page";
             resultSet= stmt.executeQuery(query);
@@ -381,13 +424,14 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT roll,cls,date,purpose,amount from billing_student WHERE DATE LIKE "+
                     "\"%"+yr+"\""+ " ORDER BY CAST(roll AS INT)";
             resultSet= stmt.executeQuery(query);
+            System.out.println(query);
 
         }
         catch (Exception ex)
@@ -403,9 +447,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT from_whom,purpose,date,amount from billing_income_other WHERE from_whom="+roll+
                     " AND type="+"\""+"Student"+"\""+ " AND DATE LIKE "+
@@ -424,9 +468,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT subject,obtained_markd FROM Marks WHERE cls="+"\""+cls+"\""+" AND exam_type="+"\""+exm+"\""+
                     " AND  roll="+roll+" AND for_year="+yr+" ORDER BY subject " ;
@@ -444,9 +488,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT out_of FROM Marks WHERE cls="+cls+" AND exam_type="+exm+
                     " AND  date="+date+" AND subject="+subject+" AND for_year="+yr+" ORDER BY subject " ;
@@ -466,9 +510,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT * from Student WHERE roll="+roll+" ;";
             resultSet= stmt.executeQuery(query);
@@ -484,9 +528,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT * from Teacher WHERE ID="+id+" ;";
             resultSet= stmt.executeQuery(query);
@@ -502,9 +546,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT name from Teacher WHERE ID="+id+" ;";
             resultSet= stmt.executeQuery(query);
@@ -521,9 +565,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT name from Teacher WHERE ID="+id+" ;";
             resultSet= stmt.executeQuery(query);
@@ -540,9 +584,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT roll,temp_roll,name,school from Student WHERE for_year="+yr+" AND class="
                     +"\""+cls+"\""+
@@ -560,9 +604,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT roll,temp_roll,name,class from Student WHERE for_year="+yr+" AND school="+"\""+school+"\"" +
                     " ORDER BY class,name;";
@@ -580,9 +624,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT to_whom,purpose,date,amount,type from billing_other WHERE "
                     +" date LIKE "+"\"%"+yr.toString()+"\""+" ORDER BY to_whom " ;
@@ -598,9 +642,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT from_whom,purpose,date,amount,type from billing_income_other WHERE "
                     +" date LIKE "+"\"%"+yr.toString()+"\""+" ORDER BY from_whom " ;
@@ -617,9 +661,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT to_whom,purpose,date,amount,type from billing_other WHERE "+" type="+"\""+"Teacher"+"\""+" AND"
                     +" date LIKE "+"\"%"+yr.toString()+"\""+" ORDER BY to_whom " ;
@@ -637,9 +681,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT to_whom,purpose,date,amount,type from billing_other WHERE "
                     +" date LIKE "+"\"%"+yr.toString()+"\""+" AND type="+"\""+"Student"+"\""+" ORDER BY to_whom " ;
@@ -656,9 +700,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT to_whom,purpose,date,amount,type from billing_other WHERE "
                     +" date LIKE "+"\"%"+yr.toString()+"\""+" AND type="+"\""+"Other"+"\""+" ORDER BY to_whom " ;
@@ -677,9 +721,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT DISTINCT roll from Student WHERE class="+
                     "\""+cls+"\""+" AND for_year="+year+" ORDER BY cast(roll as INT) DESC ;";
@@ -696,9 +740,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT temp_roll from Student WHERE roll="+reg;
             resultSet= stmt.executeQuery(query);
@@ -715,9 +759,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT roll from Student ORDER BY cast(roll as INT) DESC ;";
             resultSet= stmt.executeQuery(query);
@@ -734,9 +778,9 @@ public class Database_query {
         System.out.println(cls + " "+date);
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT *  from Marks WHERE cls="+"\""+cls+"\""+ " AND "+
                     "exam_type="+"\""+xm+"\""+" AND subject="+"\""+subject+"\"" +" AND  date =\""+date.toString()+"\"";//
@@ -755,26 +799,35 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT DISTINCT class from Student ORDER BY CAST(class as INT) ASC ;";
+            String query = "SELECT DISTINCT class from Student ORDER BY class  ASC ;";
+
             resultSet= stmt.executeQuery(query);
         }
         catch (Exception ex)
         {
             ex.printStackTrace();
         }
+//        try
+//            {
+//                conn.close();
+//            }
+//            catch (Exception ex)
+//            {
+//                ex.printStackTrace();
+//            }
         return resultSet;
     }
     public static ResultSet get_exam_type()
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT DISTINCT exam_type from Marks ORDER BY exam_type ASC ;";
             resultSet= stmt.executeQuery(query);
@@ -789,9 +842,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT max(cast(roll as Int)) FROM Student";
             resultSet= stmt.executeQuery(query);
@@ -807,9 +860,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT max(cast(ID as Int)) FROM Teacher";
             resultSet= stmt.executeQuery(query);
@@ -825,9 +878,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT DISTINCT exam_type from Marks WHERE cls="+
                     "\""+cls+"\""+" ORDER BY exam_type ASC ;";
@@ -843,9 +896,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
 
             String query ="SELECT roll,temp_roll,obtained_markd,out_of FROM Marks WHERE cls="+
@@ -867,9 +920,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
 
             String query ="SELECT roll,temp_roll,obtained_markd,out_of FROM Marks WHERE cls="
@@ -891,9 +944,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query ="SELECT name FROM Student WHERE roll="+roll;
                     //// "SELECT DISTINCT exam_type from Marks WHERE cls="+cls+" ORDER BY exam_type ASC ;";
@@ -911,9 +964,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT exam_type,subject,date,obtained_markd FROM Marks WHERE cls=" +
                     ""+"\""+cls+"\""+" AND roll="+roll
@@ -933,9 +986,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT MAX(obtained_markd) FROM Marks WHERE cls="+
                     "\""+cls+"\""+" AND exam_type="+"\""+exam_type+"\""
@@ -954,9 +1007,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+//            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT MAX(obtained_markd) FROM Marks WHERE cls="+
                     "\""+cls+"\""+" AND exam_type="+"\""+exam_type+"\""
@@ -974,9 +1027,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT out_of FROM Marks WHERE cls="+
                     "\""+cls+"\""+" AND exam_type="+"\""+exam_type+"\""
@@ -996,9 +1049,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT MAX(obtained_markd) FROM Marks WHERE cls="+"\""+cls+"\""+" AND exam_type="+"\""+exam_type+"\""
                     +" AND subject="+"\""+subject+"\""
@@ -1019,9 +1072,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT DISTINCT for_year from Student ORDER BY CAST(for_year as INT) DESC ;";
             resultSet= stmt.executeQuery(query);
@@ -1037,9 +1090,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT DISTINCT date from Marks WHERE cls="+cls+" AND date LIKE "+"\"%"+year.toString()+"\" " +
                     " ORDER BY date DESC " ;
@@ -1057,9 +1110,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT DISTINCT date from Marks WHERE cls="+"\""+cls+"\""+
                     " AND exam_type="+"\""+xm+"\""+
@@ -1080,9 +1133,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT DISTINCT month,amount,skipped from billing_student WHERE roll="+roll+" AND year="+year; ;
             resultSet= stmt.executeQuery(query);
@@ -1099,9 +1152,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT month,date,purpose,amount from billing_student WHERE roll="+roll+" AND " +
                     "date LIKE "+"\"%"+yr.toString()+"\"" +" AND skipped=0";
@@ -1135,9 +1188,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT name from Student WHERE roll="+roll;
             resultSet= stmt.executeQuery(query);
@@ -1154,9 +1207,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT name,school,fname,mname from Student WHERE roll="+roll;
             resultSet= stmt.executeQuery(query);
@@ -1175,9 +1228,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "INSERT INTO billing_student (roll,cls,month,year,date,skipped,amount,purpose) " +
                     " VALUES (?,?,?,?,?,?,?,?);";
@@ -1207,9 +1260,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
 
 
@@ -1236,9 +1289,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
 
 
@@ -1258,11 +1311,30 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT DISTINCT purpose from billing_student ORDER BY purpose";
+            resultSet= stmt.executeQuery(query);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public static ResultSet get_purpose_from_other_billing()
+    {
+        ResultSet resultSet=null;
+        try {
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
+            stmt = conn.createStatement();
+            String query = "SELECT DISTINCT purpose from billing_other ORDER BY purpose";
             resultSet= stmt.executeQuery(query);
 
         }
@@ -1277,9 +1349,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT DISTINCT purpose from billing_income_other ORDER BY purpose";
             resultSet= stmt.executeQuery(query);
@@ -1296,9 +1368,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT DISTINCT from_whom from billing_income_other ORDER BY purpose";
             resultSet= stmt.executeQuery(query);
@@ -1315,9 +1387,9 @@ public class Database_query {
     public static ResultSet get_teachear_institution() {
         ResultSet resultSet = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT DISTINCT institution FROM Teacher ORDER BY (institution)";
             resultSet = stmt.executeQuery(query);
@@ -1332,9 +1404,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT attendance_date,shift_time from Teacher_attendance " +
                     "WHERE teacher_id="+ID +" AND attendance_date LIKE "+"\"%"+yr.toString()+"\" ORDER BY attendance_date ASC " +
@@ -1354,9 +1426,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT ID,name,institution,joining_date,isdeleted from Teacher Where " +//is active will be added later
                     "year LIKE "+"\"%"+yr.toString()+"\" ORDER BY name";
@@ -1375,9 +1447,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT ID,name,institution,joining_date,isdeleted from Teacher" +//is active will be added later
                     " ORDER BY name";
@@ -1397,9 +1469,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT DISTINCT ID from Teacher ORDER BY ID;";
             resultSet= stmt.executeQuery(query);
@@ -1417,9 +1489,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT name,address,contact_number from Institution;";
             resultSet= stmt.executeQuery(query);
@@ -1436,9 +1508,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT ID,name from Teacher ORDER BY name,ID";
             resultSet= stmt.executeQuery(query);
@@ -1455,11 +1527,11 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
-            String query = "SELECT ID,name from Teacher WHERE isDeleted="+0+" ORDER BY name,ID";
+            String query = "SELECT ID,name from Teacher WHERE isDeleted="+0+" ORDER BY ID,name";
             resultSet= stmt.executeQuery(query);
 
         }
@@ -1475,9 +1547,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT name,institution from Teacher WHERE ID="+ID;
             resultSet= stmt.executeQuery(query);
@@ -1494,9 +1566,9 @@ public class Database_query {
     {
         ResultSet resultSet=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT DISTINCT subject from Marks ORDER BY subject";
             resultSet= stmt.executeQuery(query);
@@ -1514,9 +1586,9 @@ public class Database_query {
             admission_date,String birth_date, String roll,String cls,String group,String school,String bgroup,String for_year,
     String temp_roll) {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "INSERT INTO Student (roll,name,fname,mname,class,group_d,school,address," +
                     "date_of_birth,admission_date,blood_group,cnumber1,cnumber2,for_year,temp_roll) " +
@@ -1547,9 +1619,9 @@ public class Database_query {
     }
     public static void insert_teacher(String name,String joining_date,String institution,String yr,String id) {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "INSERT INTO Teacher (name,joining_date,institution,year,ID) VALUES(?,?,?,?,?);";
 
@@ -1569,9 +1641,9 @@ public class Database_query {
 
     public static void insert_other_income(String from,String purpose,String date,String amount,String type) {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "INSERT INTO billing_income_other (from_whom,purpose,date,amount,type) VALUES(?,?,?,?,?);";
 
@@ -1591,9 +1663,9 @@ public class Database_query {
 
     public static void insert_expense(String to,String purpose,String date,String amount,String type) {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "INSERT INTO billing_other (to_whom,purpose,date,amount,type) VALUES(?,?,?,?,?);";
 
@@ -1612,9 +1684,9 @@ public class Database_query {
     }
     public static void delete_institution() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "DELETE FROM Institution;";
 
@@ -1638,9 +1710,9 @@ public class Database_query {
             ex.printStackTrace();
         }
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "INSERT INTO Institution (name,address,contact_number) VALUES(?,?,?);";
 
@@ -1664,9 +1736,9 @@ public class Database_query {
             admission_date,String birth_date, String roll,String cls,String group,String school,String bgroup,String for_year,
                                       String temp_roll) {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "UPDATE Student " +
                     "SET name=?,fname=?,mname=?,class=?,group_d=?,school=?,address=?," +
@@ -1701,9 +1773,9 @@ public class Database_query {
     public static void update_teacher(int id,String name,String institution,String joining_date,String yr,
                                       int active) {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "UPDATE Teacher " +
                     "SET ID=?,name=?,institution=?,joining_date=?,year=?,isDeleted=?" +
@@ -1733,9 +1805,9 @@ public class Database_query {
         ResultSet resultSet=null;
         try {
             String y = Integer.toString(Calendar.getInstance().get(Calendar.YEAR));
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
-                    "root", "");
+            //Class.forName("com.mysql.jdbc.Driver");
+//            conn = getConnection("jdbc:mysql://localhost:3306/orbit_coaching_tabulation_system",
+//                    "root", "");
             stmt = conn.createStatement();
             String query = "SELECT roll,name from Student WHERE isDeleted = 0 AND class="+
                     "\""+cls+"\""+" AND for_year="+year +
