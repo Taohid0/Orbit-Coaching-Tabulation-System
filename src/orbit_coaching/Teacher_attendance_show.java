@@ -24,7 +24,7 @@ public class Teacher_attendance_show {
 
     public Teacher_attendance_show()
     {
-        JFrame jFrame = new JFrame("Orbit (Teacher's Attendance Show");
+        JFrame jFrame = new JFrame("Orbit (Teacher's Attendance Show)");
          defaultTableModel = new DefaultTableModel(0,0);
         String header[] = {"Date","Arrival Time"};
         defaultTableModel.setColumnIdentifiers(header);
@@ -130,15 +130,52 @@ public class Teacher_attendance_show {
             }
         });
 
+//        BACKButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                jFrame.dispose();
+//                Home home = new Home();
+//            }
+//        });
+
+      BACKButton.setFocusable(false);
         BACKButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 jFrame.dispose();
-                Home home = new Home();
+                try
+                {
+                    ResultSet resultSet = Database_query.get_page_setup();
+                    resultSet.beforeFirst();
+
+                    if(resultSet.next())
+                    {
+                        teacher_attendance_show_create_pdf_coaching_pad t = new teacher_attendance_show_create_pdf_coaching_pad(year_combobox.getSelectedItem().toString(),
+                                id_combobox.getSelectedItem().toString(),name_textfield.getText().toString(),institution_textfield.getText().toString());
+                    }
+                    else {
+                        teacher_attendance_show_create_pdf t = new teacher_attendance_show_create_pdf(year_combobox.getSelectedItem().toString(),
+                                id_combobox.getSelectedItem().toString(),name_textfield.getText().toString(),institution_textfield.getText().toString());
+
+                    }
+                    try
+                    {
+                        resultSet.close();
+                    }
+                    catch (Exception ex)
+                    {
+                        ex.printStackTrace();
+                    }
+
+                    jFrame.dispose();
+                    Home home = new Home();
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
             }
         });
-
-      BACKButton.setFocusable(false);
     }
 
     public void set_name_institution()
